@@ -2,7 +2,7 @@
 title: 'Hello World'
 description: 'First post - starting Randall'
 pubDate: 'Jan 06 2026'
-heroImage: '/randall/blog-placeholder-1.jpg'
+heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
 Welcome to Randall - my space to share thoughts on code, business, and life.
