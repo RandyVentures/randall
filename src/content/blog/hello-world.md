@@ -1,7 +1,7 @@
 ---
 title: 'Hello World'
 description: 'First post - starting Randall'
-pubDate: 'Jan 06 2026'
+pubDate: 'Jan 05 2026'
 heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
