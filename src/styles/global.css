@@ -184,20 +184,30 @@ hr {
 
 .hero {
 	display: grid;
-	gap: 1.5rem;
-	padding: 1rem 0 2rem;
+	gap: 0.8rem;
+	padding: 0.6rem 0 1.4rem;
 }
 .hero .kicker {
 	text-transform: uppercase;
 	letter-spacing: 0.18em;
-	font-size: 0.75rem;
+	font-size: 0.7rem;
 	color: var(--ink-muted);
 	margin: 0;
 }
 .hero .lead {
-	font-size: 1.15rem;
+	font-size: 1rem;
 	color: var(--ink-muted);
-	max-width: 36rem;
+	max-width: 34rem;
+}
+.hero-title {
+	font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+	margin: 0;
+}
+.hero-box {
+	border: 1px dashed rgba(214, 106, 58, 0.6);
+	border-radius: 16px;
+	padding: 1.2rem 1.4rem;
+	background: rgba(255, 255, 255, 0.03);
 }
 .hero-actions {
 	display: flex;
@@ -279,6 +289,20 @@ hr {
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
 	color: var(--ink-muted);
+}
+.post-summary {
+	font-size: 1rem;
+	color: var(--ink-muted);
+	margin: 0.2rem 0 0.6rem;
+}
+.post-link {
+	font-size: 0.95rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--accent);
+}
+.post-link:hover {
+	color: #f08a5b;
 }
 .post-excerpt {
 	color: var(--ink-muted);

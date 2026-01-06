@@ -21,15 +21,16 @@ const latest = posts.slice(0, 4);
 		<Header />
 		<main>
 			<section class="hero stagger">
-				<p class="kicker">Daily notes</p>
-				<h1>Building a quiet record of work, family, and the small systems that keep life moving.</h1>
-				<p class="lead">
-					I write short entries about coding, AI experiments, managing rentals, and whatever the kids are
-					teaching me this week. Expect practical notes, quick lessons, and occasional rabbit holes.
-				</p>
-				<div class="hero-actions">
-					<a class="button" href="/blog">Read the journal</a>
-					<a class="button secondary" href="/about">About me</a>
+				<div class="hero-box">
+					<p class="kicker">Hi, welcome</p>
+					<h1 class="hero-title">A running log of building, learning, and family life.</h1>
+					<p class="lead">
+						Short notes on coding, AI experiments, rentals, work, and the kids. I aim for clarity, not volume.
+					</p>
+					<div class="hero-actions">
+						<a class="button" href="/blog">Posts</a>
+						<a class="button secondary" href="/about">About</a>
+					</div>
 				</div>
 			</section>
 
@@ -45,17 +46,16 @@ const latest = posts.slice(0, 4);
 			</section>
 
 			<section class="section-spaced">
-				<p class="section-title">Latest entries</p>
+				<p class="section-title">Posts</p>
 				<ul class="post-list">
 					{latest.map((post) => (
 						<li class="post-item">
 							<div class="post-meta">
 								<FormattedDate date={post.data.pubDate} />
 							</div>
-							<a href={`/blog/${post.id}/`}>
-								<h2 class="post-title">{post.data.title}</h2>
-							</a>
-							{post.data.description && <p class="post-excerpt">{post.data.description}</p>}
+							<h2 class="post-title">{post.data.title}</h2>
+							{post.data.description && <p class="post-summary">{post.data.description}</p>}
+							<a class="post-link" href={`/blog/${post.id}/`}>Read post</a>
 						</li>
 					))}
 				</ul>
