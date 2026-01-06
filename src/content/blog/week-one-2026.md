@@ -2,7 +2,7 @@
 title: 'Week One: Back to Building'
 description: 'First week back in 2026 - setting up systems, AI assistance, and getting organized'
 pubDate: 'Jan 06 2026'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/ai-hero.jpg'
 ---
 
 First week back to work in 2026. The holidays were good — spent time with family, watched the kids grow, and somehow shipped a bunch of apps between everything else.
@@ -36,6 +36,14 @@ Here's what changed:
 - End-of-day check-ins at 4 PM
 
 I've tried productivity systems before. They all failed because they required me to maintain them. This one just... works.
+
+## Why write this?
+
+I'm documenting the journey. Not for an audience, not for clout — just to have a record of what I built, what worked, and what didn't.
+
+Building in public keeps you honest. If I say I'm tracking expenses, I better actually track them. If I say I shipped an app, there's a GitHub repo to prove it.
+
+This blog is the changelog.
 
 ## The point
 
