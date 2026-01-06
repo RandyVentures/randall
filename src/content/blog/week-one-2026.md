@@ -5,51 +5,43 @@ pubDate: 'Jan 06 2026'
 heroImage: '../../assets/ai-hero.jpg'
 ---
 
-First week back to work in 2026. The holidays were good — spent time with family, watched the kids grow, and somehow shipped a bunch of apps between everything else.
+First week back to work in 2026. Had a good break with the family and kids, but honestly spent a lot of it building apps. Can't help it.
 
-## What I built over the break
+Over the holidays I finished Real Estate Manager (property management dashboard), wrapped up RentLedger (rent tracking that doesn't suck), and a few other things that might turn into something. There's just something about having no meetings that makes you actually productive.
 
-The break wasn't really a break. I built:
-- **Real Estate Manager** - finally finished the property management dashboard
-- **RentLedger** - rent tracking that actually works the way I need it to
-- A few other experiments that might turn into something
+## Setting up Will
 
-There's something about holiday downtime that makes you productive. No meetings, no interruptions, just building.
+This week I set up Will - my AI assistant. It's built on Clawdbot, which is way more than just another ChatGPT wrapper. This thing actually has access to my calendar, tracks my business expenses, and remembers stuff between conversations.
 
-## Enter Will
+Took a few hours to get everything wired up, but now it:
+- Logs my truck mileage automatically (for taxes)
+- Syncs with my iCloud calendar 
+- Reminds me to collect rent every week
+- Checks in with me at 4 PM daily to see what got done
 
-This week I set up **Will** - my AI assistant powered by Clawdbot. Not just another ChatGPT wrapper, this is the real deal:
+The difference is it writes everything to files, not just "remembers" in context. So when I tell it something, it's actually saved. No more "mental notes" that disappear.
 
-- **Automatic mileage tracking** for business expenses (because the IRS doesn't care if you forgot)
-- **Calendar sync** with my iCloud (no more missing property inspections)
-- **Rent collection reminders** every week
-- **Daily task summaries** so I actually know what needs doing
+## Actually getting organized
 
-The setup took a few hours, but now I have an assistant that actually remembers things. Files, not just "mental notes."
+The system I have now:
+- Business miles tracked automatically - Chula Vista house every Wednesday (8.2 mi round trip), Alton 4-plex every Saturday (17.2 mi)
+- All expenses logged (gas, insurance, maintenance)
+- Calendar has everything - rent collection, yard work, tenant move-outs
+- Daily check-ins so nothing falls through the cracks
 
-## Getting organized
+I've tried being organized before. Every system failed because I had to maintain it. This one just runs.
 
-Here's what changed:
-- Business truck expenses tracked automatically (mileage + gas + maintenance)
-- Weekly property checks logged (Chula Vista Wednesdays, Alton 4-plex Saturdays)
-- Calendar events for tenant stuff, yard work, everything
-- End-of-day check-ins at 4 PM
+## Why I'm writing this
 
-I've tried productivity systems before. They all failed because they required me to maintain them. This one just... works.
+Just documenting the journey. Not trying to build an audience or anything, just want a record of what I built and what actually worked.
 
-## Why write this?
+Building in public keeps you honest too. If I say I'm tracking expenses, I better actually track them. If I say I shipped an app, there's a repo to prove it.
 
-I'm documenting the journey. Not for an audience, not for clout — just to have a record of what I built, what worked, and what didn't.
+## What's next
 
-Building in public keeps you honest. If I say I'm tracking expenses, I better actually track them. If I say I shipped an app, there's a GitHub repo to prove it.
+2026 started with systems instead of resolutions. The organizing part is handled now, so I can just focus on building better stuff.
 
-This blog is the changelog.
-
-## The point
-
-2026 started with systems, not resolutions. I'm not trying to be more organized — the system handles that. I'm just trying to build better things.
-
-More on the apps soon. For now, back to work.
+I'll write more about the apps soon. For now, back to work.
 
 ---
 
