@@ -10,6 +10,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
 ---
 
 <!doctype html>
@@ -28,7 +30,7 @@ const posts = (await getCollection('blog')).sort(
 							<div class="post-meta">
 								<FormattedDate date={post.data.pubDate} />
 							</div>
-							<a href={`/blog/${post.id}/`}>
+							<a href={withBase(`/blog/${post.id}/`)}>
 								<h2 class="post-title">{post.data.title}</h2>
 							</a>
 							{post.data.description && <p class="post-excerpt">{post.data.description}</p>}

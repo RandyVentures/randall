@@ -233,22 +233,6 @@ hr {
 	box-shadow: none;
 }
 
-.topic-list {
-	display: flex;
-	gap: 0.75rem;
-	flex-wrap: wrap;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.topic-list li {
-	padding: 0.35rem 0.9rem;
-	border-radius: 999px;
-	border: 1px solid var(--line);
-	color: var(--ink-muted);
-	font-size: 0.9rem;
-	background: rgba(255, 255, 255, 0.05);
-}
 
 .section-title {
 	font-size: 0.95rem;

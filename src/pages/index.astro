@@ -10,6 +10,8 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const latest = posts.slice(0, 4);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
 ---
 
 <!doctype html>
@@ -28,21 +30,10 @@ const latest = posts.slice(0, 4);
 						Short notes on coding, AI experiments, rentals, work, and the kids. I aim for clarity, not volume.
 					</p>
 					<div class="hero-actions">
-						<a class="button" href="/blog">Posts</a>
-						<a class="button secondary" href="/about">About</a>
+						<a class="button" href={withBase('/blog')}>Posts</a>
+						<a class="button secondary" href={withBase('/about')}>About</a>
 					</div>
 				</div>
-			</section>
-
-			<section>
-				<p class="section-title">Topics</p>
-				<ul class="topic-list">
-					<li>Coding & shipping</li>
-					<li>AI experiments</li>
-					<li>Rentals & operations</li>
-					<li>Work notes</li>
-					<li>Family & kids</li>
-				</ul>
 			</section>
 
 			<section class="section-spaced">
@@ -55,12 +46,12 @@ const latest = posts.slice(0, 4);
 							</div>
 							<h2 class="post-title">{post.data.title}</h2>
 							{post.data.description && <p class="post-summary">{post.data.description}</p>}
-							<a class="post-link" href={`/blog/${post.id}/`}>Read post</a>
+							<a class="post-link" href={withBase(`/blog/${post.id}/`)}>Read post</a>
 						</li>
 					))}
 				</ul>
 				<div style="margin-top: 1.5rem;">
-					<a class="post-link" href="/blog">All posts →</a>
+					<a class="post-link" href={withBase('/blog')}>All posts →</a>
 				</div>
 			</section>
 		</main>
