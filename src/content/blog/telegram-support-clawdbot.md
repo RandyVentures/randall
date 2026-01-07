@@ -1,99 +1,85 @@
 ---
-title: 'Adding Telegram Support to Clawdbot'
-description: 'Building real group chat and topics support for my AI assistant - because WhatsApp web client limitations were getting old'
+title: 'Adding Telegram Topics Support to Clawdbot'
+description: 'Contributing forum/topics support to Clawdbot so my AI assistant can actually track different conversations in group chats'
 pubDate: 'Jan 07 2026'
 heroImage: '../../assets/telegram-clawdbot-hero.jpg'
 ---
 
-One of the first things I did after setting up Will was connect him to WhatsApp. Worked great for personal chats, but WhatsApp's web client API is... limited. No proper group support, no topics/threads, constant session issues.
+Clawdbot already had solid Telegram support - I could chat with Will via DM, he could participate in group chats, the basics all worked. But there was one missing piece: Telegram topics/forums.
 
-So I added Telegram. Properly.
+If you haven't used Telegram topics, think of them like Discord channels within a single chat. You can have one group with multiple topic threads - "General", "Tech Talk", "Random", whatever. Each topic is its own conversation.
 
-## Why Telegram?
+The problem? Will couldn't tell them apart. A message in "General" and a message in "Tech Talk" looked the same to him. Context got mixed up, replies went to the wrong threads.
 
-WhatsApp is fine for quick back-and-forth, but when you're building a personal AI assistant that needs to:
-- Participate in group discussions
-- Track different topics in a conversation
-- Stay connected reliably without random logouts
-- Have proper bot APIs that don't break every update
+So I fixed it.
 
-...you need something built for it. Telegram has a real Bot API. Topics are first-class citizens. Groups actually work.
+## The PR
 
-## The Build
+[Commit: 71b87d0a](https://github.com/RandyVentures/clawdbot/commit/71b87d0a8c99e5c021087ea2fc529532520e6eed)
 
-Clawdbot already had the infrastructure - it's built on a modular gateway system where you can plug in different messaging providers. I just needed to add Telegram support.
+The changes were pretty straightforward:
 
-### What I added:
+**1. Extract the thread ID**
+```typescript
+const threadId = msg.message_thread_id ? String(msg.message_thread_id) : undefined;
+```
 
-**1. Full message context**
-- Group ID tracking
-- Topic/thread support
-- Reply chains
-- Message IDs for threading
+Telegram sends `message_thread_id` with every message in a forum. Just needed to grab it.
 
-**2. Rich message handling**
-- Markdown formatting that actually works
-- File uploads and media
-- Inline replies
-- React to messages
+**2. Pass it through the message envelope**
+Added thread context to the envelope that gets sent to the AI:
+```typescript
+thread: threadId,
+```
 
-**3. Proper group behavior**
-- Knows when it's in a group vs DM
-- Can participate in topic threads
-- Respects permissions
-- Doesn't spam when it shouldn't
+Now Will knows which topic a message came from.
 
-### The tricky part
+**3. Include it in replies**
+Every outgoing message type (text, photos, videos, documents) needed the thread ID:
+```typescript
+message_thread_id: messageThreadId,
+```
 
-The hardest part wasn't the Telegram API - that's actually well-documented. It was making Clawdbot understand *context*.
+This ensures replies go to the correct topic thread.
 
-When Will gets a message in a Telegram group with topics enabled, he needs to:
-1. Know which group it came from
-2. Know which topic thread it's in
-3. Track the conversation history within that thread
-4. Reply in the right place
-5. Not mix up conversations from different threads
+**4. Make it available to templates**
+Added `ThreadId` and `ThreadName` to the template context so auto-replies and custom handlers can access thread info.
 
-That required threading the message metadata all the way through the system - from Telegram's webhook, through the message processor, into the AI context, and back out to the reply handler.
-
-## What it looks like now
-
-I can:
-- DM Will on Telegram for quick questions
-- Have him participate in group chats
-- Keep different conversations in separate topics
-- Get file uploads and responses with proper formatting
-- Have threaded discussions that don't get mixed up
-
-All while keeping the same personality and memory system that works in WhatsApp and the web interface.
-
-## Why this matters
-
-My AI assistant isn't just a chatbot - it's integrated into my actual workflow. I need it where I communicate, not just in a special app I have to remember to open.
+## Why It Matters
 
 Now I can:
-- Discuss projects in a Telegram group with Will tracking context
-- Keep business stuff in one topic, personal in another
-- Have Will monitor channels and alert me to important stuff
-- Share files and get analysis without switching apps
+- Have different conversations with Will in separate topics
+- Keep work stuff in one thread, personal in another
+- Context doesn't bleed between topics
+- Replies always go to the right place
 
-The goal was never to build a demo. It was to build something I'd actually use every day.
+It's a small feature, but it makes group chats actually usable. Before this, using Will in a Telegram group with topics was basically broken. Now it just works.
 
-## The code
+## The Testing
 
-It's all in the [clawdbot repo](https://github.com/RandyVentures/clawdbot). The Telegram provider is in `src/providers/telegram/` if you want to see how it works.
+Added proper tests to make sure:
+- Thread IDs are extracted correctly
+- Replies target the right thread
+- Template context includes thread info
+- It doesn't break non-topic chats
 
-Building in public means the good, the messy, and the "I can't believe that edge case exists" are all visible. That's the point.
+Pull request included formatting fixes (biome linter) and merged cleanly with upstream.
 
-## What's next
+## Contributing to Open Source
 
-Now that messaging is solid, I'm working on:
-- Better calendar integration (iCloud works, Google OAuth is being annoying)
-- Automated expense tracking beyond just mileage
-- Smart home stuff (because why not)
+This is exactly the kind of PR I like making - scratched my own itch, added value to the project, clean implementation, tested. 
 
-The system is there. Now it's just about adding the pieces that actually save me time.
+Clawdbot's architecture made it easy. The message handling was already well-structured, just needed to thread (pun intended) the topic ID through the pipeline.
+
+## What's Next
+
+With topics working properly, I can:
+- Organize different aspects of life in separate Telegram topics
+- Have Will participate naturally in each one
+- Keep everything in one group instead of multiple chats
+
+Small change, big impact on daily usability.
 
 ---
 
-*Written with Will's help. He reminds me to actually publish these instead of leaving them in drafts.*
+*Built this because I needed it. Shared it because someone else probably does too.*
