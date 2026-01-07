@@ -2,7 +2,7 @@
 title: 'Adding Telegram Support to Clawdbot'
 description: 'Building real group chat and topics support for my AI assistant - because WhatsApp web client limitations were getting old'
 pubDate: 'Jan 07 2026'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '../../assets/telegram-clawdbot-hero.jpg'
 ---
 
 One of the first things I did after setting up Will was connect him to WhatsApp. Worked great for personal chats, but WhatsApp's web client API is... limited. No proper group support, no topics/threads, constant session issues.
