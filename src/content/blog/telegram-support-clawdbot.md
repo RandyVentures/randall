@@ -15,6 +15,8 @@ So I fixed it.
 
 ## The PR
 
+**[Pull Request #334](https://github.com/clawdbot/clawdbot/pull/334)** - Add Telegram topics/forum support
+
 [Commit: 71b87d0a](https://github.com/RandyVentures/clawdbot/commit/71b87d0a8c99e5c021087ea2fc529532520e6eed)
 
 The changes were pretty straightforward:
