@@ -5,7 +5,28 @@ pubDate: 'Jan 08 2026'
 heroImage: '../../assets/github-lobster-cloud.svg'
 ---
 
+<div class="post-ai-architect">
+
 Today was a marathon: calls stacked back to back, no real breaks, just a long line of context switching. Even so, I still got a new version of my AI automated release-notes summary process out the door. The pipeline is tighter now and trims the noisy bits so the final recap is cleaner and easier to ship. It's the kind of workflow change you only notice when you don't have it.
+
+<section class="snapshot">
+  <h2>Workday snapshot</h2>
+  <div class="snapshot-grid">
+    <div class="snapshot-card">
+      <h3>Release notes pipeline</h3>
+      <p>New AI summary pass that cuts filler, keeps the signal, and ships clean copy faster.</p>
+    </div>
+    <div class="snapshot-card">
+      <h3>AI architect role</h3>
+      <p>Officially the dedicated AI architect now. More ownership, same pace.</p>
+    </div>
+    <div class="snapshot-card">
+      <h3>House reset</h3>
+      <p>Kids back in school = quiet hours to actually finish the work.</p>
+    </div>
+  </div>
+  <p class="snapshot-note">A small win in the middle of a packed calendar still counts.</p>
+</section>
 
 ## Release notes automation
 
@@ -37,3 +58,5 @@ Even on a long day, a real automation win plus a merged PR is a good combo.
 ---
 
 *Long day, still shipped. Back to building tomorrow.*
+
+</div>
