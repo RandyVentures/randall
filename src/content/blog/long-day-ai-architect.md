@@ -5,16 +5,31 @@ pubDate: 'Jan 08 2026'
 heroImage: '../../assets/github-lobster-cloud.svg'
 ---
 
-Today was a marathon: calls back to back, no real breaks. Still managed to ship a new version of my AI automated release-notes summary process. It's tighter now and trims the noisy bits so the final recap is cleaner.
+Today was a marathon: calls stacked back to back, no real breaks, just a long line of context switching. Even so, I still got a new version of my AI automated release-notes summary process out the door. The pipeline is tighter now and trims the noisy bits so the final recap is cleaner and easier to ship.
 
-## Highlights
+## Release notes automation
 
-- Found out I'm the dedicated AI architect now. Same pace, more ownership.
-- Kids are all finally back in school, which means the house is quiet again.
-- Another PR landed in Clawdbot. This one references the Telegram HTML parsing cleanup we did and keeps that flow solid. **[PR #435](https://github.com/clawdbot/clawdbot/pull/435)**.
+The goal is simple: turn messy threads and scattered commits into a crisp, readable summary without hand-editing. This update focuses on:
+- Cutting the filler so the output reads like a human wrote it
+- Keeping the key changes front and center
+- Making the summary stable enough to paste directly into a release post
 
-Even on a long day, a real automation win and a merged PR is a good combo.
+It's a small shift in workflow, but it saves a surprising amount of time when you're running hot.
+
+## New title, same pace
+
+I found out I'm the dedicated AI architect now. That mostly means more responsibility for the strategy and fewer excuses when the automation doesn't hold up. No big ceremony, just the work that was already happening becoming official.
+
+## Home reset
+
+Kids are finally back in school, which means the house is quiet again. That quiet time is the real fuel for shipping anything meaningful after a day full of calls.
+
+## Clawdbot PR landed
+
+Got another PR committed to Clawdbot. It references the Telegram HTML parsing cleanup we did and keeps that flow solid. **[PR #435](https://github.com/clawdbot/clawdbot/pull/435)**.
+
+Even on a long day, a real automation win plus a merged PR is a good combo.
 
 ---
 
-*Short update today. Back to building tomorrow.*
+*Long day, still shipped. Back to building tomorrow.*
