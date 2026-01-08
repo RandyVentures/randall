@@ -254,6 +254,8 @@ hr {
 	font-size: 0.95rem;
 	letter-spacing: 0.02em;
 	box-shadow: var(--shadow-2);
+	transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease,
+		color 150ms ease;
 }
 .button,
 .site-nav a,
@@ -264,11 +266,25 @@ hr {
 	align-items: center;
 	justify-content: center;
 }
+.button:hover,
+.button:focus-visible {
+	background: var(--accent-strong);
+	color: #0e0704;
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-1);
+}
 .button.secondary {
 	background: transparent;
 	color: var(--ink-muted);
 	border: 1px solid rgba(214, 106, 58, 0.4);
 	box-shadow: none;
+}
+.button.secondary:hover,
+.button.secondary:focus-visible {
+	color: var(--ink);
+	background: rgba(214, 106, 58, 0.14);
+	border-color: rgba(214, 106, 58, 0.7);
+	box-shadow: var(--shadow-2);
 }
 
 
