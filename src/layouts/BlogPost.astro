@@ -27,11 +27,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.post-hero {
 				display: grid;
 				gap: 1.6rem;
-				width: min(980px, calc(100% - 2.5em));
+				width: 100%;
+				max-width: 980px;
 				margin: 0 auto;
 				padding: 2.6rem;
 				border-radius: 28px;
 				border: 1px solid var(--line);
+				box-sizing: border-box;
 				background:
 					radial-gradient(circle at 12% 20%, rgba(214, 106, 58, 0.18), transparent 45%),
 					radial-gradient(circle at 92% 10%, rgba(76, 162, 178, 0.16), transparent 45%),
@@ -73,11 +75,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				color: var(--ink);
 			}
 			.post-body {
-				width: min(880px, calc(100% - 2.5em));
+				width: 100%;
+				max-width: 880px;
 				margin: 0 auto 4rem;
 				padding: 2.4rem;
 				border-radius: 26px;
 				border: 1px solid var(--line);
+				box-sizing: border-box;
 				background: rgba(255, 255, 255, 0.02);
 				box-shadow: var(--shadow-2);
 			}
