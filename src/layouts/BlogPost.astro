@@ -29,6 +29,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				gap: 1.6rem;
 				width: 100%;
 				max-width: 980px;
+				min-width: 0;
 				margin: 0 auto;
 				padding: 2.6rem;
 				border-radius: 28px;
@@ -45,10 +46,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				display: grid;
 				gap: 0.8rem;
 				align-content: start;
+				min-width: 0;
 			}
 			.hero-image {
 				width: 100%;
 				margin: 0;
+				min-width: 0;
 			}
 			.hero-image img {
 				display: block;
@@ -73,10 +76,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0;
 				padding: 0;
 				color: var(--ink);
+				min-width: 0;
 			}
 			.post-body {
 				width: 100%;
 				max-width: 880px;
+				min-width: 0;
 				margin: 0 auto 4rem;
 				padding: 2.4rem;
 				border-radius: 26px;
