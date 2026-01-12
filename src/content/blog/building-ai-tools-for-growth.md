@@ -2,7 +2,7 @@
 title: 'Building AI Tools for Personal Development'
 description: 'How I built a daily reflection system with AI that actually works - no productivity theater, just real introspection'
 pubDate: 'Jan 12 2026'
-heroImage: '../../assets/ai-hero.jpg'
+heroImage: '../../assets/ai-tools-hero.jpg'
 ---
 
 Most personal development advice is productivity theater. Morning routines, habit trackers, meditation apps - they all promise transformation if you just stick with them. The problem isn't the systems, it's that maintaining them becomes another job.
