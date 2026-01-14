@@ -13,7 +13,7 @@ I went into my annual review with realistic expectations. Rated myself "meets ex
 
 My manager disagreed. Came back with "exceeds expectations" based on what I actually accomplished in 2025.
 
-That felt good. Not because of the rating itself, but because it confirmed that the work landed. The automation pipelines, the AI architect role, the infrastructure improvements - they weren't just me tinkering. They moved the needle.
+That felt good. Not because of the rating itself, but because it confirmed that the work landed. My focus in 2025 was payments architect work - which I crushed and will keep building on. But I also jumped into AI hackathons, did well, and brought new AI ideas and solutions to work. The combination showed I wasn't just tinkering - I was delivering real impact.
 
 Looking forward to 2026.
 
