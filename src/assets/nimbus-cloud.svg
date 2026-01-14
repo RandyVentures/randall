@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <!-- Sky gradient background -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7FB3E8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#skyGradient)"/>
+  
+  <!-- Main nimbus cloud -->
+  <g filter="url(#glow)">
+    <!-- Cloud base -->
+    <ellipse cx="300" cy="180" rx="120" ry="70" fill="#E8F4FD" opacity="0.9"/>
+    <ellipse cx="400" cy="160" rx="140" ry="85" fill="#F5FAFF" opacity="0.95"/>
+    <ellipse cx="500" cy="180" rx="120" ry="70" fill="#E8F4FD" opacity="0.9"/>
+    
+    <!-- Cloud top puffs -->
+    <circle cx="280" cy="140" r="55" fill="#FFFFFF" opacity="0.95"/>
+    <circle cx="340" cy="120" r="70" fill="#FFFFFF"/>
+    <circle cx="420" cy="115" r="75" fill="#FFFFFF"/>
+    <circle cx="480" cy="125" r="65" fill="#FFFFFF" opacity="0.95"/>
+    <circle cx="520" cy="145" r="50" fill="#FFFFFF" opacity="0.9"/>
+    
+    <!-- Dark rain cloud bottom -->
+    <ellipse cx="400" cy="215" rx="150" ry="35" fill="#6B7C8F" opacity="0.3"/>
+  </g>
+  
+  <!-- Rain drops -->
+  <g opacity="0.6">
+    <line x1="350" y1="240" x2="340" y2="280" stroke="#4A5F7F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="380" y1="250" x2="370" y2="295" stroke="#4A5F7F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="410" y1="245" x2="400" y2="290" stroke="#4A5F7F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="440" y1="250" x2="430" y2="295" stroke="#4A5F7F" stroke-width="2" stroke-linecap="round"/>
+    <line x1="370" y1="255" x2="360" y2="300" stroke="#4A5F7F" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="420" y1="255" x2="410" y2="305" stroke="#4A5F7F" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- "NIMBUS" text -->
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2C3E50" text-anchor="middle">NIMBUS</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="16" fill="#5A6C7D" text-anchor="middle">Enterprise AI Assistant</text>
+</svg>
