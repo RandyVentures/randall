@@ -1,0 +1,41 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Catalyst Support"
+      description="Support information for Catalyst Chain Reaction."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Support - Catalyst Chain Reaction</h1>
+      <p>
+        Thanks for playing Catalyst Chain Reaction. If you need help with gameplay,
+        purchases, or technical issues, use the contact details below.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:rltorres26@gmail.com">rltorres26@gmail.com</a></p>
+
+      <h2>Common Topics</h2>
+      <ul>
+        <li>Restore Purchase: Open Settings and tap "Restore Purchase".</li>
+        <li>Ads still visible after purchase: Restore purchases, then restart the app.</li>
+        <li>Gameplay issue: Share device model, iOS version, and a screenshot if possible.</li>
+      </ul>
+
+      <p>
+        Privacy details are available at
+        <a href={import.meta.env.BASE_URL + 'catalyst/privacy'}>Catalyst Privacy Policy</a>.
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
