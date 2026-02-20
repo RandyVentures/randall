@@ -2,7 +2,7 @@
 title: 'Building for Builders'
 description: 'Shipped 3 apps in weeks. Now I'm building the tools that help other people ship faster.'
 pubDate: 'Feb 20 2026'
-heroImage: '../../assets/building-infrastructure.svg'
+heroImage: '../../assets/github-lobster-cloud.svg'
 ---
 
 Something shifted this week.
