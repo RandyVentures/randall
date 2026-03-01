@@ -15,17 +15,17 @@ Tres Lagos is good. The kids are adjusting. Life moves forward even when the big
 
 ## Mountains and Momentum
 
-Last month, we had an architecture onsite. My boss flew the team out to go skiing.
+Last month, we had an architecture onsite. My boss flew the team out for a ski trip.
 
-Here's the thing about skiing with your coworkers: you learn a lot about people when you're watching them navigate an icy slope at 30 mph. You see who stays calm when things get sketchy. Who helps the newer folks. Who's willing to look stupid trying something new.
+Most of us did lessons — not everyone was ready to hit the slopes. A few people actually skied. But it wasn't really about the skiing. It was productive in the ways that matter: time with the team, good technical conversations, building trust away from keyboards and standups.
 
-I came back energized in a way I haven't felt in months. Not just about the work — though yeah, the technical conversations were great — but about the *team*. The year ahead feels... possible. Like we're building something that matters with people who give a shit.
+I came back energized in a way I haven't felt in months. Not just about the work — though yeah, the technical discussions were great — but about the *team*. Looking forward to the rest of 2026 with this architecture group. We're building something that matters with people who give a shit.
 
 That matters more than I usually admit.
 
 ## Anxiety as an Idol
 
-Church hit different last Sunday.
+Church hit different today.
 
 The lesson was about anxiety. Not the "just pray more" kind of sermon — the real kind. The "you're treating your worry like a god and you don't even realize it" kind.
 
