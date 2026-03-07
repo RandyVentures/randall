@@ -1,0 +1,41 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Color Flood Conquest"
+      description="Support and privacy information for Color Flood Conquest."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero">
+        <div class="hero-box">
+          <p class="kicker">Project</p>
+          <h1 class="hero-title">Color Flood Conquest</h1>
+          <p class="lead">
+            Official support and privacy pages for the Color Flood Conquest iOS app.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href={import.meta.env.BASE_URL + 'color-flood-conquest/support'}>
+              Support
+            </a>
+            <a
+              class="button secondary"
+              href={import.meta.env.BASE_URL + 'color-flood-conquest/privacy'}
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
