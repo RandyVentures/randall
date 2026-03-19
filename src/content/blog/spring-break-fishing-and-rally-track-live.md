@@ -72,5 +72,3 @@ Sometimes the best productivity is slowing down long enough to remember what you
 ---
 
 *Rally Track is live on the App Store. If you play pickleball and hate overcomplicated scorekeeping apps, [check it out](https://apps.apple.com/app/rally-track). Simple scorekeeping. No paywalls. No bloat.*
-
-**P.S.** — The Jesus fish symbol sitting on my desk from the fishing trip is a good reminder: Sometimes you cast your line, sometimes you catch something, sometimes you just enjoy being out there. Building apps feels the same.
