@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <rect width="800" height="400" fill="#e8f4f8"/>
+  <g transform="translate(400, 200)">
+    <!-- Jesus Fish (Ichthys) symbol -->
+    <path d="M -150,0 Q -100,-60 0,0 Q -100,60 -150,0 Z M 150,0 Q 100,60 0,0 Q 100,-60 150,0 Z" 
+          fill="none" 
+          stroke="#2c5f8d" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    <!-- Eye dot -->
+    <circle cx="90" cy="0" r="8" fill="#2c5f8d"/>
+  </g>
+</svg>
