@@ -1,25 +1,25 @@
 ---
-title: 'Easter Week: Zoo Days, App Store Waiting Games, and Building Through the Chaos'
-description: 'Family time at the Gladys Porter Zoo, Easter prep with the kids, and the patience required when two apps are stuck in App Store review'
+title: 'Easter Week: Zoo Days, Two Apps Live, and Building Through the Chaos'
+description: 'Family time at the Gladys Porter Zoo, Easter prep with the kids, and celebrating Rally Track and Bean Hunt finally shipping to the App Store'
 pubDate: 'Mar 31 2026'
 heroImage: '../../assets/lion-easter.svg'
 ---
 
-## The Waiting Game
+## The Wait Is Over
 
-Both Rally Track and Bean Hunt are still in App Store review.
+**Both Rally Track and Bean Hunt are now LIVE on the App Store.**
 
-It's been weeks now. Not the "48-hour turnaround" you hope for, but the slow grind where you refresh the App Store Connect dashboard hoping for movement and get nothing.
+After weeks of waiting, refreshing App Store Connect, and wondering when review would finish — they're both approved and available for download.
 
 **Current status:**
-- **Rally Track:** Submitted March 15 → Still in review
-- **Bean Hunt:** Submitted March 15 → Still in review
+- **Rally Track:** ✅ LIVE on App Store
+- **Bean Hunt:** ✅ LIVE on App Store
 
-There's something uniquely frustrating about the App Store waiting game. You've done the work. The apps are built, tested, polished. But you can't launch until Apple says so.
+There's something uniquely satisfying about that moment when you see "Ready for Sale" in App Store Connect. You've done the work. Built the apps. Survived the review process. And now they're out in the world.
 
-And you just... wait.
+The waiting game taught patience. But shipping teaches something else: the real work starts now.
 
-So while I wait, I'm doing what I always do: building the next thing, spending time with the family, and trying not to obsessively check review status every hour.
+So while the apps are live, I'm doing what I always do: planning the next iteration, gathering feedback, spending time with the family, and figuring out what comes next.
 
 ## Zoo Day Last Weekend
 
@@ -49,15 +49,16 @@ But for now? Easter eggs and family time.
 
 ## Building Through the Chaos
 
-Even while apps sit in review limbo, I've been staying productive.
+Now that both apps are live, the real work begins.
 
-**What's been happening:**
-- Refining app marketing materials (landing pages, screenshots, descriptions)
-- Planning post-launch strategies (user acquisition, feedback loops, iteration cycles)
+**What's happening now:**
+- Monitoring early user feedback and reviews
+- Planning first iterations based on real usage
+- Marketing push for both apps
 - Working on documentation for Codex workflows (subagent processes, parallel dev patterns)
 - Staying active at Tres Lagos (7-10k steps daily is now just routine)
 
-I've also been thinking a lot about what comes after these two apps ship.
+I've also been thinking a lot about what comes after these two apps stabilize.
 
 I've got two more validated ideas ready to build:
 - **PortBar** (port manager for macOS) — solves a real dev tool gap
@@ -65,47 +66,47 @@ I've got two more validated ideas ready to build:
 
 But I'm not rushing into them yet. The lesson I'm learning is: **finish what you start before chasing the next shiny idea.**
 
-Rally Track and Bean Hunt need to launch first. Then iterate based on real user feedback. Then decide if the next projects are worth the time.
+Rally Track and Bean Hunt are live. Now it's time to iterate based on real user feedback, then decide if the next projects are worth the time.
 
-## What I'm Learning About Patience
+## What I Learned About Patience
 
-Shipping apps teaches you patience whether you want to learn it or not.
+Shipping apps taught me patience whether I wanted to learn it or not.
 
 You can't force Apple to approve faster. You can't skip the review process. You can't will your app into the store.
 
 You just wait.
 
-**But waiting doesn't mean doing nothing:**
-- Use the time to polish marketing materials
-- Plan your launch strategy
-- Build the next thing
-- Spend time with family
-- Take care of yourself
+**But the waiting wasn't wasted:**
+- Used the time to polish marketing materials
+- Planned the launch strategy
+- Built the next thing
+- Spent time with family
+- Took care of myself
 
-The apps will launch when they launch. Until then, life keeps moving.
+The apps launched when they launched. And life kept moving while I waited.
 
 ## What's Next
 
 **This week:**
 - Easter with the family
-- Keep monitoring app review status (without obsessing)
+- Monitor early app reviews and user feedback
 - Continue daily walks at Tres Lagos
 - Work on Codex documentation projects
 
-**After apps launch:**
-- Beta testing with real users
-- Iterate based on feedback
+**Now that apps are live:**
+- Gather real user feedback
+- Iterate based on actual usage patterns
 - Marketing push for both apps
 - Decide on next build (PortBar vs ModelPilot)
 
-Life is full. Apps are pending. Easter is coming.
+Life is full. Apps are live. Easter is here.
 
-And somehow, it all feels manageable.
+And somehow, it all feels right.
 
 ---
 
-**Rally Track:** Pickleball scorekeeping made simple. Coming soon to the App Store.
+**Rally Track:** Pickleball scorekeeping made simple. [Download on the App Store](https://apps.apple.com/app/rally-track).
 
-**Bean Hunt:** Coffee discovery done right. [www.beanhunt.app](https://www.beanhunt.app) — Launching soon on iOS.
+**Bean Hunt:** Coffee discovery done right. [www.beanhunt.app](https://www.beanhunt.app) — Now available on iOS.
 
 Happy Easter week. 🦁
