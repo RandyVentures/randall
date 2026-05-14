@@ -1,0 +1,61 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF8FF"/>
+      <stop offset="1" stop-color="#FFF6E8"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="1180" y1="120" x2="1380" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD76A"/>
+      <stop offset="1" stop-color="#FFB84D"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="630" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DCEFD8"/>
+      <stop offset="1" stop-color="#B9D9B1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1280" cy="210" r="92" fill="url(#sun)" opacity="0.95"/>
+  <path d="M0 674C142 622 278 622 420 674C562 726 698 726 840 674C982 622 1118 622 1260 674C1402 726 1501 726 1600 684V900H0V674Z" fill="url(#ground)"/>
+
+  <g opacity="0.9">
+    <rect x="170" y="315" width="260" height="170" rx="20" fill="#FFFFFF" stroke="#D7E6F3" stroke-width="4"/>
+    <rect x="205" y="355" width="190" height="16" rx="8" fill="#78A9C7" opacity="0.35"/>
+    <rect x="205" y="388" width="150" height="16" rx="8" fill="#78A9C7" opacity="0.25"/>
+    <rect x="205" y="421" width="175" height="16" rx="8" fill="#78A9C7" opacity="0.18"/>
+    <circle cx="380" cy="455" r="20" fill="#4E91C9"/>
+    <path d="M380 439V471" stroke="white" stroke-width="6" stroke-linecap="round"/>
+    <path d="M364 455H396" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="603" y="250" width="394" height="270" rx="28" fill="#FFFFFF" stroke="#D7E6F3" stroke-width="4"/>
+    <rect x="640" y="288" width="320" height="30" rx="15" fill="#4E91C9" opacity="0.18"/>
+    <rect x="640" y="338" width="270" height="22" rx="11" fill="#7FC6A4" opacity="0.35"/>
+    <rect x="640" y="375" width="300" height="22" rx="11" fill="#7FC6A4" opacity="0.22"/>
+    <rect x="640" y="412" width="230" height="22" rx="11" fill="#7FC6A4" opacity="0.16"/>
+    <rect x="640" y="455" width="140" height="28" rx="14" fill="#F0B35B"/>
+  </g>
+
+  <g>
+    <path d="M1185 620C1185 557 1236 506 1299 506C1362 506 1413 557 1413 620V706H1185V620Z" fill="#EAD8C2"/>
+    <path d="M1208 630C1208 580 1248 540 1298 540C1348 540 1388 580 1388 630V706H1208V630Z" fill="#FFF4E8"/>
+    <rect x="1278" y="610" width="42" height="96" rx="10" fill="#D19A5C"/>
+    <path d="M1299 570L1299 650" stroke="#D19A5C" stroke-width="16" stroke-linecap="round"/>
+    <path d="M1258 610L1340 610" stroke="#D19A5C" stroke-width="16" stroke-linecap="round"/>
+    <path d="M1268 670L1299 706L1330 670" stroke="#D19A5C" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g>
+    <circle cx="360" cy="650" r="40" fill="#F3C8A4"/>
+    <circle cx="435" cy="638" r="34" fill="#F0C2A0"/>
+    <circle cx="505" cy="652" r="28" fill="#E9B892"/>
+    <path d="M315 735C315 687 354 648 402 648H409C457 648 496 687 496 735V761H315V735Z" fill="#6FA7D8"/>
+    <path d="M395 723C395 688 423 660 458 660C493 660 521 688 521 723V761H395V723Z" fill="#7FC6A4"/>
+    <path d="M462 736C462 708 484 686 512 686C540 686 562 708 562 736V761H462V736Z" fill="#F0B35B"/>
+  </g>
+
+  <text x="800" y="816" text-anchor="middle" fill="#3B5970" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">
+    Work. Family. Service.
+  </text>
+</svg>

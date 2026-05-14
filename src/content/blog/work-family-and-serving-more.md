@@ -2,7 +2,7 @@
 title: 'Work, Family Milestones, and Showing Up More'
 description: 'A busy stretch at work, Kenzie losing her first tooth, a strong week with the Data Services and SRE teams in McAllen, Mother’s Day dinner at Ambra, and serving more at church'
 pubDate: 'May 13 2026'
-heroImage: '../../assets/summer-birthday-beach-2026.jpg'
+heroImage: '../../assets/work-family-serving-hero.svg'
 ---
 
 ## Just Working and Working
