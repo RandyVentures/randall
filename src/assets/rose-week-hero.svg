@@ -1,0 +1,37 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7F8"/>
+      <stop offset="1" stop-color="#FFF1E8"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="792" y1="430" x2="840" y2="795" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4E8F61"/>
+      <stop offset="1" stop-color="#2D6A4F"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="700" y1="180" x2="930" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F86A8B"/>
+      <stop offset="1" stop-color="#C73A62"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <ellipse cx="800" cy="780" rx="340" ry="58" fill="#E9F1E8"/>
+
+  <path d="M804 418C792 490 791 560 798 786" stroke="url(#stem)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M804 560C750 540 713 553 673 610" stroke="#3B7A57" stroke-width="12" stroke-linecap="round"/>
+  <path d="M799 645C854 625 890 638 932 690" stroke="#3B7A57" stroke-width="12" stroke-linecap="round"/>
+
+  <path d="M670 612C706 571 740 566 771 589C742 631 710 642 670 612Z" fill="#7FC17F"/>
+  <path d="M932 689C896 651 862 648 829 668C857 709 890 719 932 689Z" fill="#7FC17F"/>
+
+  <g>
+    <path d="M801 214C758 180 708 191 690 241C672 291 706 334 758 340C724 365 716 413 754 442C792 471 848 449 859 399C880 443 937 453 971 415C1005 377 986 321 939 307C986 289 1004 237 971 199C938 161 880 171 854 214C846 170 805 146 766 162C727 178 717 222 739 251C760 280 796 278 801 214Z" fill="url(#petal)"/>
+    <path d="M804 226C781 206 756 212 748 236C740 260 756 282 782 284C765 297 761 321 780 336C799 351 827 341 833 316C844 338 872 343 889 325C906 307 897 280 873 272C897 263 906 237 889 219C872 201 844 206 831 226C827 203 806 191 786 198C766 205 761 227 772 242C783 257 801 256 804 226Z" fill="#B91C4E" opacity="0.92"/>
+    <circle cx="810" cy="274" r="28" fill="#FFD18A" opacity="0.35"/>
+  </g>
+
+  <text x="800" y="836" text-anchor="middle" fill="#6C4A56" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">
+    A Good Week, Good Progress
+  </text>
+</svg>
