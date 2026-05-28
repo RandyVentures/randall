@@ -1,7 +1,8 @@
 ---
-title: "I Shipped CapShare: One QR Code for Every Graduation Memory"
-description: "I launched CapShare, a simple way to collect graduation photos and videos with a single QR code."
-publishDate: 2026-05-27
+title: 'I Shipped CapShare: One QR Code for Every Graduation Memory'
+description: 'I launched CapShare, a simple way to collect graduation photos and videos with a single QR code.'
+pubDate: 'May 27 2026'
+heroImage: '../../assets/capshare-hero-2026-05-27.png'
 ---
 
 I shipped something new this week: **CapShare**.
