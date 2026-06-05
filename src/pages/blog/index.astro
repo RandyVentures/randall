@@ -23,22 +23,25 @@ const withBase = (path: string) => `${base}${path}`;
 		<Header />
 		<main>
 			<section>
-				<p class="section-title">Writing</p>
+				<h1 class="page-title">Writing</h1>
+				<p class="page-desc">Notes on code, building, and life in South Texas.</p>
 				<ul class="post-list">
 					{posts.map((post) => (
 						<li class="post-item">
-							<div class="post-meta">
-								<FormattedDate date={post.data.pubDate} />
-							</div>
-							<a href={withBase(`/blog/${post.id}/`)}>
-								<h2 class="post-title">{post.data.title}</h2>
-							</a>
-							{post.data.description && <p class="post-excerpt">{post.data.description}</p>}
-							{post.data.heroImage && (
-								<div class="post-media">
-									<Image width={720} height={360} src={post.data.heroImage} alt="" />
+							<a class="post-card" href={withBase(`/blog/${post.id}/`)}>
+								{post.data.heroImage && (
+									<div class="post-media">
+										<Image width={720} height={360} src={post.data.heroImage} alt="" />
+									</div>
+								)}
+								<div class="post-card-body">
+									<div class="post-meta">
+										<FormattedDate date={post.data.pubDate} />
+									</div>
+									<h2 class="post-title">{post.data.title}</h2>
+									{post.data.description && <p class="post-excerpt">{post.data.description}</p>}
 								</div>
-							)}
+							</a>
 						</li>
 					))}
 				</ul>

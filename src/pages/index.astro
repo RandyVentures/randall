@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -37,19 +38,26 @@ const withBase = (path: string) => `${base}${path}`;
 			</section>
 
 			<section class="section-spaced">
-				<p class="section-title">Posts</p>
+				<p class="section-title">Latest</p>
 				<ul class="post-list">
 					{latest.map((post) => (
-						<li class="post-item">
-							<div class="post-meta">
-								<FormattedDate date={post.data.pubDate} />
+						<li class:list={['post-item', post.data.heroImage ? 'post-item-has-thumb' : 'post-item-no-thumb']}>
+							<div class="post-item-text">
+								<div class="post-meta">
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+								<h2 class="post-title">
+									<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
+										{post.data.title}
+									</a>
+								</h2>
+								{post.data.description && <p class="post-summary">{post.data.description}</p>}
 							</div>
-							<h2 class="post-title">
-								<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
-									{post.data.title}
+							{post.data.heroImage && (
+								<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
+									<Image width={180} height={130} src={post.data.heroImage} alt="" />
 								</a>
-							</h2>
-							{post.data.description && <p class="post-summary">{post.data.description}</p>}
+							)}
 						</li>
 					))}
 				</ul>

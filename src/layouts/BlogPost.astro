@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { readTime?: number };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, readTime } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <html lang="en">
@@ -36,8 +37,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				border: 1px solid var(--line);
 				box-sizing: border-box;
 				background:
-					radial-gradient(circle at 12% 20%, rgba(214, 106, 58, 0.18), transparent 45%),
-					radial-gradient(circle at 92% 10%, rgba(76, 162, 178, 0.16), transparent 45%),
+					radial-gradient(circle at 12% 20%, oklch(65% 0.22 38 / 0.16), transparent 45%),
+					radial-gradient(circle at 92% 10%, rgba(76, 162, 178, 0.14), transparent 45%),
 					rgba(255, 255, 255, 0.03);
 				box-shadow: var(--shadow-1);
 				animation: hero-rise 0.6s ease both;
@@ -67,7 +68,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.meta-row {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 0.75rem 1.4rem;
+				gap: 0.5rem 1.2rem;
 				align-items: center;
 			}
 			.prose {
@@ -109,8 +110,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.nav-row {
+				width: 100%;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 0 0.5rem;
+			}
 			@media (min-width: 960px) {
-				.post-hero {
+				.post-hero:not(.no-image) {
 					grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 					align-items: center;
 				}
@@ -147,14 +154,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<body>
 		<Header />
 		<main>
+			<div class="nav-row">
+				<a class="back-link" href={`${base}/blog`}>← All posts</a>
+			</div>
 			<article>
-				<section class="post-hero">
+				<section class:list={['post-hero', { 'no-image': !heroImage }]}>
 					<div class="post-hero-text">
 						<div class="title">
 							<div class="meta-row">
 								<div class="date">
 									<FormattedDate date={pubDate} />
 								</div>
+								{readTime && <span class="read-time">{readTime} min read</span>}
 								{
 									updatedDate && (
 										<div class="last-updated-on">
@@ -167,11 +178,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						</div>
 						{description && <p class="deck">{description}</p>}
 					</div>
-					<div class="hero-image">
-						{heroImage && (
+					{heroImage && (
+						<div class="hero-image">
 							<Image width={1020} height={510} src={heroImage} alt={title + ' - Hero Image'} />
-						)}
-					</div>
+						</div>
+					)}
 				</section>
 				<section class="post-body">
 					<div class="prose">
