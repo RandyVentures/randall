@@ -2,6 +2,7 @@
 title: 'Glad to Be Here: Launches, Gratitude, and Another Year Ahead'
 description: 'A work project is live, more apps are published, my birthday is tomorrow, and I am deeply thankful after walking away from a serious accident with no injuries.'
 pubDate: 'Jun 25 2026'
+tags: ['work', 'apps', 'faith']
 ---
 
 There’s a lot to be thankful for right now.
