@@ -2,6 +2,7 @@
 title: 'Easter Week: Zoo Days, Two Apps Live, and Building Through the Chaos'
 description: 'Family time at the Gladys Porter Zoo, Easter prep with the kids, and celebrating Rally Track and Bean Hunt finally shipping to the App Store'
 pubDate: 'Mar 31 2026'
+tags: ['family', 'faith', 'apps']
 heroImage: '../../assets/lion-easter.svg'
 ---
 

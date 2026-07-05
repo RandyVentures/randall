@@ -2,6 +2,7 @@
 title: 'Building AI Tools for Personal Development'
 description: 'How I built a daily reflection system with AI that actually works - no productivity theater, just real introspection'
 pubDate: 'Jan 12 2026'
+tags: ['ai']
 heroImage: '../../assets/ai-tools-hero.jpg'
 ---
 

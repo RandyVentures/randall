@@ -2,6 +2,7 @@
 title: 'Week Ending Jan 18: Recognition, Rocks, and Big Decisions'
 description: 'Got praised at work, dealt with property chaos, and my son turned one. Plus that house decision is still eating at me.'
 pubDate: 'Jan 19 2026'
+tags: ['work', 'rentals', 'family']
 heroImage: '../../assets/happy-birthday-sean.svg'
 ---
 

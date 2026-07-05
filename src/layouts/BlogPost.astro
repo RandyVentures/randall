@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { readTime?: number };
 
-const { title, description, pubDate, updatedDate, heroImage, readTime } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, readTime, tags = [] } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -17,135 +17,81 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: 100%;
-				max-width: 100%;
-				padding: 3.5em 1em 5em;
-			}
-			article {
-				display: grid;
-				gap: 2.5rem;
+				width: 780px;
+				max-width: calc(100% - 2.5em);
 			}
 			.post-hero {
-				display: grid;
-				gap: 1.6rem;
-				width: 100%;
-				max-width: 980px;
-				min-width: 0;
-				margin: 0 auto;
-				padding: 2.6rem;
-				border-radius: 28px;
+				background: var(--tile);
 				border: 1px solid var(--line);
-				box-sizing: border-box;
-				background:
-					radial-gradient(circle at 12% 20%, oklch(65% 0.22 38 / 0.16), transparent 45%),
-					radial-gradient(circle at 92% 10%, rgba(76, 162, 178, 0.14), transparent 45%),
-					rgba(255, 255, 255, 0.03);
-				box-shadow: var(--shadow-1);
-				animation: hero-rise 0.6s ease both;
-			}
-			.post-hero-text {
+				border-radius: var(--radius-tile);
+				padding: 2.2rem 2.4rem;
 				display: grid;
-				gap: 0.8rem;
-				align-content: start;
-				min-width: 0;
+				gap: 1rem;
+				margin-bottom: 14px;
+				animation: hero-rise 0.5s ease both;
 			}
-			.hero-image {
-				width: 100%;
+			.post-hero h1 {
 				margin: 0;
-				min-width: 0;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 20px;
-				box-shadow: var(--shadow-1);
-			}
-			.deck {
-				font-size: 1.15rem;
-				color: var(--ink-muted);
-				margin: 0;
+				font-size: clamp(1.7rem, 3.6vw, 2.5rem);
 			}
 			.meta-row {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 0.5rem 1.2rem;
+				gap: 0.55rem 0.9rem;
 				align-items: center;
 			}
-			.prose {
-				width: 100%;
-				max-width: 100%;
-				margin: 0;
-				padding: 0;
-				color: var(--ink);
-				min-width: 0;
-			}
-			.post-body {
-				width: 100%;
-				max-width: 880px;
-				min-width: 0;
-				margin: 0 auto 4rem;
-				padding: 2.4rem;
-				border-radius: 26px;
-				border: 1px solid var(--line);
-				box-sizing: border-box;
-				background: rgba(255, 255, 255, 0.02);
-				box-shadow: var(--shadow-2);
-			}
-			.title {
-				margin: 0;
-				padding: 0;
-				text-align: left;
-				line-height: 1.1;
-			}
-			.title h1 {
-				margin: 0.4rem 0 0.4rem;
-			}
 			.date {
-				margin-bottom: 0;
 				color: var(--ink-muted);
 				text-transform: uppercase;
-				letter-spacing: 0.14em;
-				font-size: 0.8rem;
+				letter-spacing: 0.1em;
+				font-weight: 600;
+				font-size: 0.78rem;
 			}
 			.last-updated-on {
 				font-style: italic;
+				font-size: 0.85rem;
+				color: var(--ink-muted);
 			}
-			.nav-row {
+			.deck {
+				font-size: 1.1rem;
+				color: var(--ink-muted);
+				margin: 0;
+			}
+			.hero-image {
+				margin: 0.4rem 0 0;
+			}
+			.hero-image img {
+				display: block;
 				width: 100%;
-				max-width: 980px;
-				margin: 0 auto;
-				padding: 0 0.5rem;
+				height: auto;
+				border-radius: 12px;
 			}
-			@media (min-width: 960px) {
-				.post-hero:not(.no-image) {
-					grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-					align-items: center;
-				}
+			.post-body {
+				background: var(--tile);
+				border: 1px solid var(--line);
+				border-radius: var(--radius-tile);
+				padding: 2.2rem 2.4rem;
+				margin-bottom: 3rem;
 			}
 			@media (max-width: 720px) {
-				main {
-					padding: 1.4em 0.9em 3em;
-				}
-				.post-hero {
-					padding: 1.4rem;
-					max-width: 100%;
-				}
+				.post-hero,
 				.post-body {
-					padding: 1.3rem;
-					max-width: 100%;
-				}
-				.deck {
-					font-size: 1rem;
+					padding: 1.3rem 1.2rem;
 				}
 			}
 			@keyframes hero-rise {
 				from {
 					opacity: 0;
-					transform: translateY(14px);
+					transform: translateY(12px);
 				}
 				to {
 					opacity: 1;
 					transform: translateY(0);
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.post-hero {
+					animation: none;
 				}
 			}
 		</style>
@@ -154,30 +100,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	<body>
 		<Header />
 		<main>
-			<div class="nav-row">
-				<a class="back-link" href={`${base}/blog`}>← All posts</a>
-			</div>
+			<a class="back-link" href={`${base}/blog`}>← All posts</a>
 			<article>
-				<section class:list={['post-hero', { 'no-image': !heroImage }]}>
-					<div class="post-hero-text">
-						<div class="title">
-							<div class="meta-row">
-								<div class="date">
-									<FormattedDate date={pubDate} />
-								</div>
-								{readTime && <span class="read-time">{readTime} min read</span>}
-								{
-									updatedDate && (
-										<div class="last-updated-on">
-											Last updated on <FormattedDate date={updatedDate} />
-										</div>
-									)
-								}
-							</div>
-							<h1>{title}</h1>
-						</div>
-						{description && <p class="deck">{description}</p>}
+				<section class="post-hero">
+					<div class="meta-row">
+						<span class="date"><FormattedDate date={pubDate} /></span>
+						{readTime && <span class="read-time">{readTime} min read</span>}
+						{tags.map((tag) => (
+							<span class="tag-chip" data-tag={tag}>{tag}</span>
+						))}
+						{
+							updatedDate && (
+								<span class="last-updated-on">
+									Updated <FormattedDate date={updatedDate} />
+								</span>
+							)
+						}
 					</div>
+					<h1>{title}</h1>
+					{description && <p class="deck">{description}</p>}
 					{heroImage && (
 						<div class="hero-image">
 							<Image width={1020} height={510} src={heroImage} alt={title + ' - Hero Image'} />

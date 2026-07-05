@@ -2,6 +2,7 @@
 title: 'I Finally Published Real Estate Manager'
 description: 'After building it over the holidays, my property management app for small landlords is officially out. Here is what it does and why I built it.'
 pubDate: 'Jan 30 2026'
+tags: ['apps', 'rentals']
 ---
 
 It's live. Real Estate Manager - the property management app I built over the holidays - is officially published.

@@ -2,6 +2,7 @@
 title: 'A Good Week at Work, Good Progress, and Birthday Party Weekends'
 description: 'A strong week at work, progress on projects, Grayson having a few birthday parties, and some good time with friends'
 pubDate: 'May 18 2026'
+tags: ['work', 'family']
 heroImage: '../../assets/rose-week-hero.svg'
 ---
 

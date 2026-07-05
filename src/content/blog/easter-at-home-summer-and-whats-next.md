@@ -2,6 +2,7 @@
 title: 'Easter at Home, Summer Energy, and Building What’s Next'
 description: 'Easter at home with the family, work and projects moving well, getting more active, the kids counting down to summer, and a new app plus OnCallAgentAdvisorService in progress'
 pubDate: 'Apr 09 2026'
+tags: ['family', 'faith', 'apps']
 heroImage: '../../assets/easter-at-home-2026.jpg'
 ---
 

@@ -2,6 +2,7 @@
 title: 'Catalyst, Church, and Super Bowl Sunday: February Check-in'
 description: 'Shipped my 3rd iOS app, productive week at work, family time, a church lesson that hit different, and Super Bowl BBQ with the whole crew'
 pubDate: 'Feb 08 2026'
+tags: ['apps', 'family', 'faith']
 heroImage: '../../assets/scripture-productivity.svg'
 ---
 

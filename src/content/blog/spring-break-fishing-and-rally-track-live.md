@@ -2,6 +2,7 @@
 title: 'Spring Break: Fishing, Family, and Rally Track Goes Live'
 description: 'Taking a breath during spring break — fishing with the kids, enjoying Tres Lagos, and celebrating Rally Track hitting the App Store'
 pubDate: 'Mar 19 2026'
+tags: ['family', 'apps']
 heroImage: '../../assets/jesus-fish.jpg'
 ---
 

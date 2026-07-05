@@ -2,6 +2,7 @@
 title: 'Shipping Season: Bean Hunt and Rally Track Hit the App Store'
 description: 'Two apps submitted, finding balance between work and building, and reflections on a productive but exhausting week'
 pubDate: 'Mar 15 2026'
+tags: ['apps', 'work']
 heroImage: '../../assets/blog-placeholder-4.jpg'
 ---
 

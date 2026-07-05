@@ -2,6 +2,7 @@
 title: 'Week One: Back to Building'
 description: 'First week back in 2026 - setting up systems, AI assistance, and getting organized'
 pubDate: 'Jan 06 2026'
+tags: ['ai', 'work']
 heroImage: '../../assets/ai-hero.jpg'
 ---
 

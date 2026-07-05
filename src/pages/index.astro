@@ -6,11 +6,17 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { NOW_BUILDING, apps } from '../data/apps';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const latest = posts.slice(0, 4);
+const latest = posts.slice(0, 5);
+const firstPost = posts[posts.length - 1];
+const writingSince = firstPost.data.pubDate.toLocaleDateString('en-US', {
+	month: 'short',
+	year: 'numeric',
+});
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const withBase = (path: string) => `${base}${path}`;
 ---
@@ -23,47 +29,95 @@ const withBase = (path: string) => `${base}${path}`;
 	<body>
 		<Header />
 		<main>
-			<section class="hero stagger">
-				<div class="hero-box">
-					<p class="kicker">Hi, welcome</p>
-					<h1 class="hero-title">A running log of building, learning, and work in progress.</h1>
+			<section class="bento stagger" aria-label="Overview">
+				<div class="tile tile-intro">
+					<p class="kicker">McAllen, Texas</p>
+					<h1>Hi, I'm Randall. I build iOS apps and write about it every week.</h1>
 					<p class="lead">
-						Short notes on coding, AI experiments, rentals, and work. I aim for clarity, not volume.
+						By day I work in tech; nights and weekends I ship apps, manage rentals in South
+						Texas, and log it all here — the wins, the setbacks, and the family life in between.
 					</p>
 					<div class="hero-actions">
-						<a class="button" href={withBase('/blog')}>Posts</a>
-						<a class="button secondary" href={withBase('/about')}>About</a>
+						<a class="button" href={withBase('/blog')}>Read the log</a>
+						<a class="button secondary" href="#apps">See the apps</a>
 					</div>
+				</div>
+				<div class="tile tile-stat tile-accent">
+					<span class="stat-num">{apps.length}</span>
+					<p class="stat-label">apps live on the App Store</p>
+				</div>
+				<div class="tile tile-stat">
+					<span class="stat-num">{posts.length}</span>
+					<p class="stat-label">posts, writing since {writingSince}</p>
+				</div>
+				<div class="tile tile-stat tile-purple tile-now tile-wide">
+					<p class="tile-kicker">Now building</p>
+					<p class="tile-big">{NOW_BUILDING.name}</p>
+					<p style="margin: 0; font-size: 0.92rem;">{NOW_BUILDING.note}</p>
 				</div>
 			</section>
 
-			<section class="section-spaced">
-				<p class="section-title">Latest</p>
+			<section class="section-spaced" aria-label="Latest posts">
+				<div class="section-head">
+					<p class="section-title">Latest from the log</p>
+					<a class="section-more" href={withBase('/blog')}>All posts →</a>
+				</div>
 				<ul class="post-list">
 					{latest.map((post) => (
-						<li class:list={['post-item', post.data.heroImage ? 'post-item-has-thumb' : 'post-item-no-thumb']}>
-							<div class="post-item-text">
-								<div class="post-meta">
-									<FormattedDate date={post.data.pubDate} />
+						<li>
+							<div class="post-row">
+								<div class="post-row-text">
+									<div class="post-meta">
+										<FormattedDate date={post.data.pubDate} />
+										{post.data.tags.map((tag) => (
+											<span class="tag-chip" data-tag={tag}>{tag}</span>
+										))}
+									</div>
+									<h2 class="post-title">
+										<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
+											{post.data.title}
+										</a>
+									</h2>
+									{post.data.description && <p class="post-summary">{post.data.description}</p>}
 								</div>
-								<h2 class="post-title">
-									<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
-										{post.data.title}
+								{post.data.heroImage ? (
+									<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
+										<Image width={180} height={130} src={post.data.heroImage} alt="" />
 									</a>
-								</h2>
-								{post.data.description && <p class="post-summary">{post.data.description}</p>}
+								) : (
+									<span class="post-thumb" aria-hidden="true">
+										<span class="post-thumb-fallback">{post.data.title.charAt(0)}</span>
+									</span>
+								)}
 							</div>
-							{post.data.heroImage && (
-								<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
-									<Image width={180} height={130} src={post.data.heroImage} alt="" />
-								</a>
-							)}
 						</li>
 					))}
 				</ul>
-				<div style="margin-top: 1.5rem;">
-					<a class="post-link" href={withBase('/blog')}>All posts →</a>
+			</section>
+
+			<section class="section-spaced" id="apps" aria-label="My apps">
+				<div class="section-head">
+					<p class="section-title">Apps I've shipped</p>
+					<a
+						class="section-more"
+						href="https://apps.apple.com/us/developer/randy-torres/id1871953838"
+						target="_blank"
+						rel="noopener">All on the App Store →</a
+					>
 				</div>
+				<ul class="apps-grid">
+					{apps.map((app) => (
+						<li>
+							<a class="app-card" href={app.url} target="_blank" rel="noopener">
+								<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
+								<span class="app-card-text">
+									<span class="app-name">{app.name}</span>
+									<span class="app-tagline">{app.tagline}</span>
+								</span>
+							</a>
+						</li>
+					))}
+				</ul>
 			</section>
 		</main>
 		<Footer />

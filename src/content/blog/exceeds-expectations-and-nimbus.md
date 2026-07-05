@@ -2,6 +2,7 @@
 title: 'Exceeds Expectations and Building Nimbus'
 description: '2025 performance review landed well, and now building an enterprise AI assistant inspired by Clawdbot'
 pubDate: 'Jan 14 2026'
+tags: ['work', 'ai']
 heroImage: '../../assets/nimbus-cloud.svg'
 ---
 

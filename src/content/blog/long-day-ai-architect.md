@@ -2,6 +2,7 @@
 title: 'Back-to-Back Calls and a New AI Hat'
 description: 'Long workday, new AI architect role, kids back in school, and Clawdbot PR #435 landed'
 pubDate: 'Jan 08 2026'
+tags: ['work', 'ai']
 heroImage: '../../assets/github-lobster-cloud.svg'
 ---
 

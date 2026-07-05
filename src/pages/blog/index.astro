@@ -10,6 +10,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const withBase = (path: string) => `${base}${path}`;
 ---
@@ -17,36 +18,71 @@ const withBase = (path: string) => `${base}${path}`;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Posts — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section>
-				<h1 class="page-title">Writing</h1>
-				<p class="page-desc">Notes on code, building, and life in South Texas.</p>
-				<ul class="post-list">
+				<h1 class="page-title">The log</h1>
+				<p class="page-desc">
+					Weekly notes on shipping apps, work, rentals, family, and faith in South Texas.
+				</p>
+				<div class="tag-filter" role="group" aria-label="Filter posts by topic">
+					<button type="button" data-filter="all" aria-pressed="true">All ({posts.length})</button>
+					{allTags.map((tag) => (
+						<button type="button" data-filter={tag} aria-pressed="false">
+							{tag} ({posts.filter((p) => p.data.tags.includes(tag)).length})
+						</button>
+					))}
+				</div>
+				<ul class="post-list" id="post-list">
 					{posts.map((post) => (
-						<li class="post-item">
-							<a class="post-card" href={withBase(`/blog/${post.id}/`)}>
-								{post.data.heroImage && (
-									<div class="post-media">
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									</div>
-								)}
-								<div class="post-card-body">
+						<li data-tags={post.data.tags.join(' ')}>
+							<div class="post-row">
+								<div class="post-row-text">
 									<div class="post-meta">
 										<FormattedDate date={post.data.pubDate} />
+										{post.data.tags.map((tag) => (
+											<span class="tag-chip" data-tag={tag}>{tag}</span>
+										))}
 									</div>
-									<h2 class="post-title">{post.data.title}</h2>
-									{post.data.description && <p class="post-excerpt">{post.data.description}</p>}
+									<h2 class="post-title">
+										<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
+											{post.data.title}
+										</a>
+									</h2>
+									{post.data.description && <p class="post-summary">{post.data.description}</p>}
 								</div>
-							</a>
+								{post.data.heroImage ? (
+									<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
+										<Image width={180} height={130} src={post.data.heroImage} alt="" />
+									</a>
+								) : (
+									<span class="post-thumb" aria-hidden="true">
+										<span class="post-thumb-fallback">{post.data.title.charAt(0)}</span>
+									</span>
+								)}
+							</div>
 						</li>
 					))}
 				</ul>
 			</section>
 		</main>
 		<Footer />
+		<script>
+			const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-filter button');
+			const items = document.querySelectorAll<HTMLLIElement>('#post-list > li');
+			buttons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const filter = button.dataset.filter;
+					buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+					items.forEach((item) => {
+						const tags = (item.dataset.tags || '').split(' ');
+						item.style.display = filter === 'all' || tags.includes(filter!) ? '' : 'none';
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

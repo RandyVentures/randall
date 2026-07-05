@@ -2,6 +2,7 @@
 title: 'Friday Calls, SPX Screens, and a Small Detour'
 description: 'Back-to-back meetings, design pressure, a couple SPX wins, and a shift toward Codex'
 pubDate: 'Jan 10 2026'
+tags: ['work']
 heroImage: '../../assets/spx-screen.svg'
 ---
 

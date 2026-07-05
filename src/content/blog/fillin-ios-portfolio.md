@@ -2,6 +2,7 @@
 title: 'Fillin: Building an iOS Portfolio One Game at a Time'
 description: 'Wordle-inspired word game, Figma design workflow, and the portfolio strategy behind shipping apps regularly'
 pubDate: 'Feb 03 2026'
+tags: ['apps']
 heroImage: '../../assets/fillin-underline.svg'
 ---
 

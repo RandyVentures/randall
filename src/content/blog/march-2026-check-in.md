@@ -2,6 +2,7 @@
 title: 'Slopes, Setbacks, and Letting Go: March 2026 Check-in'
 description: 'Moved to Tres Lagos, team ski trip with work, learning to treat anxiety differently, and handling Fillin app setbacks with more grace'
 pubDate: 'Mar 01 2026'
+tags: ['family', 'work', 'apps']
 heroImage: '../../assets/march-2026-skiing.jpg'
 ---
 

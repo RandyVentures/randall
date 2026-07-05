@@ -2,6 +2,7 @@
 title: 'Getting Better, Swamped at Work, and a Summer Birthday on the Books'
 description: 'Recovering from being sick, getting buried at work, replacing an A/C at the Alton apartment, enjoying time with the kids, and locking in a beach Airbnb for a birthday trip this summer'
 pubDate: 'May 03 2026'
+tags: ['work', 'rentals', 'family']
 heroImage: '../../assets/summer-birthday-beach-2026.jpg'
 ---
 

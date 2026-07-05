@@ -2,6 +2,7 @@
 title: 'Summer Is Here, Square Sweep Is Live, and a Big June Ahead'
 description: 'Kids out of school, a new app shipped, church every Sunday, a go-live date locked in, and a birthday beach trip on the horizon.'
 pubDate: 'Jun 05 2026'
+tags: ['apps', 'family', 'faith']
 heroImage: '../../assets/summer-birthday-beach-2026.jpg'
 ---
 

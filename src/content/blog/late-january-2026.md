@@ -2,6 +2,7 @@
 title: 'Shipping Code, Unclogging Pipes: Late January Check-in'
 description: 'iOS app finally launched on my phone, rental property surprises, and balancing the work grind with ski trip dreams'
 pubDate: 'Jan 28 2026'
+tags: ['apps', 'rentals', 'work']
 heroImage: '../../assets/snow-mountains.jpg'
 ---
 

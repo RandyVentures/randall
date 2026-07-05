@@ -2,6 +2,7 @@
 title: 'Settling In: Birthday Parties, New Games, and Bean Hunt Begins'
 description: 'Getting comfortable at Tres Lagos, celebrating with family, shipping a new game, and starting work on Bean Hunt — a coffee discovery app'
 pubDate: 'Mar 09 2026'
+tags: ['family', 'apps']
 heroImage: '../../assets/bean-hunt-hero.svg'
 ---
 

@@ -38,7 +38,9 @@ const withBase = (path: string) => `${base}${path}`;
 	</div>
 	<nav class="footer-nav" aria-label="Footer">
 		<a href={withBase('/blog')}>Posts</a>
+		<a href={withBase('/#apps')}>Apps</a>
 		<a href={withBase('/about')}>About</a>
+		<a href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">App Store</a>
 	</nav>
 	<div class="footer-copy">&copy; {today.getFullYear()} Randall Ventures. All rights reserved.</div>
 </footer>

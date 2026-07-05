@@ -2,6 +2,7 @@
 title: 'Adding Telegram Topics Support to Clawdbot'
 description: 'Contributing forum/topics support to Clawdbot so my AI assistant can actually track different conversations in group chats'
 pubDate: 'Jan 07 2026'
+tags: ['ai']
 heroImage: '../../assets/telegram-clawdbot-hero.jpg'
 ---
 
