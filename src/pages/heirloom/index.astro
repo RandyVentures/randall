@@ -1,0 +1,28 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Heirloom: Old Letter Reader"
+      description="Support and privacy information for Heirloom: Old Letter Reader."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Heirloom: Old Letter Reader</h1>
+      <p>Official support and privacy information for the Heirloom iOS app.</p>
+      <p>
+        <a href={import.meta.env.BASE_URL + '/heirloom/support'}>Support</a>
+        ·
+        <a href={import.meta.env.BASE_URL + '/heirloom/privacy'}>Privacy Policy</a>
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>

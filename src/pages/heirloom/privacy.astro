@@ -17,7 +17,7 @@ import Header from '../../components/Header.astro';
     <main>
       <article class="policy tile">
         <h1>Heirloom Privacy Policy</h1>
-        <p class="date"><strong>Effective:</strong> July 18, 2026</p>
+        <p class="date"><strong>Effective:</strong> July 19, 2026</p>
 
         <p>
           Heirloom: Old Letter Reader helps you transcribe photographs of handwritten letters.
@@ -49,12 +49,18 @@ import Header from '../../components/Header.astro';
         <h2>Storage and retention</h2>
         <p>
           Letter images and generated text are saved locally in the app's private storage so they
-          can appear in your library. Heirloom's backend processes letter images in memory and
-          does not write them to persistent storage. Google processes submitted images and
-          prompts to return the transcription under the terms governing its API. Hashed
-          anti-abuse records remain on the service for as long as needed to preserve the
-          free-scan and integrity rules. Hosting logs are retained according to the hosting
-          provider's operational retention settings.
+          can appear in your library. The local library uses iOS file protection and is not
+          uploaded by Heirloom for library synchronization. Heirloom's backend processes letter
+          images in memory and does not write them to persistent storage. Google processes
+          submitted images and prompts to return the transcription under the terms governing its
+          Gemini API plan. While Heirloom uses Google's Free tier, Google may use submitted
+          content and generated responses to provide, improve, and develop its products and
+          machine-learning technologies. If Heirloom moves to a Paid Gemini API plan, Google
+          states that prompts and responses are not used to improve its products, subject to
+          Google's applicable terms and abuse-monitoring practices. Hashed anti-abuse records
+          remain on the service for as long as needed to preserve the free-scan and integrity
+          rules. Hosting logs are retained according to the hosting provider's operational
+          retention settings.
         </p>
 
         <h2>Service providers</h2>
