@@ -1,0 +1,123 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Heirloom Privacy Policy"
+      description="Privacy Policy for Heirloom: Old Letter Reader."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="policy tile">
+        <h1>Heirloom Privacy Policy</h1>
+        <p class="date"><strong>Effective:</strong> July 18, 2026</p>
+
+        <p>
+          Heirloom: Old Letter Reader helps you transcribe photographs of handwritten letters.
+          This policy explains the information used to provide that service.
+        </p>
+
+        <h2>Information Heirloom processes</h2>
+        <ul>
+          <li>
+            <strong>Letter images and text.</strong> Pages you scan or select, along with an
+            optional language hint, are sent to Heirloom's service and Google's Gemini API to
+            create the transcript, modernized text, translation, title, and confidence score.
+          </li>
+          <li>
+            <strong>Purchase information.</strong> Apple processes purchases. RevenueCat
+            processes an app-specific customer identifier and subscription status so Heirloom
+            can determine whether the full service is unlocked.
+          </li>
+          <li>
+            <strong>App integrity and service metadata.</strong> Apple App Attest supplies a
+            cryptographic app-installation assertion. The service retains hashed identifiers
+            needed to prevent replay, enforce the one-time scan, and limit requests. Operational
+            logs can include a hashed installation identifier, page count, processing time,
+            model and prompt versions, and token counts. They do not include letter images or
+            transcript text.
+          </li>
+        </ul>
+
+        <h2>Storage and retention</h2>
+        <p>
+          Letter images and generated text are saved locally in the app's private storage so they
+          can appear in your library. Heirloom's backend processes letter images in memory and
+          does not write them to persistent storage. Google processes submitted images and
+          prompts to return the transcription under the terms governing its API. Hashed
+          anti-abuse records remain on the service for as long as needed to preserve the
+          free-scan and integrity rules. Hosting logs are retained according to the hosting
+          provider's operational retention settings.
+        </p>
+
+        <h2>Service providers</h2>
+        <p>
+          Heirloom uses Apple for App Attest and in-app purchases, RevenueCat for subscription
+          management, Google Gemini for handwriting transcription, and Render for API hosting.
+          These providers process information only for their respective service functions and
+          under their own privacy terms.
+        </p>
+
+        <h2>Tracking and advertising</h2>
+        <p>
+          Heirloom does not sell personal information, display third-party advertising, or track
+          you across other companies' apps and websites.
+        </p>
+
+        <h2>Your choices</h2>
+        <p>
+          You choose which images to submit. Removing Heirloom and its app data removes the
+          locally stored letter library. Subscription management and cancellation are available
+          through your Apple account settings.
+        </p>
+
+        <h2>Security</h2>
+        <p>
+          Heirloom uses HTTPS, App Attest request verification, short-lived one-time challenges,
+          replay counters, server-side secret storage, and request limits. No internet service
+          can guarantee absolute security.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          Heirloom is not directed to children under 13, and we do not knowingly collect personal
+          information from children under 13.
+        </p>
+
+        <h2>Changes and contact</h2>
+        <p>
+          This policy may be updated as the service changes. The effective date above identifies
+          the latest version. Questions or privacy requests can be sent to
+          <a href="mailto:randyventures06@gmail.com">randyventures06@gmail.com</a>.
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .policy li + li {
+    margin-top: 0.75rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
