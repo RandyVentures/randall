@@ -470,6 +470,73 @@ hr {
 	font-size: 0.9rem;
 	font-weight: 600;
 }
+.section-note {
+	font-size: 0.85rem;
+	color: var(--ink-muted);
+}
+.story-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+}
+.story-card {
+	min-height: 240px;
+	padding: 1.45rem 1.5rem;
+	border-radius: var(--radius-tile);
+	border: 1px solid transparent;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.story-card h2 {
+	font-size: 1.45rem;
+	margin: 0.25rem 0 0.7rem;
+}
+.story-card p {
+	margin: 0;
+	font-size: 0.93rem;
+	line-height: 1.55;
+}
+.story-card a {
+	margin-top: 1.2rem;
+	font-weight: 650;
+	font-size: 0.9rem;
+}
+.story-kicker {
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 0.7rem !important;
+	font-weight: 700;
+	color: var(--ink-muted);
+}
+.story-card-ai {
+	background: var(--accent-tile);
+	color: var(--on-accent);
+}
+.story-card-ai h2,
+.story-card-ai a {
+	color: var(--on-accent);
+}
+.story-card-ai p,
+.story-card-ai .story-kicker {
+	color: color-mix(in srgb, var(--on-accent) 75%, transparent);
+}
+.story-card-wealth {
+	background: var(--purple-tile);
+	color: var(--on-purple);
+}
+.story-card-wealth h2,
+.story-card-wealth a {
+	color: var(--on-purple);
+}
+.story-card-wealth p,
+.story-card-wealth .story-kicker {
+	color: color-mix(in srgb, var(--on-purple) 75%, transparent);
+}
+.story-card-life {
+	background: var(--tile);
+	border-color: var(--line);
+}
 
 .post-list {
 	list-style: none;
@@ -882,6 +949,9 @@ hr {
 	}
 	.site-tagline {
 		display: none;
+	}
+	.story-grid {
+		grid-template-columns: 1fr;
 	}
 	.post-row {
 		padding: 0.9rem 1rem;

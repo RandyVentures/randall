@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Randall';
 export const SITE_DESCRIPTION =
-	'Randall builds iOS apps and manages rentals in South Texas — a weekly log of shipping, learning, and family life.';
+	'Randall Torres builds technology, wealth, and a meaningful family life — a public log of AI, apps, real estate, faith, and learning.';

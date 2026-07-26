@@ -31,15 +31,16 @@ const withBase = (path: string) => `${base}${path}`;
 		<main>
 			<section class="bento stagger" aria-label="Overview">
 				<div class="tile tile-intro">
-					<p class="kicker">McAllen, Texas</p>
-					<h1>Hi, I'm Randall. I build iOS apps and write about it every week.</h1>
+					<p class="kicker">McAllen, Texas · Building in public</p>
+					<h1>Hi, I'm Randall. I’m building technology, wealth, and a meaningful family life.</h1>
 					<p class="lead">
-						By day I work in tech; nights and weekends I ship apps, manage rentals in South
-						Texas, and log it all here — the wins, the setbacks, and the family life in between.
+						By day I’m a principal engineer and AI architect. Nights and weekends I ship apps,
+						manage rentals in South Texas, and build systems that help my family enjoy the journey
+						while creating more freedom for the future.
 					</p>
 					<div class="hero-actions">
 						<a class="button" href={withBase('/blog')}>Read the log</a>
-						<a class="button secondary" href="#apps">See the apps</a>
+						<a class="button secondary" href="#systems">See what I’m building</a>
 					</div>
 				</div>
 				<div class="tile tile-stat tile-accent">
@@ -54,6 +55,33 @@ const withBase = (path: string) => `${base}${path}`;
 					<p class="tile-kicker">Now building</p>
 					<p class="tile-big">{NOW_BUILDING.name}</p>
 					<p style="margin: 0; font-size: 0.92rem;">{NOW_BUILDING.note}</p>
+				</div>
+			</section>
+
+			<section class="section-spaced" id="systems" aria-label="What I am building around">
+				<div class="section-head">
+					<p class="section-title">The work behind the work</p>
+					<span class="section-note">A life built in public</span>
+				</div>
+				<div class="story-grid">
+					<article class="story-card story-card-ai">
+						<p class="story-kicker">01 · Leverage</p>
+						<h2>AI that does real work</h2>
+						<p>I use AI to investigate systems, build products, automate decisions, and turn one engineer’s effort into more useful output.</p>
+						<a href={withBase('/blog')}>Read the experiments →</a>
+					</article>
+					<article class="story-card story-card-wealth">
+						<p class="story-kicker">02 · Freedom</p>
+						<h2>Apps, rentals, and better bets</h2>
+						<p>I’m building income beyond a paycheck through software, real estate, and careful decisions that protect the family foundation.</p>
+						<a href={withBase('/#apps')}>See what has shipped →</a>
+					</article>
+					<article class="story-card story-card-life">
+						<p class="story-kicker">03 · The reason</p>
+						<h2>Family, faith, and staying present</h2>
+						<p>Ambition only matters if it helps me show up better for Dora, the kids, and the life we are actually living now.</p>
+						<a href={withBase('/about')}>Read the story →</a>
+					</article>
 				</div>
 			</section>
 
