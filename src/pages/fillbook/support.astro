@@ -1,0 +1,127 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Fillbook Support"
+      description="Support information for Fillbook: Trading Journal."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero support-hero">
+        <div class="hero-box">
+          <p class="kicker">Fillbook · Trading Journal</p>
+          <h1 class="hero-title">A clearer record of every trade.</h1>
+          <p class="lead">
+            Need help importing a broker export, understanding a position, or managing your
+            subscription? We’re here to help.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:randyventures06@gmail.com">Email support</a>
+            <a class="button secondary" href={import.meta.env.BASE_URL + '/fillbook/privacy'}>
+              Privacy policy
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="support-grid">
+        <section class="tile tile-accent">
+          <p class="tile-kicker">Contact</p>
+          <h2>Reach Randall Ventures.</h2>
+          <p>
+            Email <a href="mailto:randyventures06@gmail.com">randyventures06@gmail.com</a> and
+            include your device model, operating system version, and a short description of what
+            happened.
+          </p>
+        </section>
+
+        <section class="tile">
+          <p class="tile-kicker">Before you write</p>
+          <h2>Helpful details</h2>
+          <ul>
+            <li>Which screen you were using</li>
+            <li>The broker export format, if importing</li>
+            <li>Any error message shown by the app</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .support-hero {
+    padding-top: 0;
+  }
+
+  .support-hero .hero-box {
+    background: var(--accent-tile);
+    border-color: transparent;
+    box-shadow: var(--shadow-1);
+  }
+
+  .support-hero .kicker,
+  .support-hero .hero-title {
+    color: var(--on-accent);
+  }
+
+  .support-hero .lead {
+    color: color-mix(in srgb, var(--on-accent) 76%, transparent);
+    max-width: 42rem;
+  }
+
+  .support-hero .button {
+    background: var(--on-accent);
+    color: var(--accent-tile);
+  }
+
+  .support-hero .button.secondary {
+    background: transparent;
+    color: var(--on-accent);
+    border-color: color-mix(in srgb, var(--on-accent) 35%, transparent);
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 14px;
+  }
+
+  .support-grid h2 {
+    font-size: 1.45rem;
+  }
+
+  .support-grid p,
+  .support-grid li {
+    color: color-mix(in srgb, var(--on-accent) 76%, transparent);
+  }
+
+  .support-grid > .tile:not(.tile-accent) p,
+  .support-grid > .tile:not(.tile-accent) li {
+    color: var(--ink-muted);
+  }
+
+  .support-grid ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .support-grid li + li {
+    margin-top: 0.55rem;
+  }
+
+  @media (max-width: 760px) {
+    .support-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
