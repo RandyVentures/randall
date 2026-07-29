@@ -1,0 +1,87 @@
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Fillbook Privacy Policy"
+      description="Privacy Policy for Fillbook: Trading Journal."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="policy tile">
+        <h1>Fillbook Privacy Policy</h1>
+        <p class="date"><strong>Last updated:</strong> July 28, 2026</p>
+
+        <p>
+          Fillbook is a local-first trading journal for options and futures traders. This policy
+          explains what information Fillbook stores and which services help provide its features.
+        </p>
+
+        <h2>Data stored by Fillbook</h2>
+        <p>
+          When you import a broker export, Fillbook stores the fills and journal data needed to
+          group positions, evaluate your rules, and display your review history. This data is
+          stored on your device. Fillbook does not require a broker login and does not transmit
+          broker credentials.
+        </p>
+        <p>
+          If iCloud sync is enabled in a future release, Apple CloudKit may synchronize your
+          Fillbook journal between devices using the iCloud account you select. Fillbook does not
+          sell your journal data or use it for advertising.
+        </p>
+
+        <h2>Purchases</h2>
+        <p>
+          In-app purchases are processed by Apple. RevenueCat is used as the subscription service
+          layer to load products, process entitlement state, and restore purchases. RevenueCat
+          receives purchase history and an anonymous app user identifier so it can validate
+          purchases, prevent fraud, and provide subscription analytics. Fillbook does not receive
+          or store your payment card information, and it does not attach purchases to your name,
+          email address, or another account.
+        </p>
+
+        <h2>Analytics and advertising</h2>
+        <p>
+          Fillbook does not include third-party advertising or cross-app tracking. RevenueCat may
+          use purchase history for subscription analytics and entitlement functionality. Imported
+          fills, notes, rules, and position data are not transmitted for analytics.
+        </p>
+
+        <h2>Your choices</h2>
+        <p>
+          You choose which broker exports to import. You can manage subscriptions through your
+          Apple account settings, and removing Fillbook and its app data removes the locally stored
+          journal from that device.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For support or privacy questions, open an issue in the
+          <a href="https://github.com/RandyVentures/Fillbook">Fillbook repository</a>.
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
