@@ -1,0 +1,113 @@
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="OwnTake Privacy Policy"
+      description="Privacy Policy for OwnTake."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="policy tile">
+        <p class="tile-kicker">OwnTake</p>
+        <h1>Privacy Policy</h1>
+        <p class="date"><strong>Last updated:</strong> August 2, 2026</p>
+
+        <p>
+          OwnTake helps you study the structure of short-form videos and make original remixes
+          with footage you own or are allowed to use. This initial policy is a placeholder for the
+          public beta and will be updated after final legal review.
+        </p>
+
+        <h2>Information OwnTake processes</h2>
+        <ul>
+          <li>
+            <strong>Account and library data.</strong> OwnTake uses an app account identifier,
+            preferences, saved formats, and project metadata to sync your library and provide the
+            service.
+          </li>
+          <li>
+            <strong>Video and audio files.</strong> Reference videos and your own footage are
+            processed only when you choose them and confirm that you own them or have permission
+            to use them. Working copies may be uploaded temporarily to provide analysis and
+            remix generation.
+          </li>
+          <li>
+            <strong>Purchase information.</strong> Apple processes purchases. RevenueCat helps
+            validate subscription status and restore access using an app-specific customer
+            identifier. OwnTake does not receive your payment card information.
+          </li>
+          <li>
+            <strong>Service metadata.</strong> The service may retain job status, media dimensions,
+            duration, model and prompt versions, token counts, timing, usage reservations, and
+            error metadata. Logs are designed not to contain video, audio, transcripts, signed
+            URLs, or access tokens.
+          </li>
+        </ul>
+
+        <h2>How media is handled</h2>
+        <p>
+          OwnTake analyzes derived structure rather than copying a source creator's footage,
+          script, branding, or audio. Reference working files are deleted after processing and are
+          subject to a one-day storage backstop. Completed server renders are temporary and expire
+          after the app downloads a local copy, with a seven-day storage backstop. Your local
+          library and downloaded remixes remain on your device until you remove them.
+        </p>
+
+        <h2>Service providers</h2>
+        <p>
+          OwnTake uses Apple and StoreKit for platform services and purchases, RevenueCat for
+          subscription management, Render and PostgreSQL for hosted service operations, Cloudflare
+          R2 for private temporary media storage, and Google's Gemini API for paid AI analysis and
+          remix planning. These providers process information under their own applicable terms.
+        </p>
+
+        <h2>What OwnTake does not do</h2>
+        <p>
+          OwnTake does not download or scrape videos from Instagram, TikTok, YouTube, or other
+          third-party platforms. Shared links are not treated as permission to copy or analyze
+          third-party media.
+        </p>
+
+        <h2>Your choices</h2>
+        <ul>
+          <li>You choose which files to import and submit.</li>
+          <li>You can manage subscriptions through your Apple account settings.</li>
+          <li>You can request account or data deletion by contacting support.</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>
+          For privacy questions or deletion requests, email
+          <a href="mailto:randyventures06@gmail.com">randyventures06@gmail.com</a>.
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .policy li + li {
+    margin-top: 0.75rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
