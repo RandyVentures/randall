@@ -3,8 +3,10 @@ import beanHunt from '../assets/apps/bean-hunt.jpg';
 import catalyst from '../assets/apps/catalyst.jpg';
 import colorFlood from '../assets/apps/color-flood.jpg';
 import familyStop from '../assets/apps/familystop.jpg';
+import fillbook from '../assets/apps/fillbook.png';
 import fillin from '../assets/apps/fillin.jpg';
 import gulp from '../assets/apps/gulp.jpg';
+import heirloom from '../assets/apps/heirloom.png';
 import rally from '../assets/apps/rally.jpg';
 import realEstateManager from '../assets/apps/real-estate-manager.jpg';
 import squareSweep from '../assets/apps/square-sweep.jpg';
@@ -19,6 +21,20 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'Heirloom',
+		tagline: 'Read and preserve old letters',
+		category: 'Utilities',
+		url: 'https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170',
+		icon: heirloom,
+	},
+	{
+		name: 'Fillbook',
+		tagline: 'Trading journal and review',
+		category: 'Finance',
+		url: 'https://apps.apple.com/us/app/fillbook-trading-journal/id6795599230',
+		icon: fillbook,
+	},
 	{
 		name: 'FamilyStop',
 		tagline: 'Family restrooms and stops',
