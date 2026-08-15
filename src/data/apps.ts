@@ -4,7 +4,7 @@ import catalyst from '../assets/apps/catalyst.jpg';
 import colorFlood from '../assets/apps/color-flood.jpg';
 import familyStop from '../assets/apps/familystop.jpg';
 import fillbook from '../assets/apps/fillbook.png';
-import fillin from '../assets/apps/fillin.jpg';
+import fillin from '../assets/apps/fillin.png';
 import gulp from '../assets/apps/gulp.jpg';
 import heirloom from '../assets/apps/heirloom.png';
 import rally from '../assets/apps/rally.jpg';
