@@ -39,7 +39,7 @@ export const apps: AppEntry[] = [
 		name: 'FamilyStop',
 		tagline: 'Family restrooms and stops',
 		category: 'Lifestyle',
-		url: 'https://apps.apple.com/us/app/familystop/id6782247307',
+		url: 'https://apps.apple.com/us/app/familystop-family-restrooms/id6782247307',
 		icon: familyStop,
 	},
 	{
@@ -95,14 +95,14 @@ export const apps: AppEntry[] = [
 		name: 'Fillin',
 		tagline: 'Daily fill-in-the-blank word game',
 		category: 'Games',
-		url: 'https://apps.apple.com/us/app/fillin-word-brain-puzzle-game/id6758643692',
+		url: 'https://apps.apple.com/us/app/fillin-guess-the-missing-word/id6758643692',
 		icon: fillin,
 	},
 	{
 		name: 'Real Estate Manager',
 		tagline: 'Property management for small landlords',
 		category: 'Finance',
-		url: 'https://apps.apple.com/us/app/real-estate-manager-home/id6758280423',
+		url: 'https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423',
 		icon: realEstateManager,
 	},
 ];
@@ -110,5 +110,5 @@ export const apps: AppEntry[] = [
 export const NOW_BUILDING = {
 	name: 'FamilyStop',
 	note: 'Growing FamilyStop — helping parents find family restrooms and stops on the go.',
-	url: 'https://apps.apple.com/us/app/familystop/id6782247307',
+	url: 'https://apps.apple.com/us/app/familystop-family-restrooms/id6782247307',
 };
