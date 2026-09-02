@@ -3,7 +3,7 @@ title: 'Pushing More Apps, Learning Ads, and Making Real Progress'
 description: 'More apps are getting out into the world, app growth data is finally useful, and I am learning that shipping is only half the job.'
 pubDate: 'Jul 24 2026'
 tags: ['apps', 'business', 'work']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-distribution.svg'
 ---
 
 Lately, the theme has been simple:

@@ -3,7 +3,7 @@ title: 'When to Improve an App—and When to Leave It Alone'
 description: 'A small app portfolio gets stronger when every change is tied to a real user problem, product question, or learning goal.'
 pubDate: 'Aug 23 2026'
 tags: ['apps', 'building', 'strategy']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-when-to-improve.svg'
 ---
 
 A live app does not always need another feature.

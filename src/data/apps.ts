@@ -132,6 +132,12 @@ export const apps: AppEntry[] = [
 
 export const liveApps = apps.filter((app) => app.status === 'live');
 
+/** The grid reads better split by kind than as one 13-card wall. */
+export const appGroups = [
+	{ label: 'Apps & tools', entries: apps.filter((app) => app.category !== 'Games') },
+	{ label: 'Games', entries: apps.filter((app) => app.category === 'Games') },
+].filter((group) => group.entries.length > 0);
+
 export const NOW_BUILDING = {
 	name: 'FamilyStop',
 	note: 'Growing FamilyStop — helping parents find family restrooms and stops on the go.',

@@ -3,7 +3,7 @@ title: 'The Small-App Advantage in 2026: Relevance Beats Reach'
 description: 'Small apps do not need to reach everyone. They need to reach the right person at the exact moment a problem becomes urgent.'
 pubDate: 'Jul 26 2026'
 tags: ['apps', 'business', 'ai', 'work']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-relevance-beats-reach.svg'
 ---
 
 The best growth opportunity for a small app is rarely reaching everyone.

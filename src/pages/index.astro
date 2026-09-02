@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { NOW_BUILDING, apps, liveApps } from '../data/apps';
+import { NOW_BUILDING, appGroups, liveApps } from '../data/apps';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -133,28 +133,33 @@ const withBase = (path: string) => `${base}${path}`;
 						rel="noopener">All on the App Store →</a
 					>
 				</div>
-				<ul class="apps-grid">
-					{apps.map((app) => {
-						const Card = app.url ? 'a' : 'div';
-						const linkProps = app.url
-							? { href: app.url, target: '_blank', rel: 'noopener' }
-							: {};
-						return (
-							<li>
-								<Card class="app-card" data-status={app.status} {...linkProps}>
-									<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
-									<span class="app-card-text">
-										<span class="app-name">{app.name}</span>
-										<span class="app-tagline">{app.tagline}</span>
-										{app.status === 'review' && (
-											<span class="app-status">In review</span>
-										)}
-									</span>
-								</Card>
-							</li>
-						);
-					})}
-				</ul>
+				{appGroups.map((group) => (
+					<div class="apps-group">
+						<p class="apps-group-label">{group.label}</p>
+						<ul class="apps-grid">
+							{group.entries.map((app) => {
+								const Card = app.url ? 'a' : 'div';
+								const linkProps = app.url
+									? { href: app.url, target: '_blank', rel: 'noopener' }
+									: {};
+								return (
+									<li>
+										<Card class="app-card" data-status={app.status} {...linkProps}>
+											<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
+											<span class="app-card-text">
+												<span class="app-name">{app.name}</span>
+												<span class="app-tagline">{app.tagline}</span>
+												{app.status === 'review' && (
+													<span class="app-status">In review</span>
+												)}
+											</span>
+										</Card>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				))}
 			</section>
 		</main>
 		<Footer />

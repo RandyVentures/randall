@@ -3,7 +3,7 @@ title: 'The Best App Roadmap Is a Set of Questions'
 description: 'A focused roadmap connects every feature to a real user problem, a product question, or a clear learning goal.'
 pubDate: 'Aug 28 2026'
 tags: ['apps', 'building', 'strategy']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-roadmap-questions.svg'
 ---
 
 A roadmap can become a list of features very quickly.

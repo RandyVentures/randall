@@ -3,7 +3,7 @@ title: 'The Hardest Part of a Small App Portfolio Is Staying Focused'
 description: 'A growing app portfolio needs priorities, boundaries, and shared systems—not equal attention for every product.'
 pubDate: 'Aug 14 2026'
 tags: ['apps', 'building', 'strategy']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-staying-focused.svg'
 ---
 
 Building one app is difficult. Building several apps is a different kind of difficult.

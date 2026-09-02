@@ -3,7 +3,7 @@ title: 'The Part of App Building That Starts After Submission'
 description: 'Heirloom and Fillbook are still awaiting review while the rest of the portfolio keeps learning from users and getting better.'
 pubDate: 'Jul 31 2026'
 tags: ['apps', 'building']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-after-submission.svg'
 ---
 
 Submitting an app feels like the finish line.

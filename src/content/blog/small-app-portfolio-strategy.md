@@ -3,7 +3,7 @@ title: 'A Portfolio of Small Apps Is a Strategy, Not a Collection'
 description: 'Focused apps can compound through shared infrastructure, clearer feedback loops, and disciplined product decisions.'
 pubDate: 'Aug 10 2026'
 tags: ['apps', 'building', 'strategy']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-portfolio-strategy.svg'
 ---
 
 It can look scattered from the outside: a pickleball scorekeeper, a coffee discovery app, a property-management tool, an old-letter reader, and a trading journal.

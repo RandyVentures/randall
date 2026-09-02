@@ -56,8 +56,13 @@
 	--font-serif: "Newsreader", "Georgia", serif;
 }
 
+/*
+  Dark tokens live in two places on purpose: the media query serves readers who
+  never touch the toggle, and the attribute rule lets the toggle win either way.
+  Keep the two lists in sync.
+*/
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme="light"]) {
 		--canvas: #0f1115;
 		--tile: #191c22;
 		--tile-soft: #1f232b;
@@ -90,6 +95,46 @@
 		--shadow-1: 0 10px 30px rgba(0, 0, 0, 0.35);
 		--shadow-2: 0 2px 8px rgba(0, 0, 0, 0.3);
 	}
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	--canvas: #0f1115;
+	--tile: #191c22;
+	--tile-soft: #1f232b;
+	--ink: #e9ebf1;
+	--ink-muted: #9aa1ae;
+	--line: rgba(233, 235, 241, 0.1);
+	--line-strong: rgba(233, 235, 241, 0.2);
+
+	--accent: #2fb896;
+	--accent-deep: #4cc9a9;
+	--accent-tile: #123f34;
+	--on-accent: #d5f3e8;
+	--purple: #8d84f2;
+	--purple-tile: #29245e;
+	--on-purple: #e2dffc;
+
+	--tag-apps-bg: rgba(47, 184, 150, 0.16);
+	--tag-apps-fg: #5fd4b3;
+	--tag-work-bg: rgba(93, 156, 236, 0.16);
+	--tag-work-fg: #85b7f0;
+	--tag-family-bg: rgba(236, 100, 164, 0.14);
+	--tag-family-fg: #ef94bf;
+	--tag-faith-bg: rgba(240, 180, 60, 0.14);
+	--tag-faith-fg: #e6bb63;
+	--tag-ai-bg: rgba(141, 132, 242, 0.16);
+	--tag-ai-fg: #aba4f6;
+	--tag-rentals-bg: rgba(140, 200, 90, 0.14);
+	--tag-rentals-fg: #a4d178;
+
+	--shadow-1: 0 10px 30px rgba(0, 0, 0, 0.35);
+	--shadow-2: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] {
+	color-scheme: light;
 }
 
 *,
@@ -1059,4 +1104,144 @@ a.app-card:hover {
 	padding: 1.6rem;
 	text-align: center;
 	color: var(--ink-muted);
+}
+
+/* ---------- Theme toggle ---------- */
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	margin-left: 0.2rem;
+	padding: 0;
+	border: 1px solid var(--line-strong);
+	border-radius: 999px;
+	background: var(--tile);
+	color: var(--ink-muted);
+	cursor: pointer;
+	transition: color 130ms ease, background 130ms ease;
+}
+.theme-toggle:hover {
+	color: var(--ink);
+	background: var(--tile-soft);
+}
+.theme-toggle .theme-icon-moon {
+	display: none;
+}
+.theme-toggle[aria-pressed="true"] .theme-icon-sun {
+	display: none;
+}
+.theme-toggle[aria-pressed="true"] .theme-icon-moon {
+	display: block;
+}
+
+/* ---------- Post search ---------- */
+
+.post-search {
+	margin: 0 0 1rem;
+}
+.post-search input {
+	width: 100%;
+	max-width: 420px;
+	padding: 0.7rem 1.05rem;
+	border: 1px solid var(--line-strong);
+	border-radius: 999px;
+	background: var(--tile);
+	color: var(--ink);
+	font-size: 0.95rem;
+}
+.post-search input::placeholder {
+	color: var(--ink-muted);
+}
+.result-count {
+	margin: 0 0 1rem;
+	min-height: 1.2em;
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--ink-muted);
+}
+
+/* ---------- Related reading ---------- */
+
+.related {
+	margin: 0 0 14px;
+}
+.related-heading {
+	font-size: 0.82rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--ink-muted);
+	margin: 0 0 0.7rem;
+}
+.related-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 10px;
+}
+.related-list > li {
+	display: flex;
+}
+.related-card {
+	flex: 1;
+	display: grid;
+	gap: 0.35rem;
+	align-content: start;
+	background: var(--tile);
+	border: 1px solid var(--line);
+	border-radius: var(--radius-tile);
+	padding: 1rem 1.15rem;
+	color: var(--ink);
+	transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+.related-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-1);
+	border-color: var(--line-strong);
+	color: var(--ink);
+}
+.related-title {
+	font-weight: 700;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+.related-desc {
+	font-size: 0.86rem;
+	color: var(--ink-muted);
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* ---------- Apps grouped by kind ---------- */
+
+.apps-group + .apps-group {
+	margin-top: 1.4rem;
+}
+.apps-group-label {
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-weight: 700;
+	color: var(--ink-muted);
+	margin: 0 0 0.6rem;
 }

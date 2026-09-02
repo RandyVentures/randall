@@ -28,6 +28,15 @@ const withBase = (path: string) => `${base}${path}`;
 				<p class="page-desc">
 					Weekly notes on shipping apps, work, rentals, family, and faith in South Texas.
 				</p>
+				<div class="post-search">
+					<label class="visually-hidden" for="post-search-input">Search posts</label>
+					<input
+						id="post-search-input"
+						type="search"
+						placeholder="Search posts…"
+						autocomplete="off"
+					/>
+				</div>
 				<div class="tag-filter" role="group" aria-label="Filter posts by topic">
 					<button type="button" data-filter="all" aria-pressed="true">All ({posts.length})</button>
 					{allTags.map((tag) => (
@@ -36,10 +45,14 @@ const withBase = (path: string) => `${base}${path}`;
 						</button>
 					))}
 				</div>
-				<p class="filter-empty" id="filter-empty" hidden>No posts with that tag yet.</p>
+				<p class="result-count" id="result-count" aria-live="polite"></p>
+				<p class="filter-empty" id="filter-empty" hidden>No posts match that search.</p>
 				<ul class="post-list" id="post-list">
 					{posts.map((post) => (
-						<li data-tags={post.data.tags.join(' ')}>
+						<li
+							data-tags={post.data.tags.join(' ')}
+							data-search={`${post.data.title} ${post.data.description}`.toLowerCase()}
+						>
 							<div class="post-row">
 								<div class="post-row-text">
 									<div class="post-meta">
@@ -74,22 +87,35 @@ const withBase = (path: string) => `${base}${path}`;
 		<script>
 			const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-filter button');
 			const items = document.querySelectorAll<HTMLLIElement>('#post-list > li');
+			const search = document.getElementById('post-search-input') as HTMLInputElement;
 			const empty = document.getElementById('filter-empty')!;
+			const count = document.getElementById('result-count')!;
+			const total = items.length;
 
-			function apply(filter: string) {
-				const known = [...buttons].some((b) => b.dataset.filter === filter);
-				const active = known ? filter : 'all';
-				buttons.forEach((b) =>
-					b.setAttribute('aria-pressed', String(b.dataset.filter === active)),
-				);
+			let activeTag = 'all';
+
+			function apply() {
+				const query = search.value.trim().toLowerCase();
 				let shown = 0;
 				items.forEach((item) => {
-					const tags = (item.dataset.tags || '').split(' ');
-					const visible = active === 'all' || tags.includes(active);
+					const matchesTag =
+						activeTag === 'all' || (item.dataset.tags || '').split(' ').includes(activeTag);
+					const matchesQuery = !query || (item.dataset.search || '').includes(query);
+					const visible = matchesTag && matchesQuery;
 					item.hidden = !visible;
 					if (visible) shown++;
 				});
 				empty.hidden = shown > 0;
+				count.textContent =
+					shown === total ? '' : `${shown} of ${total} post${total === 1 ? '' : 's'}`;
+			}
+
+			function setTag(tag: string) {
+				activeTag = [...buttons].some((b) => b.dataset.filter === tag) ? tag : 'all';
+				buttons.forEach((b) =>
+					b.setAttribute('aria-pressed', String(b.dataset.filter === activeTag)),
+				);
+				apply();
 			}
 
 			// Keep the tag in the URL so a filtered view can be shared and the back button works.
@@ -101,11 +127,12 @@ const withBase = (path: string) => `${base}${path}`;
 					if (filter === 'all') url.searchParams.delete('tag');
 					else url.searchParams.set('tag', filter);
 					history.pushState({}, '', url);
-					apply(filter);
+					setTag(filter);
 				});
 			});
-			window.addEventListener('popstate', () => apply(tagFromUrl()));
-			apply(tagFromUrl());
+			window.addEventListener('popstate', () => setTag(tagFromUrl()));
+			search.addEventListener('input', apply);
+			setTag(tagFromUrl());
 		</script>
 	</body>
 </html>

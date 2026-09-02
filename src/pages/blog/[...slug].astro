@@ -8,29 +8,59 @@ export async function getStaticPaths() {
 	);
 	const summary = (post?: CollectionEntry<'blog'>) =>
 		post && { id: post.id, title: post.data.title };
-	return posts.map((post, index) => ({
-		params: { slug: post.id },
-		props: {
-			post,
-			// The list runs newest first, so the older post sits after this one.
-			prevPost: summary(posts[index + 1]),
-			nextPost: summary(posts[index - 1]),
-		},
-	}));
+	return posts.map((post, index) => {
+		// The list runs newest first, so the older post sits after this one.
+		const prevPost = summary(posts[index + 1]);
+		const nextPost = summary(posts[index - 1]);
+		// The pager already links these two; repeating them here would show the same
+		// post twice on one screen.
+		const adjacent = new Set([post.id, prevPost?.id, nextPost?.id]);
+		return {
+			params: { slug: post.id },
+			props: {
+				post,
+				prevPost,
+				nextPost,
+				// Closest neighbours by shared tags, most overlap first, newest breaking ties.
+				related: posts
+					.filter((other) => !adjacent.has(other.id))
+					.map((other) => ({
+						other,
+						overlap: other.data.tags.filter((tag) => post.data.tags.includes(tag)).length,
+					}))
+					.filter((entry) => entry.overlap > 0)
+					.sort((a, b) => b.overlap - a.overlap)
+					.slice(0, 3)
+					.map((entry) => ({
+						id: entry.other.id,
+						title: entry.other.data.title,
+						description: entry.other.data.description,
+					})),
+			},
+		};
+	});
 }
 type Props = {
 	post: CollectionEntry<'blog'>;
 	prevPost?: { id: string; title: string };
 	nextPost?: { id: string; title: string };
+	related: { id: string; title: string; description: string }[];
 };
 
-const { post, prevPost, nextPost } = Astro.props;
+const { post, prevPost, nextPost, related } = Astro.props;
 const { Content } = await render(post);
 
 const wordCount = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
 const readTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
-<BlogPost {...post.data} readTime={readTime} isPost prevPost={prevPost} nextPost={nextPost}>
+<BlogPost
+	{...post.data}
+	readTime={readTime}
+	isPost
+	prevPost={prevPost}
+	nextPost={nextPost}
+	related={related}
+>
 	<Content />
 </BlogPost>

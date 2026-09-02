@@ -3,7 +3,7 @@ title: 'The Three Playbooks Behind My App Workflow'
 description: 'A small app usually needs more than code. These are the three playbooks I use to move from an idea to a released, measurable product.'
 pubDate: 'Aug 28 2026'
 tags: ['apps', 'building', 'business']
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: '../../assets/hero-three-playbooks.svg'
 ---
 
 There are three different jobs hiding inside “build an app.”
