@@ -139,7 +139,6 @@ export const appGroups = [
 ].filter((group) => group.entries.length > 0);
 
 export const NOW_BUILDING = {
-	name: 'FamilyStop',
-	note: 'Growing FamilyStop — helping parents find family restrooms and stops on the go.',
-	url: 'https://apps.apple.com/us/app/familystop-family-restrooms/id6782247307',
+	name: 'Rise & Capy',
+	note: 'Shipping Rise & Capy — a cozy capybara alarm clock with real alarms and wake-up missions. In review with Apple now.',
 };
