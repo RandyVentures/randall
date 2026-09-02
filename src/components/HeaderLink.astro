@@ -11,28 +11,7 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 const resolvedHref = href?.startsWith('/') ? `${base}${href}` : href;
 ---
 
+<!-- The active pill lives in global.css under `.site-nav a.active`. -->
 <a href={resolvedHref} class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
-<style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-	}
-	a.active {
-		color: var(--ink);
-		font-weight: inherit;
-		text-decoration: none;
-		position: relative;
-	}
-	a.active::after {
-		content: '';
-		position: absolute;
-		bottom: -3px;
-		left: 0;
-		right: 0;
-		height: 2px;
-		background: var(--accent);
-		border-radius: 2px;
-	}
-</style>
