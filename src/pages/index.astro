@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { NOW_BUILDING, apps } from '../data/apps';
+import { NOW_BUILDING, apps, liveApps } from '../data/apps';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -44,7 +44,7 @@ const withBase = (path: string) => `${base}${path}`;
 					</div>
 				</div>
 				<div class="tile tile-stat tile-accent">
-					<span class="stat-num">{apps.length}</span>
+					<span class="stat-num">{liveApps.length}</span>
 					<p class="stat-label">apps live on the App Store</p>
 				</div>
 				<div class="tile tile-stat">
@@ -134,17 +134,26 @@ const withBase = (path: string) => `${base}${path}`;
 					>
 				</div>
 				<ul class="apps-grid">
-					{apps.map((app) => (
-						<li>
-							<a class="app-card" href={app.url} target="_blank" rel="noopener">
-								<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
-								<span class="app-card-text">
-									<span class="app-name">{app.name}</span>
-									<span class="app-tagline">{app.tagline}</span>
-								</span>
-							</a>
-						</li>
-					))}
+					{apps.map((app) => {
+						const Card = app.url ? 'a' : 'div';
+						const linkProps = app.url
+							? { href: app.url, target: '_blank', rel: 'noopener' }
+							: {};
+						return (
+							<li>
+								<Card class="app-card" data-status={app.status} {...linkProps}>
+									<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
+									<span class="app-card-text">
+										<span class="app-name">{app.name}</span>
+										<span class="app-tagline">{app.tagline}</span>
+										{app.status === 'review' && (
+											<span class="app-status">In review</span>
+										)}
+									</span>
+								</Card>
+							</li>
+						);
+					})}
 				</ul>
 			</section>
 		</main>

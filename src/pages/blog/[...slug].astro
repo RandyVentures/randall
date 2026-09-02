@@ -3,21 +3,34 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	const summary = (post?: CollectionEntry<'blog'>) =>
+		post && { id: post.id, title: post.data.title };
+	return posts.map((post, index) => ({
 		params: { slug: post.id },
-		props: post,
+		props: {
+			post,
+			// The list runs newest first, so the older post sits after this one.
+			prevPost: summary(posts[index + 1]),
+			nextPost: summary(posts[index - 1]),
+		},
 	}));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = {
+	post: CollectionEntry<'blog'>;
+	prevPost?: { id: string; title: string };
+	nextPost?: { id: string; title: string };
+};
 
-const post = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 
 const wordCount = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
 const readTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
-<BlogPost {...post.data} readTime={readTime}>
+<BlogPost {...post.data} readTime={readTime} isPost prevPost={prevPost} nextPost={nextPost}>
 	<Content />
 </BlogPost>

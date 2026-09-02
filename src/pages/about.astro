@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import { liveApps } from '../data/apps';
 ---
 
 <Layout
@@ -18,7 +19,7 @@ import Layout from '../layouts/BlogPost.astro';
 	<h3>What I'm working on</h3>
 
 	<ul>
-		<li><strong>Apps:</strong> 10 apps live on the App Store — utilities, games, and tools. See them all on <a href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">my developer page</a> or the <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/#apps`}>apps section</a> of the homepage.</li>
+		<li><strong>Apps:</strong> {liveApps.length} apps live on the App Store — utilities, games, and tools. See them all on <a href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">my developer page</a> or the <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/#apps`}>apps section</a> of the homepage.</li>
 		<li><strong>Real estate:</strong> Managing rental properties in South Texas</li>
 		<li><strong>Learning:</strong> AI, automation, and whatever keeps me growing</li>
 	</ul>
