@@ -7,6 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { NOW_BUILDING, appGroups, liveApps } from '../data/apps';
+import { playbooks } from '../data/playbooks';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -118,6 +119,35 @@ const withBase = (path: string) => `${base}${path}`;
 									</span>
 								)}
 							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section class="section-spaced" id="playbooks" aria-label="Playbooks">
+				<div class="section-head">
+					<p class="section-title">Playbooks</p>
+					<a
+						class="section-more"
+						href={withBase('/blog/the-three-playbooks-behind-my-app-workflow/')}
+						>How they fit together →</a
+					>
+				</div>
+				<p class="playbooks-intro">
+					The parts of shipping an app that are not the code. Written from my own
+					apps, and the ones I reach for again every time I start something new.
+				</p>
+				<ul class="apps-grid">
+					{playbooks.map((playbook) => (
+						<li>
+							<a class="app-card playbook-card" href={playbook.url} target="_blank" rel="noopener">
+								<span class="app-card-text">
+									<span class="app-name">{playbook.name}</span>
+									<span class="app-tagline">{playbook.tagline}</span>
+									<span class="playbook-for">{playbook.forWhom}</span>
+								</span>
+								<span class="playbook-price">{playbook.price}</span>
+							</a>
 						</li>
 					))}
 				</ul>

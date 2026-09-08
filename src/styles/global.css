@@ -1245,3 +1245,34 @@ a.app-card:hover {
 	color: var(--ink-muted);
 	margin: 0 0 0.6rem;
 }
+
+/* Playbooks — the Gumroad products, presented like the app cards but with a
+   price and a "who this is for" line, since the decision is different. */
+.playbooks-intro {
+	max-width: 62ch;
+	margin: -0.4rem 0 1.1rem;
+	color: var(--ink-muted);
+	font-size: 0.92rem;
+}
+
+.playbook-card {
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.playbook-for {
+	display: block;
+	margin-top: 0.45rem;
+	font-size: 0.78rem;
+	font-weight: 600;
+	color: var(--ink-muted);
+}
+
+.playbook-price {
+	flex: none;
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var(--ink-muted);
+	font-variant-numeric: tabular-nums;
+}
