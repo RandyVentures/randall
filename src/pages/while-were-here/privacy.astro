@@ -1,0 +1,139 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="While We're Here Privacy Policy"
+      description="Privacy Policy for While We're Here, an offline-first conversation card game for iOS."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="policy tile">
+        <p class="tile-kicker">While We're Here</p>
+        <h1>Privacy Policy</h1>
+        <p class="date"><strong>Effective:</strong> September 9, 2026</p>
+
+        <p>
+          While We're Here is a conversation card game for iOS. There is no account to create,
+          no login, and no server run by this app. This policy explains what stays on your
+          device and what happens when you buy or restore the one-time unlock.
+        </p>
+
+        <h2>What stays on your device</h2>
+        <p>
+          The questions you write, your named decks, your favorites, which cards you have
+          played or skipped, and where you stopped in a session are stored in the app's local
+          storage on your device. The app also stores whether you have seen the introduction
+          and whether the lifetime unlock is active, so that play keeps working offline.
+        </p>
+        <p>
+          This app does not upload your questions or your play history, and it does not use
+          iCloud sync for them. It does not collect gameplay analytics.
+        </p>
+
+        <h2>Purchases</h2>
+        <p>
+          The full library is a single one-time purchase. Apple processes the purchase itself;
+          this app never receives your payment card details.
+        </p>
+        <p>
+          The app uses RevenueCat as its purchase layer. RevenueCat processes purchase history
+          and an anonymous identifier that it assigns to your installation, so the app can
+          confirm whether the unlock is active, restore a previous purchase, and provide
+          purchase analytics to the developer. The app does not send RevenueCat a name, email
+          address, custom user ID, advertising identifier, or any of your card text. Apple and
+          RevenueCat handle the information they receive under their own policies:
+          <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener"
+            >Apple's Privacy Policy</a
+          >
+          and
+          <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener"
+            >RevenueCat's Privacy Policy</a
+          >.
+        </p>
+
+        <h2>When the app uses the network</h2>
+        <p>
+          Buying the unlock, restoring purchases, and refreshing your purchase status require an
+          internet connection. Playing does not: once access is established on your device, the
+          cards work offline.
+        </p>
+
+        <h2>Sharing cards</h2>
+        <p>
+          You can choose to export your cards to a file. That is always something you start, and
+          you choose where the file goes. An exported file contains your questions, follow-ups,
+          and deck names. It does not contain your play history or favorites, and it is not a
+          full backup. Once you send or save that file somewhere, the service or device you
+          chose handles it under its own terms.
+        </p>
+
+        <h2>What the app does not do</h2>
+        <ul>
+          <li>No advertising, ad networks, or advertising identifier.</li>
+          <li>No app-owned account, login, or cloud sync of your writing.</li>
+          <li>No tracking across other apps and websites, and no App Tracking Transparency prompt.</li>
+          <li>No crash-reporting or analytics SDK for gameplay.</li>
+          <li>No access to contacts, location, microphone, camera, or notifications.</li>
+        </ul>
+
+        <h2>Keeping and deleting your information</h2>
+        <p>
+          Deleting the app removes its local storage, including your written cards, decks,
+          favorites, and history, from that device. Restoring a purchase restores access to the
+          full library; it does not bring back cards you deleted or data removed with the app.
+          Purchase records held by Apple and RevenueCat are kept under their own retention
+          practices and are not deleted by removing the app.
+        </p>
+        <p>
+          If you have a question about purchase information associated with your installation,
+          email the address below and describe the issue. Because the app assigns no identity
+          to you, some requests may need information from your Apple purchase receipt to act on.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          The questions are written for a general audience and are intended to be used together,
+          out loud. The app does not knowingly collect personal information from anyone,
+          including children.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If the app adds a feature that changes what is processed — for example an account,
+          sync, or analytics — this policy will be updated before that feature ships, and the
+          effective date above will change.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about this policy can be sent to
+          <a href="mailto:randyventures06@gmail.com">randyventures06@gmail.com</a>.
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
