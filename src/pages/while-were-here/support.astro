@@ -1,0 +1,53 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="While We're Here Support"
+      description="Help with While We're Here: purchases, offline play and local cards."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article class="policy tile">
+        <h1>While We’re Here support</h1>
+        <p>More than small talk. More than Sunday.</p>
+        <p>Need help? Email <a href="mailto:randyventures06@gmail.com?subject=While%20We%27re%20Here">randyventures06@gmail.com</a>. Include your app version, iOS version and what happened. Please do not send private conversation answers or payment-card details.</p>
+        <h2>Restore your lifetime unlock</h2>
+        <p>Connect to the internet and use Restore Purchases in Settings or on the unlock screen. Use the Apple Account that originally bought the unlock. No separate app account is needed. Restoring purchases restores access, not deleted custom cards or play history.</p>
+        <h2>Play offline</h2>
+        <p>The 25 free questions and your saved local cards work offline. After your lifetime unlock has been confirmed on this device, the full library works offline too. First purchase, restore and purchase-status refresh need a connection.</p>
+        <h2>Keep a copy of your cards</h2>
+        <p>Use Export in My Cards and save the file somewhere you choose. Card exports include your questions, follow-ups and deck names; they do not include favorites or play history and are not a complete app backup. Deleting the app removes its local data. We do not operate an account or cloud-sync service for your writing.</p>
+        <h2>If the app cannot save</h2>
+        <p>Retry after checking available device storage. You can choose Play without saving to continue a temporary round; its progress and favorites will not be saved. If saved data cannot be opened, the app preserves the original store files and offers temporary play with custom editing unavailable. Try reopening the app and contact support before deleting it.</p>
+        <h2>Purchases and refunds</h2>
+        <p>The lifetime unlock is one payment, not a subscription. Apple handles payments and refund requests. Use <a href="https://reportaproblem.apple.com/">Apple’s refund request page</a> for a purchase refund. A confirmed refund ends paid access without deleting your saved writing.</p>
+        <p><a href="https://randyventures.github.io/randall/while-were-here/privacy/">Privacy policy</a> · <a href="https://randyventures.github.io/randall/while-were-here/terms/">Terms</a>
+</p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
