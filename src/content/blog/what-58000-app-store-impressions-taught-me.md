@@ -15,6 +15,7 @@ Here's the whole portfolio, February through early September, impressions to dow
 | App | Impressions | Downloads | Conversion |
 |---|---:|---:|---:|
 | Bean Hunt | 5,986 | 681 | **11.38%** |
+| Heirloom: Old Letter Reader | 799 | 17 | 2.13% |
 | Pickleball Score Keeper: Rally | 13,625 | 200 | 1.47% |
 | Color Flood Conquest | 3,338 | 42 | 1.26% |
 | Fillin: Guess the Missing Word | 3,188 | 32 | 1.00% |
@@ -25,11 +26,11 @@ Here's the whole portfolio, February through early September, impressions to dow
 | FamilyStop: Family Restrooms | 9,986 | 39 | 0.39% |
 | Fillbook: Trading Journal | 4,348 | 11 | 0.25% |
 | Rental Manager: Rent & Taxes | 3,157 | 6 | 0.19% |
-| **Total** | **57,409** | **1,105** | **1.92%** |
+| **Total** | **58,208** | **1,122** | **1.93%** |
 
-The thing that got me: Rally has the second-most impressions in the entire portfolio — 13,625, more than double most of the others — and converts at under a fifth of Bean Hunt's rate. Bean Hunt isn't even the most-seen app. It just closes.
+The thing that got me: Rally has the most impressions of any app in the portfolio — 13,625 — and converts at roughly an eighth of Bean Hunt's rate. Bean Hunt isn't even the most-seen app. It just closes.
 
-For months I assumed my problem was reach. It isn't. Nearly 60,000 people have seen these eleven listings. The gap between the best listing and the worst is **60x**, and it has nothing to do with how many people saw the app.
+For months I assumed my problem was reach. It isn't. Over 58,000 people have seen these twelve listings. The gap between the best listing and the worst is **60x**, and it has nothing to do with how many people saw the app.
 
 That reframes the work completely. I was spending time on keyword lists and ASO reach — more impressions, more impressions, more impressions — when the actual lever was sitting in plain sight the whole time: the icon and the first two screenshots on the apps that get seen and ignored.
 
