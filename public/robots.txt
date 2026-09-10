@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://randyventures.github.io/randall/sitemap-index.xml
