@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import icon from '../../assets/apps/while-were-here.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+const appStoreUrl = 'https://apps.apple.com/us/app/while-were-here/id6810424599';
+
+// Marked up as an app so search engines can show the price, platform and
+// category alongside the result instead of guessing from the prose.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: "While We're Here",
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS',
+  url: appStoreUrl,
+  description:
+    "An offline conversation card game for iOS: 100 questions across four decks, optional follow-ups, and your own custom cards. 25 cards free, then one lifetime unlock.",
+  author: { '@type': 'Person', name: 'Randall Torres' },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: '25 cards free' },
+    { '@type': 'Offer', price: '9.99', priceCurrency: 'USD', description: 'Lifetime unlock, one-time purchase' },
+  ],
+};
+
+const faqs = [
+  {
+    q: "Is this the Not Just Sundays app?",
+    a: "No. Not Just Sundays is a physical card deck made by someone else, and While We're Here is not affiliated with it, licensed by it, or a digital copy of it. It was the thing that convinced me a conversation deck was worth building for the phone — the questions here are my own.",
+  },
+  {
+    q: 'Do I need an account?',
+    a: "No. There is no login and no server. The cards you write and your play history stay on your device.",
+  },
+  {
+    q: 'Does it work without a signal?',
+    a: 'Yes, once you are set up. Buying, restoring and refreshing your purchase status need a connection; play does not.',
+  },
+  {
+    q: 'Is it a subscription?',
+    a: 'No. The full library is one payment, once, including cards added in future updates.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="While We're Here — Conversation Card Game for iOS"
+      description="An offline conversation card app for dinner tables, road trips and small groups. 100 questions across four decks, optional follow-ups, and your own custom cards. 25 free."
+      image={icon}
+    />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="app-hero tile">
+        <Image class="app-hero-icon" width={132} height={132} src={icon} alt="While We're Here app icon" />
+        <div class="app-hero-text">
+          <p class="tile-kicker">iPhone &amp; iPad · Free to start</p>
+          <h1>While We&rsquo;re Here</h1>
+          <p class="lead">
+            More than small talk. More than Sunday. A conversation card game you already
+            have in your pocket &mdash; for dinner tables, long drives, and small groups
+            that want to talk about something real.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href={appStoreUrl} target="_blank" rel="noopener">Get it on the App Store</a>
+            <a class="button secondary" href={withBase('/blog/while-were-here-conversation-card-app/')}>
+              Why I built it
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-spaced" aria-label="What's inside">
+        <div class="section-head">
+          <p class="section-title">What&rsquo;s inside</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <p class="story-kicker">01 · The cards</p>
+            <h2>100 questions, four decks</h2>
+            <p>
+              Life &amp; Laughter, Faith &amp; Questions, People We Love, and Gratitude
+              &amp; Prayer. Many cards hide an optional follow-up, revealed only when
+              someone taps for it &mdash; so you go a layer deeper when the group is ready,
+              and not before.
+            </p>
+          </article>
+          <article class="story-card">
+            <p class="story-kicker">02 · It remembers</p>
+            <h2>Pick up where you stopped</h2>
+            <p>
+              The app tracks what your group has played, skipped and favorited, and steers
+              you toward cards you haven&rsquo;t seen. Come back weeks later and the session
+              is still waiting.
+            </p>
+          </article>
+          <article class="story-card">
+            <p class="story-kicker">03 · Your table</p>
+            <h2>Write your own cards</h2>
+            <p>
+              Add questions for the people actually sitting with you, organize them into
+              named decks, and export them to share. Three custom cards are free; the
+              unlock makes them unlimited.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-spaced" aria-label="Pricing">
+        <div class="section-head">
+          <p class="section-title">Pricing</p>
+        </div>
+        <div class="tile">
+          <p>
+            <strong>Start free.</strong> 25 of the 100 cards are open right away, spread
+            across all four decks, plus room to write 3 of your own &mdash; enough to try it
+            at a real table before deciding it&rsquo;s worth more.
+          </p>
+          <p>
+            <strong>One unlock, once.</strong> A single payment ($9.99 in the U.S.; pricing
+            may vary by region) unlocks all 100 cards, unlimited custom cards, named decks,
+            and any cards added in future updates. No subscription, no ads, no account.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-spaced" aria-label="Questions">
+        <div class="section-head">
+          <p class="section-title">Questions</p>
+        </div>
+        {faqs.map((faq) => (
+          <div class="tile faq-item">
+            <h2>{faq.q}</h2>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </section>
+
+      <p class="app-links">
+        <a href={withBase('/while-were-here/support/')}>Support</a> ·
+        <a href={withBase('/while-were-here/privacy/')}>Privacy policy</a> ·
+        <a href={withBase('/while-were-here/terms/')}>Terms</a>
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .app-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  .app-hero-icon {
+    border-radius: 24px;
+    flex: none;
+  }
+
+  .app-hero-text {
+    flex: 1 1 320px;
+  }
+
+  .app-hero-text h1 {
+    margin: 0.2rem 0 0.6rem;
+  }
+
+  .faq-item {
+    margin-bottom: 12px;
+  }
+
+  .faq-item h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    margin: 0;
+  }
+
+  .app-links {
+    color: var(--ink-muted);
+  }
+</style>

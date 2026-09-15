@@ -12,6 +12,7 @@ import realEstateManager from '../assets/apps/real-estate-manager.png';
 import riseAndCapy from '../assets/apps/rise-and-capy.png';
 import squareSweep from '../assets/apps/square-sweep.jpg';
 import vaultRunner from '../assets/apps/vault-runner.jpg';
+import whileWereHere from '../assets/apps/while-were-here.png';
 
 export interface AppEntry {
 	name: string;
@@ -31,6 +32,14 @@ export const apps: AppEntry[] = [
 		category: 'Lifestyle',
 		status: 'review',
 		icon: riseAndCapy,
+	},
+	{
+		name: "While We're Here",
+		tagline: 'Conversation cards for real tables',
+		category: 'Lifestyle',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/while-were-here/id6810424599',
+		icon: whileWereHere,
 	},
 	{
 		name: 'Heirloom',
@@ -132,7 +141,7 @@ export const apps: AppEntry[] = [
 
 export const liveApps = apps.filter((app) => app.status === 'live');
 
-/** The grid reads better split by kind than as one 13-card wall. */
+/** The grid reads better split by kind than as one 14-card wall. */
 export const appGroups = [
 	{ label: 'Apps & tools', entries: apps.filter((app) => app.category !== 'Games') },
 	{ label: 'Games', entries: apps.filter((app) => app.category === 'Games') },

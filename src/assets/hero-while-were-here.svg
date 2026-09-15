@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img">
+  <defs>
+    <linearGradient id="wwhBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7d2f16"/><stop offset="1" stop-color="#b8451f"/>
+    </linearGradient>
+    <linearGradient id="wwhCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf6ec"/><stop offset="1" stop-color="#ece4d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#wwhBg)"/>
+
+  <!-- table glow -->
+  <ellipse cx="640" cy="470" rx="430" ry="90" fill="#f5e9d8" opacity="0.10"/>
+
+  <!-- fanned deck -->
+  <g transform="translate(640 320)">
+    <g transform="rotate(-18) translate(-110 -30)">
+      <rect x="-105" y="-150" width="210" height="300" rx="20" fill="url(#wwhCard)" opacity="0.55"/>
+    </g>
+    <g transform="rotate(-8) translate(-55 -12)">
+      <rect x="-105" y="-150" width="210" height="300" rx="20" fill="url(#wwhCard)" opacity="0.78"/>
+    </g>
+    <g transform="rotate(16) translate(120 -24)">
+      <rect x="-105" y="-150" width="210" height="300" rx="20" fill="url(#wwhCard)" opacity="0.55"/>
+    </g>
+    <g transform="rotate(7) translate(62 -6)">
+      <rect x="-105" y="-150" width="210" height="300" rx="20" fill="url(#wwhCard)" opacity="0.78"/>
+    </g>
+    <!-- front card -->
+    <g>
+      <rect x="-118" y="-168" width="236" height="336" rx="22" fill="url(#wwhCard)"/>
+      <rect x="-118" y="-168" width="236" height="336" rx="22" fill="none" stroke="#b8451f" stroke-width="3" opacity="0.28"/>
+      <text x="0" y="-16" text-anchor="middle" font-family="Georgia, serif" font-size="128" fill="#b8451f" opacity="0.9">&#8220;</text>
+      <g stroke="#b8451f" stroke-width="7" stroke-linecap="round" opacity="0.24">
+        <path d="M-66 44 H66 M-66 80 H66 M-66 116 H20"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- people around the table -->
+  <g fill="#f5e9d8" opacity="0.38">
+    <circle cx="190" cy="250" r="30"/><path d="M140 340a50 50 0 0 1 100 0z"/>
+    <circle cx="330" cy="430" r="26"/><path d="M287 508a43 43 0 0 1 86 0z"/>
+    <circle cx="1010" cy="250" r="30"/><path d="M960 340a50 50 0 0 1 100 0z"/>
+    <circle cx="870" cy="430" r="26"/><path d="M827 508a43 43 0 0 1 86 0z"/>
+  </g>
+</svg>
