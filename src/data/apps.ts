@@ -30,7 +30,8 @@ export const apps: AppEntry[] = [
 		name: 'Rise & Capy',
 		tagline: 'Capybara alarm clock with wake-up missions',
 		category: 'Lifestyle',
-		status: 'review',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/rise-capy/id6804264261',
 		icon: riseAndCapy,
 	},
 	{
@@ -147,7 +148,7 @@ export const appGroups = [
 	{ label: 'Games', entries: apps.filter((app) => app.category === 'Games') },
 ].filter((group) => group.entries.length > 0);
 
-export const NOW_BUILDING = {
+export const RECENTLY_SHIPPED = {
 	name: 'Rise & Capy',
-	note: 'Shipping Rise & Capy — a cozy capybara alarm clock with real alarms and wake-up missions. In review with Apple now.',
+	note: 'Rise & Capy is live on the App Store — a cozy capybara alarm clock with real alarms and wake-up missions.',
 };

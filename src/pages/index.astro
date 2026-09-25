@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { NOW_BUILDING, appGroups, liveApps } from '../data/apps';
+import { RECENTLY_SHIPPED, appGroups, liveApps } from '../data/apps';
 import { playbooks } from '../data/playbooks';
 
 const posts = (await getCollection('blog')).sort(
@@ -53,9 +53,9 @@ const withBase = (path: string) => `${base}${path}`;
 					<p class="stat-label">posts, writing since {writingSince}</p>
 				</div>
 				<div class="tile tile-stat tile-purple tile-now tile-wide">
-					<p class="tile-kicker">Now building</p>
-					<p class="tile-big">{NOW_BUILDING.name}</p>
-					<p style="margin: 0; font-size: 0.92rem;">{NOW_BUILDING.note}</p>
+					<p class="tile-kicker">Just shipped</p>
+					<p class="tile-big">{RECENTLY_SHIPPED.name}</p>
+					<p style="margin: 0; font-size: 0.92rem;">{RECENTLY_SHIPPED.note}</p>
 				</div>
 			</section>
 
