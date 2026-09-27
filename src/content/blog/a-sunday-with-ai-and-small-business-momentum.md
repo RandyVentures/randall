@@ -3,7 +3,7 @@ title: 'A Sunday Check-In: AI, Small-Business Momentum, and Showing Up'
 description: 'A week of experimenting with AI, improving GetMandalo and UseManifest, and making room for the people and community that matter.'
 pubDate: 'Sep 27 2026'
 tags: ['life', 'apps', 'ai', 'faith']
-heroImage: '../../assets/usemanifest-september-2026.jpg'
+heroImage: '../../assets/usemanifest-september-2026-hero.jpg'
 ---
 
 Some weeks are easy to summarize with one big milestone. This one feels more like a collection of useful things moving forward: trying new ways to work with AI, making progress on two small software businesses, and staying connected to the people and community that keep life grounded.
