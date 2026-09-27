@@ -1,6 +1,6 @@
 ---
 title: 'Back-to-Back Calls and a New AI Hat'
-description: 'Long workday, new AI architect role, kids back in school, and Clawdbot PR #435 landed'
+description: 'Long workday, AI and Payments work in Architecture, kids back in school, and Clawdbot PR #435 landed'
 pubDate: 'Jan 08 2026'
 tags: ['work', 'ai']
 heroImage: '../../assets/github-lobster-cloud.svg'
@@ -18,8 +18,8 @@ Today was a marathon: calls stacked back to back, no real breaks, just a long li
       <p>New AI summary pass that cuts filler, keeps the signal, and ships clean copy faster.</p>
     </div>
     <div class="snapshot-card">
-      <h3>AI architect role</h3>
-      <p>Officially the dedicated AI architect now. More ownership, same pace.</p>
+      <h3>Architecture, AI, and Payments</h3>
+      <p>Principal engineer in Architecture, supporting the AI and Payments teams.</p>
     </div>
     <div class="snapshot-card">
       <h3>House reset</h3>
@@ -42,9 +42,9 @@ That last point matters. I don't want to polish the summary every time. I want t
 
 The calls were nonstop. Different topics, different priorities, same day. The only way to keep momentum is to lock in small wins between meetings, so I carved out a short window and pushed the update through. No hero story, just the reality of shipping when the calendar is full.
 
-## New title, same pace
+## Architecture work, same pace
 
-I found out I'm the dedicated AI architect now. That mostly means more responsibility for the strategy and fewer excuses when the automation doesn't hold up. It's a formal label on the work I've already been doing: building systems that can handle the boring parts so I can focus on the hard parts.
+I’m a principal engineer in Architecture, assigned to the AI and Payments teams. The automation work is part of that broader role: building systems that can handle the boring parts so I can focus on the hard parts.
 
 ## Home reset
 
