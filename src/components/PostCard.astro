@@ -1,0 +1,53 @@
+---
+import { toneFor } from '../data/tags';
+import { type Post, formatEntry, postUrl, readingTime, titleTransition, withBase } from '../lib/posts';
+import FormattedDate from './FormattedDate.astro';
+import PostCover from './PostCover.astro';
+
+interface Props {
+	post: Post;
+	n: number;
+	variant?: 'card' | 'feature';
+	/** Only one element per page may own a title's view-transition name. */
+	morph?: boolean;
+	headingLevel?: 'h2' | 'h3';
+}
+
+const { post, n, variant = 'card', morph = true, headingLevel: Heading = 'h3' } = Astro.props;
+const feature = variant === 'feature';
+---
+
+<article class:list={['card', { 'card-feature': feature }]}>
+	<PostCover
+		post={post}
+		n={n}
+		width={feature ? 1100 : 640}
+		sizes={feature ? '(max-width: 760px) 100vw, 640px' : '(max-width: 560px) 100vw, (max-width: 900px) 50vw, 380px'}
+		eager={feature}
+	/>
+	<div class="card-body">
+		<div class="card-meta">
+			<span class="entry-no">{formatEntry(n)}</span>
+			<span class="dot"></span>
+			<FormattedDate date={post.data.pubDate} />
+			<span class="dot"></span>
+			<span>{readingTime(post)} min</span>
+		</div>
+		<Heading class="card-title" style={morph ? titleTransition(post.id) : undefined}>
+			<a href={postUrl(post.id)}>{post.data.title}</a>
+		</Heading>
+		{post.data.description && <p class="card-desc">{post.data.description}</p>}
+		{
+			post.data.tags.length > 0 && (
+				<div class="chip-row">
+					{post.data.tags.map((tag) => (
+						<a class="chip" data-tone={toneFor(tag)} href={withBase(`/blog/?tag=${tag}`)}>
+							{tag}
+						</a>
+					))}
+				</div>
+			)
+		}
+		{feature && <span class="read-more" aria-hidden="true">Read the entry <span class="arrow">→</span></span>}
+	</div>
+</article>

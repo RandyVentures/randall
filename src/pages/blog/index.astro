@@ -1,138 +1,231 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import PostCover from '../../components/PostCover.astro';
+import { SITE_TITLE } from '../../consts';
+import { toneFor } from '../../data/tags';
+import {
+	entryNumbers,
+	formatEntry,
+	getPosts,
+	postUrl,
+	readingTime,
+	titleTransition,
+} from '../../lib/posts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = await getPosts();
+const numbers = entryNumbers(posts);
+
+// Colored topics first, then the rest, each by how often they come up.
+const tagCounts = new Map<string, number>();
+for (const post of posts) for (const tag of post.data.tags) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+const tags = [...tagCounts.entries()].sort(
+	([a, ac], [b, bc]) =>
+		Number(toneFor(a) === 'neutral') - Number(toneFor(b) === 'neutral') || bc - ac,
 );
-const allTags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const withBase = (path: string) => `${base}${path}`;
+
+// The log reads like a journal, so entries are grouped by the month they were written.
+const months: { key: string; month: string; year: number; posts: typeof posts }[] = [];
+for (const post of posts) {
+	const date = post.data.pubDate;
+	const key = `${date.getUTCFullYear()}-${date.getUTCMonth()}`;
+	let group = months.at(-1);
+	if (group?.key !== key) {
+		group = {
+			key,
+			month: date.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' }),
+			year: date.getUTCFullYear(),
+			posts: [],
+		};
+		months.push(group);
+	}
+	group.posts.push(post);
+}
+
+const totalMinutes = posts.reduce((sum, post) => sum + readingTime(post), 0);
+const range = `${posts.at(-1)!.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} – ${posts[0].data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}`;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Posts — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`The log — ${SITE_TITLE}`}
+			description="Every entry in Randall's build-in-public log: shipping apps, work, rentals, family, and faith in South Texas."
+		/>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
-				<h1 class="page-title">The log</h1>
-				<p class="page-desc">
-					Weekly notes on shipping apps, work, rentals, family, and faith in South Texas.
+		<main id="main">
+			<header class="page-head">
+				<p class="eyebrow reveal">The log</p>
+				<h1 class="reveal" style="--i: 1">Every entry, <em>newest first.</em></h1>
+				<p class="lead reveal" style="--i: 2">
+					Weekly notes on shipping apps, work, rentals, family, and faith in South Texas — the wins,
+					the numbers, and the things I got wrong.
 				</p>
-				<div class="post-search">
-					<label class="visually-hidden" for="post-search-input">Search posts</label>
-					<input
-						id="post-search-input"
-						type="search"
-						placeholder="Search posts…"
-						autocomplete="off"
-					/>
+				<div class="page-stats reveal" style="--i: 3">
+					<span><strong>{posts.length}</strong> entries</span>
+					<span><strong>{range}</strong></span>
+					<span><strong>~{Math.round(totalMinutes / 60)} hrs</strong> of reading</span>
 				</div>
-				<div class="tag-filter" role="group" aria-label="Filter posts by topic">
-					<button type="button" data-filter="all" aria-pressed="true">All ({posts.length})</button>
-					{allTags.map((tag) => (
-						<button type="button" data-filter={tag} aria-pressed="false">
-							{tag} ({posts.filter((p) => p.data.tags.includes(tag)).length})
+			</header>
+
+			<div class="toolbar">
+				<div class="toolbar-row">
+					<div class="search-field">
+						<label class="visually-hidden" for="log-search">Filter entries</label>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+						<input id="log-search" type="search" placeholder="Filter entries…" autocomplete="off" data-slash-focus />
+						<kbd aria-hidden="true">/</kbd>
+					</div>
+					<p class="result-count" id="result-count" aria-live="polite">{posts.length} entries</p>
+				</div>
+				<div class="filters" role="group" aria-label="Filter by topic">
+					<button class="filter" type="button" data-filter="all" aria-pressed="true">
+						All <span class="count">{posts.length}</span>
+					</button>
+					{tags.map(([tag, count]) => (
+						<button class="filter" type="button" data-filter={tag} data-tone={toneFor(tag)} aria-pressed="false">
+							<span class="swatch" aria-hidden="true"></span>
+							{tag} <span class="count">{count}</span>
 						</button>
 					))}
 				</div>
-				<p class="result-count" id="result-count" aria-live="polite"></p>
-				<p class="filter-empty" id="filter-empty" hidden>No posts match that search.</p>
-				<ul class="post-list" id="post-list">
-					{posts.map((post) => (
-						<li
-							data-tags={post.data.tags.join(' ')}
-							data-search={`${post.data.title} ${post.data.description}`.toLowerCase()}
-						>
-							<div class="post-row">
-								<div class="post-row-text">
-									<div class="post-meta">
-										<FormattedDate date={post.data.pubDate} />
-										{post.data.tags.map((tag) => (
-											<span class="tag-chip" data-tag={tag}>{tag}</span>
-										))}
-									</div>
-									<h2 class="post-title">
-										<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
-											{post.data.title}
-										</a>
-									</h2>
-									{post.data.description && <p class="post-summary">{post.data.description}</p>}
-								</div>
-								{post.data.heroImage ? (
-									<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
-										<Image width={180} height={130} src={post.data.heroImage} alt="" />
-									</a>
-								) : (
-									<span class="post-thumb" aria-hidden="true">
-										<span class="post-thumb-fallback">{post.data.title.charAt(0)}</span>
-									</span>
-								)}
-							</div>
-						</li>
-					))}
-				</ul>
-			</section>
+			</div>
+
+			<div id="log">
+				{months.map((group) => (
+					<section class="log-month" aria-label={`${group.month} ${group.year}`}>
+						<h2 class="log-month-label">
+							{group.month}
+							<span>{group.year} · {group.posts.length} {group.posts.length === 1 ? 'entry' : 'entries'}</span>
+						</h2>
+						<ol class="log-list">
+							{group.posts.map((post) => {
+								const n = numbers.get(post.id)!;
+								return (
+									<li
+										data-tags={post.data.tags.join(' ')}
+										data-search={`${post.data.title} ${post.data.description} ${post.data.tags.join(' ')}`.toLowerCase()}
+									>
+										<article class="entry">
+											<div>
+												<div class="entry-meta">
+													<span class="entry-no">{formatEntry(n)}</span>
+													<FormattedDate date={post.data.pubDate} />
+													<span>{readingTime(post)} min read</span>
+												</div>
+												<h3 class="entry-title" style={titleTransition(post.id)}>
+													<a href={postUrl(post.id)}>{post.data.title}</a>
+												</h3>
+												{post.data.description && <p class="entry-desc">{post.data.description}</p>}
+												<div class="chip-row">
+													{post.data.tags.map((tag) => (
+														<span class="chip" data-tone={toneFor(tag)}>{tag}</span>
+													))}
+												</div>
+											</div>
+											<PostCover post={post} n={n} width={320} sizes="150px" />
+										</article>
+									</li>
+								);
+							})}
+						</ol>
+					</section>
+				))}
+				<div class="log-empty" id="log-empty" hidden>
+					<strong>No entries match.</strong>
+					<span>Try a different word, or clear the filters.</span>
+					<button class="button small ghost" type="button" id="log-reset">Clear filters</button>
+				</div>
+			</div>
 		</main>
 		<Footer />
+
 		<script>
-			const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-filter button');
-			const items = document.querySelectorAll<HTMLLIElement>('#post-list > li');
-			const search = document.getElementById('post-search-input') as HTMLInputElement;
-			const empty = document.getElementById('filter-empty')!;
+			const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+			const items = document.querySelectorAll<HTMLLIElement>('#log li[data-tags]');
+			const months = document.querySelectorAll<HTMLElement>('.log-month');
+			const search = document.getElementById('log-search') as HTMLInputElement;
+			const empty = document.getElementById('log-empty')!;
 			const count = document.getElementById('result-count')!;
 			const total = items.length;
 
 			let activeTag = 'all';
 
 			function apply() {
-				const query = search.value.trim().toLowerCase();
+				const terms = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
 				let shown = 0;
 				items.forEach((item) => {
-					const matchesTag =
-						activeTag === 'all' || (item.dataset.tags || '').split(' ').includes(activeTag);
-					const matchesQuery = !query || (item.dataset.search || '').includes(query);
-					const visible = matchesTag && matchesQuery;
+					const matchesTag = activeTag === 'all' || (item.dataset.tags || '').split(' ').includes(activeTag);
+					const haystack = item.dataset.search || '';
+					const visible = matchesTag && terms.every((term) => haystack.includes(term));
 					item.hidden = !visible;
 					if (visible) shown++;
 				});
+				months.forEach((month) => {
+					month.hidden = !month.querySelector('li[data-tags]:not([hidden])');
+				});
 				empty.hidden = shown > 0;
-				count.textContent =
-					shown === total ? '' : `${shown} of ${total} post${total === 1 ? '' : 's'}`;
+				count.textContent = shown === total ? `${total} entries` : `${shown} of ${total} entries`;
 			}
 
 			function setTag(tag: string) {
 				activeTag = [...buttons].some((b) => b.dataset.filter === tag) ? tag : 'all';
-				buttons.forEach((b) =>
-					b.setAttribute('aria-pressed', String(b.dataset.filter === activeTag)),
-				);
+				buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === activeTag)));
 				apply();
 			}
 
-			// Keep the tag in the URL so a filtered view can be shared and the back button works.
-			const tagFromUrl = () => new URLSearchParams(location.search).get('tag') || 'all';
-			buttons.forEach((button) => {
+			// Filters live in the URL so a view can be shared and the back button works.
+			function syncUrl(push: boolean) {
+				const url = new URL(location.href);
+				if (activeTag === 'all') url.searchParams.delete('tag');
+				else url.searchParams.set('tag', activeTag);
+				const q = search.value.trim();
+				if (q) url.searchParams.set('q', q);
+				else url.searchParams.delete('q');
+				history[push ? 'pushState' : 'replaceState']({}, '', url);
+			}
+
+			function readUrl() {
+				const params = new URLSearchParams(location.search);
+				search.value = params.get('q') || '';
+				setTag(params.get('tag') || 'all');
+			}
+
+			buttons.forEach((button) =>
 				button.addEventListener('click', () => {
-					const filter = button.dataset.filter!;
-					const url = new URL(location.href);
-					if (filter === 'all') url.searchParams.delete('tag');
-					else url.searchParams.set('tag', filter);
-					history.pushState({}, '', url);
-					setTag(filter);
-				});
+					setTag(button.dataset.filter!);
+					syncUrl(true);
+				}),
+			);
+			search.addEventListener('input', () => {
+				apply();
+				syncUrl(false);
 			});
-			window.addEventListener('popstate', () => setTag(tagFromUrl()));
-			search.addEventListener('input', apply);
-			setTag(tagFromUrl());
+			document.getElementById('log-reset')!.addEventListener('click', () => {
+				search.value = '';
+				setTag('all');
+				syncUrl(true);
+				search.focus();
+			});
+			window.addEventListener('popstate', readUrl);
+			document.addEventListener('keydown', (event) => {
+				const target = event.target as HTMLElement;
+				if (event.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName) && !target.isContentEditable) {
+					event.preventDefault();
+					search.focus();
+					search.select();
+				} else if (event.key === 'Escape' && target === search) {
+					search.value = '';
+					apply();
+					syncUrl(false);
+				}
+			});
+			readUrl();
 		</script>
 	</body>
 </html>

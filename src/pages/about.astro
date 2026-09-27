@@ -1,46 +1,128 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
 import { liveApps } from '../data/apps';
+import { getPosts, withBase } from '../lib/posts';
+
+const posts = await getPosts();
+const rentalEntries = posts.filter((p) => p.data.tags.includes('rentals')).length;
+const aiEntries = posts.filter((p) => p.data.tags.includes('ai')).length;
 ---
 
-<Layout
-	title="About"
-	description="About Randy Torres"
-	pubDate={new Date('Jan 05 2026')}
->
-	<h2>Hi, I'm Randy</h2>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`About — ${SITE_TITLE}`}
+			description="Randall Torres is a principal engineer, AI architect, app builder, and real estate investor in McAllen, Texas."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<section class="about-hero" aria-labelledby="about-title">
+				<div>
+					<p class="eyebrow reveal">About</p>
+					<h1 id="about-title" class="reveal" style="--i: 1">Hi, I’m <em>Randy.</em></h1>
+					<p class="lead reveal" style="--i: 2">
+						I’m a principal engineer, AI architect, app builder, and real estate investor based in
+						McAllen, Texas. I’m married with four kids, and this site is where I document the attempt to
+						build more freedom without missing the family life happening along the way.
+					</p>
+					<div class="hero-actions reveal" style="--i: 3; margin-top: 1.8rem">
+						<a class="button" href={withBase('/blog/')}>Read the log <span class="arrow">→</span></a>
+						<a class="button ghost" href="mailto:rltorres26@gmail.com">Say hello</a>
+					</div>
+				</div>
+				<div class="portrait reveal" style="--i: 2" data-tone="clay" aria-hidden="true">
+					<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+						<rect class="p-bg" width="400" height="500" fill="color-mix(in srgb, var(--accent) 12%, var(--surface))" />
+						<circle cx="250" cy="300" r="120" fill="var(--accent)" opacity="0.9" />
+						<rect y="262" width="400" height="4" fill="color-mix(in srgb, var(--accent) 12%, var(--surface))" />
+						<rect y="290" width="400" height="6" fill="color-mix(in srgb, var(--accent) 12%, var(--surface))" />
+						<rect y="322" width="400" height="9" fill="color-mix(in srgb, var(--accent) 12%, var(--surface))" />
+						<rect y="360" width="400" height="140" fill="color-mix(in srgb, var(--accent) 12%, var(--surface))" />
+						{[3, 5, 8, 12, 18, 26].map((h, i, all) => (
+							<rect
+								y={368 + all.slice(0, i).reduce((s, b) => s + b + 7, 0)}
+								width="400"
+								height={h}
+								fill="var(--accent)"
+								opacity={0.12 + i * 0.1}
+							/>
+						))}
+						<text
+							x="40"
+							y="262"
+							font-family="Fraunces, Georgia, serif"
+							font-style="italic"
+							font-size="190"
+							font-weight="400"
+							fill="var(--ink)"
+						>R</text>
+						<text x="44" y="60" font-family="Geist Mono, monospace" font-size="13" letter-spacing="2" fill="var(--ink)" opacity="0.6">
+							MCALLEN, TX
+						</text>
+						<text x="44" y="80" font-family="Geist Mono, monospace" font-size="13" letter-spacing="2" fill="var(--ink)" opacity="0.6">
+							26.2° N, 98.2° W
+						</text>
+					</svg>
+				</div>
+			</section>
 
-	<p>
-		I'm a principal engineer, AI architect, app builder, and real estate investor based in McAllen,
-		Texas. I’m married with four kids, and this site is where I document the attempt to build more
-		freedom without missing the family life happening along the way.
-	</p>
+			<section class="about-grid" aria-labelledby="working-title">
+				<h2 id="working-title">What I’m working on</h2>
+				<ul class="pillars">
+					<li class="pillar" data-tone="agave">
+						<span class="pillar-stat">{liveApps.length} live on the App Store</span>
+						<strong>Apps</strong>
+						<p>
+							Utilities, games, and tools. See them all on
+							<a href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">my developer page</a>
+							or the <a href={withBase('/#apps')}>app shelf</a>.
+						</p>
+					</li>
+					<li class="pillar" data-tone="clay">
+						<span class="pillar-stat">{rentalEntries} entries</span>
+						<strong>Real estate</strong>
+						<p>Managing rental properties in South Texas.</p>
+					</li>
+					<li class="pillar" data-tone="dusk">
+						<span class="pillar-stat">{aiEntries} entries</span>
+						<strong>Learning</strong>
+						<p>AI, automation, and whatever keeps me growing.</p>
+					</li>
+				</ul>
+			</section>
 
-	<h3>What I'm working on</h3>
+			<section class="about-grid" aria-labelledby="connect-title">
+				<h2 id="connect-title">Connect</h2>
+				<div>
+					<ul class="contact-list">
+						<li><a href="mailto:rltorres26@gmail.com">Email <span class="mono">rltorres26@gmail.com</span></a></li>
+						<li><a href="https://github.com/RandyVentures" target="_blank" rel="noopener">GitHub <span class="mono">Most of my open work ↗</span></a></li>
+						<li><a href="https://www.linkedin.com/in/randy-torres-987a3761" target="_blank" rel="noopener">LinkedIn <span class="mono">Work history ↗</span></a></li>
+						<li><a href={withBase('/rss.xml')}>RSS <span class="mono">Every new entry</span></a></li>
+					</ul>
+				</div>
+			</section>
 
-	<ul>
-		<li><strong>Apps:</strong> {liveApps.length} apps live on the App Store — utilities, games, and tools. See them all on <a href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">my developer page</a> or the <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/#apps`}>apps section</a> of the homepage.</li>
-		<li><strong>Real estate:</strong> Managing rental properties in South Texas</li>
-		<li><strong>Learning:</strong> AI, automation, and whatever keeps me growing</li>
-	</ul>
-
-	<h3>Code</h3>
-
-	<p>
-		Most of my open work lives on <a href="https://github.com/RandyVentures" target="_blank">GitHub</a>.
-	</p>
-
-	<h3>Connect</h3>
-
-	<p>
-		Find me on <a href="https://github.com/RandyVentures" target="_blank">GitHub</a> or reach out via
-		email: rltorres26@gmail.com
-	</p>
-
-	<hr />
-
-	<p class="italic text-sm">
-		This blog is maintained with help from Will, my AI assistant. All posts are written/edited by
-		me, with AI helping format and publish.
-	</p>
-</Layout>
+			<section class="about-grid" aria-labelledby="colophon-title">
+				<h2 id="colophon-title">Colophon</h2>
+				<div class="colophon">
+					<p>
+						This blog is maintained with help from Will, my AI assistant. All posts are written and
+						edited by me, with AI helping format and publish.
+					</p>
+					<p>
+						Built with Astro and hosted on GitHub Pages. Headlines are set in Fraunces, long-form
+						reading in Newsreader, and everything else in Geist.
+					</p>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

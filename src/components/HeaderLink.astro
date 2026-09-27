@@ -7,11 +7,11 @@ const { href, class: className, ...props } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+// Hash links (/#apps) point into the homepage, so they are never "current".
+const isActive = !href?.includes('#') && (href === pathname || href === '/' + (subpath?.[0] || ''));
 const resolvedHref = href?.startsWith('/') ? `${base}${href}` : href;
 ---
 
-<!-- The active pill lives in global.css under `.site-nav a.active`. -->
-<a href={resolvedHref} class:list={[className, { active: isActive }]} {...props}>
+<a href={resolvedHref} class={className} aria-current={isActive ? 'page' : undefined} {...props}>
 	<slot />
 </a>

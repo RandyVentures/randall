@@ -1,197 +1,237 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import PostCard from '../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { RECENTLY_SHIPPED, appGroups, liveApps } from '../data/apps';
+import { RECENTLY_SHIPPED, apps, liveApps } from '../data/apps';
 import { playbooks } from '../data/playbooks';
+import { entryNumbers, getPosts, withBase } from '../lib/posts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const latest = posts.slice(0, 5);
-const firstPost = posts[posts.length - 1];
-const writingSince = firstPost.data.pubDate.toLocaleDateString('en-US', {
+const posts = await getPosts();
+const numbers = entryNumbers(posts);
+const [featured, ...rest] = posts;
+const recent = rest.slice(0, 3);
+const writingSince = posts[posts.length - 1].data.pubDate.toLocaleDateString('en-US', {
 	month: 'short',
 	year: 'numeric',
 });
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const withBase = (path: string) => `${base}${path}`;
+const shipped = apps.find((app) => app.name === RECENTLY_SHIPPED.name);
+const games = apps.filter((app) => app.category === 'Games');
+
+const threads = [
+	{
+		n: '01',
+		tone: 'dusk',
+		kicker: 'Leverage',
+		title: 'AI that does real work',
+		body: 'I use AI to investigate systems, build products, automate decisions, and turn one engineer’s effort into more useful output.',
+		cta: 'Read the AI entries',
+		href: withBase('/blog/?tag=ai'),
+	},
+	{
+		n: '02',
+		tone: 'agave',
+		kicker: 'Freedom',
+		title: 'Apps, rentals, and better bets',
+		body: 'I’m building income beyond a paycheck through software, real estate, and careful decisions that protect the family foundation.',
+		cta: 'Read the app entries',
+		href: withBase('/blog/?tag=apps'),
+	},
+	{
+		n: '03',
+		tone: 'rose',
+		kicker: 'The reason',
+		title: 'Family, faith, and staying present',
+		body: 'Ambition only matters if it helps me show up better for Dora, the kids, and the life we are actually living now.',
+		cta: 'Read the family entries',
+		href: withBase('/blog/?tag=family'),
+	},
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} — Field notes from South Texas`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section class="bento stagger" aria-label="Overview">
-				<div class="tile tile-intro">
-					<p class="kicker">McAllen, Texas · Building in public</p>
-					<h1>Hi, I'm Randall. I’m building technology, wealth, and a meaningful family life.</h1>
-					<p class="lead">
-						By day I’m a principal engineer and AI architect. Nights and weekends I ship apps,
-						manage rentals in South Texas, and build systems that help my family enjoy the journey
-						while creating more freedom for the future.
+		<main id="main">
+			<section class="home-hero" aria-labelledby="hero-title">
+				<div>
+					<p class="eyebrow reveal">McAllen, Texas · Building in public</p>
+					<h1 id="hero-title" class="reveal" style="--i: 1">
+						Building technology, wealth, and a <em>meaningful</em> family life.
+					</h1>
+					<p class="lead reveal" style="--i: 2">
+						By day I’m a principal engineer and AI architect. Nights and weekends I ship apps, manage
+						rentals in South Texas, and build systems that help my family enjoy the journey while
+						creating more freedom for the future.
 					</p>
-					<div class="hero-actions">
-						<a class="button" href={withBase('/blog')}>Read the log</a>
-						<a class="button secondary" href="#systems">See what I’m building</a>
+					<div class="hero-actions reveal" style="--i: 3">
+						<a class="button" href={withBase('/blog/')}>Read the log <span class="arrow">→</span></a>
+						<a class="button ghost" href="#apps">See the apps</a>
 					</div>
 				</div>
-				<div class="tile tile-stat tile-accent">
-					<span class="stat-num">{liveApps.length}</span>
-					<p class="stat-label">apps live on the App Store</p>
+
+				<aside class="now-card reveal" style="--i: 4" aria-label="Right now">
+					<div class="now-head">
+						<span class="live-dot">Just shipped</span>
+						<span class="mono">App Store</span>
+					</div>
+					<a class="now-ship" href={shipped?.url ?? '#apps'} target={shipped?.url ? '_blank' : undefined} rel="noopener">
+						{shipped && <Image src={shipped.icon} width={128} height={128} alt="" loading="eager" />}
+						<span>
+							<strong>{RECENTLY_SHIPPED.name}</strong>
+							<span>{shipped?.tagline ?? RECENTLY_SHIPPED.note}</span>
+						</span>
+					</a>
+					<dl class="stats">
+						<div><dt>apps live</dt><dd>{liveApps.length}</dd></div>
+						<div><dt>log entries</dt><dd>{posts.length}</dd></div>
+						<div><dt>writing since</dt><dd style="font-size: 1.15rem; padding-top: 0.55rem">{writingSince}</dd></div>
+					</dl>
+				</aside>
+			</section>
+
+			<div class="ticker" aria-label="Apps shipped so far">
+				<div class="ticker-track">
+					{[0, 1].map((copy) => (
+						<ul aria-hidden={copy === 1 ? 'true' : undefined}>
+							{liveApps.map((app) => (
+								<li>
+									<Image src={app.icon} width={52} height={52} alt="" />
+									{app.name}
+								</li>
+							))}
+						</ul>
+					))}
 				</div>
-				<div class="tile tile-stat">
-					<span class="stat-num">{posts.length}</span>
-					<p class="stat-label">posts, writing since {writingSince}</p>
-				</div>
-				<div class="tile tile-stat tile-purple tile-now tile-wide">
-					<p class="tile-kicker">Just shipped</p>
-					<p class="tile-big">{RECENTLY_SHIPPED.name}</p>
-					<p style="margin: 0; font-size: 0.92rem;">{RECENTLY_SHIPPED.note}</p>
+			</div>
+
+			<section class="section" aria-labelledby="latest-title">
+				<header class="section-header">
+					<div>
+						<p class="eyebrow">Latest entry</p>
+						<h2 id="latest-title">Fresh from the log</h2>
+					</div>
+					<a class="text-link" href={withBase('/blog/')}>All {posts.length} entries →</a>
+				</header>
+				<PostCard post={featured} n={numbers.get(featured.id)!} variant="feature" headingLevel="h3" />
+				<div class="card-grid" style="margin-top: clamp(3rem, 6vw, 4.5rem)">
+					{recent.map((post) => <PostCard post={post} n={numbers.get(post.id)!} />)}
 				</div>
 			</section>
 
-			<section class="section-spaced" id="systems" aria-label="What I am building around">
-				<div class="section-head">
-					<p class="section-title">The work behind the work</p>
-					<span class="section-note">A life built in public</span>
-				</div>
-				<div class="story-grid">
-					<article class="story-card story-card-ai">
-						<p class="story-kicker">01 · Leverage</p>
-						<h2>AI that does real work</h2>
-						<p>I use AI to investigate systems, build products, automate decisions, and turn one engineer’s effort into more useful output.</p>
-						<a href={withBase('/blog')}>Read the experiments →</a>
-					</article>
-					<article class="story-card story-card-wealth">
-						<p class="story-kicker">02 · Freedom</p>
-						<h2>Apps, rentals, and better bets</h2>
-						<p>I’m building income beyond a paycheck through software, real estate, and careful decisions that protect the family foundation.</p>
-						<a href={withBase('/#apps')}>See what has shipped →</a>
-					</article>
-					<article class="story-card story-card-life">
-						<p class="story-kicker">03 · The reason</p>
-						<h2>Family, faith, and staying present</h2>
-						<p>Ambition only matters if it helps me show up better for Dora, the kids, and the life we are actually living now.</p>
-						<a href={withBase('/about')}>Read the story →</a>
-					</article>
-				</div>
-			</section>
-
-			<section class="section-spaced" aria-label="Latest posts">
-				<div class="section-head">
-					<p class="section-title">Latest from the log</p>
-					<a class="section-more" href={withBase('/blog')}>All posts →</a>
-				</div>
-				<ul class="post-list">
-					{latest.map((post) => (
-						<li>
-							<div class="post-row">
-								<div class="post-row-text">
-									<div class="post-meta">
-										<FormattedDate date={post.data.pubDate} />
-										{post.data.tags.map((tag) => (
-											<span class="tag-chip" data-tag={tag}>{tag}</span>
-										))}
-									</div>
-									<h2 class="post-title">
-										<a class="post-title-link" href={withBase(`/blog/${post.id}/`)}>
-											{post.data.title}
-										</a>
-									</h2>
-									{post.data.description && <p class="post-summary">{post.data.description}</p>}
-								</div>
-								{post.data.heroImage ? (
-									<a class="post-thumb" href={withBase(`/blog/${post.id}/`)} tabindex="-1" aria-hidden="true">
-										<Image width={180} height={130} src={post.data.heroImage} alt="" />
-									</a>
-								) : (
-									<span class="post-thumb" aria-hidden="true">
-										<span class="post-thumb-fallback">{post.data.title.charAt(0)}</span>
-									</span>
-								)}
-							</div>
+			<section class="section" id="systems" aria-labelledby="threads-title">
+				<header class="section-header">
+					<div>
+						<p class="eyebrow">The work behind the work</p>
+						<h2 id="threads-title">Three threads, one life</h2>
+					</div>
+					<p>Every entry pulls on at least one of these.</p>
+				</header>
+				<ul class="threads">
+					{threads.map((thread) => (
+						<li class="thread" data-tone={thread.tone}>
+							<span class="thread-num" aria-hidden="true">{thread.n}</span>
+							<p class="eyebrow">{thread.kicker}</p>
+							<h3>{thread.title}</h3>
+							<p>{thread.body}</p>
+							<a class="text-link" href={thread.href}>{thread.cta} →</a>
 						</li>
 					))}
 				</ul>
 			</section>
 
-			<section class="section-spaced" id="playbooks" aria-label="Playbooks">
-				<div class="section-head">
-					<p class="section-title">Playbooks</p>
-					<a
-						class="section-more"
-						href={withBase('/blog/the-three-playbooks-behind-my-app-workflow/')}
-						>How they fit together →</a
-					>
+			<section class="section" id="apps" aria-labelledby="apps-title">
+				<header class="section-header">
+					<div>
+						<p class="eyebrow">The app shelf</p>
+						<h2 id="apps-title">{liveApps.length} apps, built nights and weekends</h2>
+					</div>
+					<a class="text-link" href="https://apps.apple.com/us/developer/randy-torres/id1871953838" target="_blank" rel="noopener">
+						All on the App Store ↗
+					</a>
+				</header>
+				<div class="shelf">
+					<div class="segmented" role="group" aria-label="Filter apps">
+						<button type="button" data-kind="all" aria-pressed="true">All<span class="count">{apps.length}</span></button>
+						<button type="button" data-kind="tools" aria-pressed="false">Apps &amp; tools<span class="count">{apps.length - games.length}</span></button>
+						<button type="button" data-kind="games" aria-pressed="false">Games<span class="count">{games.length}</span></button>
+					</div>
+					<ul class="app-grid" id="app-grid">
+						{apps.map((app) => {
+							const Tile = app.url ? 'a' : 'div';
+							const link = app.url ? { href: app.url, target: '_blank', rel: 'noopener' } : {};
+							return (
+								<li data-kind={app.category === 'Games' ? 'games' : 'tools'}>
+									<Tile class="app-tile" {...link}>
+										<Image src={app.icon} width={152} height={152} alt="" />
+										<span class="app-tile-name">{app.name}</span>
+										<span class="app-tile-tag">{app.tagline}</span>
+										{app.status === 'review' && <span class="badge">In review</span>}
+									</Tile>
+								</li>
+							);
+						})}
+					</ul>
 				</div>
-				<p class="playbooks-intro">
-					The parts of shipping an app that are not the code. Written from my own
-					apps, and the ones I reach for again every time I start something new.
-				</p>
-				<ul class="apps-grid">
-					{playbooks.map((playbook) => (
+			</section>
+
+			<section class="section" id="playbooks" aria-labelledby="playbooks-title">
+				<header class="section-header">
+					<div>
+						<p class="eyebrow">Playbooks</p>
+						<h2 id="playbooks-title">The parts of shipping that aren’t the code</h2>
+						<p>Written from my own apps — the guides I reach for every time I start something new.</p>
+					</div>
+					<a class="text-link" href={withBase('/blog/the-three-playbooks-behind-my-app-workflow/')}>How they fit together →</a>
+				</header>
+				<ol class="playbooks">
+					{playbooks.map((playbook, i) => (
 						<li>
-							<a class="app-card playbook-card" href={playbook.url} target="_blank" rel="noopener">
-								<span class="app-card-text">
-									<span class="app-name">{playbook.name}</span>
-									<span class="app-tagline">{playbook.tagline}</span>
-									<span class="playbook-for">{playbook.forWhom}</span>
+							<a class="playbook" href={playbook.url} target="_blank" rel="noopener">
+								<span class="playbook-top">
+									<span class="playbook-step">Step {String(i + 1).padStart(2, '0')}</span>
+									<span class="playbook-price">{playbook.price}</span>
 								</span>
-								<span class="playbook-price">{playbook.price}</span>
+								<h3>{playbook.name}</h3>
+								<p>{playbook.tagline}</p>
+								<span class="for">{playbook.forWhom}</span>
+								<span class="go">Get it on Gumroad <span class="arrow">↗</span></span>
 							</a>
 						</li>
 					))}
-				</ul>
+				</ol>
 			</section>
 
-			<section class="section-spaced" id="apps" aria-label="My apps">
-				<div class="section-head">
-					<p class="section-title">Apps I've shipped</p>
-					<a
-						class="section-more"
-						href="https://apps.apple.com/us/developer/randy-torres/id1871953838"
-						target="_blank"
-						rel="noopener">All on the App Store →</a
-					>
+			<section class="section follow" aria-labelledby="follow-title">
+				<div>
+					<p class="eyebrow">Follow along</p>
+					<h2 id="follow-title">A new entry most weeks, <em>written as it happens.</em></h2>
+					<p>Wins, misses, numbers, and the family moments in between. No algorithm required.</p>
 				</div>
-				{appGroups.map((group) => (
-					<div class="apps-group">
-						<p class="apps-group-label">{group.label}</p>
-						<ul class="apps-grid">
-							{group.entries.map((app) => {
-								const Card = app.url ? 'a' : 'div';
-								const linkProps = app.url
-									? { href: app.url, target: '_blank', rel: 'noopener' }
-									: {};
-								return (
-									<li>
-										<Card class="app-card" data-status={app.status} {...linkProps}>
-											<Image class="app-icon" width={104} height={104} src={app.icon} alt="" />
-											<span class="app-card-text">
-												<span class="app-name">{app.name}</span>
-												<span class="app-tagline">{app.tagline}</span>
-												{app.status === 'review' && (
-													<span class="app-status">In review</span>
-												)}
-											</span>
-										</Card>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				))}
+				<div class="hero-actions">
+					<a class="button" href={withBase('/rss.xml')}>Subscribe via RSS</a>
+					<a class="button ghost" href="https://github.com/RandyVentures" target="_blank" rel="noopener">GitHub ↗</a>
+				</div>
 			</section>
 		</main>
 		<Footer />
+
+		<script>
+			const buttons = document.querySelectorAll<HTMLButtonElement>('.segmented button');
+			const tiles = document.querySelectorAll<HTMLLIElement>('#app-grid > li');
+			buttons.forEach((button) =>
+				button.addEventListener('click', () => {
+					const kind = button.dataset.kind;
+					buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+					tiles.forEach((tile) => (tile.hidden = kind !== 'all' && tile.dataset.kind !== kind));
+				}),
+			);
+		</script>
 	</body>
 </html>

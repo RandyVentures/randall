@@ -1,86 +1,101 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import SearchPalette from './SearchPalette.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const withBase = (path: string) => `${base}${path}`;
 ---
 
-<header class="site-header">
-	<div class="site-bar">
-		<div class="site-brand">
-			<a class="site-title" href={withBase('/')}>{SITE_TITLE}</a>
-			<span class="site-tagline">Technology, wealth &amp; family life</span>
-		</div>
-		<nav class="site-nav" aria-label="Primary">
-			<HeaderLink href="/blog">Posts</HeaderLink>
-			<HeaderLink href="/#systems">The work</HeaderLink>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="masthead" id="masthead">
+	<div class="masthead-bar">
+		<a class="brand" href={withBase('/')} aria-label={`${SITE_TITLE} — home`}>
+			<span class="brand-mark" aria-hidden="true">R</span>
+			<span class="brand-text">
+				<span class="brand-name">{SITE_TITLE}</span>
+				<span class="brand-sub">Field notes · South Texas</span>
+			</span>
+		</a>
+		<nav class="nav" id="site-nav" aria-label="Primary">
+			<HeaderLink href="/blog">The log</HeaderLink>
 			<HeaderLink href="/#apps">Apps</HeaderLink>
+			<HeaderLink href="/#playbooks">Playbooks</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
-			<button
-				class="theme-toggle"
-				id="theme-toggle"
-				type="button"
-				aria-pressed="false"
-				title="Toggle dark mode"
-			>
-				<span class="visually-hidden">Toggle dark mode</span>
-				<svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
-					<circle cx="12" cy="12" r="4.6" fill="currentColor" />
-					<g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-						<path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7" />
-					</g>
-				</svg>
-				<svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
-					<path
-						fill="currentColor"
-						d="M21 13.2A9 9 0 0 1 10.8 3a9 9 0 1 0 10.2 10.2z"
-					/>
-				</svg>
-			</button>
 		</nav>
+		<div class="masthead-actions">
+			<button class="search-trigger" type="button" data-open-search aria-label="Search the site">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+				<span class="search-label">Search</span>
+				<kbd class="search-kbd">⌘K</kbd>
+			</button>
+			<button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-pressed="false" title="Toggle dark mode">
+				<span class="visually-hidden">Dark mode</span>
+				<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"></path></svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"></path></svg>
+			</button>
+			<button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+				<span class="visually-hidden">Menu</span>
+				<svg class="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg>
+				<svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+			</button>
+		</div>
 	</div>
 </header>
-
-<script is:inline>
-	// Runs before paint so a stored preference does not flash the wrong theme.
-	(() => {
-		const stored = (() => {
-			try {
-				return localStorage.getItem('theme');
-			} catch {
-				return null;
-			}
-		})();
-		if (stored === 'dark' || stored === 'light') {
-			document.documentElement.dataset.theme = stored;
-		}
-	})();
-</script>
+<SearchPalette />
 
 <script>
 	const root = document.documentElement;
+	const masthead = document.getElementById('masthead')!;
 	const toggle = document.getElementById('theme-toggle')!;
+	const menu = document.getElementById('menu-toggle')!;
 	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-	const isDark = () =>
-		root.dataset.theme ? root.dataset.theme === 'dark' : prefersDark.matches;
-
-	function sync() {
-		toggle.setAttribute('aria-pressed', String(isDark()));
-	}
-
+	// Theme
+	const isDark = () => (root.dataset.theme ? root.dataset.theme === 'dark' : prefersDark.matches);
+	const sync = () => toggle.setAttribute('aria-pressed', String(isDark()));
 	toggle.addEventListener('click', () => {
 		const next = isDark() ? 'light' : 'dark';
-		root.dataset.theme = next;
+		const apply = () => {
+			root.dataset.theme = next;
+			sync();
+		};
+		// Cross-fade the whole page when the browser can; otherwise just switch.
+		const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+		if (doc.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			doc.startViewTransition(apply);
+		} else {
+			apply();
+		}
 		try {
 			localStorage.setItem('theme', next);
 		} catch {
 			// Private browsing — the choice just will not persist.
 		}
-		sync();
 	});
-
 	prefersDark.addEventListener('change', sync);
 	sync();
+
+	// Hairline under the header once the page moves.
+	const onScroll = () => masthead.toggleAttribute('data-scrolled', window.scrollY > 8);
+	window.addEventListener('scroll', onScroll, { passive: true });
+	onScroll();
+
+	// Mobile menu
+	const setMenu = (open: boolean) => {
+		masthead.toggleAttribute('data-menu-open', open);
+		menu.setAttribute('aria-expanded', String(open));
+	};
+	menu.addEventListener('click', () => setMenu(!masthead.hasAttribute('data-menu-open')));
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') setMenu(false);
+	});
+	document.getElementById('site-nav')!.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement).closest('a')) setMenu(false);
+	});
+
+	// Show the real shortcut for the platform.
+	if (!/Mac|iPhone|iPad/.test(navigator.platform)) {
+		document.querySelectorAll('.search-kbd').forEach((kbd) => (kbd.textContent = 'Ctrl K'));
+	}
 </script>
