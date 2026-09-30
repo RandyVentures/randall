@@ -1,0 +1,78 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/fillbook.png';
+import reviewQueue from '../../assets/fillbook-review-queue.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+---
+
+<AppLanding
+  name="Fillbook"
+  storeName="Fillbook: Trading Journal"
+  title="Fillbook: Options & Futures Trading Journal for iPhone"
+  description="A trading journal for options and futures traders. Import a Robinhood or thinkorswim export, group fills into positions, follow rolls, and review your trades against your own rules — no broker login."
+  icon={icon}
+  appStoreId="6795599230"
+  appStoreUrl="https://apps.apple.com/us/app/fillbook-trading-journal/id6795599230"
+  kicker="iPhone · Trading journal · 7-day free trial"
+  lead="A faithful record of what you actually traded. Fillbook turns broker executions into real positions — spreads, condors and rolls included — then gives you a review built around the rules you trade by."
+  secondary={{ label: 'Why I built it', href: withBase('/blog/two-new-apps-and-portfolio-improvements/') }}
+  screenshot={{
+    src: reviewQueue,
+    alt: 'Fillbook review queue showing option executions grouped into positions for the trader to confirm',
+    caption: 'The review queue: uncertain groupings wait for you before they enter the journal.',
+  }}
+  features={[
+    {
+      kicker: 'Positions',
+      title: 'Positions, not fill rows',
+      body: 'A four-leg iron condor is one position, not four unrelated fills. Verticals, strangles, straddles, ratios and rolls across expiries are grouped, and expiration and assignment stay visible even without a closing fill.',
+    },
+    {
+      kicker: 'Import',
+      title: 'Export once, no broker login',
+      body: 'Bring a Robinhood account activity export, a thinkorswim Account Statement, or any CSV with explicit execution columns. Fillbook keeps the raw row, normalizes symbols and timestamps, and asks before guessing.',
+    },
+    {
+      kicker: 'Review',
+      title: 'Your rules, your book',
+      body: 'Write the rules you trade by — timing, size, DTE, loss limits, profit targets, cooldowns — and see adherence across your own trades. No imaginary perfect exits, no forgone-profit hindsight theater.',
+    },
+  ]}
+  pricing={[
+    '**Try the whole workflow first.** A sample book lets you explore before importing anything, and a 7-day free trial covers your own trades.',
+    '**Monthly or lifetime.** $2.99/month after the trial, renewing until canceled — or $19.99 once for lifetime access that never renews. Prices shown by Apple may vary by region.',
+  ]}
+  faqs={[
+    {
+      q: 'Which brokers does Fillbook import from?',
+      a: 'Robinhood account activity exports and thinkorswim Account Statement exports, plus any other CSV that has explicit execution columns.',
+    },
+    {
+      q: 'Do I have to connect my brokerage account?',
+      a: 'No. You export a file from your broker once and import it. Fillbook never asks for a broker login.',
+    },
+    {
+      q: 'Does it handle multi-leg options strategies and rolls?',
+      a: 'Yes. Verticals, iron condors, strangles, straddles and ratios are grouped into single positions, and rolls are followed across expiries.',
+    },
+    {
+      q: 'How is P&L calculated?',
+      a: 'Realized P&L comes from fully closed positions and is counted on the closing date, so open positions never inflate your results.',
+    },
+    {
+      q: 'Where is my trading journal stored?',
+      a: 'Fillbook is local-first: your journal, notes and imported activity are kept on your device.',
+    },
+  ]}
+  links={[
+    { label: 'Support', href: withBase('/fillbook/support/') },
+    { label: 'Privacy policy', href: withBase('/fillbook/privacy/') },
+  ]}
+  schemaCategory="FinanceApplication"
+  offers={[
+    { price: '2.99', description: 'Monthly, after a 7-day free trial' },
+    { price: '19.99', description: 'Lifetime access, one-time purchase' },
+  ]}
+/>

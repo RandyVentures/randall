@@ -165,8 +165,12 @@ const threads = [
 					</div>
 					<ul class="app-grid" id="app-grid">
 						{apps.map((app) => {
-							const Tile = app.url ? 'a' : 'div';
-							const link = app.url ? { href: app.url, target: '_blank', rel: 'noopener' } : {};
+							const Tile = app.page || app.url ? 'a' : 'div';
+							const link = app.page
+								? { href: withBase(app.page) }
+								: app.url
+									? { href: app.url, target: '_blank', rel: 'noopener' }
+									: {};
 							return (
 								<li data-kind={app.category === 'Games' ? 'games' : 'tools'}>
 									<Tile class="app-tile" {...link}>

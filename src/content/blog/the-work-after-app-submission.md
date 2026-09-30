@@ -41,7 +41,7 @@ Heirloom and Fillbook are both waiting for App Store review, but they solve very
 
 ### Heirloom: Giving Old Letters a Second Life
 
-Heirloom is an old letter reader designed to help people work with handwritten letters, records, diaries, and other documents that can be difficult to read.
+[Heirloom](/randall/heirloom/) is an old letter reader designed to help people work with handwritten letters, records, diaries, and other documents that can be difficult to read.
 
 Old documents often contain meaningful information, but the barrier is obvious: handwriting changes over time, pages fade, and the people who could once read them may not always be available to explain them.
 
@@ -53,7 +53,7 @@ Heirloom is still waiting for review. Once it is public, the next question will 
 
 ### Fillbook: Making Trading History Easier to Review
 
-Fillbook is a trading journal for options and futures traders.
+[Fillbook](/randall/fillbook/) is a trading journal for options and futures traders.
 
 Trading data can become complicated quickly. A single position may involve multiple fills, several legs, and changes across expiration dates. A raw export may contain the information, but it does not necessarily make the story of the trade easy to understand.
 
@@ -125,3 +125,5 @@ The feedback that follows is where the next version begins.
 - [Real Estate Manager](https://apps.apple.com/us/app/real-estate-manager-home/id6758280423)
 
 Heirloom and Fillbook are still waiting for review, so their public App Store links will be added after Apple approves the listings.
+
+*Update: both are now live — [Heirloom: Old Letter Reader](https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170) and [Fillbook: Trading Journal](https://apps.apple.com/us/app/fillbook-trading-journal/id6795599230).*

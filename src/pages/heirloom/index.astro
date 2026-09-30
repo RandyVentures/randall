@@ -1,28 +1,69 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/heirloom.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead
-      title="Heirloom: Old Letter Reader"
-      description="Support and privacy information for Heirloom: Old Letter Reader."
-    />
-  </head>
-  <body>
-    <Header />
-    <main id="main">
-      <h1>Heirloom: Old Letter Reader</h1>
-      <p>Official support and privacy information for the Heirloom iOS app.</p>
-      <p>
-        <a href={import.meta.env.BASE_URL + '/heirloom/support'}>Support</a>
-        ·
-        <a href={import.meta.env.BASE_URL + '/heirloom/privacy'}>Privacy Policy</a>
-      </p>
-    </main>
-    <Footer />
-  </body>
-</html>
+<AppLanding
+  name="Heirloom"
+  storeName="Heirloom: Old Letter Reader"
+  title="Heirloom: Old Letter Reader — Read Cursive & Handwritten Letters on iPhone"
+  description="Heirloom reads old handwritten letters, cursive, and diary pages with AI transcription on iPhone — with a modernized version, English translation, and Read Aloud. Try your first letter free."
+  icon={icon}
+  appStoreId="6792422170"
+  appStoreUrl="https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170"
+  kicker="iPhone · Old letter reader · First letter free"
+  lead="Bring family letters back into focus. Photograph a handwritten letter, a page of cursive, or an old diary, and Heirloom turns it into text you can actually read — modernized, translated into English, or read aloud."
+  secondary={{ label: 'Why I built it', href: withBase('/blog/two-new-apps-and-portfolio-improvements/') }}
+  features={[
+    {
+      kicker: 'Scan',
+      title: 'Up to five pages at a time',
+      body: 'Scan or import the pages of a letter, check and reorder them before reading, and save a draft to come back to later.',
+    },
+    {
+      kicker: 'Read',
+      title: 'Cursive into clear text',
+      body: 'AI transcription of handwritten letters, cursive, diary pages and old documents — with a modernized version in the original language, an English translation for non-English writing, and Read Aloud.',
+    },
+    {
+      kicker: 'Keep',
+      title: 'Originals beside the words',
+      body: 'Saved letters keep their original pages, so you can zoom in and compare. Correct the transcript or translation on your device and share whichever version you choose.',
+    },
+  ]}
+  pricing={[
+    '**Try it on a real letter.** Your first letter is a free preview, so you can see how Heirloom handles your family’s handwriting before paying anything.',
+    '**Heirloom Unlimited.** Continued reading is a weekly or yearly auto-renewing subscription. Prices are shown before purchase, and you can manage or cancel in your Apple account settings.',
+  ]}
+  faqs={[
+    {
+      q: 'Can Heirloom read cursive handwriting?',
+      a: 'Yes. It is built for handwritten letters, cursive, diary pages and old documents. Results depend on the writing and the photo quality, so check important names, dates and uncertain passages against the original.',
+    },
+    {
+      q: 'Can it translate old letters written in another language?',
+      a: 'Yes. For non-English writing, Heirloom gives you an English translation alongside a modernized version in the original language.',
+    },
+    {
+      q: 'Is it useful for genealogy and family history?',
+      a: 'That is what it was made for — turning a box of family correspondence into text you can read, search, correct and share with relatives, while keeping the original pages with each letter.',
+    },
+    {
+      q: 'Where are my letters stored?',
+      a: 'Saved letters and your edits stay on your device. Reading a letter needs an internet connection, because the photos you select are sent to the reading service for transcription.',
+    },
+    {
+      q: 'Can I fix mistakes in the transcription?',
+      a: 'Yes. Edit the transcript, modernized text or translation on your device without another AI request. Heirloom keeps the original AI text and reminds you to check the related versions after a correction.',
+    },
+  ]}
+  links={[
+    { label: 'Support', href: withBase('/heirloom/support/') },
+    { label: 'Privacy policy', href: withBase('/heirloom/privacy/') },
+  ]}
+  schemaCategory="ReferenceApplication"
+  offers={[{ price: '0', description: 'First letter free; Heirloom Unlimited subscription for continued reading' }]}
+/>

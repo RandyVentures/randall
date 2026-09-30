@@ -14,7 +14,7 @@ That combination is a good picture of what building a portfolio actually looks l
 
 ## Heirloom: An Old Letter Reader
 
-Heirloom is built for people who have old letters, records, diaries, or other handwritten documents they want to understand and preserve.
+[Heirloom](/randall/heirloom/) is built for people who have old letters, records, diaries, or other handwritten documents they want to understand and preserve.
 
 The app helps turn photographs of handwritten letters into readable, searchable text. That can make a box of family correspondence feel much more approachable. Instead of leaving old documents tucked away because the handwriting is difficult to read, Heirloom gives them a practical way back into everyday life.
 
@@ -22,9 +22,11 @@ There is something meaningful about working on a product like this. The technolo
 
 Heirloom has now been submitted for App Store review. The public App Store listing will be linked here as soon as Apple makes it available.
 
+*Update: Heirloom is now live — [Heirloom: Old Letter Reader on the App Store](https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170).*
+
 ## Fillbook: A Trading Journal Built for Review
 
-Fillbook is a trading journal for options and futures traders who want a clearer way to review their activity.
+[Fillbook](/randall/fillbook/) is a trading journal for options and futures traders who want a clearer way to review their activity.
 
 Trade data can become difficult to understand when it is spread across individual fills, multiple legs, positions, and rolls between expirations. Fillbook is designed to organize that information into a more useful review workflow.
 
@@ -46,7 +48,7 @@ The challenge is getting that feedback at the right moment. A rating request sho
 
 ## Bean Hunt: Continuing to Improve Discovery
 
-Bean Hunt is built around coffee discovery: helping people find interesting drinks and coffee shops, then keep track of what they try.
+[Bean Hunt](/randall/bean-hunt/) is built around coffee discovery: helping people find interesting drinks and coffee shops, then keep track of what they try.
 
 Like Rally Track, Bean Hunt has also received work focused on ratings and feedback. A discovery app becomes more useful as people contribute their opinions and experiences. Those responses help identify what is valuable, what needs clarification, and where the product should improve next.
 
@@ -76,8 +78,8 @@ New app submissions are exciting, but the work does not stop when an app reaches
 
 ## App Store Links
 
-- [Heirloom: Old Letter Reader](https://apps.apple.com/us/app/id6792422170) — submitted and awaiting public availability
-- [Fillbook: Trading Journal](https://apps.apple.com/us/app/id6795599230) — submitted and awaiting public availability
+- [Heirloom: Old Letter Reader](https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170) — now live
+- [Fillbook: Trading Journal](https://apps.apple.com/us/app/fillbook-trading-journal/id6795599230) — now live
 - [Rally Track](https://apps.apple.com/us/app/pickleball-score-keeper-rally/id6760594178)
 - [Bean Hunt](https://apps.apple.com/us/app/bean-hunt/id6760348691)
 - [Real Estate Manager](https://apps.apple.com/us/app/real-estate-manager-home/id6758280423)

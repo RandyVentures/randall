@@ -1,0 +1,238 @@
+---
+// Shared landing page for an app on the shelf. Each page lives on this site so
+// search engines have something to rank; the App Store button is the exit.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+
+interface Feature {
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+interface Link {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  name: string;
+  /** The full App Store listing name, used as anchor text on outbound links. */
+  storeName: string;
+  /** The <title>: lead with what people search for, not just the app name. */
+  title: string;
+  description: string;
+  icon: ImageMetadata;
+  appStoreId: string;
+  appStoreUrl: string;
+  kicker: string;
+  lead: string;
+  secondary?: Link;
+  screenshot?: { src: ImageMetadata; alt: string; caption?: string };
+  features: Feature[];
+  /** Paragraphs; a leading `**phrase.**` renders bold. */
+  pricing: string[];
+  faqs: { q: string; a: string }[];
+  links: Link[];
+  /** schema.org applicationCategory, e.g. `ReferenceApplication`. */
+  schemaCategory: string;
+  offers: { price: string; description: string }[];
+}
+
+const {
+  name,
+  storeName,
+  title,
+  description,
+  icon,
+  appStoreId,
+  appStoreUrl,
+  kicker,
+  lead,
+  secondary,
+  screenshot,
+  features,
+  pricing,
+  faqs,
+  links,
+  schemaCategory,
+  offers,
+} = Astro.props;
+
+// Marked up as an app so search engines can show the price, platform and
+// category alongside the result instead of guessing from the prose.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: storeName,
+  applicationCategory: schemaCategory,
+  operatingSystem: 'iOS',
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  installUrl: appStoreUrl,
+  sameAs: [appStoreUrl],
+  description,
+  image: new URL(icon.src, Astro.site).href,
+  author: { '@type': 'Person', name: 'Randall Torres' },
+  offers: offers.map((offer) => ({ '@type': 'Offer', priceCurrency: 'USD', ...offer })),
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+
+const splitLead = (text: string) => {
+  const match = text.match(/^\*\*(.+?)\*\*\s*(.*)$/s);
+  return match ? { strong: match[1], rest: match[2] } : { strong: '', rest: text };
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={icon} />
+    <!-- iOS Safari shows an "Open / Get" banner that goes straight to the listing. -->
+    <meta name="apple-itunes-app" content={`app-id=${appStoreId}`} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)} />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <section class="app-hero tile">
+        <Image class="app-hero-icon" width={132} height={132} src={icon} alt={`${storeName} app icon`} loading="eager" />
+        <div class="app-hero-text">
+          <p class="tile-kicker">{kicker}</p>
+          <h1>{name}</h1>
+          <p class="lead">{lead}</p>
+          <div class="hero-actions">
+            <a class="button" href={appStoreUrl} target="_blank" rel="noopener" aria-label={`Get ${storeName} on the App Store`}>
+              Get it on the App Store
+            </a>
+            {secondary && <a class="button secondary" href={secondary.href}>{secondary.label}</a>}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-spaced" aria-label="What's inside">
+        <div class="section-head">
+          <p class="section-title">What&rsquo;s inside</p>
+        </div>
+        <div class="story-grid">
+          {features.map((feature, i) => (
+            <article class="story-card">
+              <p class="story-kicker">{String(i + 1).padStart(2, '0')} · {feature.kicker}</p>
+              <h2>{feature.title}</h2>
+              <p>{feature.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {screenshot && (
+        <figure class="app-shot">
+          <Image src={screenshot.src} width={360} alt={screenshot.alt} />
+          {screenshot.caption && <figcaption>{screenshot.caption}</figcaption>}
+        </figure>
+      )}
+
+      <section class="section-spaced" aria-label="Pricing">
+        <div class="section-head">
+          <p class="section-title">Pricing</p>
+        </div>
+        <div class="tile">
+          {pricing.map((paragraph) => {
+            const { strong, rest } = splitLead(paragraph);
+            return <p>{strong && <strong>{strong}</strong>} {rest}</p>;
+          })}
+        </div>
+      </section>
+
+      <section class="section-spaced" aria-label="Questions">
+        <div class="section-head">
+          <p class="section-title">Questions</p>
+        </div>
+        {faqs.map((faq) => (
+          <div class="tile faq-item">
+            <h2>{faq.q}</h2>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </section>
+
+      <p class="app-links">
+        <a href={appStoreUrl} target="_blank" rel="noopener">{storeName} on the App Store</a>
+        {links.map((link) => (
+          <Fragment> · <a href={link.href}>{link.label}</a></Fragment>
+        ))}
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .app-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  .app-hero-icon {
+    border-radius: 24px;
+    flex: none;
+  }
+
+  .app-hero-text {
+    flex: 1 1 320px;
+  }
+
+  .app-hero-text h1 {
+    margin: 0.2rem 0 0.6rem;
+  }
+
+  .app-shot {
+    margin: 2.5rem auto 0;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .app-shot img {
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    box-shadow: var(--shadow-1);
+  }
+
+  .app-shot figcaption {
+    margin-top: 0.8rem;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
+  .faq-item {
+    margin-bottom: 12px;
+  }
+
+  .faq-item h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    margin: 0;
+  }
+
+  .app-links {
+    color: var(--ink-muted);
+  }
+</style>

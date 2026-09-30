@@ -46,7 +46,7 @@ The important thing is that these apps are moving forward. Some are live, some a
 
 ## A Big Milestone for Heirloom
 
-One of the most encouraging milestones has been with Heirloom.
+One of the most encouraging milestones has been with [Heirloom](/randall/heirloom/).
 
 Over the last 28 days, RevenueCat shows about $125 in revenue. Heirloom is subscription-based and now has five subscribers, putting it in triple-digit monthly recurring revenue territory based on the current subscription mix.
 

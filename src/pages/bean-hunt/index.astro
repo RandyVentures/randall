@@ -1,0 +1,62 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/bean-hunt.jpg';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+---
+
+<AppLanding
+  name="Bean Hunt"
+  storeName="Bean Hunt"
+  title="Bean Hunt: Coffee Shop Finder & Coffee Journal for iPhone"
+  description="Find great coffee shops near you, see what to order, stamp every coffee you try, and build a coffee passport of cafés worth going back to. Free on iPhone."
+  icon={icon}
+  appStoreId="6760348691"
+  appStoreUrl="https://apps.apple.com/us/app/bean-hunt/id6760348691"
+  kicker="iPhone · Coffee journal · Free"
+  lead="Your coffee passport. Find great cafés near you, know what to order before you walk in, and stamp every coffee you try — so the places worth going back to never get lost."
+  secondary={{ label: 'How it started', href: withBase('/blog/settling-in-bean-hunt-begins/') }}
+  features={[
+    {
+      kicker: 'Hunt',
+      title: 'Great coffee nearby',
+      body: 'See coffee shops around you with the ones you’ve tried marked on the map. Work through curated hunts — top rated, hidden gems, open right now, a short walk away, and laptop-friendly — and see the drinks locals rate highest.',
+    },
+    {
+      kicker: 'Stamp',
+      title: 'Check in with a couple of taps',
+      body: 'Pick the café, pick the drink, rate it. Earn badges like Explorer, Regular, Pour-over pilgrim and Night owl, and keep a weekly streak going as your neighborhood fills in.',
+    },
+    {
+      kicker: 'Passport',
+      title: 'Every coffee, one place',
+      body: 'Every café and drink you’ve tried with ratings and notes, in list and calendar views. Start as a guest, then create a free account to back up your passport.',
+    },
+  ]}
+  pricing={[
+    '**Free to use.** Finding cafés, checking in, badges, streaks and your passport are all free.',
+    '**Premium, one time.** An optional one-time purchase — not a subscription — adds the “Not been yet” filter, passport insights like your go-to order and favorite café, and unlimited saved shops and drinks.',
+  ]}
+  faqs={[
+    {
+      q: 'Is Bean Hunt free?',
+      a: 'Yes. The core app is free. Premium is an optional one-time purchase, and you can also leave a tip from inside the app.',
+    },
+    {
+      q: 'Is Premium a subscription?',
+      a: 'No. Premium is a single one-time purchase with nothing that renews.',
+    },
+    {
+      q: 'Can it find laptop-friendly coffee shops?',
+      a: 'Yes. Laptop-friendly is one of the curated hunts, alongside top rated, hidden gems, open right now and a short walk away.',
+    },
+    {
+      q: 'Do I need an account?',
+      a: 'No. You can start as a guest. A free account is only needed if you want to back up your coffee passport.',
+    },
+  ]}
+  links={[{ label: 'beanhunt.app', href: 'https://www.beanhunt.app' }]}
+  schemaCategory="LifestyleApplication"
+  offers={[{ price: '0', description: 'Free, with an optional one-time Premium purchase' }]}
+/>

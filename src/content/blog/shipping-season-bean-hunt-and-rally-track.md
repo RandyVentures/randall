@@ -32,7 +32,7 @@ While juggling everything else, I managed to hit submit on **two apps** for App 
 
 ### Bean Hunt: Coffee Discovery Done Right
 
-**Bean Hunt** is the app I've been building for coffee lovers who are tired of generic shop reviews.
+**[Bean Hunt](/randall/bean-hunt/)** is the app I've been building for coffee lovers who are tired of generic shop reviews.
 
 Instead of "this coffee shop is 4.5 stars," Bean Hunt answers the real question: **"What should I actually order here?"**
 

@@ -22,6 +22,8 @@ export interface AppEntry {
 	status: 'live' | 'review';
 	/** Omitted while an app is still in review and has no public listing. */
 	url?: string;
+	/** Landing page on this site; the shelf links here so the page earns the search traffic. */
+	page?: string;
 	icon: ImageMetadata;
 }
 
@@ -40,6 +42,7 @@ export const apps: AppEntry[] = [
 		category: 'Lifestyle',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/while-were-here/id6810424599',
+		page: '/while-were-here/',
 		icon: whileWereHere,
 	},
 	{
@@ -48,6 +51,7 @@ export const apps: AppEntry[] = [
 		category: 'Photo & Video',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170',
+		page: '/heirloom/',
 		icon: heirloom,
 	},
 	{
@@ -56,6 +60,7 @@ export const apps: AppEntry[] = [
 		category: 'Finance',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/fillbook-trading-journal/id6795599230',
+		page: '/fillbook/',
 		icon: fillbook,
 	},
 	{
@@ -88,6 +93,7 @@ export const apps: AppEntry[] = [
 		category: 'Food & Drink',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/bean-hunt/id6760348691',
+		page: '/bean-hunt/',
 		icon: beanHunt,
 	},
 	{
