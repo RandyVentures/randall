@@ -5,6 +5,7 @@ import colorFlood from '../assets/apps/color-flood.jpg';
 import familyStop from '../assets/apps/familystop.png';
 import fillbook from '../assets/apps/fillbook.png';
 import fillin from '../assets/apps/fillin.png';
+import glora from '../assets/apps/glora.png';
 import gulp from '../assets/apps/gulp.png';
 import heirloom from '../assets/apps/heirloom.png';
 import rally from '../assets/apps/rally.jpg';
@@ -28,6 +29,14 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'Glora: My Upkeep',
+		tagline: 'Track beauty and self-care routines',
+		category: 'Lifestyle',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/glora-my-upkeep/id6808841943',
+		icon: glora,
+	},
 	{
 		name: 'Rise & Capy',
 		tagline: 'Capybara alarm clock with wake-up missions',
@@ -148,7 +157,7 @@ export const apps: AppEntry[] = [
 
 export const liveApps = apps.filter((app) => app.status === 'live');
 
-/** The grid reads better split by kind than as one 14-card wall. */
+/** The grid reads better split by kind than as one large wall of cards. */
 export const appGroups = [
 	{ label: 'Apps & tools', entries: apps.filter((app) => app.category !== 'Games') },
 	{ label: 'Games', entries: apps.filter((app) => app.category === 'Games') },
