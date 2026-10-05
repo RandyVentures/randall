@@ -1,6 +1,6 @@
 ---
-title: 'How We’ve Been Using Astra to Build and Ship'
-description: 'GPT-6 Astra has become part of the working loop behind a growing portfolio of apps, releases, and product decisions.'
+title: 'Using GPT-6 Astra in Codex to Build and Ship Apps'
+description: 'How GPT-6 Astra carries an app from idea to a verified result in Codex: one working session across SwiftUI, App Store metadata, websites and releases.'
 pubDate: 'Sep 05 2026'
 tags: ['apps', 'building', 'ai']
 heroImage: '../../assets/ai-hero.jpg'

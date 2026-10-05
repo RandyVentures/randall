@@ -13,6 +13,18 @@ const posts = await getPosts();
 const numbers = entryNumbers(posts);
 const [featured, ...rest] = posts;
 const recent = rest.slice(0, 3);
+// Evergreen posts that already earn search impressions; surfaced on the homepage so
+// they stay one click from the front door instead of sinking below the newest entries.
+const POPULAR_IDS = [
+	'app-store-data-problems-indie-developers',
+	'what-58000-app-store-impressions-taught-me',
+	'how-weve-been-using-astra',
+	'the-best-app-roadmap-is-a-set-of-questions',
+];
+const popular = POPULAR_IDS.map((id) => posts.find((post) => post.id === id))
+	.filter((post): post is NonNullable<typeof post> => Boolean(post))
+	.filter((post) => post.id !== featured.id && !recent.some((r) => r.id === post.id))
+	.slice(0, 3);
 const writingSince = posts[posts.length - 1].data.pubDate.toLocaleDateString('en-US', {
 	month: 'short',
 	year: 'numeric',
@@ -125,6 +137,21 @@ const threads = [
 					{recent.map((post) => <PostCard post={post} n={numbers.get(post.id)!} />)}
 				</div>
 			</section>
+
+			{popular.length > 0 && (
+				<section class="section" aria-labelledby="popular-title">
+					<header class="section-header">
+						<div>
+							<p class="eyebrow">If you build apps</p>
+							<h2 id="popular-title">Start with these</h2>
+						</div>
+						<a class="text-link" href={withBase('/blog/')}>All {posts.length} entries →</a>
+					</header>
+					<div class="card-grid">
+						{popular.map((post) => <PostCard post={post} n={numbers.get(post.id)!} headingLevel="h3" />)}
+					</div>
+				</section>
+			)}
 
 			<section class="section" id="systems" aria-labelledby="threads-title">
 				<header class="section-header">
