@@ -8,6 +8,7 @@ import fillin from '../assets/apps/fillin.png';
 import glora from '../assets/apps/glora.png';
 import gulp from '../assets/apps/gulp.png';
 import heirloom from '../assets/apps/heirloom.png';
+import hypeLap from '../assets/apps/hypelap.png';
 import rally from '../assets/apps/rally.jpg';
 import realEstateManager from '../assets/apps/real-estate-manager.png';
 import riseAndCapy from '../assets/apps/rise-and-capy.png';
@@ -19,9 +20,9 @@ export interface AppEntry {
 	name: string;
 	tagline: string;
 	category: string;
-	/** `live` is on sale today; `review` is submitted and waiting on Apple. */
-	status: 'live' | 'review';
-	/** Omitted while an app is still in review and has no public listing. */
+	/** `live` is available; `review` awaits Apple; `coming-soon` is announced. */
+	status: 'live' | 'review' | 'coming-soon';
+	/** Omitted when an app has no public listing. */
 	url?: string;
 	/** Landing page on this site; the shelf links here so the page earns the search traffic. */
 	page?: string;
@@ -29,6 +30,13 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'HypeLap',
+		tagline: 'Live race tracking and cheers for runners',
+		category: 'Sports',
+		status: 'coming-soon',
+		icon: hypeLap,
+	},
 	{
 		name: 'Glora: My Upkeep',
 		tagline: 'Track beauty and self-care routines',
