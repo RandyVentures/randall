@@ -11,8 +11,8 @@ Keeping track of rental expenses can be surprisingly difficult when you manage p
 A faucet repair in March. A utility bill in June. A trip to the hardware store you paid for with whatever card was in your pocket. By the time the year is over, those expenses are scattered across bank statements, email receipts and a shoebox.
 
 <figure style="max-width:360px;margin:1.5rem auto">
-<video controls playsinline preload="metadata" poster="/randall/videos/rental-manager-expenses-poster.jpg" aria-label="Rental Manager expenses demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
-  <source src="/randall/videos/rental-manager-expenses.mp4" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/videos/rental-manager-expenses-poster.jpg" aria-label="Rental Manager expenses demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
+  <source src="/videos/rental-manager-expenses.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>
 <figcaption>Demo data. AI-generated narration.</figcaption>

@@ -11,8 +11,8 @@ A pipe bursts on a Sunday. You remember a plumber who did a good job last year, 
 Landlords work with a handful of trusted people: plumbers, electricians, lawn care, a general contractor. The information about them tends to live in too many places.
 
 <figure style="max-width:360px;margin:1.5rem auto">
-<video controls playsinline preload="metadata" poster="/randall/videos/rental-manager-contractors-poster.jpg" aria-label="Rental Manager contractors demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
-  <source src="/randall/videos/rental-manager-contractors.mp4" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/videos/rental-manager-contractors-poster.jpg" aria-label="Rental Manager contractors demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
+  <source src="/videos/rental-manager-contractors.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>
 <figcaption>Demo data. AI-generated narration. The video shows the app’s 1099 review indicator; check current reporting requirements with a tax professional.</figcaption>

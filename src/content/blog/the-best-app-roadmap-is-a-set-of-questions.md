@@ -52,7 +52,7 @@ A portfolio of small apps should not share one universal roadmap.
 
 The products have different audiences and different definitions of success.
 
-[Heirloom](/randall/heirloom/) is concerned with making old letters readable and preserving their meaning. [Fillbook](/randall/fillbook/) is concerned with helping traders organize and review their activity. Fillin is built around a daily word-puzzle loop. A property-management app needs dependable records over a longer period. A sports app needs to remain clear while the user is actively playing.
+[Heirloom](/heirloom/) is concerned with making old letters readable and preserving their meaning. [Fillbook](/fillbook/) is concerned with helping traders organize and review their activity. Fillin is built around a daily word-puzzle loop. A property-management app needs dependable records over a longer period. A sports app needs to remain clear while the user is actively playing.
 
 These products may share release systems, support practices, and deployment workflows. They should not be forced into the same product strategy.
 
