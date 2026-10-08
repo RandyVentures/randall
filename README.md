@@ -2,7 +2,7 @@
 
 Personal blog documenting the journey of building apps, managing rental properties, and learning in public.
 
-**Live site:** [randyventures.github.io/randall](https://randyventures.github.io/randall)
+**Live site:** [randyventures.com](https://randyventures.com)
 
 ## About
 

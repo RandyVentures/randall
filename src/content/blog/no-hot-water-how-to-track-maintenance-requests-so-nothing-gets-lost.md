@@ -11,8 +11,8 @@ The text arrives at 7 a.m.: no hot water. You say you'll call someone. Then your
 Maintenance requests are easy to lose track of when they arrive by text, in passing, or in the middle of something else.
 
 <figure style="max-width:360px;margin:1.5rem auto">
-<video controls playsinline preload="metadata" poster="/randall/videos/rental-manager-maintenance-poster.jpg" aria-label="Rental Manager maintenance demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
-  <source src="/randall/videos/rental-manager-maintenance.mp4" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/videos/rental-manager-maintenance-poster.jpg" aria-label="Rental Manager maintenance demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
+  <source src="/videos/rental-manager-maintenance.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>
 <figcaption>Demo data. AI-generated narration.</figcaption>

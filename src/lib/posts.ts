@@ -2,9 +2,7 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 
 export type Post = CollectionEntry<'blog'>;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-export const withBase = (path: string) => `${base}${path}`;
+export const withBase = (path: string) => path.startsWith('/') ? path : `/${path}`;
 export const postUrl = (id: string) => withBase(`/blog/${id}/`);
 
 // A fixed build time also lets local checks exercise scheduled release boundaries.

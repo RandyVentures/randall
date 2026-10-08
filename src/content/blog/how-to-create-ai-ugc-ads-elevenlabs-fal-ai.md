@@ -14,8 +14,8 @@ Here is the workflow, using Heirloom, my old-letter-reading app, as the example.
 ## A finished AI presenter ad for Heirloom
 
 <figure>
-<video controls playsinline preload="metadata" poster="/randall/videos/heirloom-ai-presenter-poster.jpg" aria-label="Heirloom promotional video with a synthetic AI presenter and voice" style="display:block;width:100%;max-width:340px;max-height:75vh;margin:1.5rem auto;border-radius:14px;background:#15110d">
-	<source src="/randall/videos/heirloom-ai-presenter.mp4" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/videos/heirloom-ai-presenter-poster.jpg" aria-label="Heirloom promotional video with a synthetic AI presenter and voice" style="display:block;width:100%;max-width:340px;max-height:75vh;margin:1.5rem auto;border-radius:14px;background:#15110d">
+	<source src="/videos/heirloom-ai-presenter.mp4" type="video/mp4" />
 	Your browser does not support embedded video.
 </video>
 <figcaption><strong>AI-generated presenter and voice.</strong> This is a promotional demonstration using Heirloom app screenshots, not a customer testimonial.</figcaption>
@@ -25,7 +25,7 @@ The clip runs about 24 seconds. It opens with finding old letters in the attic, 
 
 UGC means user-generated content. Here, “AI UGC” describes the conversational video format; the presenter is synthetic. That distinction matters when writing the script.
 
-My [earlier Heirloom post](/randall/blog/how-i-market-heirloom-with-ugc-and-readheirloom-com-is-live/) covers the broader marketing approach and an animated-letter example. This tutorial explains the voice-and-presenter production pipeline.
+My [earlier Heirloom post](/blog/how-i-market-heirloom-with-ugc-and-readheirloom-com-is-live/) covers the broader marketing approach and an animated-letter example. This tutorial explains the voice-and-presenter production pipeline.
 
 ## 1. Write a brief before generating anything
 
@@ -103,6 +103,6 @@ This pipeline gives me a repeatable way to produce promotional videos. It does n
 
 For a first batch, make one clear demonstration and three openings. Review the clips, publish the ones you approve, and track what viewers do next: visit the product page, click through to the store, or try the product. Keep video performance and product conversions distinct when interpreting the numbers.
 
-If you want to extend the same footage across platforms, my [one app demo, three feeds guide](/randall/blog/one-app-demo-three-feeds/) covers that part of the process.
+If you want to extend the same footage across platforms, my [one app demo, three feeds guide](/blog/one-app-demo-three-feeds/) covers that part of the process.
 
 *Technical details were checked against my local UGC Machine code and the linked vendor documentation on October 7, 2026. Prices and API options can change.*

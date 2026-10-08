@@ -9,8 +9,8 @@ tags: ['rentals', 'apps', 'leases']
 "Who paid this month?" and "when does that lease end?" are two questions every landlord should be able to answer in seconds. A lot of us answer them from memory, and memory has a bad habit of failing at the worst moment.
 
 <figure style="max-width:360px;margin:1.5rem auto">
-<video controls playsinline preload="metadata" poster="/randall/videos/rental-manager-leases-poster.jpg" aria-label="Rental Manager leases demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
-  <source src="/randall/videos/rental-manager-leases.mp4" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/videos/rental-manager-leases-poster.jpg" aria-label="Rental Manager leases demonstration with demo data" style="display:block;width:100%;max-width:360px;border-radius:14px;background:#15110d">
+  <source src="/videos/rental-manager-leases.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>
 <figcaption>Demo data. AI-generated narration.</figcaption>
