@@ -175,3 +175,65 @@ export const RECENTLY_SHIPPED = {
 	name: 'Rise & Capy',
 	note: 'Rise & Capy is live on the App Store — a cozy capybara alarm clock with real alarms and wake-up missions.',
 };
+
+export interface ProductSite {
+	name: string;
+	/** Matches an `apps` entry when the product also has an App Store listing and icon. */
+	appName?: string;
+	description: string;
+	status: 'live' | 'coming-soon';
+	/** The product's own website. */
+	site: string;
+	/** Text for the link to the product's own website. */
+	siteLabel: string;
+}
+
+/** Products with their own domains; /apps links to each so they earn links from this site. */
+export const productSites: ProductSite[] = [
+	{
+		name: 'Mandalo',
+		description: 'Payment links for local service businesses. Send by text or email, get paid by card or Apple Pay, and track paid and pending jobs in one dashboard.',
+		status: 'live',
+		site: 'https://getmandalo.net',
+		siteLabel: 'Mandalo payment links for local service businesses',
+	},
+	{
+		name: 'Manifest',
+		description: 'App Store analytics for solo developers: downloads, proceeds, subscriptions, release health, and every review from every storefront.',
+		status: 'live',
+		site: 'https://usemanifest.net',
+		siteLabel: 'Manifest App Store analytics for solo developers',
+	},
+	{
+		name: 'Heirloom',
+		appName: 'Heirloom',
+		description: 'Read old handwritten letters and cursive with AI transcription, a modernized version, English translation, and Read Aloud.',
+		status: 'live',
+		site: 'https://readheirloom.com',
+		siteLabel: 'Heirloom old letter reader for iPhone',
+	},
+	{
+		name: 'Glora',
+		appName: 'Glora: My Upkeep',
+		description: 'Track beauty and self-care routines and share your wishlist so someone can make your day.',
+		status: 'live',
+		site: 'https://myglora.app',
+		siteLabel: 'Glora beauty and self-care upkeep tracker',
+	},
+	{
+		name: 'Bean Hunt',
+		appName: 'Bean Hunt',
+		description: 'A coffee journal and cafe finder for logging every cup you try.',
+		status: 'live',
+		site: 'https://www.beanhunt.app/',
+		siteLabel: 'Bean Hunt coffee journal and cafe finder',
+	},
+	{
+		name: 'HypeLap',
+		appName: 'HypeLap',
+		description: 'Live race tracking where friends cheer you on with air horns and voice notes in your earbuds. iPhone and Apple Watch, Houston first.',
+		status: 'coming-soon',
+		site: 'https://hypelap.com',
+		siteLabel: 'HypeLap live race tracking with cheers',
+	},
+];

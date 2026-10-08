@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { apps, productSites } from '../data/apps';
+import { withBase } from '../lib/posts';
+
+const title = 'Apps and products by Randy Torres — Mandalo, Manifest, Heirloom, Glora, Bean Hunt, HypeLap';
+const description =
+	'Every product Randy Torres is building, each with its own site: Mandalo, Manifest, Heirloom, Glora, Bean Hunt, and HypeLap, plus more iPhone apps and games.';
+
+const products = productSites.map((product) => {
+	const app = apps.find((a) => a.name === product.appName);
+	return { ...product, app };
+});
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'Apps and products',
+	description,
+	url: new URL('/apps/', Astro.site).href,
+	mainEntity: {
+		'@type': 'ItemList',
+		itemListElement: products.map((product, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: product.name,
+			url: product.site,
+		})),
+	},
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<section class="section" aria-labelledby="apps-hub-title">
+				<header class="section-header">
+					<div>
+						<p class="eyebrow">Products</p>
+						<h1 id="apps-hub-title">Apps and products I’m building</h1>
+						<p>
+							Each product has its own site. Start here to find them all, or see the
+							<a href={withBase('/#apps')}>full app shelf</a> for every iPhone app and game.
+						</p>
+					</div>
+				</header>
+				<div class="stack">
+					{products.map((product) => {
+						const page = product.app?.page;
+						const store = product.app?.url;
+						const id = product.name.toLowerCase().replace(/\W+/g, '-');
+						return (
+							<section class="product" id={id} aria-labelledby={`${id}-title`}>
+								{product.app && <Image src={product.app.icon} width={96} height={96} alt="" />}
+								<h2 id={`${id}-title`}>
+									{product.name}
+									{product.status === 'coming-soon' && <span class="badge">Coming soon</span>}
+								</h2>
+								<p>{product.description}</p>
+								<p>
+									<a class="text-link" href={product.site}>{product.siteLabel} →</a>
+									{page && <> · <a class="text-link" href={withBase(page)}>About {product.name} on this site</a></>}
+									{store && <> · <a class="text-link" href={store} target="_blank" rel="noopener">{product.name} on the App Store ↗</a></>}
+								</p>
+							</section>
+						);
+					})}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.stack { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); }
+	.product { display: grid; gap: 0.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule, currentColor); }
+	.product img { border-radius: 22%; }
+	.badge { margin-left: 0.6rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; opacity: 0.7; }
+</style>
