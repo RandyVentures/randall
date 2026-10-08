@@ -7,9 +7,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const withBase = (path: string) => `${base}${path}`;
 export const postUrl = (id: string) => withBase(`/blog/${id}/`);
 
-/** Every post, newest first. The rest of the site assumes this order. */
+// A fixed build time also lets local checks exercise scheduled release boundaries.
+const buildTime = new Date(import.meta.env.BLOG_BUILD_TIME || Date.now());
+if (Number.isNaN(buildTime.valueOf())) throw new Error('Invalid BLOG_BUILD_TIME');
+
+/** Released posts, newest first. All public surfaces use this list. */
 export async function getPosts(): Promise<Post[]> {
-	return (await getCollection('blog')).sort(
+	return (await getCollection('blog', (post) =>
+		!post.data.publishAt || post.data.publishAt.valueOf() <= buildTime.valueOf(),
+	)).sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 }
