@@ -7,5 +7,8 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://randyventures.com',
-	integrations: [mdx(), sitemap()],
+	// Sousbook help/legal pages are accessible by direct URL, not discovery surfaces.
+	integrations: [mdx(), sitemap({
+		filter: (page) => !new URL(page).pathname.startsWith('/sousbook/'),
+	})],
 });
