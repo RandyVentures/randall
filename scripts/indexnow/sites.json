@@ -1,0 +1,105 @@
+[
+  {
+    "host": "randyventures.com",
+    "origin": "https://randyventures.com",
+    "sitemap": "https://randyventures.com/sitemap-index.xml",
+    "key": "aed64adce048ca769b422655a8daecaedd0613ae20ecae899257e77cfea435ba",
+    "keyLocation": "https://randyventures.com/aed64adce048ca769b422655a8daecaedd0613ae20ecae899257e77cfea435ba.txt",
+    "disallow": [],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "getmandalo.net",
+    "origin": "https://getmandalo.net",
+    "sitemap": "https://getmandalo.net/sitemap.xml",
+    "key": "057778e5f27e7137d58e3e317ca185d9cf6c93e38f4b8be85ab93f1e3f432c3d",
+    "keyLocation": "https://getmandalo.net/057778e5f27e7137d58e3e317ca185d9cf6c93e38f4b8be85ab93f1e3f432c3d.txt",
+    "disallow": [
+      "/api/",
+      "/admin",
+      "/merchant",
+      "/pay/",
+      "/invoice/",
+      "/login",
+      "/register",
+      "/forgot-password",
+      "/reset-password",
+      "/verify-email",
+      "/connector/",
+      "/from-facebook"
+    ],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "usemanifest.net",
+    "origin": "https://usemanifest.net",
+    "sitemap": "https://usemanifest.net/sitemap.xml",
+    "key": "918a64f1495e7518ea86ca60cdd49e65425fee4590365af999b6a9399c7e79d2",
+    "keyLocation": "https://usemanifest.net/918a64f1495e7518ea86ca60cdd49e65425fee4590365af999b6a9399c7e79d2.txt",
+    "disallow": [
+      "/dashboard",
+      "/onboarding",
+      "/api",
+      "/login",
+      "/forgot-password",
+      "/reset-password",
+      "/signup"
+    ],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "readheirloom.com",
+    "origin": "https://readheirloom.com",
+    "sitemap": "https://readheirloom.com/sitemap.xml",
+    "key": "16684bd5869ac34bc5641908354068ae28c14f35c71df82a2a574d8dce543df4",
+    "keyLocation": "https://readheirloom.com/16684bd5869ac34bc5641908354068ae28c14f35c71df82a2a574d8dce543df4.txt",
+    "disallow": [
+      "/api/",
+      "/app",
+      "/signin"
+    ],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "myglora.app",
+    "origin": "https://myglora.app",
+    "sitemap": "https://myglora.app/sitemap.xml",
+    "key": "3a6bb9396b5ad576b5a8518de1300ab8b1a6440a7d3fe75f7fcde83f5549df55",
+    "keyLocation": "https://myglora.app/3a6bb9396b5ad576b5a8518de1300ab8b1a6440a7d3fe75f7fcde83f5549df55.txt",
+    "disallow": [
+      "/bff/"
+    ],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "www.beanhunt.app",
+    "origin": "https://www.beanhunt.app",
+    "sitemap": "https://www.beanhunt.app/sitemap.xml",
+    "key": "6c25a6f0c9137a94c6ee031e015b98ca21d6373179d9a051408a91500f610feb",
+    "keyLocation": "https://www.beanhunt.app/6c25a6f0c9137a94c6ee031e015b98ca21d6373179d9a051408a91500f610feb.txt",
+    "disallow": [],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  },
+  {
+    "host": "hypelap.com",
+    "origin": "https://hypelap.com",
+    "sitemap": "https://hypelap.com/sitemap.xml",
+    "key": "0c840f554dcbdaad4ca0de8b2a92012b92f81d9b10c549f03abb8813e698377c",
+    "keyLocation": "https://hypelap.com/0c840f554dcbdaad4ca0de8b2a92012b92f81d9b10c549f03abb8813e698377c.txt",
+    "disallow": [
+      "/w/",
+      "/watch",
+      "/api/",
+      "/invite",
+      "/group-"
+    ],
+    "scope": "approved all seven sites",
+    "trainingPolicy": "allow public content"
+  }
+]
