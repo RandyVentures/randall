@@ -14,10 +14,18 @@ export function fingerprint(html) {
 export function noindex(html, header = '') {
   return /\bnoindex\b|\bnone\b/i.test(header) || [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => /name\s*=\s*["'](?:robots|bingbot)["']/i.test(tag) && /content\s*=\s*["'][^"']*\b(?:noindex|none)\b/i.test(tag));
 }
-async function get(url, site) {
+async function get(url, site, canonicalOnly = false) {
   for (let redirects = 0; redirects < 5; redirects++) {
     publicURL(url, site);
-    const res = await fetch(url, {redirect:'manual', signal:AbortSignal.timeout(20000), headers:{'User-Agent':'RandyVentures-IndexNow/1.0'}});
+    let res = await fetch(url, {redirect:'manual', signal:AbortSignal.timeout(20000), headers:{'User-Agent':'RandyVentures-IndexNow/1.0'}});
+    // Heirloom's verified public production Pages alias avoids a custom-domain
+    // false positive for GitHub runners. IndexNow URLs always remain canonical.
+    // Never use an alias to fetch private paths or to validate ownership keys.
+    if (res.status === 403 && site.crawlOrigin && !canonicalOnly) {
+      const alias = new URL(url); alias.host = new URL(site.crawlOrigin).host;
+      res = await fetch(alias, {redirect:'error', signal:AbortSignal.timeout(20000), headers:{'User-Agent':'RandyVentures-IndexNow/1.0'}});
+      console.log(JSON.stringify({host:site.host,publicAliasFallback:alias.origin,path:alias.pathname}));
+    }
     if ([301,302,303,307,308].includes(res.status)) { url = new URL(res.headers.get('location'),url).href; continue; }
     return res;
   }
@@ -49,7 +57,7 @@ async function main() {
   for (const site of sites) {
     try {
       if (send) {
-        const keyRes = await get(site.keyLocation,site);
+        const keyRes = await get(site.keyLocation,site,true);
         if(keyRes.status !== 200 || (await keyRes.text()).trim() !== site.key) throw new Error('Hosted key missing or incorrect');
       }
       const urls = await sitemapURLs(site), before = state[site.host] || {}, after = {...before}, changes = [];

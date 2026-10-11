@@ -62,7 +62,8 @@
       "/signin"
     ],
     "scope": "approved all seven sites",
-    "trainingPolicy": "allow public content"
+    "trainingPolicy": "allow public content",
+    "crawlOrigin": "https://heirloom-web-ahs.pages.dev"
   },
   {
     "host": "myglora.app",
