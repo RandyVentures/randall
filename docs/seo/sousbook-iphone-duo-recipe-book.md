@@ -29,7 +29,7 @@ Mela and Recipe Keeper HTML fetched directly with curl. Paprika direct fetch ret
 
 ## App Store traction and verified website identity
 
-Apple's U.S. iTunes Lookup API read on October 11, 2026 supplied the following rating counts, averages and developer website (`sellerUrl`) matches. Rounded figures are also visible in the linked App Store listings. This is an observable adoption/reputation signal, not proof of revenue, active users, downloads or website SEO success.
+Apple's U.S. iTunes Lookup API read on October 11, 2026 supplied the following rating counts, averages and developer website (`sellerUrl`) matches. Rounded figures were also checked against the linked App Store listings; these remain research notes and are not displayed in the final article. This is an observable adoption/reputation signal, not proof of revenue, active users, downloads or website SEO success.
 
 | App | U.S. ratings | Average, rounded | Verified developer website |
 | --- | ---: | ---: | --- |
@@ -53,7 +53,7 @@ Direct HTML fetched with curl, alongside readable web retrieval:
 
 ### SEO implication
 
-Use the vocabulary of proven category demand: recipe organizer, save recipes, personal cookbook, scan recipes and cooking mode. Keep this article focused on the Duo use case and real screenshots. Adding ReciMe/Paprika/Pestle names alone does not make it rank for their queries; the comparison must help readers choose a workflow.
+Use the vocabulary of proven category demand: recipe organizer, save recipes, personal cookbook, scan recipes and cooking mode. Keep this article focused on the Duo use case and real screenshots. Randall clarified that competitor research should inform category search terms, not appear as competitor mentions or outbound links in the blog. Removed the entire public comparison, including rating snapshots and competitor links. The final article uses recipe organizer, recipe manager, personal cookbook, save recipes, scan printed recipes, recipe cards, grocery list and offline recipes naturally in its metadata, headings and copy. The article does not claim ranking superiority.
 
 Potential follow-up articles, only after separate authorization and product verification: “How to scan recipe cards into an iPhone cookbook” and “What to look for in a recipe app for iPhone Duo.” Dedicated competitor-alternative pages would need meaningful comparisons and verified feature differences. No such pages were created in this task.
 
