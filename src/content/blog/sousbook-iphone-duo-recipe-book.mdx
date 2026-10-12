@@ -1,0 +1,128 @@
+---
+title: 'Sousbook for iPhone Duo: A Recipe Book With More Room'
+description: 'See Sousbook on iPhone Duo: ingredients beside steps, your personal cookbook, and our simulator setup with Xcode 27.1.'
+pubDate: 'Oct 11 2026'
+tags: ['apps', 'building', 'sousbook', 'cooking']
+heroImage: '../../assets/sousbook/sousbook-iphone-duo-cookbook.webp'
+---
+
+import { Image } from 'astro:assets';
+import cookbook from '../../assets/sousbook/sousbook-iphone-duo-cookbook.webp';
+import cooking from '../../assets/sousbook/sousbook-iphone-duo-cooking-mode.webp';
+import groceries from '../../assets/sousbook/sousbook-iphone-duo-grocery-list.webp';
+import cover from '../../assets/sousbook/sousbook-iphone-duo-cover-display.webp';
+
+A recipe can fit on a phone and still be awkward to cook from. You scroll up for the ingredients, scroll down for the directions, and forget whether that was one teaspoon or one tablespoon. Meanwhile, something is already sizzling.
+
+That is the problem we are building **Sousbook** around. It is a recipe organizer for iPhone, and it is nearly complete. With iPhone Duo, the goal gets especially interesting: make the phone you already carry feel like a recipe book when you open it on the kitchen counter.
+
+The extra space gives ingredients and directions room to sit beside each other. Your cookbook can stay visible while you look through a recipe. The screen becomes useful in a different way.
+
+**The images below are real Sousbook captures from Apple's iPhone Duo simulator**, using a sample cookbook. They show development previews, not photographs of a physical Duo. The sample recipes illustrate the interface; a new personal cookbook starts empty. The app's cookbook and cooking features require Sousbook Pro after the sample introduction.
+
+## Why iPhone Duo makes sense as a digital recipe book
+
+A cookbook is a good example of information that benefits from having two things visible at once. When you are reading a novel, the next paragraph is enough. When you are cooking, you need the instruction and its quantities together.
+
+Sousbook's expanded layout puts the recipe collection on the left and the selected recipe on the right. You can browse dinner ideas without repeatedly backing out of the recipe you just opened. Search, favorites, and categories help keep your own collection manageable.
+
+<figure style={{margin: '2em 0'}}>
+  <Image src={cookbook} alt="Sousbook on the expanded iPhone Duo simulator display, with the cookbook on the left and a chicken tikka masala recipe on the right" widths={[600, 1000, 1800]} sizes="(max-width: 800px) 100vw, 720px" format="webp" loading="lazy" />
+  <figcaption>The expanded display keeps your cookbook and the selected recipe together. Screenshot from the iPhone Duo simulator.</figcaption>
+</figure>
+
+For someone who likes to cook and wants one primary recipe book, that is the appeal. Collect the recipes you return to, open one when it is time to make dinner, then take the same phone to the grocery store. There is less reason to keep a separate tablet nearby just to get a more comfortable view.
+
+## Cooking mode: ingredients beside every step
+
+The layout I am most excited about is cooking mode. On the wider display, the ingredient checklist sits beside the current direction. You can check a quantity while reading the step, mark an ingredient as used, and move forward without losing your place.
+
+<figure style={{margin: '2em 0'}}>
+  <Image src={cooking} alt="Sousbook cooking mode on iPhone Duo showing spaghetti carbonara ingredients beside step one and a nine-minute timer button" widths={[600, 1000, 1800]} sizes="(max-width: 800px) 100vw, 720px" format="webp" loading="lazy" />
+  <figcaption>Ingredients on one side, the current step on the other. This is the extra screen space doing something useful.</figcaption>
+</figure>
+
+Sousbook also supports serving adjustments, US and metric units, cooking timers, and keeping the screen awake while you cook. Those features matter most when they are easy to reach in the middle of making a meal.
+
+On the cover display, the app uses a compact recipe layout. Opening the phone provides room for two panes; closing it gives you a smaller view for browsing or shopping. We are building around the available space so the same cookbook works in both situations.
+
+<figure style={{margin: '2em 0'}}>
+  <Image src={cover} alt="Sousbook's compact recipe library on the iPhone Duo cover display, showing recipe photos, search, favorites, and categories" widths={[450, 900]} sizes="(max-width: 600px) 90vw, 450px" format="webp" loading="lazy" style={{maxWidth: '450px', width: '100%', height: 'auto'}} />
+  <figcaption>The cover display keeps the personal cookbook available in a compact view.</figcaption>
+</figure>
+
+## How we set up the iPhone Duo simulator in Xcode
+
+We used Apple's simulator to build and test the layouts before having Duo hardware. Our local setup has **Xcode 27.1, build 27A9275**, and an **iOS 27.1 iPhone Duo simulator**. We keep that Xcode installation alongside our regular installation and select it explicitly for Duo work.
+
+As of October 11, 2026, [Apple's iPhone Duo developer page](https://developer.apple.com/iphone-duo/) points developers to **Xcode 27.1 Release Candidate**. Apple's [system requirements](https://developer.apple.com/xcode/system-requirements) list macOS Tahoe 26.6 or later for that version. Xcode 27.2 beta 2 is also listed, but 27.1 RC is the Duo toolchain Apple currently highlights.
+
+If you want to get the iPhone Duo simulator running, the setup is:
+
+1. Get Xcode 27.1 RC from [Apple Developer downloads](https://developer.apple.com/download/all/) and install it on a supported Mac.
+2. Open that copy of Xcode and go to **Xcode → Settings → Components**.
+3. Install the required iOS platform support and iOS 27.1 simulator runtime. Wait for installation to finish.
+4. Select an iPhone Duo simulator as the app's run destination and launch the app.
+5. Exercise the expanded and compact displays, resizing, and folding transitions. A good screenshot in one position is only the beginning.
+
+Apple documents component installation in [Downloading and installing additional Xcode components](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components). If Duo is missing, check the selected Xcode version and installed components first.
+
+## A personal cookbook from websites, photos, and your own recipes
+
+Most of us already have recipes scattered across bookmarks, photos, printed pages, and messages. Sousbook brings those into one place through supported website imports, pasted text, manual entry, and camera or photo scans.
+
+You review imported text before saving. Multi-photo scanning lets a recipe span more than one page. On supported devices where Apple Intelligence is available, optional scan cleanup offers changes for review, including joining directions that were split across lines. You decide what to apply.
+
+Saved recipes are stored on the device and can be read offline. Website imports need an internet connection. Private iCloud sync is part of the app's design, with final production acceptance checks still in progress. There is no separate Sousbook account to create. More detail is in the [Sousbook privacy policy](/sousbook/privacy/).
+
+One concrete lesson from Duo testing: an earlier layout change dismissed an unsaved photo-import draft when the phone unfolded. We changed how the import screen stays open when the layout changes, then tested a two-photo import through open → closed → open. The draft retained its pages, title, and quantities. That kind of continuity matters if this is going to be someone's everyday recipe book.
+
+## From saved recipes to a grocery list
+
+A recipe collection earns its place when it helps with the next meal. Sousbook turns ingredients into a grocery list organized by aisle. On the expanded display, the cookbook can stay beside the list while you work through what you need.
+
+<figure style={{margin: '2em 0'}}>
+  <Image src={groceries} alt="Sousbook on the expanded iPhone Duo simulator with the cookbook beside a grocery list grouped into produce and meat sections" widths={[600, 1000, 1800]} sizes="(max-width: 800px) 100vw, 720px" format="webp" loading="lazy" />
+  <figcaption>Your saved recipes and grocery list share the wider display.</figcaption>
+</figure>
+
+## How Sousbook compares with established iPhone recipe apps
+
+If you are looking for a recipe manager for iPhone, there are established options with substantial App Store feedback. I am building Sousbook, so this is our perspective on the category. We checked the U.S. App Store listings and the developers' own websites on October 11, 2026.
+
+| App and official website | U.S. App Store snapshot | What its website emphasizes |
+| --- | --- | --- |
+| [ReciMe](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280) · [Website](https://www.recime.app/) | 4.8 stars · about 310,000 ratings | Saving scattered recipes, including social posts, then making grocery lists and meal plans. |
+| [Paprika](https://apps.apple.com/us/app/paprika-recipe-manager-3/id1303222868) · [Website](https://www.paprikaapp.com/) | 4.9 stars · about 54,000 ratings | Recipe organization, web importing, meal planning, and grocery lists across platforms. |
+| [Recipe Keeper](https://apps.apple.com/us/app/recipe-keeper/id974683711) · [Website](https://recipekeeperonline.com/) | 4.8 stars · about 31,000 ratings | A personal cookbook with website imports, scanning, shopping lists, and broad device support. |
+| [Crouton](https://apps.apple.com/us/app/crouton-recipe-manager/id1461650987) · [Website](https://crouton.app/) | 4.8 stars · about 2,900 ratings | Recipe organization, scanning, iCloud, meal planning, and timers across Apple devices. |
+| [Pestle](https://apps.apple.com/us/app/pestle-recipe-manager/id1574776971) · [Website](https://pestlechef.app/) | 4.7 stars · about 1,800 ratings | Saving web and Instagram recipes, guided cooking, meal plans, and household sharing. |
+| Sousbook, in development | No public launch announced here | An iPhone cookbook with adaptive Duo layouts, reviewable imports, and ingredients beside cooking steps. |
+
+Ratings are rounded, vary by storefront, and change over time. They show established user feedback; they do not measure downloads, revenue, website traffic, or Duo support.
+
+Scanning and recipe imports are already part of this category. [Paprika's September 2026 open-beta announcement](https://paprikaapp.com/news/2026/09/28/paprika-4-is-now-in-open-beta/) also describes expanded scanning and social importing. Our focus is how comfortable the whole experience feels on iPhone Duo. This preview does not establish which competitors support Duo or rank their performance.
+
+## Is Sousbook available yet?
+
+Sousbook is nearly complete and undergoing final release checks. This is a preview of the app we are making, not an announcement that it is publicly available or approved by Apple. Physical Duo testing and simulator testing are different milestones.
+
+The goal is straightforward: give people who love cooking a personal recipe book that feels at home on their iPhone, with the wider Duo display making it easier to use at the counter. If that sounds useful, [contact us about Sousbook](/sousbook/support/) or follow the [RandyVentures blog](/blog/) for release updates.
+
+## Questions about Sousbook and iPhone Duo
+
+### Can I use iPhone Duo as my primary recipe book?
+
+That is the experience we are building toward: one personal cookbook for browsing, groceries, and cooking, with ingredients and steps side by side when there is enough space. The images here show the app running in the simulator.
+
+### Can Sousbook scan printed recipes?
+
+Yes. The current app supports camera and photo imports, including multiple photos, with a review step before saving. Check the resulting text and quantities against the original.
+
+### Can I read saved recipes offline?
+
+Yes. Saved recipes are stored locally. Importing a website, syncing through iCloud, and purchasing or restoring Pro require connectivity.
+
+### Which Xcode version did we use for iPhone Duo?
+
+Xcode 27.1 with the iOS 27.1 simulator runtime. At the time of writing, Apple recommends Xcode 27.1 RC on its Duo developer page; check its linked requirements and downloads for updates.
