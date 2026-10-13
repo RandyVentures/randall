@@ -34,7 +34,8 @@ export const apps: AppEntry[] = [
 		name: 'HypeLap',
 		tagline: 'Live race tracking and cheers for runners',
 		category: 'Sports',
-		status: 'coming-soon',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/hypelap-race-tracker-cheers/id6818382550',
 		icon: hypeLap,
 	},
 	{
@@ -172,8 +173,8 @@ export const appGroups = [
 ].filter((group) => group.entries.length > 0);
 
 export const RECENTLY_SHIPPED = {
-	name: 'Rise & Capy',
-	note: 'Rise & Capy is live on the App Store — a cozy capybara alarm clock with real alarms and wake-up missions.',
+	name: 'HypeLap',
+	note: 'HypeLap is live on the App Store — live race tracking and cheers for runners.',
 };
 
 export interface ProductSite {
@@ -232,7 +233,7 @@ export const productSites: ProductSite[] = [
 		name: 'HypeLap',
 		appName: 'HypeLap',
 		description: 'Live race tracking where friends cheer you on with air horns and voice notes in your earbuds. iPhone and Apple Watch, Houston first.',
-		status: 'coming-soon',
+		status: 'live',
 		site: 'https://hypelap.com',
 		siteLabel: 'HypeLap live race tracking with cheers',
 	},
