@@ -6,9 +6,9 @@ import Header from '../components/Header.astro';
 import { apps, productSites } from '../data/apps';
 import { withBase } from '../lib/posts';
 
-const title = 'Apps and products by Randy Torres | Mandalo, Manifest, Heirloom and more';
+const title = 'Apps and products by Randy Torres | Sousbook, Mandalo, Manifest and more';
 const description =
-	'Every product Randy Torres is building, each with its own site: Mandalo, Manifest, Heirloom, Glora, Bean Hunt, and HypeLap, plus more iPhone apps and games.';
+	'Explore Sousbook for iPhone and iPhone Duo, plus Mandalo, Manifest, Heirloom, Glora, Bean Hunt, HypeLap, and more apps and games by Randy Torres.';
 
 const products = productSites.map((product) => {
 	const app = apps.find((a) => a.name === product.appName);
@@ -48,7 +48,7 @@ const jsonLd = {
 						<p class="eyebrow">Products</p>
 						<h1 id="apps-hub-title">Apps and products I’m building</h1>
 						<p>
-							Each product has its own site. Start here to find them all, or see the
+							Explore each product and its download links, or see the
 							<a href={withBase('/#apps')}>full app shelf</a> for every iPhone app and game.
 						</p>
 					</div>
@@ -68,7 +68,7 @@ const jsonLd = {
 								<p>{product.description}</p>
 								<p>
 									<a class="text-link" href={product.site}>{product.siteLabel} →</a>
-									{page && <> · <a class="text-link" href={withBase(page)}>About {product.name} on this site</a></>}
+									{page && new URL(product.site, Astro.site).pathname !== page && <> · <a class="text-link" href={withBase(page)}>About {product.name} on this site</a></>}
 									{store && <> · <a class="text-link" href={store} target="_blank" rel="noopener">{product.name} on the App Store ↗</a></>}
 								</p>
 							</section>

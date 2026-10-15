@@ -12,6 +12,7 @@ import hypeLap from '../assets/apps/hypelap.png';
 import rally from '../assets/apps/rally.jpg';
 import realEstateManager from '../assets/apps/real-estate-manager.png';
 import riseAndCapy from '../assets/apps/rise-and-capy.png';
+import sousbook from '../assets/apps/sousbook.png';
 import squareSweep from '../assets/apps/square-sweep.jpg';
 import vaultRunner from '../assets/apps/vault-runner.jpg';
 import whileWereHere from '../assets/apps/while-were-here.png';
@@ -30,6 +31,15 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'Sousbook',
+		tagline: 'Recipe organizer and personal cookbook for iPhone and iPhone Duo',
+		category: 'Food & Drink',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/sousbook/id6821456373',
+		page: '/sousbook/',
+		icon: sousbook,
+	},
 	{
 		name: 'HypeLap',
 		tagline: 'Live race tracking and cheers for runners',
@@ -173,8 +183,8 @@ export const appGroups = [
 ].filter((group) => group.entries.length > 0);
 
 export const RECENTLY_SHIPPED = {
-	name: 'HypeLap',
-	note: 'HypeLap is live on the App Store — live race tracking and cheers for runners.',
+	name: 'Sousbook',
+	note: 'Sousbook is live on the App Store — our first app with iPhone Duo support.',
 };
 
 export interface ProductSite {
@@ -189,8 +199,16 @@ export interface ProductSite {
 	siteLabel: string;
 }
 
-/** Products with their own domains; /apps links to each so they earn links from this site. */
+/** Product destinations linked from /apps, including dedicated pages on this site. */
 export const productSites: ProductSite[] = [
+	{
+		name: 'Sousbook',
+		appName: 'Sousbook',
+		description: 'A recipe organizer and personal cookbook for iPhone and iPhone Duo. Save website recipes, scan printed pages, build grocery lists, and follow cooking steps with ingredients beside them on the wider display.',
+		status: 'live',
+		site: 'https://randyventures.com/sousbook/',
+		siteLabel: 'Sousbook recipe organizer for iPhone and iPhone Duo',
+	},
 	{
 		name: 'Mandalo',
 		description: 'Payment links for local service businesses. Send by text or email, get paid by card or Apple Pay, and track paid and pending jobs in one dashboard.',

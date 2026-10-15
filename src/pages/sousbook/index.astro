@@ -1,0 +1,44 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/sousbook.png';
+import cooking from '../../assets/sousbook/sousbook-iphone-duo-cooking-mode.webp';
+---
+
+<AppLanding
+  name="Sousbook"
+  storeName="Sousbook"
+  title="Sousbook — Recipe Organizer for iPhone & iPhone Duo"
+  description="Save website recipes, scan printed recipes, build grocery lists, and read your cookbook offline. Sousbook is a recipe organizer for iPhone and iPhone Duo."
+  icon={icon}
+  appStoreId="6821456373"
+  appStoreUrl="https://apps.apple.com/us/app/sousbook/id6821456373"
+  kicker="Live on the App Store · iOS 26 or later · Sousbook Pro required"
+  lead="Your recipes, ready when you cook. Bring website recipes, printed pages, photos and pasted text into one personal cookbook. Make a grocery list, adjust servings, and follow each step on iPhone — with ingredients beside directions on the wider iPhone Duo display."
+  secondary={{ label: 'Read the launch story', href: '/blog/sousbook-live-recipe-organizer-iphone-duo/' }}
+  screenshot={{ src: cooking, alt: 'Sousbook cooking mode in the iPhone Duo simulator with an ingredient checklist beside the current direction', caption: 'iPhone Duo simulator capture with illustrative sample recipes. Sousbook Pro required. Physical Duo testing is a separate milestone.' }}
+  features={[
+    { kicker: 'Collect', title: 'Save and scan your favorite recipes', body: 'Import supported website links, paste recipe text, enter your own recipes, or scan printed pages with your camera and photos. Multi-photo imports let a recipe span several pages. Review the text before saving.' },
+    { kicker: 'Cook', title: 'A cookbook that fits iPhone Duo', body: 'Our first app with iPhone Duo support puts ingredients beside cooking steps on the wider display. Compact layouts work on standard iPhones and the cover display. Adjust servings, switch US and metric units, and use cooking timers.' },
+    { kicker: 'Shop', title: 'From recipe to grocery list', body: 'Turn ingredients into a grocery list organized by aisle. Saved recipes are available offline, so your personal recipe book stays useful without a connection. Website imports, iCloud sync and purchases need internet access.' },
+  ]}
+  pricing={[
+    '**Try the sample introduction.** Sousbook is free to download. Your own cookbook and cooking features require Sousbook Pro after the interactive sample introduction.',
+    '**Annual or lifetime.** Choose an annual auto-renewing subscription or a one-time lifetime purchase. Current localized prices and any trial eligibility are shown in the app and Apple’s purchase confirmation.',
+  ]}
+  faqs={[
+    { q: 'Does Sousbook support iPhone Duo?', a: 'Yes. Sousbook is our first app with iPhone Duo support, with expanded layouts for the inner display and compact layouts for the cover display. The screenshots here were captured in Apple’s simulator, rather than on physical Duo hardware.' },
+    { q: 'Can I scan printed recipes into my iPhone?', a: 'Yes. Use the camera or select photos, including multiple pages. Review ingredients, quantities and directions against the original before saving. Optional scan cleanup requires a supported device with Apple Intelligence available.' },
+    { q: 'Can I save recipes from websites, TikTok or Instagram?', a: 'Supported website links can be imported. For social posts, share the link, use text supplied by the sharing app, paste a caption or read a screenshot, then review the recipe. Social posts are not fetched automatically and video transcription is not included.' },
+    { q: 'Can I read my recipe book offline?', a: 'Yes. Saved recipes are stored on your device and can be read offline. Website imports, iCloud sync, purchases and restoration require a connection. No separate Sousbook account is required.' },
+    { q: 'Does Sousbook come with a recipe collection?', a: 'Your personal cookbook starts empty. The introduction and screenshots use illustrative sample recipes; Sousbook helps you collect and organize recipes you choose to add.' },
+  ]}
+  links={[
+    { label: 'Support', href: '/sousbook/support/' },
+    { label: 'Privacy policy', href: '/sousbook/privacy/' },
+    { label: 'Terms', href: '/sousbook/terms/' },
+    { label: 'Food safety and recipe review', href: '/sousbook/food-safety/' },
+    { label: 'iPhone Duo layout preview', href: '/blog/sousbook-iphone-duo-recipe-book/' },
+  ]}
+  schemaCategory="LifestyleApplication"
+  offers={[{ price: '0', description: 'Free download and sample introduction; Sousbook Pro purchase required for your cookbook and cooking features' }]}
+/>
