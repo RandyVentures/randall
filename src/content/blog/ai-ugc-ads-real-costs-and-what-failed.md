@@ -2,6 +2,7 @@
 title: 'How I Make AI UGC Ads: Real Costs and What Failed'
 description: 'What AI presenter ads cost me with ElevenLabs and fal.ai, how I cut the cost, what broke along the way, and the results so far, including the parts that did not work.'
 pubDate: 'Oct 21 2026'
+publishAt: '2026-10-21T08:00:00-05:00'
 tags: ['ai', 'marketing', 'video', 'apps']
 ---
 

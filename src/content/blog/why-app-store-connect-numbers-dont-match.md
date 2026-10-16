@@ -2,6 +2,7 @@
 title: "Why App Store Connect Numbers Don't Match (and Which to Trust)"
 description: 'Sales and Trends and Analytics show different numbers for the same day. Why that happens, what each report is for, and how to avoid fake trends in your data.'
 pubDate: 'Oct 23 2026'
+publishAt: '2026-10-23T08:00:00-05:00'
 tags: ['apps', 'manifest', 'building']
 ---
 
