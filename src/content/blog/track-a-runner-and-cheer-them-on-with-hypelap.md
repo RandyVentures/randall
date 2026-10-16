@@ -1,5 +1,6 @@
 ---
 title: 'How Friends and Family Can Track a Runner and Cheer Them On With HypeLap'
+seoTitle: "How to Track a Runner and Cheer Them On With HypeLap"
 description: 'Follow a runner’s race progress and send cheers with HypeLap. Friends and family watch free in a browser and send messages, sound effects, and voice notes.'
 pubDate: 'Oct 12 2026'
 tags: ['apps', 'building', 'hypelap', 'running']

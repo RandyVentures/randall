@@ -1,5 +1,6 @@
 ---
 title: 'How to Keep Track of Service Payments, Invoices, and Receipts Before Year-End'
+seoTitle: "Track Service Payments, Invoices and Receipts Before Year-End"
 description: 'Keep service payments, invoices, and receipts organized before year-end, with examples for Halloween decorating, Thanksgiving cleaning, and Christmas lights.'
 pubDate: 'Oct 12 2026'
 tags: ['apps', 'building', 'mandalo', 'small business']

@@ -1,5 +1,6 @@
 ---
 title: 'Inspired by Not Just Sundays: Building While We’re Here, a Conversation Card App'
+seoTitle: "Building While We’re Here, a Conversation Card App"
 description: 'A physical deck called Not Just Sundays convinced me conversation cards work. While We’re Here is the iOS version I wanted in my pocket — 100 questions, four decks, offline, one payment.'
 pubDate: 'Sep 15 2026'
 tags: ['apps', 'family', 'faith']

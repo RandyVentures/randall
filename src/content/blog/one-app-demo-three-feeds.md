@@ -1,5 +1,6 @@
 ---
 title: 'One App Demo, Three Feeds: A Lightweight Short-Video Workflow for Indie Developers'
+seoTitle: "One App Demo, Three Feeds: A Short-Video Workflow for Indie Devs"
 description: 'A repeatable way for indie developers to turn one real app demonstration into distinct, useful short-form videos for TikTok, Instagram Reels, and YouTube Shorts.'
 pubDate: 'Oct 2 2026'
 tags: ['apps', 'marketing', 'video']

@@ -1,5 +1,6 @@
 ---
 title: "\"No Hot Water\": How to Track Maintenance Requests So Nothing Gets Lost"
+seoTitle: "How to Track Maintenance Requests So Nothing Gets Lost"
 description: "A simple way to log, prioritize and follow up on rental repairs, from the first tenant text to the paid invoice."
 pubDate: 'Oct 15 2026'
 publishAt: '2026-10-15T08:00:00-05:00'

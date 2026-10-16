@@ -8,6 +8,8 @@ const blog = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
+			// Optional shorter <title> for search results when the headline is long (the on-page H1 is unchanged).
+			seoTitle: z.string().optional(),
 			description: z.string(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
