@@ -31,7 +31,7 @@ import Header from '../../components/Header.astro';
         <p>
           Your notes (their titles, text, tags and colours), your highlights, where you stopped
           reading, your translation, theme and text size, your binding choices (including any name
-          you stamp on the cover), your reading-plan progress and your listening preferences are
+          you stamp on the cover), your reading-plan progress, optional reminder time and your listening preferences are
           stored in the app's local storage on your device.
         </p>
         <p>
@@ -46,12 +46,22 @@ import Header from '../../components/Header.astro';
           app with a message addressed to us; nothing is sent unless you send it.
         </p>
 
+        <h2>Optional daily reminder</h2>
+        <p>
+          If you choose a daily reminder and allow notifications, Lampleaf schedules a local
+          notification on your device at your chosen time. It is not a push notification: no
+          notification token, reminder time, reading activity or note is sent to us or a service.
+          Turn it off in Lampleaf Settings, Daily reminder, or in iOS Settings, Notifications.
+        </p>
+
         <h2>Purchases</h2>
         <p>
-          The complete Bible is free to read. If you buy Lampleaf Plus, a one-time purchase when it
-          is offered, Apple processes the purchase through the App Store. The app uses Apple's
+          The complete Bible is free to read. Apple processes the free 7-day Plus trial and the
+          one-time $49.99 USD Lifetime purchase through the App Store. The app uses Apple's
           StoreKit and no third-party purchase service, and it never receives your payment card
-          details. Apple handles purchase information under
+          details. StoreKit supplies signed transaction information so the app can verify access,
+          restore purchases and apply the original trial dates, including after reinstalling.
+          Lampleaf does not send transactions to a developer server. Apple handles purchase information under
           <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener"
             >Apple's Privacy Policy</a
           >.
@@ -70,7 +80,7 @@ import Header from '../../components/Header.astro';
           <li>No account, login, or cloud sync of your notes.</li>
           <li>No tracking across other apps and websites, and no App Tracking Transparency prompt.</li>
           <li>No analytics or crash-reporting SDKs.</li>
-          <li>No access to contacts, location, microphone, camera, photos, or notifications.</li>
+          <li>No access to contacts, location, microphone, camera or your photo library. Optional local notifications require your permission.</li>
         </ul>
 
         <h2>Keeping and deleting your information</h2>
