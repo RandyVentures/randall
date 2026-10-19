@@ -1,0 +1,93 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Lampleaf Support"
+      description="Help for Lampleaf, an illustrated Bible app for iPhone and iPad."
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="policy tile">
+        <h1>Lampleaf support</h1>
+        <p>A Bible that opens like one.</p>
+        <p>
+          Need help? Email
+          <a href="mailto:randyventures06@gmail.com?subject=Lampleaf">randyventures06@gmail.com</a>.
+          Include your app version (Settings, Version), your iOS version, your device, and what
+          happened. Please do not send private notes or payment-card details.
+        </p>
+
+        <h2>Change your Bible's colour or binding</h2>
+        <p>
+          Tap the gear in the reader's toolbar, then Binding. You can change the colour, material,
+          page edges, ribbon and the name stamped on the cover at any time. The choice you made when
+          you first opened the app is only a starting point.
+        </p>
+
+        <h2>Change translation, theme or text size</h2>
+        <p>
+          Tap the translation button (BSB, KJV or WEB) next to the chapter name, or use Settings.
+          Tap Aa for Paper, Sepia or Night and for text size. Text size adds to your iPhone's own
+          text size setting.
+        </p>
+
+        <h2>Listening</h2>
+        <p>
+          Narration is being added a chapter at a time. A narrated chapter is narrated in all three
+          translations, and the recording always matches the translation on the page. If a chapter
+          has no narration yet, the Listen page says so and lists the chapters that do. Sleep can
+          stop at the end of the chapter, keep playing into the next narrated chapter, or stop after
+          a few minutes.
+        </p>
+
+        <h2>The reading plan</h2>
+        <p>
+          The Beginnings plan is an optional seven-day schedule, not a trial or subscription. It has
+          no dates: if you skip a day, it waits where you left off. Start, restart or end it from
+          Settings, Reading plan. You can always read anything you like, with or without it.
+        </p>
+
+        <h2>Your notes stay on your device</h2>
+        <p>
+          Notes, highlights and your reading place are stored only on your device; there is no
+          account or cloud backup. Deleting the app deletes them, and they cannot be recovered.
+        </p>
+
+        <h2>Reading offline</h2>
+        <p>
+          The complete Bible, search, pictures and narration are included with the app, so they work
+          without a connection.
+        </p>
+
+        <p>
+          <a href="https://randyventures.com/lampleaf/privacy/">Privacy policy</a> ·
+          <a href="https://randyventures.com/lampleaf/terms/">Terms of Use</a>
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+
+  .date {
+    color: var(--ink-muted);
+  }
+</style>
