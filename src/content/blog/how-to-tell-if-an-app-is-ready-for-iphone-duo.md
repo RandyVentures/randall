@@ -1,8 +1,7 @@
 ---
 title: 'How to Tell If an App Is Ready for the iPhone Duo'
 description: 'Which apps will actually use the iPhone Duo’s two displays? A simple look-at-the-screen test, what to check before you download, and what the three levels of support mean.'
-pubDate: 'Oct 22 2026'
-publishAt: '2026-10-22T08:00:00-05:00'
+pubDate: 'Oct 21 2026'
 tags: ['apps', 'building', 'iphone-duo']
 ---
 

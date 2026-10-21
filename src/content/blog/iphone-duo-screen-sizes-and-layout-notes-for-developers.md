@@ -1,8 +1,8 @@
 ---
 title: 'iPhone Duo Screen Sizes and Layout Notes for Developers'
 description: 'Display sizes in points, safe areas, size classes and fold behavior measured in Apple’s iPhone Duo simulator, plus Apple’s guidance on the fold region and hinge API.'
-pubDate: 'Oct 24 2026'
-publishAt: '2026-10-24T08:00:00-05:00'
+pubDate: 'Oct 22 2026'
+publishAt: '2026-10-22T08:00:00-05:00'
 tags: ['apps', 'building', 'iphone-duo']
 ---
 
