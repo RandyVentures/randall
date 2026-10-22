@@ -1,0 +1,118 @@
+---
+// Cap rate calculator for blog posts. Runs entirely in the browser; nothing is sent anywhere.
+---
+
+<form class="cap-calc" aria-label="Cap rate calculator" onsubmit="return false">
+	<div class="fields">
+		<label>
+			<span>Property value or price</span>
+			<input name="value" type="number" inputmode="decimal" min="0" step="1000" value="250000" />
+		</label>
+		<label>
+			<span>Monthly rent (all units)</span>
+			<input name="rent" type="number" inputmode="decimal" min="0" step="25" value="2000" />
+		</label>
+		<label>
+			<span>Vacancy allowance (%)</span>
+			<input name="vacancy" type="number" inputmode="decimal" min="0" max="100" step="1" value="5" />
+		</label>
+		<label>
+			<span>Annual operating expenses</span>
+			<input name="expenses" type="number" inputmode="decimal" min="0" step="100" value="7500" />
+			<small>Taxes, insurance, repairs, maintenance, HOA, management, utilities you pay. Not the mortgage.</small>
+		</label>
+	</div>
+	<output class="results" aria-live="polite">
+		<div><span>Gross rent</span><strong data-out="gross">—</strong></div>
+		<div><span>Net operating income</span><strong data-out="noi">—</strong></div>
+		<div class="cap"><span>Cap rate</span><strong data-out="cap">—</strong></div>
+	</output>
+</form>
+
+<script>
+	const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+	for (const form of document.querySelectorAll<HTMLFormElement>('.cap-calc')) {
+		const num = (name: string) => {
+			const v = parseFloat((form.elements.namedItem(name) as HTMLInputElement).value);
+			return Number.isFinite(v) && v >= 0 ? v : 0;
+		};
+		const out = (key: string) => form.querySelector<HTMLElement>(`[data-out="${key}"]`)!;
+
+		const update = () => {
+			const value = num('value');
+			const gross = num('rent') * 12;
+			const effective = gross * (1 - Math.min(num('vacancy'), 100) / 100);
+			const noi = effective - num('expenses');
+			out('gross').textContent = money.format(gross);
+			out('noi').textContent = money.format(noi);
+			out('cap').textContent = value > 0 ? `${((noi / value) * 100).toFixed(1)}%` : '—';
+		};
+
+		form.addEventListener('input', update);
+		update();
+	}
+</script>
+
+<style>
+	.cap-calc {
+		margin: 2rem 0;
+		padding: 1.25rem;
+		border: 1px solid var(--line-2);
+		border-radius: 14px;
+		background: var(--surface);
+		font-family: inherit;
+	}
+	.fields {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-size: 0.95rem;
+		color: var(--ink-2);
+	}
+	input {
+		width: 100%;
+		padding: 0.55rem 0.7rem;
+		border: 1px solid var(--line-2);
+		border-radius: 8px;
+		background: var(--surface-2);
+		color: var(--ink);
+		font-size: 1rem;
+	}
+	small {
+		color: var(--muted);
+		font-size: 0.8rem;
+		line-height: 1.35;
+	}
+	.results {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line);
+	}
+	.results div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	.results span {
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+	.results strong {
+		color: var(--ink);
+		font-size: 1.25rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.results .cap strong {
+		color: var(--accent);
+		font-size: 1.6rem;
+	}
+</style>
