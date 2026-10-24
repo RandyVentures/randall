@@ -259,8 +259,19 @@ export const productSites: ProductSite[] = [
 
 export interface WebApp {
 	name: string;
+	/** Short headline shown beside the name. */
+	tagline: string;
 	/** What it is, in one plain sentence. */
 	summary: string;
+	/** Who it is for, shown as a label and used as schema.org audience. */
+	audience: string;
+	/** schema.org applicationCategory. */
+	category: string;
+	/** Matches an `apps` entry so the card can reuse its icon. */
+	appName?: string;
+	/** Global data-tone hook for the card accent. */
+	tone: 'agave' | 'dusk' | 'sky' | 'rose' | 'gold' | 'clay';
+	highlights: string[];
 	site: string;
 	/** Deep links worth sending readers (and crawlers) to, with descriptive anchor text. */
 	links: { label: string; href: string }[];
@@ -270,6 +281,11 @@ export interface WebApp {
 export const webApps: WebApp[] = [
 	{
 		name: 'Mandalo',
+		tagline: 'Get paid by text',
+		audience: 'Local service businesses',
+		category: 'FinanceApplication',
+		tone: 'agave',
+		highlights: ['Card and Apple Pay checkout', 'Send by text or email', 'Paid and pending jobs in one dashboard'],
 		summary:
 			'Payment links for local service businesses. Create a link, text or email it, and get paid by card or Apple Pay, with paid and pending jobs in one dashboard.',
 		site: 'https://getmandalo.net',
@@ -283,6 +299,11 @@ export const webApps: WebApp[] = [
 	},
 	{
 		name: 'Manifest',
+		tagline: 'App Store analytics, all of it',
+		audience: 'Solo iOS developers',
+		category: 'BusinessApplication',
+		tone: 'dusk',
+		highlights: ['Downloads, proceeds and subscriptions', 'Every review from every storefront', 'History past the 14-day limit'],
 		summary:
 			'App Store analytics for solo developers: downloads, proceeds, subscriptions and every review from every storefront, without the 14-day limit.',
 		site: 'https://usemanifest.net',
@@ -294,6 +315,12 @@ export const webApps: WebApp[] = [
 	},
 	{
 		name: 'Heirloom on the web',
+		tagline: 'Read old letters and cursive',
+		audience: 'Family historians and genealogists',
+		category: 'UtilitiesApplication',
+		appName: 'Heirloom',
+		tone: 'gold',
+		highlights: ['Cursive to text from a photo', 'Modernized version and English translation', 'Kurrent and Sütterlin support'],
 		summary:
 			'Read old handwritten letters and cursive online. Heirloom turns scans and photos into text you can check, with a modern version and English translation.',
 		site: 'https://readheirloom.com',
@@ -306,6 +333,12 @@ export const webApps: WebApp[] = [
 	},
 	{
 		name: 'HypeLap',
+		tagline: 'Live race tracking with cheers',
+		audience: 'Runners, run clubs and race spectators',
+		category: 'SportsApplication',
+		appName: 'HypeLap',
+		tone: 'rose',
+		highlights: ['Follow a runner live in any browser', 'No app or account for spectators', 'Cheers delivered to the runner’s earbuds'],
 		summary:
 			'Live race tracking where friends watch your rank in any browser and cheer you on. Spectators need no app and no account.',
 		site: 'https://hypelap.com',
