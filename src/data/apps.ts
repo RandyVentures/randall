@@ -256,3 +256,64 @@ export const productSites: ProductSite[] = [
 		siteLabel: 'HypeLap live race tracking with cheers',
 	},
 ];
+
+export interface WebApp {
+	name: string;
+	/** What it is, in one plain sentence. */
+	summary: string;
+	site: string;
+	/** Deep links worth sending readers (and crawlers) to, with descriptive anchor text. */
+	links: { label: string; href: string }[];
+}
+
+/** Products that run in a browser. Listed on /webapps with descriptive links into each site. */
+export const webApps: WebApp[] = [
+	{
+		name: 'Mandalo',
+		summary:
+			'Payment links for local service businesses. Create a link, text or email it, and get paid by card or Apple Pay, with paid and pending jobs in one dashboard.',
+		site: 'https://getmandalo.net',
+		links: [
+			{ label: 'Lawn care invoice template', href: 'https://getmandalo.net/templates/lawn-care-invoice-template' },
+			{ label: 'Snow removal invoice template', href: 'https://getmandalo.net/templates/snow-removal-invoice-template' },
+			{ label: 'Payment reminder text messages', href: 'https://getmandalo.net/templates/payment-reminder-text-messages' },
+			{ label: 'Zelle vs Cash App vs Venmo for small business', href: 'https://getmandalo.net/compare/cash-app-vs-venmo-vs-zelle-for-small-business' },
+			{ label: 'Credit card fee calculator', href: 'https://getmandalo.net/tools/credit-card-fee-calculator' },
+		],
+	},
+	{
+		name: 'Manifest',
+		summary:
+			'App Store analytics for solo developers: downloads, proceeds, subscriptions and every review from every storefront, without the 14-day limit.',
+		site: 'https://usemanifest.net',
+		links: [
+			{ label: 'An App Annie alternative for solo developers', href: 'https://usemanifest.net/appannie-alternative' },
+			{ label: 'Why App Store Connect only shows 14 days', href: 'https://usemanifest.net/app-store-connect-only-shows-14-days' },
+			{ label: 'App Store Connect zero downloads, explained', href: 'https://usemanifest.net/app-store-connect-zero-downloads' },
+		],
+	},
+	{
+		name: 'Heirloom on the web',
+		summary:
+			'Read old handwritten letters and cursive online. Heirloom turns scans and photos into text you can check, with a modern version and English translation.',
+		site: 'https://readheirloom.com',
+		links: [
+			{ label: 'Cursive transcription online', href: 'https://readheirloom.com/cursive-to-text' },
+			{ label: 'How to read old handwritten letters', href: 'https://readheirloom.com/guides/how-to-read-old-handwritten-letters' },
+			{ label: 'How to date an old letter', href: 'https://readheirloom.com/guides/how-to-date-an-old-letter' },
+			{ label: 'Kurrent and Sütterlin reading guide', href: 'https://readheirloom.com/guides/reading-german-kurrent-and-suetterlin' },
+		],
+	},
+	{
+		name: 'HypeLap',
+		summary:
+			'Live race tracking where friends watch your rank in any browser and cheer you on. Spectators need no app and no account.',
+		site: 'https://hypelap.com',
+		links: [
+			{ label: 'Live race tracking', href: 'https://hypelap.com/live-race-tracking' },
+			{ label: 'Houston running races calendar', href: 'https://hypelap.com/houston-running-races' },
+			{ label: 'How to follow a runner live', href: 'https://hypelap.com/how-to-follow-a-runner-live' },
+			{ label: 'Run club group races', href: 'https://hypelap.com/run-club-group-races' },
+		],
+	},
+];
