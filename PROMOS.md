@@ -16,7 +16,7 @@ The game's current rotation permits 4+ creatives only. HypeLap (12+) and Vault R
 
 - Refresh at launch/foreground, at most once per hour per app process; use the last validated cached catalog or the bundled catalog offline. Apple/CDN caching can delay rollout. Already displayed ads retain their original creative and timer.
 - Schema, size, count, ID, string length, timer and artwork-host checks run before a catalog is accepted. Invalid feeds leave the previous copy in place. App Store links are constructed from numeric IDs. No arbitrary click URL, HTML or JavaScript is accepted.
-- The app keeps rotation/hidden-ad preferences locally. No ad impression, click, device identifier or gameplay event is sent. The static site's host still receives ordinary requests (including IP addresses). Do not add analytics or tracking query parameters without revisiting privacy disclosures and consent.
+- The app keeps rotation/hidden-ad preferences locally. No ad impression, click, device identifier or gameplay event is sent to our servers. Optional App Store links now include an Apple provider token and campaign tag for aggregate attributed-download reports; they contain no player/device/run identifiers. The static site's host still receives ordinary requests (including IP addresses). The in-app privacy copy discloses these campaign links. Reassess privacy disclosures before adding any other analytics.
 - Timer counts only foreground ad-view time and pauses under the report sheet. Skip/swipe dismissal is always available and earns no continue. The completed timer enables Continue; no App Store action is required. One continue per run, with an equivalent ad-free Pass continue. Unlimited fresh attempts remain free.
 - Report uses the existing public site contact `rltorres26@gmail.com`, through user-controlled email/share UI. Hide is local and explicitly does not submit a report.
 
@@ -27,3 +27,15 @@ Document the catalog URL and optional rewarded flow in review notes. Disclose Ad
 Relevant Apple rules: 2.5.2 (downloaded code), 2.5.18 (ad labeling, close/skip, suitability and reporting), 3.2.2(x) (watching an ad may be rewarded, downloads/ratings/reviews cannot be required), and 3.1.1 (Pass uses IAP). Following these rules is not a guarantee of App Review approval.
 
 Source catalog and age ratings were verified against Apple's public lookup for Randy Torres on 2026-10-25. The site's `src/data/apps.ts` supplies canonical existing portfolio identities and owned artwork. Recheck store availability and ratings before each addition.
+
+## Apple campaign attribution
+
+The top-level `campaignProviderToken` is **128485870**, verified in Randy Torres's App Store Connect campaign-link generator on 2026-10-25. This public token identifies the developer's campaign account; it is not an API secret or the developer-page ID. Reuse it for the portfolio's own apps.
+
+Each app optionally sets `campaignToken` (1–25 ASCII letters, digits, underscores or hyphens), defaulting to `capyplop_<App Store ID>`. Native rewarded ads append `_ad`, Settings recommendations append `_more`, and this website preview appends `_web`. Final campaign names stay within Apple's 30-character limit. The product ID remains the catalog's verified numeric `id`; no arbitrary destination URL is accepted.
+
+A new published app needs only a catalog entry and owned artwork. It inherits the shared provider token and a campaign base derived from its product ID, without a new iOS build. The initial native integration must first be installed; older clients ignore these optional fields. Keep schemaVersion 1 for compatible edits.
+
+Reports are in the advertised app's App Store Connect → Analytics → Acquisition → Campaigns, or Metrics filtered by Campaign. Apple attributes first-time downloads within 24 hours after the link is used. Reporting has delays and minimum thresholds; blank metrics do not mean zero. Watches without a click are not attributed. No download, click, review or rating is required for the game reward.
+
+Reference: https://developer.apple.com/help/app-store-connect-analytics/acquisition/campaign-links
