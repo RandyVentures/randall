@@ -1,0 +1,44 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="DraftTrail Privacy Policy" description="Privacy practices for DraftTrail, a local document comparison and organization app for Mac." />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="policy tile">
+        <p class="tile-kicker">DraftTrail · macOS</p>
+        <h1>Privacy Policy</h1>
+        <p class="date"><strong>Pre-release draft · October 25, 2026.</strong> Describes the current development build; review before launch.</p>
+        <p>DraftTrail compares supported documents and helps you review file organization on your Mac. There is no DraftTrail account. Document processing happens locally; the app does not upload documents, extracted text, file names or comparison results to us.</p>
+        <h2>Your documents and folder access</h2>
+        <p>You choose folders using macOS. DraftTrail requests read-write access only to those selected folders so it can scan, preview and, after your review, organize files. It saves security-scoped bookmarks locally so you can reopen a selected location later. You can revoke a saved location in the app's Privacy settings. Revoking access removes its saved bookmark and prevents future use of that grant within DraftTrail; it does not undo earlier file operations or change your macOS privacy settings.</p>
+        <p>Extracted text, previews and comparison evidence are processed in memory. A comparison may find matching text without finding identical files; images and layout are not compared. The first release has no OCR or AI summaries and downloads no model.</p>
+        <h2>Information stored on your Mac</h2>
+        <p>Private local storage contains selected-folder bookmarks and identity metadata, a comparison-usage ledger, and organization history with file names, locations, revision hashes, file identities and operation outcomes. A Trash bookmark may be retained to support an attempted undo. App preferences, such as appearance and onboarding, are also local. The app does not operate cloud sync or a cloud backup.</p>
+        <p>Operation journals remain until you delete the corresponding history entry. Deleting history removes that entry's receipt, file paths and recovery bookmark and removes its undo information. It does not delete your documents, revoke selected folders or reset comparison usage. UUID-only deletion markers and lock files can remain to prevent deleted entries from returning after an interrupted write. Revoked locations retain identity and display metadata so you can explicitly reconnect them later.</p>
+        <p>The included-comparison allowance is recorded locally on this Mac. It does not sync across devices, and uninstalling or reinstalling is not a supported way to reset it. Removing the app does not guarantee that macOS removes all local app data or Apple's purchase records.</p>
+        <h2>Purchases and network use</h2>
+        <p>Apple processes purchases through StoreKit and the App Store. DraftTrail uses verified Apple transactions, including product and purchase/revocation information, to determine access and restore purchases. We do not receive your payment-card details. The app has no RevenueCat integration, advertising SDK, analytics SDK, account system or developer-operated document server.</p>
+        <p>StoreKit may contact Apple to load products, purchase, restore or verify access. Apple handles that information under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Opening support, privacy or terms uses your browser; the website and its hosting services handle normal web requests separately from the app, including network information such as an IP address. This site also loads fonts from Google. A support email is sent only if you choose to send it in your mail app.</p>
+        <h2>Support and changes</h2>
+        <p>If you email support, we receive your email address and whatever you include so we can respond. Describe the issue without attaching private documents, document text, full paths, payment details or Apple credentials. We will update this policy before shipping a change that introduces uploads, analytics or other new data processing.</p>
+        <p>Questions or requests about information you sent to support: <a href="mailto:randyventures06@gmail.com?subject=DraftTrail%20privacy">randyventures06@gmail.com</a>.</p>
+        <p class="links"><a href="/drafttrail/support/">Support</a> · <a href="/drafttrail/privacy/">Privacy</a> · <a href="/drafttrail/terms/">Terms of Use</a></p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .policy { max-width: 760px; margin: 0 auto; }
+  .policy h2 { margin-top: 2rem; }
+  .date { color: var(--ink-muted); }
+  .links { margin-top: 2rem; }
+</style>

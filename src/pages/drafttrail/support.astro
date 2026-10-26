@@ -1,0 +1,45 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="DraftTrail Support" description="Help with folder access, text coverage, organization, undo and purchases in DraftTrail for Mac." />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="policy tile">
+        <p class="tile-kicker">DraftTrail · macOS</p>
+        <h1>DraftTrail support</h1>
+        <p class="date"><strong>Pre-release draft · October 25, 2026.</strong> Describes the current development build; review before launch.</p>
+        <p>Find related drafts, inspect their text differences, then review how to organize them. DraftTrail is a native Mac app requiring macOS 14 or later.</p>
+        <p>Email <a href="mailto:randyventures06@gmail.com?subject=DraftTrail%20support">randyventures06@gmail.com</a> with your app version, macOS version, the action you tried and the error shown. Please use a small fictional example rather than sending private documents, full paths, Apple credentials or payment-card details.</p>
+        <h2>Start with the sample or a selected folder</h2>
+        <p>The bundled sample uses fictional documents. To use your own files, choose a folder with the macOS folder picker. Keep an independent backup before organizing important files. Discovery reads supported regular files; it skips unsupported, inaccessible or oversized documents, symbolic links and files that need a cloud download.</p>
+        <h2>Understand the comparison</h2>
+        <p>DOCX, existing PDF text layers and supported plain-text files can be compared locally. Check the coverage panel and skipped-file reasons. Scanned pages require OCR, which this release does not provide. Images, page layout and visual equivalence are not checked. Matching text does not mean identical bytes. Suggested families and revision order require your review; the app does not decide which document is approved or final.</p>
+        <h2>Folder access stopped working</h2>
+        <p>Re-select the folder using the native picker. Moving, replacing or changing permissions on a folder can invalidate its saved access. You can revoke a saved location in Privacy settings. No Full Disk Access is required by the app.</p>
+        <h2>Organize and undo carefully</h2>
+        <p>Choose the current document, inspect every selected action and resolve collisions or stale files before Apply. Optional exact copies start unselected and can be archived within the selected folder after you opt in. System Trash is not offered in the initial release. DraftTrail does not permanently delete files or empty the Trash.</p>
+        <p>History offers undo only where its checks permit it. If a file was edited, replaced, moved, the original name is occupied or access is lost, undo can report a conflict and preserve the external change. Keep the history entry while you need its recovery information. Deleting history cannot undo file operations.</p>
+        <h2>Included comparisons and Pro</h2>
+        <p>The launch plan includes five successful distinct full-text revision comparisons. Exact-byte copies, matching-text results, sample, failed, cancelled, repeated and partial-coverage comparisons do not use that allowance. Pro is planned as a one-time unlock with no recurring charge. The app must show Apple's current localized price before purchase; development or unavailable prices are not purchase quotes.</p>
+        <h2>Restore a purchase</h2>
+        <p>Use Restore Purchases with the Apple Account that made the purchase. Apple may require a connection or sign-in. Pending or unverified purchases do not grant Pro until Apple confirms ownership. Refunds or revocations can remove access. Changing an offer or its price does not turn an existing verified lifetime purchase into a subscription. Restoring ownership does not restore a deleted local comparison ledger.</p>
+        <p class="links"><a href="/drafttrail/support/">Support</a> · <a href="/drafttrail/privacy/">Privacy</a> · <a href="/drafttrail/terms/">Terms of Use</a></p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .policy { max-width: 760px; margin: 0 auto; }
+  .policy h2 { margin-top: 2rem; }
+  .date { color: var(--ink-muted); }
+  .links { margin-top: 2rem; }
+</style>
