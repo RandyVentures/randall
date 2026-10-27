@@ -39,3 +39,11 @@ A new published app needs only a catalog entry and owned artwork. It inherits th
 Reports are in the advertised app's App Store Connect → Analytics → Acquisition → Campaigns, or Metrics filtered by Campaign. Apple attributes first-time downloads within 24 hours after the link is used. Reporting has delays and minimum thresholds; blank metrics do not mean zero. Watches without a click are not attributed. No download, click, review or rating is required for the game reward.
 
 Reference: https://developer.apple.com/help/app-store-connect-analytics/acquisition/campaign-links
+
+## Bean Hunt catalog
+
+`public/promos/beanhunt-v1.json` is Bean Hunt's separate data-only catalog. Keep the Capy Plop catalog and behavior unchanged. Bean Hunt ignores watchSeconds, accepts no remote executable code, and only displays eligible 4+ owned apps. Its small inline discovery card has immediate dismissal, local hiding and user-sent email reporting. Lifetime Premium and active legacy subscribers are ad-free.
+
+Set enabled to false to disable Bean Hunt promotions. Foreground eligible clients refresh every minute and on foreground/reconnection. Offline, invalid or unavailable feeds suppress ads; there is no stale-feed fallback. Catalog updates cannot alter frequency limits, first-session exclusion, purchase gates, writing/directions behavior or app code. Maintain numeric Apple IDs and existing trusted artwork paths. Campaign bases use beanhunt_ and must leave room for the _discovery suffix within Apple's 30-character campaign limit (base maximum 20 characters). Verify each new entry is owned by Randy Torres and its current rating; only 4+ entries are shown by the current client.
+
+The catalog and artwork are delivered over GitHub Pages. No per-person ad-view or click events are collected by Bean Hunt. The host receives ordinary connection information; the Bean Hunt privacy policy discloses that processing and optional shared App Store campaign tags.
