@@ -18,10 +18,10 @@ import Header from '../../components/Header.astro';
       <article class="policy tile">
         <p class="tile-kicker">Beige Box</p>
         <h1>Privacy Policy</h1>
-        <p class="date"><strong>Effective:</strong> November 1, 2026</p>
+        <p class="date"><strong>Effective:</strong> November 2, 2026</p>
 
         <p>
-          Beige Box is an iOS app with three original pretend computers from earlier eras. You can
+          Beige Box is an iOS app with five original pretend computers from earlier eras. You can
           write, draw, program in BASIC, play games and browse the real web on them. There is no
           account to create, no login, and no server run by this app. This policy explains what stays
           on your device, what happens when you browse the web, and what happens when you buy or
@@ -32,14 +32,15 @@ import Header from '../../components/Header.astro';
         <p>
           Documents you write in Write, programs you save from the BASIC prompt, and pictures you
           save from Paint are stored as ordinary files in the app's Documents folder on your device.
-          All three computers share this one disk. Because they are ordinary files, they also appear
+          All five computers share this one disk. Because they are ordinary files, they also appear
           in the Files app under On My iPhone (or On My iPad) › Beige Box, and in Finder file sharing
           when you connect your device to a computer.
         </p>
         <p>
           The app also stores a few settings on your device: which computer you picked, whether you
           finished the introduction, whether sound is muted, your screen colour and case colour
-          choices, your best Worm score, and a randomly generated guest name for the bulletin board.
+          choices, your best Worm and Breakwater scores, your Pairs best move count and wins, and a
+          randomly generated guest name for the bulletin board. Game records stay on your device.
         </p>
         <p>
           The app does not upload your files or settings. If you use iCloud Backup or back up your
@@ -48,8 +49,8 @@ import Header from '../../components/Header.astro';
 
         <h2>Browsing the web</h2>
         <p>
-          The Surf program loads real websites directly from your device using Apple's WebKit, then
-          redraws each page in the style of the computer you are using. The HOMEROOM 82 computer
+          On the four desktop computers, Surf displays live, interactive websites directly from
+          your device using Apple's WebKit. STUDIO 86 displays those pages in grayscale. HOMEROOM 82
           fetches pages directly from your device and shows them as text. Browsing does not pass
           through any server run by this app, and the app does not send your browsing history to the
           developer.
@@ -57,8 +58,8 @@ import Header from '../../components/Header.astro';
         <p>
           As with any web browser, the websites you visit receive your IP address, the pages you
           request, and a browser identifier that names the app. They may set cookies or store other
-          site data. That site data is kept in the app's own storage on your device and is shared by
-          all three computers. Anything you type into a web page is sent to that website.
+          site data. The four desktop computers share WebKit's website storage within the app on
+          your device. Anything you type into a web page is sent to that website.
         </p>
         <p>
           When you type words that are not a web address, the app sends them as a search to
@@ -114,10 +115,11 @@ import Header from '../../components/Header.astro';
           <li>No advertising, ad networks, or advertising identifier.</li>
           <li>No app-owned account, login, or cloud sync.</li>
           <li>No tracking across other apps and websites, and no App Tracking Transparency prompt.</li>
-          <li>No analytics or crash-reporting SDK.</li>
+          <li>No general app-usage analytics or crash reporting. RevenueCat's purchase analytics are described above.</li>
           <li>
-            No access to your contacts, location, photos, camera, microphone, or notifications. The
-            app detects a connected hardware keyboard only to accept typing from it.
+            The built-in programs do not request your contacts, location, photos, camera, microphone,
+            or notifications. Websites may offer their own file-selection controls. The app detects
+            a connected hardware keyboard only to accept typing from it.
           </li>
         </ul>
 
@@ -147,7 +149,7 @@ import Header from '../../components/Header.astro';
         <h2>Changes</h2>
         <p>
           If the app adds a feature that changes what is processed, for example a shared bulletin
-          board, a server run by this app, an account, or analytics, this policy will be updated
+          board, a server run by this app, an account, or app-usage analytics, this policy will be updated
           before that feature ships, and the effective date above will change.
         </p>
 
