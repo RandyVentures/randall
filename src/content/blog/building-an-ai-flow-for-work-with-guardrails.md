@@ -1,11 +1,11 @@
 ---
-title: 'Building an AI Flow for Work: Ship Faster, With Guardrails'
+title: 'Building an AI Flow for My Day Job: Ship Faster, With Guardrails'
 description: 'Notes on designing an AI-assisted workflow for my day job, inspired by X rebuilding for low bandwidth: start with the constraint, keep humans accountable, and write down what counts as slop.'
 pubDate: 'Nov 7 2026'
 tags: ['ai', 'work', 'building']
 ---
 
-I am building an AI-assisted workflow for work. The question behind it is simple: can it help a team build and ship faster without making the work worse?
+I am building an AI-assisted workflow for my day job. The question behind it is simple: can it help a team build and ship faster without making the work worse?
 
 I do not have results yet. This is a design note about what I am building and why, written before the data comes in, so I can check later whether the reasoning held up.
 
