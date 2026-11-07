@@ -3,6 +3,7 @@ title: 'My Top 5 iPhone Duo Apps After One Week'
 description: 'After a week with the iPhone Duo: the best apps I have found that support it, four of my own, the big apps still missing support, and how the battery is holding up.'
 pubDate: 'Nov 7 2026'
 tags: ['apps', 'life', 'iphone-duo']
+heroImage: '../../assets/iphone-duo/iphone-duo-folded-and-unfolded-hero.jpg'
 ---
 
 I have now been using my iPhone Duo for about a week. In [my first few days with it](/blog/first-few-days-with-iphone-duo/), I said I would have more to say after spending longer with the phone, so here is where things stand.
@@ -12,6 +13,10 @@ I have now been using my iPhone Duo for about a week. In [my first few days with
 **The battery has still been great.** That was my early impression, and it has held up.
 
 **I also still use it folded more than unfolded.** I have the option to open it up, but folded is how I find myself using it.
+
+![My iPhone Duo folded, on the lock screen](../../assets/iphone-duo/iphone-duo-folded-lock-screen.jpg)
+
+![My iPhone Duo unfolded, on the home screen](../../assets/iphone-duo/iphone-duo-unfolded-home-screen.jpg)
 
 
 ## My Top 5 iPhone Duo Apps So Far
