@@ -13,7 +13,6 @@ I have now been using my iPhone Duo for about a week. In [my first few days with
 
 **I also still use it folded more than unfolded.** I have the option to open it up, but folded is how I find myself using it.
 
-[RANDALL: optional, one sentence on when you do choose to open it.]
 
 ## My Top 5 iPhone Duo Apps So Far
 
@@ -25,7 +24,6 @@ These are the best apps I have come across so far that support the Duo.
 4. **Plants vs. Zombies.** The classic tower defense game.
 5. **[Structured](https://apps.apple.com/us/app/structured-daily-planner-todo/id1499198946).** A daily planner and to-do app.
 
-[RANDALL: optional, one sentence on which of these five you use most, and why.]
 
 ## My Own Apps That Support the iPhone Duo
 
