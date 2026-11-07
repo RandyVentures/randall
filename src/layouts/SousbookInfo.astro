@@ -1,0 +1,41 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Sousbook — ${title}`} description={description} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="policy tile">
+        <p class="tile-kicker">Sousbook · RandyVentures</p>
+        <h1>{title}</h1>
+        <p class="date">Last updated: October 10, 2026</p>
+        <slot />
+        <nav class="legal-links" aria-label="Sousbook help and legal information">
+          <a href="/sousbook/support/">Support</a>
+          <a href="/sousbook/privacy/">Privacy</a>
+          <a href="/sousbook/terms/">Terms</a>
+          <a href="/sousbook/food-safety/">Food safety</a>
+        </nav>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .policy { max-width: 760px; margin: 0 auto; overflow-wrap: anywhere; }
+  .policy :global(h2) { margin-top: 2rem; font-size: 1.5rem; }
+  .policy :global(li + li) { margin-top: .65rem; }
+  .policy :global(p), .policy :global(li) { line-height: 1.7; }
+  .date { color: var(--ink-muted); }
+  .legal-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .legal-links a { padding: .5rem 0; }
+</style>

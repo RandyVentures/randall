@@ -1,6 +1,6 @@
 ---
 title: 'The App Store Data Problems Indie Developers Learn the Hard Way'
-description: 'A download is not a customer, a pending report is not a zero, and an available platform is not a verified launch. The category mistakes that make App Store data look broken when it is working fine.'
+description: "App Store Connect shows a download but RevenueCat shows no customer? A pending report isn't a zero. The data mix-ups that make indie app analytics look broken."
 pubDate: 'Sep 20 2026'
 tags: ['apps', 'building', 'business']
 ---

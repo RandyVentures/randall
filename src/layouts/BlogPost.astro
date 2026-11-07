@@ -22,6 +22,12 @@ const { post, n, headings, prev, next, related } = Astro.props;
 const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
 const minutes = readingTime(post);
 
+// Search engines flag <title> tags over ~70 characters. Add the site suffix only when the whole title stays
+// short; long headlines use their own shorter seoTitle (or go without the suffix).
+const SITE_SUFFIX = ' — Randall';
+const baseTitle = post.data.seoTitle ?? title;
+const headTitle = baseTitle.length + SITE_SUFFIX.length <= 65 ? `${baseTitle}${SITE_SUFFIX}` : baseTitle;
+
 // A contents list only earns its space once there is something to navigate.
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const showToc = toc.filter((h) => h.depth === 2).length >= 3;
@@ -30,7 +36,7 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${title} — Randall`} description={description} image={heroImage} publishedDate={pubDate} />
+		<BaseHead title={headTitle} description={description} image={heroImage} publishedDate={pubDate} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'BlogPosting',

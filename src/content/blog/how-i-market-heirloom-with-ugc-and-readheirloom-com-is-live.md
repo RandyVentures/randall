@@ -14,9 +14,9 @@ Heirloom is the app I built for reading old handwritten letters. You photograph 
 
 Here is a 20-second example of the kind of clip the workflow produces.
 
-<video controls muted loop playsinline preload="metadata" poster="/randall/videos/heirloom-letter-promo-poster.jpg" style="display:block;width:100%;max-width:340px;max-height:75vh;margin:1.5rem auto;border-radius:14px;background:#15110d">
-	<source src="/randall/videos/heirloom-letter-promo.mp4" type="video/mp4" />
-	<source src="/randall/videos/heirloom-letter-promo.webm" type="video/webm" />
+<video controls muted loop playsinline preload="metadata" poster="/videos/heirloom-letter-promo-poster.jpg" style="display:block;width:100%;max-width:340px;max-height:75vh;margin:1.5rem auto;border-radius:14px;background:#15110d">
+	<source src="/videos/heirloom-letter-promo.mp4" type="video/mp4" />
+	<source src="/videos/heirloom-letter-promo.webm" type="video/webm" />
 	Your browser does not support embedded video.
 </video>
 

@@ -4,14 +4,12 @@ import type { HTMLAttributes } from 'astro/types';
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const pathname = Astro.url.pathname;
 const subpath = pathname.match(/[^\/]+/g);
 // Hash links (/#apps) point into the homepage, so they are never "current".
 const isActive = !href?.includes('#') && (href === pathname || href === '/' + (subpath?.[0] || ''));
-const resolvedHref = href?.startsWith('/') ? `${base}${href}` : href;
 ---
 
-<a href={resolvedHref} class={className} aria-current={isActive ? 'page' : undefined} {...props}>
+<a href={href} class={className} aria-current={isActive ? 'page' : undefined} {...props}>
 	<slot />
 </a>

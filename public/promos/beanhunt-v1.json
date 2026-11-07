@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "watchSeconds": 8,
+  "apps": [
+    {
+      "id": "6758901998",
+      "name": "Color Flood Conquest",
+      "headline": "Make your next move colorful.",
+      "beats": [
+        "Pick a color. Start a ripple.",
+        "Capture the board, one smart move at a time.",
+        "Find your next puzzle in Color Flood Conquest."
+      ],
+      "category": "Games",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6758901998.jpg",
+      "campaignToken": "beanhunt_6758901998"
+    },
+    {
+      "id": "6758815658",
+      "name": "Catalyst Chain Reaction",
+      "headline": "One tap. A satisfying chain reaction.",
+      "beats": [
+        "Find the perfect place to start.",
+        "Tap, pop, and watch the reaction unfold.",
+        "A quick puzzle break with Catalyst."
+      ],
+      "category": "Games",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6758815658.png",
+      "campaignToken": "beanhunt_6758815658"
+    },
+    {
+      "id": "6774044499",
+      "name": "Square Sweep",
+      "headline": "A tiny grid. A clever little challenge.",
+      "beats": [
+        "Read the clues.",
+        "Find the safe squares.",
+        "Make a clean sweep."
+      ],
+      "category": "Games",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6774044499.jpg",
+      "campaignToken": "beanhunt_6774044499"
+    },
+    {
+      "id": "6758643692",
+      "name": "Fillin: Guess the Missing Word",
+      "headline": "A little wordplay for your day.",
+      "beats": [
+        "Read the sentence.",
+        "Find the missing word.",
+        "Keep your word-puzzle ritual with Fillin."
+      ],
+      "category": "Games",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6758643692.png",
+      "campaignToken": "beanhunt_6758643692"
+    },
+    {
+      "id": "6804264261",
+      "name": "Rise & Capy: Cute Alarm Clock",
+      "headline": "Wake up with a capybara.",
+      "beats": [
+        "Give your morning a little personality.",
+        "Meet your capybara alarm clock.",
+        "Start the day with a wake-up mission."
+      ],
+      "category": "Lifestyle",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6804264261.png",
+      "campaignToken": "beanhunt_6804264261"
+    },
+    {
+      "id": "6821456373",
+      "name": "Sousbook",
+      "headline": "Keep the recipes you want to make again.",
+      "beats": [
+        "Save a recipe that catches your eye.",
+        "Build your own personal cookbook.",
+        "Make something lovely with Sousbook."
+      ],
+      "category": "Food & Drink",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6821456373.png",
+      "campaignToken": "beanhunt_6821456373"
+    },
+    {
+      "id": "6818382550",
+      "name": "HypeLap: Race Tracker & Cheers",
+      "headline": "Bring your cheering section along.",
+      "beats": [
+        "Head out for your run.",
+        "Let your friends follow along.",
+        "Feel the cheers with HypeLap."
+      ],
+      "category": "Health & Fitness",
+      "minimumAge": 12,
+      "artwork": "https://randyventures.com/promos/icons/6818382550.png",
+      "campaignToken": "beanhunt_6818382550"
+    },
+    {
+      "id": "6808841943",
+      "name": "Glora: My Upkeep",
+      "headline": "Make a little room for your upkeep.",
+      "beats": [
+        "Keep your beauty routines together.",
+        "Remember the little things you do for yourself.",
+        "Find your rhythm with Glora."
+      ],
+      "category": "Lifestyle",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6808841943.png",
+      "campaignToken": "beanhunt_6808841943"
+    },
+    {
+      "id": "6810424599",
+      "name": "While We're Here",
+      "headline": "A conversation worth staying for.",
+      "beats": [
+        "Put the phones down together.",
+        "Pick a conversation card.",
+        "See where the table takes you."
+      ],
+      "category": "Games",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6810424599.png",
+      "campaignToken": "beanhunt_6810424599"
+    },
+    {
+      "id": "6792422170",
+      "name": "Heirloom: Old Letter Reader",
+      "headline": "There is a story in that old letter.",
+      "beats": [
+        "Bring an old handwritten letter into view.",
+        "Read the words and preserve the memory.",
+        "Rediscover family stories with Heirloom."
+      ],
+      "category": "Reference",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6792422170.png",
+      "campaignToken": "beanhunt_6792422170"
+    },
+    {
+      "id": "6795599230",
+      "name": "Fillbook: Trading Journal",
+      "headline": "Give every trade a place in your journal.",
+      "beats": [
+        "Record the trade.",
+        "Review the decisions behind it.",
+        "Build your trading journal with Fillbook."
+      ],
+      "category": "Finance",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6795599230.png",
+      "campaignToken": "beanhunt_6795599230"
+    },
+    {
+      "id": "6782247307",
+      "name": "FamilyStop: Family Restrooms",
+      "headline": "A better stop for the whole family.",
+      "beats": [
+        "Out and about with little ones?",
+        "Find family restrooms and changing tables.",
+        "Plan the next stop with FamilyStop."
+      ],
+      "category": "Lifestyle",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6782247307.png",
+      "campaignToken": "beanhunt_6782247307"
+    },
+    {
+      "id": "6777773350",
+      "name": "Gulp: Hydration App Blocker",
+      "headline": "A sip before another scroll.",
+      "beats": [
+        "Take a water break.",
+        "Build a hydration habit.",
+        "Drink water, then get back to your day with Gulp."
+      ],
+      "category": "Health & Fitness",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6777773350.png",
+      "campaignToken": "beanhunt_6777773350"
+    },
+    {
+      "id": "6760594178",
+      "name": "Pickleball Score Keeper: Rally",
+      "headline": "Keep your head in the pickleball game.",
+      "beats": [
+        "Play the point.",
+        "Keep score with Rally.",
+        "Follow your match, one point at a time."
+      ],
+      "category": "Sports",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6760594178.jpg",
+      "campaignToken": "beanhunt_6760594178"
+    },
+    {
+      "id": "6781543334",
+      "name": "Vault Runner",
+      "headline": "The treasure is only half the adventure.",
+      "beats": [
+        "Step into the vault.",
+        "Find the treasure.",
+        "Then find your way out."
+      ],
+      "category": "Games",
+      "minimumAge": 9,
+      "artwork": "https://randyventures.com/promos/icons/6781543334.jpg",
+      "campaignToken": "beanhunt_6781543334"
+    },
+    {
+      "id": "6758280423",
+      "name": "Rental Manager: Rent & Taxes",
+      "headline": "A little order for your rental business.",
+      "beats": [
+        "Keep your properties together.",
+        "Track rent and expenses.",
+        "Stay organized with Rental Manager."
+      ],
+      "category": "Business",
+      "minimumAge": 4,
+      "artwork": "https://randyventures.com/promos/icons/6758280423.png",
+      "campaignToken": "beanhunt_6758280423"
+    }
+  ],
+  "campaignProviderToken": "128485870"
+}

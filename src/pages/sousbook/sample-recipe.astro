@@ -1,0 +1,14 @@
+---
+import SousbookInfo from '../../layouts/SousbookInfo.astro';
+const recipe = {"@context": "https://schema.org", "@type": "Recipe", "name": "Classic Beef Lasagna", "recipeIngredient": ["1 lb ground beef", "1 yellow onion, diced", "3 cloves garlic, minced", "24 oz marinara sauce", "15 oz ricotta cheese", "1 egg", "2 cup shredded mozzarella", "1/2 cup grated parmesan", "9 no-boil lasagna noodles", "2 tbsp olive oil", "1 tsp dried basil", "1/2 tsp salt"], "recipeInstructions": [{"@type": "HowToStep", "text": "Heat the oven to 375°F. Warm the olive oil in a large skillet over medium heat."}, {"@type": "HowToStep", "text": "Cook the onion and beef for 8 minutes, breaking it up, until browned. Add garlic and basil and cook 1 minute."}, {"@type": "HowToStep", "text": "Stir in the marinara and simmer for 10 minutes while you mix the ricotta, egg, half the mozzarella, and the salt."}, {"@type": "HowToStep", "text": "Spread a thin layer of meat sauce in a 9×13 dish. Layer noodles, ricotta mixture, and sauce. Repeat twice."}, {"@type": "HowToStep", "text": "Top with the remaining mozzarella and the parmesan. Cover with foil and bake for 45 minutes."}, {"@type": "HowToStep", "text": "Uncover and bake 15 minutes more until bubbling and golden. Rest 15 minutes before slicing."}], "prepTime": "PT30M", "cookTime": "PT60M", "recipeYield": "8 servings"};
+---
+<SousbookInfo title="Classic Beef Lasagna" description="The sample recipe used to try Sousbook's recipe importer.">
+<script type="application/ld+json" set:html={JSON.stringify(recipe)} />
+<p>This is Sousbook’s bundled sample recipe, provided here so you can try importing a real website link.</p>
+<p>Serves 8 · Prep 30 minutes · Cook 60 minutes</p>
+<h2>Ingredients</h2>
+<ul>{recipe.recipeIngredient.map(item => <li>{item}</li>)}</ul>
+<h2>Directions</h2>
+<ol>{recipe.recipeInstructions.map(step => <li>{step.text}</li>)}</ol>
+<p>Review the recipe and ingredient labels before cooking. See <a href="/sousbook/food-safety/">Sousbook’s food safety guidance</a>.</p>
+</SousbookInfo>

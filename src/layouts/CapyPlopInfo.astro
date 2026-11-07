@@ -1,0 +1,40 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Capy Plop — ${title}`} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="capy-info tile">
+        <p class="tile-kicker"><a href="/capy-plop/">Capy Plop</a> · RandyVentures</p>
+        <h1>{title}</h1>
+        <p class="date">Last updated: October 25, 2026</p>
+        <slot />
+        <nav class="help-links" aria-label="Capy Plop information">
+          <a href="/capy-plop/">About the game</a>
+          <a href="/capy-plop/support/">Support</a>
+          <a href="/capy-plop/privacy/">Privacy policy</a>
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple standard license</a>
+        </nav>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .capy-info { max-width: 780px; margin: 0 auto; overflow-wrap: anywhere; }
+  .capy-info :global(h2) { margin-top: 2.2rem; font-size: 1.6rem; }
+  .capy-info :global(p), .capy-info :global(li) { line-height: 1.75; }
+  .capy-info :global(li + li) { margin-top: .65rem; }
+  .date { color: var(--ink-muted); font-size: .95rem; }
+  .help-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .help-links a { padding: .5rem 0; }
+</style>

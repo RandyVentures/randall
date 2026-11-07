@@ -1,0 +1,96 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Beige Box Support"
+      description="Help with Beige Box: purchases, files, web browsing and the BeigeNet bulletin board."
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <article class="policy tile">
+        <h1>Beige Box support</h1>
+        <p>Five little computers from earlier eras, in your pocket.</p>
+        <p>
+          Need help? Email
+          <a href="mailto:randyventures06@gmail.com?subject=Beige%20Box">randyventures06@gmail.com</a>.
+          Include your device, your iOS version, which computer you were using, and what happened.
+          Please do not send passwords or payment-card details.
+        </p>
+
+        <h2>Restore your unlock</h2>
+        <p>
+          Connect to the internet and tap Restore on the unlock screen. Use the Apple Account that
+          bought the unlock, or a Family Sharing member's account. No separate app account is needed.
+          Restoring brings back access to the computers, not deleted files.
+        </p>
+
+        <h2>Find your files</h2>
+        <p>
+          Everything you save in Write, Paint or BASIC is a real file on your device. Open My Disk on
+          any computer, or open the Files app and go to On My iPhone (or On My iPad) › Beige Box. All
+          five computers share the same disk.
+        </p>
+
+        <h2>Keep a copy of a file</h2>
+        <p>
+          In My Disk, select a file and choose Export to send it anywhere through the share sheet. You
+          can also copy files from the Files app. Deleting a file in My Disk cannot be undone, and
+          deleting the app removes its files. There is no cloud backup run by this app.
+        </p>
+
+        <h2>Web pages look odd or will not load</h2>
+        <p>
+          Surf displays live websites inside the four desktop computers. HOMEROOM 82 shows pages
+          as text, and STUDIO 86 uses grayscale. Some websites restrict embedded browsers or require
+          sign-in before playing video. Check your connection and try again. Use
+          a regular browser for banking, payments, or anything important.
+        </p>
+
+        <h2>Play the new games</h2>
+        <p>
+          In Breakwater, drag on the playfield or use Left/Right or A/D to move the paddle. Space
+          launches the ball; Play pauses or resumes. Clear three walls before losing three lives.
+          In Pairs, choose two cards at a time and find all six matches in as few moves as possible.
+          Both games save personal records on your device. New or New deal starts over.
+        </p>
+
+        <h2>Where did my bulletin board posts go?</h2>
+        <p>
+          BeigeNet is currently a local demonstration on your device. Posts you write are not shared
+          with anyone and are cleared when the app is fully closed.
+        </p>
+
+        <h2>Purchases and refunds</h2>
+        <p>
+          The unlock is one payment, not a subscription. Apple handles payments and refund requests.
+          Use <a href="https://reportaproblem.apple.com/">Apple's refund request page</a> for a
+          purchase refund. A confirmed refund ends paid access without deleting your files.
+        </p>
+        <p>
+          <a href="https://randyventures.com/beigebox/privacy/">Privacy policy</a> ·
+          <a href="https://randyventures.com/beigebox/terms/">Terms</a>
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .policy h2 {
+    margin-top: 2rem;
+  }
+</style>

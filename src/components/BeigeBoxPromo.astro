@@ -1,0 +1,36 @@
+---
+const video = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Beige Box: tiny retro computers for iPhone Duo',
+  description: 'An 18.5-second preview of Beige Box with Breakwater gameplay on tide 00 and screenshots of HOMEROOM 82, BEIGE BOX, candy 99 and STUDIO 86. Coming soon to the App Store.',
+  thumbnailUrl: new URL('/videos/beige-box-promo-poster.jpg', Astro.site).href,
+  uploadDate: '2026-11-02T19:31:04-06:00',
+  duration: 'PT18.5S',
+  contentUrl: new URL('/videos/beige-box-promo.mp4', Astro.site).href,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(video)} />
+<figure>
+  <video
+    controls
+    playsinline
+    preload="none"
+    width="1080"
+    height="1920"
+    poster="/videos/beige-box-promo-poster.jpg"
+    aria-label="Beige Box coming-soon preview: tiny retro computers and Breakwater gameplay on iPhone Duo"
+  >
+    <source src="/videos/beige-box-promo.mp4" type="video/mp4" />
+    <track kind="captions" src="/videos/beige-box-promo-en.vtt" srclang="en" label="English" />
+    <p><a href="/videos/beige-box-promo.mp4">Watch or download the Beige Box preview.</a></p>
+  </video>
+  <figcaption>18.5 seconds of Beige Box: iPhone Duo gameplay, simulator screenshots and a music soundtrack.</figcaption>
+</figure>
+
+<style>
+  figure { margin: 2rem 0; }
+  video { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto 1rem; border-radius: 14px; background: #f3eedf; }
+  figcaption { text-align: center; }
+</style>

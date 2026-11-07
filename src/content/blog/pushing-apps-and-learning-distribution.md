@@ -1,6 +1,6 @@
 ---
 title: 'Pushing More Apps, Learning Ads, and Making Real Progress'
-description: 'More apps are getting out into the world, app growth data is finally useful, and I am learning that shipping is only half the job.'
+description: "What a solo developer learned from shipping more apps and learning distribution: why shipping isn't the finish line, and what early ads and growth data showed."
 pubDate: 'Jul 24 2026'
 tags: ['apps', 'business', 'work']
 heroImage: '../../assets/hero-distribution.svg'
