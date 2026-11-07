@@ -1,17 +1,17 @@
 ---
 title: 'Building an AI Flow for My Day Job: Ship Faster, With Guardrails'
-description: 'Notes on designing an AI-assisted workflow for my day job, inspired by how a small X team rebuilt its web app with coding agents: shared instructions, skills in the repo, and guardrails on every commit.'
+description: 'Notes on designing an AI harness for my day job, inspired by how a small X team built its web app with coding agents: shared instructions, skills in the repo, and guardrails on every commit.'
 pubDate: 'Nov 7 2026'
 tags: ['ai', 'work', 'building']
 ---
 
-I am building an AI-assisted workflow for my day job. The question behind it is simple: can it help a team build and ship faster without making the work worse?
+I am building an AI harness for my day job: the instructions, reusable steps, checks, and hooks that wrap coding agents so a team can build and ship faster without making the work worse. The question behind it is simple: can it actually do that?
 
 I do not have results yet. This is a design note about what I am building and why, written before the data comes in, so I can check later whether the reasoning held up.
 
 ## The inspiration: how a small team built it
 
-The spark was an engineering post from X, [Rebuilding the Global Town Square From Scratch](https://blog.x.com/en/engineering/rebuilding-the-global-town-square-from-scratch), about rebuilding their web app so it is faster on low bandwidth. The speed is interesting, but the section that caught my attention was how a small team built it.
+The spark was an engineering post from X, [Rebuilding the Global Town Square From Scratch](https://blog.x.com/en/engineering/rebuilding-the-global-town-square-from-scratch), about rebuilding their web app. The section that caught my attention was how a small team built it, and that is the only part I am drawing on here.
 
 By their account, fewer than five engineers built the first version in under six months, with AI coding agents doing much of the implementation: porting behavior from the old servers, converting pages, writing tests, and fixing what CI and reviewers flagged. The engineers set the architecture, decided what to build, and reviewed every change.
 
