@@ -34,10 +34,12 @@ These are the best apps I have come across so far that support the Duo.
 
 These four are mine, so I kept them out of the list above. They support the Duo too, so I wanted to include them.
 
-- **[Sousbook](/sousbook/).** A recipe organizer and personal cookbook. On the wider display, you can follow cooking steps with the ingredients beside them.
+- **[Sousbook](/sousbook/).** A recipe organizer and personal cookbook. On the wider display, you can follow cooking steps with the ingredients beside them. I wrote more about [what Sousbook looks like on the Duo](/blog/sousbook-iphone-duo-recipe-book/) and [when it went live](/blog/sousbook-live-recipe-organizer-iphone-duo/).
 - **[Lampleaf](https://apps.apple.com/us/app/lampleaf-illustrated-bible/id6824583357).** An illustrated Bible app that [recently went live](/blog/lampleaf-is-live-and-a-full-week-at-home/). On the Duo it opens like a book: fold it shut for a leather cover, unfold it for a two-page spread.
 - **[Rise & Capy](https://apps.apple.com/us/app/rise-capy/id6804264261).** A capybara alarm clock with wake-up missions. Its layouts adapt as you open, close, or rotate the phone.
 - **[FamilyStop](https://apps.apple.com/us/app/familystop-family-restrooms/id6782247307).** Helps parents and caregivers find family-friendly stops, like a bathroom or changing table. Its layouts now adapt to the Duo as well.
+
+I also have one more Duo app on the way: [Beige Box, a collection of tiny retro computers](/blog/beige-box-tiny-retro-computers-iphone-duo/). It is not out yet, but it is built for the Duo from the start.
 
 ## Apps Still Missing iPhone Duo Support
 
