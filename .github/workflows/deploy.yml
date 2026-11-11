@@ -36,6 +36,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          # Posts are dated in Central time. Bare dates like 'Nov 3 2026' are read in the
+          # machine's zone, so build in the same zone the posts are written in. Otherwise
+          # post order, entry numbers and displayed dates drift from a local build.
+          TZ: America/Chicago
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
