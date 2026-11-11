@@ -14,7 +14,12 @@ export async function getPosts(): Promise<Post[]> {
 	return (await getCollection('blog', (post) =>
 		!post.data.publishAt || post.data.publishAt.valueOf() <= buildTime.valueOf(),
 	)).sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+		(a, b) =>
+			b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
+			// Same-day posts: the later release time first, then by slug, so the order (and every
+			// entry number printed on pages and social cards) is identical on every machine and build.
+			(b.data.publishAt?.valueOf() ?? 0) - (a.data.publishAt?.valueOf() ?? 0) ||
+			b.id.localeCompare(a.id),
 	);
 }
 
