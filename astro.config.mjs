@@ -29,7 +29,7 @@ export default defineConfig({
 		},
 		filter: (page) => {
 			const path = new URL(page).pathname;
-			return !path.startsWith('/sousbook/') && path !== '/co/';
+			return !path.startsWith('/sousbook/') && !path.startsWith('/drafttrail/') && path !== '/co/';
 		},
 	})],
 });
