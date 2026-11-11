@@ -9,6 +9,7 @@ import glora from '../assets/apps/glora.png';
 import gulp from '../assets/apps/gulp.png';
 import heirloom from '../assets/apps/heirloom.png';
 import hypeLap from '../assets/apps/hypelap.png';
+import lampleaf from '../assets/apps/lampleaf.webp';
 import rally from '../assets/apps/rally.jpg';
 import realEstateManager from '../assets/apps/real-estate-manager.png';
 import riseAndCapy from '../assets/apps/rise-and-capy.png';
@@ -31,6 +32,14 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'Lampleaf',
+		tagline: 'Illustrated Bible with audio narration and verse journaling',
+		category: 'Reference',
+		status: 'live',
+		url: 'https://apps.apple.com/us/app/lampleaf-illustrated-bible/id6824583357',
+		icon: lampleaf,
+	},
 	{
 		name: 'Sousbook',
 		tagline: 'Recipe organizer and personal cookbook for iPhone and iPhone Duo',
@@ -183,8 +192,8 @@ export const appGroups = [
 ].filter((group) => group.entries.length > 0);
 
 export const RECENTLY_SHIPPED = {
-	name: 'Sousbook',
-	note: 'Sousbook is live on the App Store — our first app with iPhone Duo support.',
+	name: 'Lampleaf',
+	note: 'Lampleaf is live on the App Store.',
 };
 
 export interface ProductSite {
