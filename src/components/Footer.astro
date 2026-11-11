@@ -1,5 +1,11 @@
 ---
 import { SITE_TITLE } from '../consts';
+import { topicFor, topicUrl } from '../data/topics';
+
+// The hubs worth a site-wide link: the subjects people arrive from search for.
+const FOOTER_TOPICS = ['apps', 'ai', 'rentals', 'taxes', 'iphone-duo', 'marketing']
+	.map((tag) => topicFor(tag))
+	.filter((topic) => topic !== undefined);
 
 const today = new Date();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -28,12 +34,21 @@ const withBase = (path: string) => `${base}${path}`;
 		<nav class="footer-col" aria-labelledby="footer-read">
 			<h2 id="footer-read">Read</h2>
 			<ul>
-				<li><a href={withBase('/blog')}>The log</a></li>
+				<li><a href={withBase('/blog/')}>The log</a></li>
+				<li><a href={withBase('/topics/')}>Topics</a></li>
 				<li><a href={withBase('/apps/')}>Apps</a></li>
 				<li><a href={withBase('/webapps/')}>Web apps</a></li>
 				<li><a href={withBase('/#playbooks')}>Playbooks</a></li>
-				<li><a href={withBase('/about')}>About</a></li>
+				<li><a href={withBase('/about/')}>About</a></li>
 				<li><a href="#" data-open-search>Search</a></li>
+			</ul>
+		</nav>
+		<nav class="footer-col" aria-labelledby="footer-topics">
+			<h2 id="footer-topics">Topics</h2>
+			<ul>
+				{FOOTER_TOPICS.map((topic) => (
+					<li><a href={withBase(topicUrl(topic.tag))}>{topic.name}</a></li>
+				))}
 			</ul>
 		</nav>
 		<nav class="footer-col" aria-labelledby="footer-elsewhere">

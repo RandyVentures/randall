@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { getImage } from 'astro:assets';
 import { apps } from '../data/apps';
 import { primaryTone } from '../data/tags';
+import { topics, topicUrl } from '../data/topics';
 import { entryNumbers, getPosts, postUrl, withBase } from '../lib/posts';
 
 /** The search palette fetches this once, on first open, so pages stay light. */
@@ -37,6 +38,8 @@ export const GET: APIRoute = async () => {
 			apps: appIndex,
 			pages: [
 				{ t: 'The log', d: 'Every entry, newest first', u: withBase('/blog/') },
+				{ t: 'Topics', d: 'The log by subject', u: withBase('/topics/') },
+				...topics.map((topic) => ({ t: `Topic: ${topic.name}`, d: topic.description, u: withBase(topicUrl(topic.tag)) })),
 				{ t: 'About Randall', d: 'Who is writing this and why', u: withBase('/about/') },
 				{ t: 'Playbooks', d: 'Guides for shipping an app', u: withBase('/#playbooks') },
 				{ t: 'RSS feed', d: 'Follow along in your reader', u: withBase('/rss.xml') },

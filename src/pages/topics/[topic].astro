@@ -1,0 +1,131 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import LogEntry from '../../components/LogEntry.astro';
+import { SITE_TITLE } from '../../consts';
+import { toneFor } from '../../data/tags';
+import { topicUrl } from '../../data/topics';
+import { entryNumbers, getPosts, postUrl, readingTime, withBase } from '../../lib/posts';
+import { PERSON_ID, WEBSITE_ID, absoluteUrl, breadcrumbSchema, postListSchema } from '../../lib/seo';
+import { type TopicGroup, groupByTopic } from '../../lib/topics';
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	const groups = groupByTopic(posts);
+	return groups.map((group) => ({
+		params: { topic: group.tag },
+		props: { group, others: groups.filter((g) => g.tag !== group.tag).map((g) => ({ tag: g.tag, name: g.name, count: g.posts.length })) },
+	}));
+}
+
+interface Props {
+	group: TopicGroup;
+	others: { tag: string; name: string; count: number }[];
+}
+
+const { group, others } = Astro.props;
+const numbers = entryNumbers(await getPosts());
+const { posts } = group;
+const path = topicUrl(group.tag);
+const tone = toneFor(group.tag);
+
+// A topic reads as a timeline, so entries are grouped by year.
+const years: { year: number; posts: typeof posts }[] = [];
+for (const post of posts) {
+	const year = post.data.pubDate.getUTCFullYear();
+	if (years.at(-1)?.year !== year) years.push({ year, posts: [] });
+	years.at(-1)!.posts.push(post);
+}
+
+const totalMinutes = posts.reduce((sum, post) => sum + readingTime(post), 0);
+const latest = posts[0].data.pubDate;
+const count = `${posts.length} ${posts.length === 1 ? 'entry' : 'entries'}`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`${group.name}: ${count} from the log — ${SITE_TITLE}`}
+			description={group.description}
+			ogImage={withBase(`/og/topic-${group.tag}.png`)}
+			schema={[
+				{
+					'@type': 'CollectionPage',
+					'@id': `${absoluteUrl(path)}#page`,
+					url: absoluteUrl(path),
+					name: `${group.name} — ${SITE_TITLE}`,
+					description: group.description,
+					about: group.name,
+					inLanguage: 'en-US',
+					dateModified: latest.toISOString(),
+					isPartOf: { '@id': WEBSITE_ID },
+					author: { '@id': PERSON_ID },
+					mainEntity: postListSchema(posts.map((post) => ({ title: post.data.title, path: postUrl(post.id) }))),
+				},
+				breadcrumbSchema([
+					{ name: 'Home', path: '/' },
+					{ name: 'Topics', path: '/topics/' },
+					{ name: group.name, path },
+				]),
+			]}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<header class="page-head" data-tone={tone}>
+				<nav class="crumbs reveal" aria-label="Breadcrumb">
+					<a href={withBase('/blog/')}>The log</a>
+					<span class="sep" aria-hidden="true">/</span>
+					<a href={withBase('/topics/')}>Topics</a>
+					<span class="sep" aria-hidden="true">/</span>
+					<span class="current" aria-current="page">{group.tag}</span>
+				</nav>
+				<h1 class="reveal" style="--i: 1"><span class="topic-dot" aria-hidden="true"></span>{group.name}</h1>
+				<p class="lead reveal" style="--i: 2">{group.intro}</p>
+				<div class="page-stats reveal" style="--i: 3">
+					<span><strong>{count}</strong></span>
+					<span><strong>~{totalMinutes} min</strong> of reading</span>
+					<span>
+						Latest
+						<strong>{latest.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</strong>
+					</span>
+				</div>
+			</header>
+
+			<div id="log">
+				{years.map((group) => (
+					<section class="log-month" aria-label={String(group.year)}>
+						<h2 class="log-month-label log-year-label">
+							{group.year}
+							<span>{group.posts.length} {group.posts.length === 1 ? 'entry' : 'entries'}</span>
+						</h2>
+						<ol class="log-list">
+							{group.posts.map((post) => (
+								<li><LogEntry post={post} n={numbers.get(post.id)!} /></li>
+							))}
+						</ol>
+					</section>
+				))}
+			</div>
+
+			<nav class="topic-more" aria-labelledby="more-topics">
+				<h2 id="more-topics">More topics</h2>
+				<ul class="topic-pills">
+					{others.map((other) => (
+						<li>
+							<a class="filter" data-tone={toneFor(other.tag)} href={withBase(topicUrl(other.tag))}>
+								<span class="swatch" aria-hidden="true"></span>
+								{other.name} <span class="count">{other.count}</span>
+							</a>
+						</li>
+					))}
+					<li><a class="filter" href={withBase('/blog/')}>The full log →</a></li>
+				</ul>
+			</nav>
+		</main>
+		<Footer />
+	</body>
+</html>

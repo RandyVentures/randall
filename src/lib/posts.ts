@@ -26,11 +26,21 @@ export function entryNumbers(posts: Post[]): Map<string, number> {
 	return new Map(posts.map((post, index) => [post.id, posts.length - index]));
 }
 
+const RASTER = new Set(['jpg', 'jpeg', 'png', 'webp', 'avif']);
+
+/** Social platforms will not render an SVG preview, so SVG heroes get a generated card instead. */
+export const hasRasterHero = (post: Post) =>
+	Boolean(post.data.heroImage && RASTER.has(post.data.heroImage.format));
+
+/** Site-relative path of the generated social card for a post without a photo. */
+export const ogCardPath = (id: string) => withBase(`/og/${id}.png`);
+
+export const wordCount = (post: Post) => post.body?.split(/\s+/).filter(Boolean).length ?? 0;
+
 export const formatEntry = (n: number) => `No. ${String(n).padStart(3, '0')}`;
 
 export function readingTime(post: Post): number {
-	const words = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
-	return Math.max(1, Math.round(words / 220));
+	return Math.max(1, Math.round(wordCount(post) / 220));
 }
 
 /** Titles morph between list and article through a shared view-transition name. */

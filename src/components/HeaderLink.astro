@@ -7,7 +7,10 @@ const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname;
 const subpath = pathname.match(/[^\/]+/g);
 // Hash links (/#apps) point into the homepage, so they are never "current".
-const isActive = !href?.includes('#') && (href === pathname || href === '/' + (subpath?.[0] || ''));
+const target = String(href ?? '').replace(/\/$/, '');
+// Topic hubs are part of the log, so they light up the same nav item.
+const section = subpath?.[0] === 'topics' ? 'blog' : subpath?.[0] || '';
+const isActive = !String(href).includes('#') && (target === pathname.replace(/\/$/, '') || target === '/' + section);
 ---
 
 <a href={href} class={className} aria-current={isActive ? 'page' : undefined} {...props}>

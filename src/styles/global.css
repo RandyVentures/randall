@@ -2540,6 +2540,274 @@ a.app-tile:hover img {
 		transform 260ms var(--ease-out);
 }
 
+/* ---------- Article: the short version, quick answers, code ---------- */
+
+/* The answer up front. Set in the UI face so it reads as a summary, not as prose. */
+.takeaways {
+	position: relative;
+	margin: 0 0 2.2rem;
+	padding: 1.3rem 1.5rem 1.35rem;
+	border: 1px solid var(--line);
+	border-radius: var(--r-lg);
+	background: var(--surface);
+	box-shadow: var(--shadow-sm);
+	overflow: hidden;
+}
+.takeaways::before {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 4px;
+	background: var(--accent);
+}
+.takeaways h2 {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--accent-ink);
+}
+.takeaways ul {
+	display: grid;
+	gap: 0.55rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.takeaways li {
+	position: relative;
+	padding-left: 1.5rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--ink);
+}
+.takeaways li::before {
+	content: "";
+	position: absolute;
+	left: 0.15rem;
+	top: 0.62em;
+	width: 0.6rem;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--accent);
+}
+
+.faq {
+	margin-top: 3.5rem;
+	scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+.faq > h2 {
+	margin: 0 0 1rem;
+	font-size: clamp(1.6rem, 2.8vw, 2rem);
+	font-weight: 520;
+	scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+.faq details {
+	border-top: 1px solid var(--line);
+}
+.faq details:last-of-type {
+	border-bottom: 1px solid var(--line);
+}
+.faq summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 0;
+	cursor: pointer;
+	list-style: none;
+}
+.faq summary::-webkit-details-marker {
+	display: none;
+}
+.faq summary h3 {
+	margin: 0;
+	font-family: var(--font-ui);
+	font-size: 1.02rem;
+	font-weight: 600;
+	letter-spacing: -0.005em;
+	line-height: 1.35;
+	font-variation-settings: normal;
+	text-wrap: pretty;
+}
+.faq summary svg {
+	flex: none;
+	color: var(--muted);
+	transition: transform 240ms var(--ease-out), color 150ms ease;
+}
+.faq summary:hover svg {
+	color: var(--accent);
+}
+.faq details[open] summary svg {
+	transform: rotate(45deg);
+	color: var(--accent);
+}
+.faq details p {
+	margin: 0;
+	padding: 0 2.5rem 1.2rem 0;
+	font-family: var(--font-prose);
+	font-size: 1.08rem;
+	line-height: 1.65;
+	color: var(--ink-2);
+}
+
+.code-block {
+	position: relative;
+	margin: 1.8em 0;
+}
+.code-block pre {
+	margin: 0;
+}
+.copy-code {
+	position: absolute;
+	top: 0.55rem;
+	right: 0.55rem;
+	padding: 0.25rem 0.6rem;
+	border: 1px solid var(--line-2);
+	border-radius: 999px;
+	background: var(--surface);
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.04em;
+	color: var(--muted);
+	opacity: 0;
+	transition: opacity 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.code-block:hover .copy-code,
+.copy-code:focus-visible {
+	opacity: 1;
+}
+.copy-code:hover {
+	color: var(--ink);
+	border-color: var(--ink);
+}
+@media (hover: none) {
+	.copy-code {
+		opacity: 1;
+	}
+}
+
+/* ---------- Topics ---------- */
+
+.page-head .crumbs {
+	flex-wrap: wrap;
+}
+.page-stats .text-link {
+	font-family: var(--font-ui);
+	font-weight: 600;
+}
+.topic-dot {
+	display: inline-block;
+	width: 0.32em;
+	height: 0.32em;
+	margin-right: 0.3em;
+	border-radius: 50%;
+	background: var(--tone, var(--accent));
+	vertical-align: 0.18em;
+}
+.log-year-label {
+	font-variant-numeric: tabular-nums;
+}
+.topic-more {
+	margin-top: clamp(2.5rem, 6vw, 4rem);
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--line);
+}
+.topic-more h2 {
+	margin: 0 0 1rem;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+.topic-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.topic-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.topic-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	padding: 1.5rem 1.5rem 1.3rem;
+	border: 1px solid var(--line);
+	border-radius: var(--r-lg);
+	background: var(--surface);
+	overflow: hidden;
+	transition: transform 240ms var(--ease-out), box-shadow 240ms ease, border-color 200ms ease;
+}
+.topic-card::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 3px;
+	background: var(--tone, var(--neutral));
+}
+.topic-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+	border-color: var(--line-2);
+}
+.topic-card-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem;
+}
+.topic-card h2 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+.topic-card h2 a {
+	color: var(--ink);
+}
+.topic-card h2 a:hover {
+	color: var(--tone, var(--accent));
+}
+.topic-card > p {
+	margin: 0;
+	font-size: 0.93rem;
+	color: var(--muted);
+}
+.topic-card-posts {
+	display: grid;
+	gap: 0.1rem;
+	margin: 0.2rem 0 auto;
+	padding: 0.7rem 0 0;
+	border-top: 1px solid var(--line);
+	list-style: none;
+}
+.topic-card-posts a {
+	display: block;
+	padding: 0.3rem 0;
+	font-size: 0.92rem;
+	font-weight: 520;
+	line-height: 1.35;
+	color: var(--ink-2);
+}
+.topic-card-posts a:hover {
+	color: var(--accent-ink);
+}
+.topic-card .text-link {
+	margin-top: 0.4rem;
+}
+
 /* ---------- About ---------- */
 
 .about-hero {
@@ -2682,7 +2950,7 @@ a.app-tile:hover img {
 }
 .footer-inner {
 	display: grid;
-	grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+	grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
 	gap: 2.5rem;
 	max-width: calc(var(--w-wide) + var(--gutter) * 2);
 	margin: 0 auto;

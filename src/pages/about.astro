@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 import { liveApps } from '../data/apps';
 import { getPosts, withBase } from '../lib/posts';
+import { AUTHOR_NAME, PERSON_ID, WEBSITE_ID, absoluteUrl, breadcrumbSchema } from '../lib/seo';
 
 const posts = await getPosts();
 const rentalEntries = posts.filter((p) => p.data.tags.includes('rentals')).length;
@@ -17,6 +18,21 @@ const aiEntries = posts.filter((p) => p.data.tags.includes('ai')).length;
 		<BaseHead
 			title={`About — ${SITE_TITLE}`}
 			description="Randall Torres is a principal engineer in Architecture supporting the AI and Payments teams, an app builder, and a real estate investor in McAllen, Texas."
+			schema={[
+				{
+					'@type': 'ProfilePage',
+					'@id': `${absoluteUrl('/about/')}#page`,
+					url: absoluteUrl('/about/'),
+					name: `About ${AUTHOR_NAME}`,
+					inLanguage: 'en-US',
+					isPartOf: { '@id': WEBSITE_ID },
+					mainEntity: { '@id': PERSON_ID },
+				},
+				breadcrumbSchema([
+					{ name: 'Home', path: '/' },
+					{ name: 'About', path: '/about/' },
+				]),
+			]}
 		/>
 	</head>
 	<body>

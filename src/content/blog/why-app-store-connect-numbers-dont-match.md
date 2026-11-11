@@ -4,6 +4,22 @@ description: 'Sales and Trends and Analytics show different numbers for the same
 pubDate: 'Oct 23 2026'
 publishAt: '2026-10-23T08:00:00-05:00'
 tags: ['apps', 'manifest', 'building']
+takeaways:
+  - "Sales and Trends and Analytics measure different events, so they can disagree without either being wrong."
+  - "Sales and Trends is the financial report: exact units and proceeds, close to real time."
+  - "Analytics is the product report: it lags by roughly two days and hides figures below Apple's privacy thresholds."
+  - "Don't divide a number from one report by a number from the other, and only compare equal, complete date ranges."
+faqs:
+  - q: "Why don't Sales and Trends and Analytics match in App Store Connect?"
+    a: "They measure different things, at different times, with different privacy rules. Sales and Trends is a financial report with exact units and proceeds that settles quickly. Analytics is a product report that lags by roughly two days and hides figures that fall below Apple's privacy thresholds. A day can show one unit in Sales and Trends and no reported download in Analytics."
+  - q: "Why does App Store Connect Analytics show nothing for a new app?"
+    a: "For analytics reports to exist, a report request has to be set up, and then Apple has to generate the first report against it. On a new app that gap can run to about two weeks. During that time the API answers successfully and returns nothing, which looks exactly like zero downloads. Sales and Trends will already show real sales."
+  - q: "Which App Store Connect report should I trust?"
+    a: "It depends on the question. Use Sales and Trends to see whether anyone bought the app. Use Analytics for impressions and taps on your listing, and, carefully, for sessions and deletions, which are the most heavily hidden numbers. For taxes, use the financial reports and your payout statements."
+  - q: "Can I calculate revenue per download from the two reports?"
+    a: "It is not reliable. The two reports cover different days to different depths, so dividing a number from one by a number from the other measures coverage as much as it measures your app."
+  - q: "Why does my week-over-week trend look wrong?"
+    a: "If this week is missing two days of reporting and last week is complete, the decline you see is just the missing days. Compare equal, complete windows from the same report, or don't compare."
 ---
 
 You open App Store Connect on a day you know someone bought your app. Sales and Trends shows a unit. Analytics shows no download. One of them has to be wrong.

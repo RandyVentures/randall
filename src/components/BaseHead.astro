@@ -3,21 +3,54 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { OG_HEIGHT, OG_WIDTH } from '../lib/og';
+import { AUTHOR_NAME, personSchema, websiteSchema } from '../lib/seo';
 
 interface Props {
 	title: string;
 	description: string;
+	/** A page's own picture (an app icon, say). Used as-is for the social preview. */
 	image?: ImageMetadata;
+	/** Site-relative path of a ready-made 1200 × 630 social card; wins over `image`. */
+	ogImage?: string;
+	imageAlt?: string;
 	/** Set on blog posts so social cards and crawlers see an article, not a landing page. */
 	publishedDate?: Date;
+	modifiedDate?: Date;
+	tags?: string[];
+	/** Extra schema.org nodes for this page; they join the site-wide WebSite and Person graph. */
+	schema?: Record<string, unknown>[];
+	/** Site-relative path of a plain-Markdown copy of this page, for agents and answer engines. */
+	markdown?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 
-const { title, description, image = FallbackImage, publishedDate } = Astro.props;
+const {
+	title,
+	description,
+	image,
+	ogImage,
+	imageAlt = title,
+	publishedDate,
+	modifiedDate,
+	tags = [],
+	schema = [],
+	markdown,
+} = Astro.props;
+
+// Every page gets a real preview image: its own card, its own picture, or the site card.
+const card = ogImage ?? (image ? undefined : `${base}og/site.png`);
+const social = card
+	? { url: new URL(card, Astro.site).href, width: OG_WIDTH, height: OG_HEIGHT, large: true }
+	: { url: new URL(image!.src, Astro.site).href, width: image!.width, height: image!.height, large: image!.width >= image!.height * 1.5 };
+
+const graph = {
+	'@context': 'https://schema.org',
+	'@graph': [websiteSchema(SITE_TITLE, SITE_DESCRIPTION), personSchema, ...schema],
+};
 ---
 
 <!-- Global Metadata -->
@@ -31,6 +64,7 @@ const { title, description, image = FallbackImage, publishedDate } = Astro.props
 	title={SITE_TITLE}
 	href={`${base}rss.xml`}
 />
+{markdown && <link rel="alternate" type="text/markdown" title={`${title} (Markdown)`} href={markdown} />}
 <meta name="generator" content={Astro.generator} />
 <meta name="google-site-verification" content="wBroqbIuySENHNyR4O4L8E7ySTpFGi9tNBqDDZl-vqA" />
 <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
@@ -63,21 +97,36 @@ const { title, description, image = FallbackImage, publishedDate } = Astro.props
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={AUTHOR_NAME} />
+<!-- Let search and answer engines quote freely and show the full-size preview image. -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={publishedDate ? 'article' : 'website'} />
-{publishedDate && (
-	<meta property="article:published_time" content={publishedDate.toISOString()} />
-)}
+<meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={social.url} />
+<meta property="og:image:width" content={String(social.width)} />
+<meta property="og:image:height" content={String(social.height)} />
+<meta property="og:image:alt" content={imageAlt} />
+{publishedDate && (
+	<>
+		<meta property="article:published_time" content={publishedDate.toISOString()} />
+		<meta property="article:modified_time" content={(modifiedDate ?? publishedDate).toISOString()} />
+		<meta property="article:author" content={new URL(`${base}about/`, Astro.site).href} />
+		{tags.map((tag) => <meta property="article:tag" content={tag} />)}
+	</>
+)}
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<!-- Twitter / X -->
+<meta name="twitter:card" content={social.large ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={social.url} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<!-- Structured data: the site and its author, plus whatever this page adds. -->
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

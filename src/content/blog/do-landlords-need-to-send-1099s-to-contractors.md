@@ -5,6 +5,22 @@ description: "When a landlord has to file a 1099-NEC for a plumber or handyman, 
 pubDate: 'Nov 3 2026'
 publishAt: '2026-11-03T08:00:00-06:00'
 tags: ['rentals', 'apps', 'taxes', 'contractors']
+takeaways:
+  - "The 1099 rules apply when your rental counts as a trade or business. There is no bright line, so ask your tax preparer which side you are on."
+  - "For payments made in 2026, the Form 1099-NEC threshold is $2,000, up from $600."
+  - "You generally file for someone you paid $2,000 or more for services by cash, check or bank transfer, who is not a corporation. Attorneys are an exception."
+  - "Form 1099-NEC is due to the contractor and the IRS by January 31. Collect a W-9 before you pay a new contractor."
+faqs:
+  - q: "Do landlords have to send 1099s to contractors?"
+    a: "The 1099 rules apply to payments made in the course of a trade or business. Some rental activity clearly qualifies, and a single rental owned mostly as an investment may not. If your rental counts, you generally file a Form 1099-NEC for a contractor you paid $2,000 or more during 2026 for services, by cash, check or bank transfer, who is not a corporation. This is general information, not tax advice."
+  - q: "What is the 1099-NEC threshold for 2026?"
+    a: "$2,000. The One Big Beautiful Bill Act raised the Form 1099-NEC and 1099-MISC threshold from $600 to $2,000 for payments made after December 31, 2025, and it is set to be adjusted for inflation starting in 2027. Payments made in 2025 still use the $600 threshold."
+  - q: "Do I need to send a 1099 if I paid a contractor by credit card?"
+    a: "Generally no. Payments by credit card or through a payment app's business payments are generally reported by the payment processor on a Form 1099-K, not by you. Payments by cash, check, or bank transfer such as ACH or Zelle are the ones you report."
+  - q: "When are 1099-NEC forms due?"
+    a: "Form 1099-NEC is due to both the contractor and the IRS by January 31. When that date falls on a weekend, as it does in 2027, the deadline moves to the next business day. You can file electronically through the IRS's free IRIS portal."
+  - q: "Why should a landlord collect a W-9 before paying a contractor?"
+    a: "A Form W-9 gives you the contractor's legal name, business type and taxpayer ID, so you know whether they are a corporation and have what you need to file a 1099. If a contractor won't provide a taxpayer ID, IRS rules may require backup withholding from their payments."
 ---
 
 You paid a handyman for a dozen jobs this year. Do you owe them a 1099?

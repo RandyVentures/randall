@@ -18,6 +18,11 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
 			tags: z.array(z.string()).default([]),
+			// The answer up front: 2-4 short bullets shown above the article as "The short version".
+			takeaways: z.array(z.string()).default([]),
+			// Reader questions answered at the end of the post and published as FAQPage structured data.
+			// Answers are plain text and must restate what the post itself says.
+			faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 		}),
 });
 

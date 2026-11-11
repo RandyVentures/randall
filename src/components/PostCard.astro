@@ -1,5 +1,6 @@
 ---
 import { toneFor } from '../data/tags';
+import { tagUrl } from '../data/topics';
 import { type Post, formatEntry, postUrl, readingTime, titleTransition, withBase } from '../lib/posts';
 import FormattedDate from './FormattedDate.astro';
 import PostCover from './PostCover.astro';
@@ -41,7 +42,7 @@ const feature = variant === 'feature';
 			post.data.tags.length > 0 && (
 				<div class="chip-row">
 					{post.data.tags.map((tag) => (
-						<a class="chip" data-tone={toneFor(tag)} href={withBase(`/blog/?tag=${tag}`)}>
+						<a class="chip" data-tone={toneFor(tag)} href={withBase(tagUrl(tag))}>
 							{tag}
 						</a>
 					))}

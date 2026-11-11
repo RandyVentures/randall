@@ -1,0 +1,35 @@
+---
+import { toneFor } from '../data/tags';
+import { tagUrl } from '../data/topics';
+import { type Post, formatEntry, postUrl, readingTime, titleTransition, withBase } from '../lib/posts';
+import FormattedDate from './FormattedDate.astro';
+import PostCover from './PostCover.astro';
+
+interface Props {
+	post: Post;
+	n: number;
+	headingLevel?: 'h2' | 'h3';
+}
+
+const { post, n, headingLevel: Heading = 'h3' } = Astro.props;
+---
+
+<article class="entry">
+	<div>
+		<div class="entry-meta">
+			<span class="entry-no">{formatEntry(n)}</span>
+			<FormattedDate date={post.data.pubDate} />
+			<span>{readingTime(post)} min read</span>
+		</div>
+		<Heading class="entry-title" style={titleTransition(post.id)}>
+			<a href={postUrl(post.id)}>{post.data.title}</a>
+		</Heading>
+		{post.data.description && <p class="entry-desc">{post.data.description}</p>}
+		<div class="chip-row">
+			{post.data.tags.map((tag) => (
+				<a class="chip" data-tone={toneFor(tag)} data-tag={tag} href={withBase(tagUrl(tag))}>{tag}</a>
+			))}
+		</div>
+	</div>
+	<PostCover post={post} n={n} width={320} sizes="150px" />
+</article>

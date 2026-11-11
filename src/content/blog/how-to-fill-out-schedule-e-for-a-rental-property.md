@@ -5,6 +5,22 @@ description: "A plain-English walkthrough of Schedule E Part I for landlords: wh
 pubDate: 'Oct 27 2026'
 publishAt: '2026-10-27T08:00:00-05:00'
 tags: ['rentals', 'apps', 'taxes']
+takeaways:
+  - "Schedule E (Form 1040) Part I is where rental real estate income and expenses are reported. Each property gets its own column."
+  - "Rents received go on line 3. Expenses go on lines 5 through 19 by category, and line 20 adds them up."
+  - "Only mortgage interest goes on line 12, not principal. Depreciation goes on line 18 and is often left blank by mistake."
+  - "The form is the easy part. The work is having twelve months of rent and expenses sorted by property and category."
+faqs:
+  - q: "Who has to file Schedule E?"
+    a: "You generally use Schedule E (Form 1040) to report income and expenses from rental real estate you own. It is filed with your Form 1040, so it is due when your individual return is due, usually mid-April. If you provide substantial services to tenants, as a hotel or some short-term rentals do, the income may belong on Schedule C instead."
+  - q: "What counts as rents received on Schedule E line 3?"
+    a: "Line 3 is the total rent collected for the property during the year. That includes regular monthly rent, advance rent in the year you receive it, fees a tenant pays you such as late fees, and a security deposit you keep, in the year you keep it. A security deposit you plan to return isn't income when you collect it."
+  - q: "Does the whole mortgage payment go on Schedule E?"
+    a: "No. Only the interest goes on line 12. The principal part of the payment builds equity and isn't deductible. Your lender's Form 1098 shows the interest."
+  - q: "Where does depreciation go on Schedule E?"
+    a: "Line 18. Residential rental buildings are generally depreciated over 27.5 years, and the land isn't depreciated at all. The calculation goes on Form 4562 in the year the property is placed in service, and the yearly amount lands on line 18."
+  - q: "Is a repair deducted differently from an improvement?"
+    a: "Yes. Fixing something that broke, such as a leaking faucet, is a repair and goes on line 14. A new roof or a kitchen remodel is usually an improvement, which is depreciated over time instead of deducted all at once. The line between them has specific IRS rules, so it is a good question for a tax preparer."
 ---
 
 The hardest part of Schedule E isn't the form. It's finding twelve months of rent and receipts when you finally sit down to fill it out.

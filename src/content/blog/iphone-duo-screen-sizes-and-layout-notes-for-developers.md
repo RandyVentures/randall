@@ -4,6 +4,22 @@ description: 'Display sizes in points, safe areas, size classes and fold behavio
 pubDate: 'Oct 22 2026'
 publishAt: '2026-10-22T08:00:00-05:00'
 tags: ['apps', 'building', 'iphone-duo']
+takeaways:
+  - "Measured in Apple's Xcode 27.1 simulator: the outer display is 466 × 678 points and the inner display is 951 × 669 points, both @3x."
+  - "84 points are reserved down the right edge on both screens, and there is no top status bar inset."
+  - "The outer display is compact width and the inner display is regular width. It is one scene that moves between them."
+  - "Use Apple's reserved-region APIs for layout around the fold. The hinge API is for effects."
+faqs:
+  - q: "What are the iPhone Duo screen sizes in points?"
+    a: "Measured in Apple's Xcode 27.1 simulator on October 18, 2026: the outer display is 466 × 678 points (1398 × 2034 pixels) in portrait, and the inner display is 951 × 669 points (2853 × 2007 pixels) in landscape. Both are @3x with a 59-point corner radius. Simulator numbers can differ from a real device."
+  - q: "What are the safe area insets on the iPhone Duo?"
+    a: "In the simulator, both screens have insets of 0 top, 0 leading, 34 bottom and 84 trailing. The time and status cluster sit in the top-right corner, and 84 points are reserved down the whole right edge. That leaves a content area of 382 × 644 points on the outer display and 867 × 635 points on the inner display."
+  - q: "What size classes does the iPhone Duo use?"
+    a: "The outer display is compact horizontally and regular vertically. The inner display is regular in both. It is one scene that moves between the displays, so scenePhase stays active and your state survives. Only windowScene.screen changes."
+  - q: "How do you find the fold position on the iPhone Duo?"
+    a: "Apple's Tech Talk describes hardware features such as the hinge and cameras as reserved regions, and the fold as a division region. In SwiftUI you query it from a GeometryReader proxy with reservedRegions(kind: .division), and UIKit has an equivalent on the view. Apple notes the division region is only active when the device is folded. Check the official documentation for exact method names."
+  - q: "Should I use UIScreen.main for layout on the iPhone Duo?"
+    a: "No. In the simulator, UIScreen.main keeps pointing at the outer display even when the app is on the inner one. Read the window or geometry instead, and decide layout from the window size, not the device."
 ---
 
 I'm building an illustrated Bible app, Lampleaf, for the iPhone Duo. Before the phone ships, I wrote a small probe app that logs everything about the screens: window size, safe areas, size classes, scene state and the hinge. This post collects what I measured, and what Apple's own documentation says, so you can see which is which.

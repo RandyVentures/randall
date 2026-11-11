@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro';
+import { getImage } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -7,7 +8,21 @@ import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
 import PostCover from '../components/PostCover.astro';
 import { toneFor } from '../data/tags';
-import { type Post, formatEntry, postUrl, readingTime, titleTransition, withBase } from '../lib/posts';
+import { tagUrl, topicUrl } from '../data/topics';
+import { OG_HEIGHT, OG_WIDTH } from '../lib/og';
+import {
+	type Post,
+	formatEntry,
+	hasRasterHero,
+	ogCardPath,
+	postUrl,
+	readingTime,
+	titleTransition,
+	withBase,
+	wordCount,
+} from '../lib/posts';
+import { PERSON_ID, WEBSITE_ID, absoluteUrl, breadcrumbSchema, faqSchema } from '../lib/seo';
+import { primaryTopic } from '../lib/topics';
 
 interface Props {
 	post: Post;
@@ -19,8 +34,22 @@ interface Props {
 }
 
 const { post, n, headings, prev, next, related } = Astro.props;
-const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+const { title, description, pubDate, updatedDate, heroImage, tags, takeaways, faqs } = post.data;
 const minutes = readingTime(post);
+const path = postUrl(post.id);
+const topic = primaryTopic(post);
+
+// A photo hero is cropped to the social-card shape; everything else gets a drawn card.
+const ogImage = hasRasterHero(post)
+	? (await getImage({ src: heroImage!, width: OG_WIDTH, height: OG_HEIGHT, fit: 'cover', format: 'jpg' })).src
+	: ogCardPath(post.id);
+
+const crumbs = [
+	{ name: 'Home', path: '/' },
+	{ name: 'The log', path: '/blog/' },
+	...(topic ? [{ name: topic.name, path: topicUrl(topic.tag) }] : []),
+	{ name: title, path },
+];
 
 // Search engines flag <title> tags over ~70 characters. Add the site suffix only when the whole title stays
 // short; long headlines use their own shorter seoTitle (or go without the suffix).
@@ -36,17 +65,41 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={headTitle} description={description} image={heroImage} publishedDate={pubDate} />
-		<script type="application/ld+json" set:html={JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'BlogPosting',
-			headline: title,
-			description,
-			datePublished: pubDate.toISOString(),
-			dateModified: (updatedDate ?? pubDate).toISOString(),
-			author: { '@type': 'Person', name: 'Randall Torres', url: new URL(withBase('/about/'), Astro.site).href },
-			mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
-		})} />
+		<BaseHead
+			title={headTitle}
+			description={description}
+			ogImage={ogImage}
+			imageAlt={title}
+			publishedDate={pubDate}
+			modifiedDate={updatedDate}
+			tags={tags}
+			markdown={withBase(`/blog/${post.id}.md`)}
+			schema={[
+				{
+					'@type': 'BlogPosting',
+					'@id': `${absoluteUrl(path)}#article`,
+					url: absoluteUrl(path),
+					mainEntityOfPage: absoluteUrl(path),
+					headline: title,
+					...(post.data.seoTitle ? { alternativeHeadline: post.data.seoTitle } : {}),
+					description,
+					...(takeaways.length ? { abstract: takeaways.join(' ') } : {}),
+					image: absoluteUrl(ogImage),
+					datePublished: pubDate.toISOString(),
+					dateModified: (updatedDate ?? pubDate).toISOString(),
+					author: { '@id': PERSON_ID },
+					publisher: { '@id': PERSON_ID },
+					isPartOf: { '@id': WEBSITE_ID },
+					inLanguage: 'en-US',
+					keywords: tags.join(', '),
+					...(topic ? { articleSection: topic.name } : {}),
+					wordCount: wordCount(post),
+					timeRequired: `PT${minutes}M`,
+				},
+				breadcrumbSchema(crumbs),
+				...(faqs.length ? [faqSchema(faqs)] : []),
+			]}
+		/>
 	</head>
 
 	<body>
@@ -58,6 +111,12 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 					<nav class="crumbs reveal" aria-label="Breadcrumb">
 						<a href={withBase('/blog/')}>The log</a>
 						<span class="sep" aria-hidden="true">/</span>
+						{topic && (
+							<>
+								<a href={withBase(topicUrl(topic.tag))}>{topic.name}</a>
+								<span class="sep" aria-hidden="true">/</span>
+							</>
+						)}
 						<span class="current" aria-current="page">{formatEntry(n)}</span>
 					</nav>
 					<h1 style={titleTransition(post.id)}>{title}</h1>
@@ -81,7 +140,7 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 					{tags.length > 0 && (
 						<div class="chip-row reveal" style="--i: 3; justify-content: center">
 							{tags.map((tag) => (
-								<a class="chip" data-tone={toneFor(tag)} href={withBase(`/blog/?tag=${tag}`)}>{tag}</a>
+								<a class="chip" data-tone={toneFor(tag)} href={withBase(tagUrl(tag))}>{tag}</a>
 							))}
 						</div>
 					)}
@@ -95,6 +154,15 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 
 				<div class:list={['article-layout', { 'no-toc': !showToc }]}>
 					<div>
+						{takeaways.length > 0 && (
+							<aside class="takeaways" aria-labelledby="takeaways-title">
+								<h2 id="takeaways-title">The short version</h2>
+								<ul>
+									{takeaways.map((point) => <li>{point}</li>)}
+								</ul>
+							</aside>
+						)}
+
 						{showToc && (
 							<details class="toc-mobile">
 								<summary>
@@ -113,6 +181,21 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 							<slot />
 						</div>
 
+						{faqs.length > 0 && (
+							<section class="faq" aria-labelledby="faq-title">
+								<h2 id="faq-title">Quick answers</h2>
+								{faqs.map((faq, i) => (
+									<details open={i === 0}>
+										<summary>
+											<h3>{faq.q}</h3>
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+										</summary>
+										<p>{faq.a}</p>
+									</details>
+								))}
+							</section>
+						)}
+
 						<footer class="article-end">
 							<div class="fin" aria-hidden="true">✦</div>
 							<div class="share">
@@ -128,6 +211,7 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 									rel="noopener"
 								>LinkedIn ↗</a>
 								<button class="button small ghost" type="button" id="native-share" hidden>Share…</button>
+								<a class="button small ghost" href={withBase(`/blog/${post.id}.md`)} title="Plain Markdown copy of this entry, handy for pasting into an AI assistant">Markdown</a>
 							</div>
 							<aside class="author" aria-labelledby="author-name">
 								<span class="avatar" aria-hidden="true">R</span>
@@ -154,6 +238,7 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 								{toc.map((h) => (
 									<li class={`depth-${h.depth}`}><a href={`#${h.slug}`} data-slug={h.slug}>{h.text}</a></li>
 								))}
+								{faqs.length > 0 && <li class="depth-2"><a href="#faq-title" data-slug="faq-title">Quick answers</a></li>}
 							</ol>
 						</nav>
 					)}
@@ -238,6 +323,27 @@ const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 				anchor.textContent = '#';
 				anchor.setAttribute('aria-label', `Link to “${heading.textContent}”`);
 				heading.prepend(anchor);
+			});
+
+			// Code blocks get a copy button.
+			prose.querySelectorAll<HTMLPreElement>('pre').forEach((pre) => {
+				const button = document.createElement('button');
+				button.type = 'button';
+				button.className = 'copy-code';
+				button.textContent = 'Copy';
+				button.addEventListener('click', async () => {
+					try {
+						await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? pre.innerText);
+						button.textContent = 'Copied';
+						setTimeout(() => (button.textContent = 'Copy'), 1600);
+					} catch {
+						button.textContent = 'Press ⌘C';
+					}
+				});
+				const wrap = document.createElement('div');
+				wrap.className = 'code-block';
+				pre.replaceWith(wrap);
+				wrap.append(pre, button);
 			});
 
 			// Scrollspy: the contents list follows along with the reader.

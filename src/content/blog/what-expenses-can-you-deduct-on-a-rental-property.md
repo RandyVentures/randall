@@ -5,6 +5,22 @@ description: "A checklist of common rental property deductions, the costs that a
 pubDate: 'Oct 29 2026'
 publishAt: '2026-10-29T08:00:00-05:00'
 tags: ['rentals', 'apps', 'taxes', 'expenses']
+takeaways:
+  - "Ordinary and necessary costs of managing, maintaining and renting out a property are generally deductible in the year you pay them."
+  - "Costs that improve the property, like a new roof, are generally depreciated over time instead."
+  - "Depreciation on the building is often the largest deduction and the one most often missed. Mortgage principal and land are not deductible."
+  - "For every expense keep the date, amount, vendor, property, a Schedule E category and the receipt."
+faqs:
+  - q: "What expenses can you deduct on a rental property?"
+    a: "Common deductible rental expenses include mortgage interest, property taxes, insurance, repairs, cleaning and maintenance, utilities you pay, HOA dues, property management fees, advertising, legal and professional fees, travel to the property, supplies and depreciation. Each lines up with a line on Schedule E. This is a general guide, not tax advice."
+  - q: "What rental property costs are not deductible right away?"
+    a: "Mortgage principal is not an expense. Improvements such as a new roof, a remodel or a new HVAC system are capitalized and depreciated. Land isn't depreciated. You can't deduct the value of your own labor, and if you or family use the property part of the year, expenses are split between rental and personal days."
+  - q: "How do you tell a repair from an improvement?"
+    a: "Ask what the work did. If it restored something to how it was, it is usually a repair. If it made the property better than before, adapted it to a new use, or replaced a major component, it is usually an improvement. Replacing a few shingles is a repair, and replacing the roof is an improvement."
+  - q: "How is a rental property depreciated?"
+    a: "The building, not the land, is generally depreciated over 27.5 years for residential rentals, along with any improvements you have made. It is often the largest rental deduction and the one most often missed."
+  - q: "What records should a landlord keep for each expense?"
+    a: "Keep the date and amount, the vendor you paid, which property and unit it was for, a category that maps to a Schedule E line, and the receipt or invoice. Categorizing each expense when you log it means your totals by line are already done at tax time."
 ---
 
 The rental deductions that slip away are the ones you never wrote down: the mileage to the property, the lock they replaced, the depreciation line they never filled in.

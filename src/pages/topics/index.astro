@@ -1,0 +1,85 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+import { toneFor } from '../../data/tags';
+import { topicUrl } from '../../data/topics';
+import { getPosts, postUrl, withBase } from '../../lib/posts';
+import { WEBSITE_ID, absoluteUrl, breadcrumbSchema } from '../../lib/seo';
+import { groupByTopic } from '../../lib/topics';
+
+const posts = await getPosts();
+const groups = groupByTopic(posts);
+const description =
+	'Browse the log by topic: apps, AI, rental properties and landlord taxes, iPhone Duo development, marketing, work, family, and faith.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Topics — ${SITE_TITLE}`}
+			description={description}
+			schema={[
+				{
+					'@type': 'CollectionPage',
+					'@id': `${absoluteUrl('/topics/')}#page`,
+					url: absoluteUrl('/topics/'),
+					name: `Topics — ${SITE_TITLE}`,
+					description,
+					inLanguage: 'en-US',
+					isPartOf: { '@id': WEBSITE_ID },
+					mainEntity: {
+						'@type': 'ItemList',
+						numberOfItems: groups.length,
+						itemListElement: groups.map((group, index) => ({
+							'@type': 'ListItem',
+							position: index + 1,
+							name: group.name,
+							url: absoluteUrl(topicUrl(group.tag)),
+						})),
+					},
+				},
+				breadcrumbSchema([
+					{ name: 'Home', path: '/' },
+					{ name: 'Topics', path: '/topics/' },
+				]),
+			]}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<header class="page-head">
+				<p class="eyebrow reveal">Topics</p>
+				<h1 class="reveal" style="--i: 1">The log, <em>by subject.</em></h1>
+				<p class="lead reveal" style="--i: 2">
+					{posts.length} entries is a lot to scroll. Pick the thread you care about and read it start
+					to finish.
+				</p>
+			</header>
+
+			<ul class="topic-grid">
+				{groups.map((group) => (
+					<li class="topic-card" data-tone={toneFor(group.tag)}>
+						<div class="topic-card-head">
+							<h2><a href={withBase(topicUrl(group.tag))}>{group.name}</a></h2>
+							<span class="mono">{group.posts.length} {group.posts.length === 1 ? 'entry' : 'entries'}</span>
+						</div>
+						<p>{group.description}</p>
+						<ol class="topic-card-posts" aria-label={`Latest in ${group.name}`}>
+							{group.posts.slice(0, 3).map((post) => (
+								<li><a href={postUrl(post.id)}>{post.data.title}</a></li>
+							))}
+						</ol>
+						<a class="text-link" href={withBase(topicUrl(group.tag))} aria-label={`All ${group.name} entries`}>
+							All {group.posts.length} →
+						</a>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
