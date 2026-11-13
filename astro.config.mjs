@@ -29,6 +29,9 @@ export default defineConfig({
 		},
 		filter: (page) => {
 			const path = new URL(page).pathname;
+			// App privacy, support and terms pages stay live for the App Store but are
+			// left out of the sitemap so Google spends its crawls on real posts.
+			if (/\/(privacy|support|terms)\/$/.test(path)) return false;
 			return !path.startsWith('/sousbook/') && !path.startsWith('/drafttrail/') && path !== '/co/';
 		},
 	})],
