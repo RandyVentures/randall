@@ -11,6 +11,12 @@ export function fingerprint(html) {
   // Ignore changing build assets and scripts; retain readable HTML + metadata.
   return createHash('sha256').update(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').replace(/<link\b[^>]*(?:stylesheet|preload|modulepreload)[^>]*>/gi,'').replace(/\s+/g,' ').trim()).digest('hex');
 }
+// A host its owner deliberately took offline (Render answers 503 with
+// x-render-routing: suspend-by-user) is skipped, not failed. State is kept, so
+// its pages are compared and resubmitted normally once the service resumes.
+export function ownerSuspended(res) {
+  return res.status === 503 && /^suspend/i.test(res.headers.get('x-render-routing') || '');
+}
 export function noindex(html, header = '') {
   return /\bnoindex\b|\bnone\b/i.test(header) || [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => /name\s*=\s*["'](?:robots|bingbot)["']/i.test(tag) && /content\s*=\s*["'][^"']*\b(?:noindex|none)\b/i.test(tag));
 }
@@ -56,8 +62,13 @@ async function main() {
   const report = [];
   for (const site of sites) {
     try {
+      // Fetched in dry runs too, so a suspended host is reported the same way in both modes.
+      const keyRes = await get(site.keyLocation,site,true);
+      if(ownerSuspended(keyRes)) {
+        const entry = {host:site.host,skipped:'service suspended by owner; state kept for when it resumes'};
+        report.push(entry); console.warn(JSON.stringify(entry)); continue;
+      }
       if (send) {
-        const keyRes = await get(site.keyLocation,site,true);
         if(keyRes.status !== 200 || (await keyRes.text()).trim() !== site.key) throw new Error('Hosted key missing or incorrect');
       }
       const urls = await sitemapURLs(site), before = state[site.host] || {}, after = {...before}, changes = [];
