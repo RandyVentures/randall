@@ -1,5 +1,6 @@
 ---
 title: "Who Was That Plumber Again? How to Keep Track of Rental Contractors"
+seoTitle: "How to Keep Track of Rental Property Contractors"
 description: "Keep every contractor, job and payment in one list so you can find the right person fast and know what you've paid them."
 pubDate: 'Oct 13 2026'
 publishAt: '2026-10-13T08:00:00-05:00'

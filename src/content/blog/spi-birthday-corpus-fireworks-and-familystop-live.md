@@ -1,5 +1,6 @@
 ---
 title: 'Birthday at SPI, Fireworks in Corpus, and FamilyStop Goes Live'
+seoTitle: "SPI Birthday, Corpus Fireworks and FamilyStop Goes Live"
 description: 'A birthday weekend at South Padre Island, Fourth of July with family in Corpus Christi, World Cup nights with the in-laws, FamilyStop launching, and a redesigned blog.'
 pubDate: 'Jul 05 2026'
 tags: ['family', 'apps']

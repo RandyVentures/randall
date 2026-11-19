@@ -1,5 +1,6 @@
 ---
 title: "How to Track Rental Property Expenses (Without Dreading Tax Time)"
+seoTitle: "How to Track Rental Property Expenses for Taxes"
 description: "A simple routine for logging rental expenses by property, unit and category so you're never hunting for receipts in the spring."
 pubDate: 'Oct 9 2026'
 publishAt: '2026-10-09T08:00:00-05:00'

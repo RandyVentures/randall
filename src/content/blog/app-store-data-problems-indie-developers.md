@@ -1,5 +1,6 @@
 ---
 title: 'The App Store Data Problems Indie Developers Learn the Hard Way'
+seoTitle: "App Store Data Problems Every Indie Developer Hits"
 description: "App Store Connect shows a download but RevenueCat shows no customer? A pending report isn't a zero. The data mix-ups that make indie app analytics look broken."
 pubDate: 'Sep 20 2026'
 tags: ['apps', 'building', 'business']

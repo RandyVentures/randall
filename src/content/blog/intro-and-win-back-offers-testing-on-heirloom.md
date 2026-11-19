@@ -1,5 +1,6 @@
 ---
 title: 'Intro Offers vs Win-Back Offers: What I''m Testing on Heirloom'
+seoTitle: "Intro Offers vs Win-Back Offers on the App Store"
 description: 'How introductory and win-back offers differ in App Store Connect, the rules Apple sets for each, and the two offers I''m testing on my subscription app Heirloom.'
 pubDate: 'Oct 26 2026'
 heroImage: '../../assets/offers-hero.svg'

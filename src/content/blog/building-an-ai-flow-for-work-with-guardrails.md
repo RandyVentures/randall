@@ -1,5 +1,6 @@
 ---
 title: 'Building an AI Flow for My Day Job: Ship Faster, With Guardrails'
+seoTitle: "Building an AI Workflow for Work, With Guardrails"
 description: 'Notes on designing an AI harness for my day job, inspired by how a small X team built its web app with coding agents: shared instructions, skills in the repo, and guardrails on every commit.'
 pubDate: 'Nov 7 2026'
 tags: ['ai', 'work', 'building']

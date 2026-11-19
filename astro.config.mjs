@@ -35,4 +35,11 @@ export default defineConfig({
 			return !path.startsWith('/sousbook/') && !path.startsWith('/drafttrail/') && path !== '/co/';
 		},
 	})],
+	vite: {
+		build: {
+			// Ship the shared header and search scripts as cached files instead of repeating
+			// them inline in every page, which keeps each page's text-to-HTML ratio healthy.
+			assetsInlineLimit: 0,
+		},
+	},
 });

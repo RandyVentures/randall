@@ -15,7 +15,7 @@ None of those things are the same kind of accomplishment, but together they made
 
 ## Rise & Capy Is Now Live
 
-The biggest product milestone this week was seeing Rise & Capy go live.
+The biggest product milestone this week was seeing [Rise & Capy](/rise-and-capy/) go live.
 
 There is always a difference between building an app and having an app available to the public. During development, the product exists mostly as a collection of screens, code, decisions, and tests. Once it is live, it becomes something another person can discover and use.
 

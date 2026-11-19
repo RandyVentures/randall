@@ -1,5 +1,6 @@
 ---
 title: 'Two New Apps Submitted, and the Portfolio Keeps Getting Better'
+seoTitle: "Two New Apps Submitted and Portfolio Improvements"
 description: 'Heirloom and Fillbook are headed through App Store review while Rally Track, Bean Hunt, and Real Estate Manager continue to improve.'
 pubDate: 'Jul 29 2026'
 tags: ['apps', 'building']

@@ -1,5 +1,6 @@
 ---
 title: 'How I Market Heirloom With UGC, and readheirloom.com Is Now Live'
+seoTitle: "How I Market an iPhone App With UGC Videos"
 description: 'The short-video workflow I use to market Heirloom, the rules that keep it honest, and the new readheirloom.com website that is now online.'
 pubDate: 'Oct 2 2026'
 tags: ['apps', 'ai', 'building', 'marketing']

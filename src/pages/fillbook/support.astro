@@ -25,7 +25,7 @@ import Header from '../../components/Header.astro';
           </p>
           <div class="hero-actions">
             <a class="button" href="mailto:randyventures06@gmail.com">Email support</a>
-            <a class="button secondary" href={'/fillbook/privacy'}>
+            <a class="button secondary" href={'/fillbook/privacy/'}>
               Privacy policy
             </a>
           </div>
@@ -53,6 +53,39 @@ import Header from '../../components/Header.astro';
           </ul>
         </section>
       </div>
+
+      <section class="tile">
+        <p class="tile-kicker">Common questions</p>
+        <h2>Fillbook FAQ</h2>
+        <h3>Which broker exports can I import?</h3>
+        <p>
+          A Robinhood account activity export, a thinkorswim Account Statement export, or another
+          CSV with explicit execution columns. You export once from your broker, and Fillbook never
+          asks for your broker login.
+        </p>
+        <h3>Why are my fills grouped into one position?</h3>
+        <p>
+          Fillbook groups executions into positions, so a four-leg iron condor shows up as one trade
+          instead of four unrelated fills. It follows rolls across expiries and keeps expiration and
+          assignment visible even when there is no closing fill. When a grouping is uncertain, it
+          goes to a review queue so you can confirm it before it becomes part of your journal.
+        </p>
+        <h3>How is realized P&amp;L counted?</h3>
+        <p>
+          Realized P&amp;L comes from fully closed positions and is counted on the closing date. The
+          raw source row is kept for every execution, with symbols and timestamps normalized.
+        </p>
+        <h3>Can I try it before importing my own trades?</h3>
+        <p>
+          Yes. A sample book lets you explore the workflow before you import anything.
+        </p>
+        <h3>How do subscriptions work?</h3>
+        <p>
+          Choose a 7-day free trial followed by a monthly subscription, or a one-time lifetime
+          purchase. Monthly access renews until canceled. Prices are shown by Apple before purchase
+          and may vary by region. Manage or cancel in your Apple account settings.
+        </p>
+      </section>
     </main>
     <Footer />
   </body>

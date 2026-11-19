@@ -1,5 +1,6 @@
 ---
 title: 'A Sunday Check-In: AI, Small-Business Momentum, and Showing Up'
+seoTitle: "A Sunday Check-In on AI and Small-Business Momentum"
 description: 'A week of experimenting with AI, improving GetMandalo and UseManifest, and making room for the people and community that matter.'
 pubDate: 'Sep 27 2026'
 tags: ['life', 'apps', 'ai', 'faith']

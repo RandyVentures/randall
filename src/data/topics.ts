@@ -69,7 +69,7 @@ export const topics: Topic[] = [
 		description:
 			'Marketing small apps without a big budget: short video, UGC-style ads, real costs, and the experiments that did and did not work.',
 		intro:
-			'Getting a small app seen is harder than building it. These entries cover the marketing experiments I have run, what they cost, and what I would repeat.',
+			'Getting a small app seen is harder than building it. These entries cover the marketing experiments I have run, what they cost, and what I would repeat. That includes App Store optimization, UGC-style video ads, search-focused guides on this blog, intro and win-back offers, and the numbers from App Store Connect that showed whether any of it worked. No agency budget, no paid team: just one developer testing cheap ideas and writing down the results.',
 	},
 	{
 		tag: 'video',
@@ -77,7 +77,7 @@ export const topics: Topic[] = [
 		description:
 			'Making short promotional video for apps: tools, costs, formats, and a repeatable process for one developer.',
 		intro:
-			'Short video is the cheapest way I have found to show an app working. These entries cover how I make it, what it costs, and how one recording becomes several posts.',
+			'Short video is the cheapest way I have found to show an app working. These entries cover how I make it, what it costs, and how one recording becomes several posts. You will find the actual tools I use for screen recording, voiceover and AI-generated clips, the real dollar costs of each experiment, the formats that held attention on Reels, Shorts and TikTok, and the ones that quietly did nothing. Everything here is from a solo developer with a day job, so the process is built to fit into an evening.',
 	},
 	{
 		tag: 'strategy',

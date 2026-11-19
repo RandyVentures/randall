@@ -1,5 +1,6 @@
 ---
 title: 'A Full Season: San Antonio, App Progress, and What Matters Most'
+seoTitle: "San Antonio, App Progress and What Matters Most"
 description: 'A trip to San Antonio, a great night with Mike, steady app progress, a meaningful Heirloom milestone, and a good season for the family.'
 pubDate: 'Sep 18 2026'
 tags: ['life', 'apps', 'family']

@@ -1,5 +1,6 @@
 ---
 title: "How to Keep Track of Leases and Late Rent as a Self-Managing Landlord"
+seoTitle: "How to Track Leases and Late Rent as a Landlord"
 description: "Know who's paid, who's late and which lease ends next without a spreadsheet or a memory test."
 pubDate: 'Oct 11 2026'
 publishAt: '2026-10-11T08:00:00-05:00'

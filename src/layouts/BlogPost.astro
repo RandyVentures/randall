@@ -51,11 +51,11 @@ const crumbs = [
 	{ name: title, path },
 ];
 
-// Search engines flag <title> tags over ~70 characters. Add the site suffix only when the whole title stays
+// Audits flag <title> tags over 70 characters and titles identical to the H1. Add the site suffix whenever the whole title stays
 // short; long headlines use their own shorter seoTitle (or go without the suffix).
 const SITE_SUFFIX = ' — Randall';
 const baseTitle = post.data.seoTitle ?? title;
-const headTitle = baseTitle.length + SITE_SUFFIX.length <= 65 ? `${baseTitle}${SITE_SUFFIX}` : baseTitle;
+const headTitle = baseTitle.length + SITE_SUFFIX.length <= 70 ? `${baseTitle}${SITE_SUFFIX}` : baseTitle;
 
 // A contents list only earns its space once there is something to navigate.
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);

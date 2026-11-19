@@ -1,6 +1,7 @@
 ---
 // Shared landing page for an app on the shelf. Each page lives on this site so
 // search engines have something to rank; the App Store button is the exit.
+import { appStoreRating } from '../lib/appStoreRating';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseHead from './BaseHead.astro';
@@ -64,6 +65,7 @@ const {
 
 // Marked up as an app so search engines can show the price, platform and
 // category alongside the result instead of guessing from the prose.
+const aggregateRating = await appStoreRating(appStoreId);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -77,6 +79,7 @@ const jsonLd = {
   image: new URL(icon.src, Astro.site).href,
   author: { '@type': 'Person', name: 'Randall Torres' },
   offers: offers.map((offer) => ({ '@type': 'Offer', priceCurrency: 'USD', ...offer })),
+  ...(aggregateRating && { aggregateRating }),
 };
 
 const faqLd = {

@@ -1,4 +1,5 @@
 ---
+import { appStoreRating } from '../../lib/appStoreRating';
 import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
@@ -11,6 +12,7 @@ const appStoreUrl = 'https://apps.apple.com/us/app/while-were-here/id6810424599'
 
 // Marked up as an app so search engines can show the price, platform and
 // category alongside the result instead of guessing from the prose.
+const aggregateRating = await appStoreRating('6810424599');
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -25,6 +27,7 @@ const jsonLd = {
     { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: '25 cards free' },
     { '@type': 'Offer', price: '9.99', priceCurrency: 'USD', description: 'Lifetime unlock, one-time purchase' },
   ],
+  ...(aggregateRating && { aggregateRating }),
 };
 
 const faqs = [
@@ -51,7 +54,7 @@ const faqs = [
 <html lang="en">
   <head>
     <BaseHead
-      title="While We're Here: Conversation Card App for Family Dinners, Couples & Small Groups"
+      title="While We're Here: Conversation Card App for Family Dinners"
       description="Conversation starter cards for iPhone: 100 questions for family dinners, couples, road trips and faith small groups, with optional follow-ups and your own cards. 25 free, no ads."
       image={icon}
     />
