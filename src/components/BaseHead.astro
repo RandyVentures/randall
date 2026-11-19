@@ -130,3 +130,6 @@ const graph = {
 
 <!-- Structured data: the site and its author, plus whatever this page adds. -->
 <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+
+<!-- Cloudflare Web Analytics: cookieless visit counts and referrers. -->
+<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ab230d835abf483aa9c2e36d0128b88c"}'></script>
