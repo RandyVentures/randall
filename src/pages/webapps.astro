@@ -6,9 +6,9 @@ import Header from '../components/Header.astro';
 import { apps, webApps } from '../data/apps';
 import { withBase } from '../lib/posts';
 
-const title = 'Web Apps: Mandalo, Manifest, Heirloom & HypeLap | Randy Torres';
+const title = 'Web Apps: Mandalo, Heirloom & HypeLap | Randy Torres';
 const description =
-	'Browser-based tools by Randy Torres: Mandalo payment links, Manifest App Store analytics, Heirloom cursive transcription and HypeLap live race tracking.';
+	'Browser-based tools by Randy Torres: Mandalo payment links, Heirloom cursive transcription and HypeLap live race tracking.';
 const pageUrl = new URL('/webapps/', Astro.site).href;
 
 const cards = webApps.map((app) => ({
@@ -26,10 +26,6 @@ const faqs = [
 	{
 		q: 'Which web app should I use to get paid for a service job?',
 		a: 'Mandalo. Create a payment link, send it by text or email, and your customer pays by card or Apple Pay. Paid and pending jobs show up in one dashboard.',
-	},
-	{
-		q: 'How can I see App Store Connect data older than 14 days?',
-		a: 'Manifest keeps your downloads, proceeds, subscriptions and reviews over time, so you are not limited to the short window App Store Connect shows by default.',
 	},
 	{
 		q: 'Can I transcribe an old cursive letter online?',

@@ -60,7 +60,7 @@ A view tells you that a platform counted a view. It doesn’t, by itself, tell y
 
 Look at the signals available on each platform: whether viewers stay past the opening, how much of the clip they watch, and whether they save, share, visit your profile, or follow. Then consider what happens after someone leaves the feed. App Store impressions, product-page taps, and downloads tell you about a different part of the journey.
 
-Those two sets of numbers answer different questions. Video analytics can help you see whether the creative holds attention; App Store analytics can help you understand what happens around discovery and downloads. [UseManifest](https://usemanifest.net/) is built for reviewing Apple App Store reports across an indie developer’s portfolio—it does not measure social-video performance. Keeping that boundary clear helps avoid attributing an App Store change to a video without enough evidence.
+Those two sets of numbers answer different questions. Video analytics can help you see whether the creative holds attention; App Store analytics can help you understand what happens around discovery and downloads. UseManifest is built for reviewing Apple App Store reports across an indie developer’s portfolio—it does not measure social-video performance. Keeping that boundary clear helps avoid attributing an App Store change to a video without enough evidence.
 
 Small samples are noisy. Treat early results as clues, not proof that a particular hook or platform will always win. Change one meaningful thing at a time, keep notes, and look for patterns across several posts.
 

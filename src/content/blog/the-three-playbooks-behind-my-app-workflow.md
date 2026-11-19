@@ -85,7 +85,7 @@ The workflow is fairly simple:
 2. Build the smallest version that can answer the question.
 3. Keep the app local if local is enough. If the product needs shared or durable data, use the backend playbook to move one feature to an API and database.
 4. Use the video playbook to record a real moment from the finished app and prepare a few honest ways to show it.
-5. Keep the results in the loop. [UseManifest](https://usemanifest.net) is the place I am building for App Store Connect records and store-funnel measurement across the portfolio.
+5. Keep the results in the loop. UseManifest is the place I am building for App Store Connect records and store-funnel measurement across the portfolio.
 
 The order is useful because it keeps the work connected. The marketing is not invented separately from the product. The backend is not added separately from the user problem. The measurement is not an afterthought that starts months later.
 

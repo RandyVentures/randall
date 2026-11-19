@@ -229,13 +229,6 @@ export const productSites: ProductSite[] = [
 		siteLabel: 'Mandalo payment links for local service businesses',
 	},
 	{
-		name: 'Manifest',
-		description: 'App Store analytics for solo developers: downloads, proceeds, subscriptions, release health, and every review from every storefront.',
-		status: 'live',
-		site: 'https://usemanifest.net',
-		siteLabel: 'Manifest App Store analytics for solo developers',
-	},
-	{
 		name: 'Heirloom',
 		appName: 'Heirloom',
 		description: 'Read old handwritten letters and cursive with AI transcription, a modernized version, English translation, and Read Aloud.',
@@ -307,22 +300,6 @@ export const webApps: WebApp[] = [
 			{ label: 'Payment reminder text messages', href: 'https://getmandalo.net/templates/payment-reminder-text-messages' },
 			{ label: 'Zelle vs Cash App vs Venmo for small business', href: 'https://getmandalo.net/compare/cash-app-vs-venmo-vs-zelle-for-small-business' },
 			{ label: 'Credit card fee calculator', href: 'https://getmandalo.net/tools/credit-card-fee-calculator' },
-		],
-	},
-	{
-		name: 'Manifest',
-		tagline: 'App Store analytics, all of it',
-		audience: 'Solo iOS developers',
-		category: 'BusinessApplication',
-		tone: 'dusk',
-		highlights: ['Downloads, proceeds and subscriptions', 'Every review from every storefront', 'History past the 14-day limit'],
-		summary:
-			'App Store analytics for solo developers: downloads, proceeds, subscriptions and every review from every storefront, without the 14-day limit.',
-		site: 'https://usemanifest.net',
-		links: [
-			{ label: 'An App Annie alternative for solo developers', href: 'https://usemanifest.net/appannie-alternative' },
-			{ label: 'Why App Store Connect only shows 14 days', href: 'https://usemanifest.net/app-store-connect-only-shows-14-days' },
-			{ label: 'App Store Connect zero downloads, explained', href: 'https://usemanifest.net/app-store-connect-zero-downloads' },
 		],
 	},
 	{

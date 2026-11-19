@@ -40,7 +40,7 @@ Bean Hunt's icon reads clearly at thumbnail size and the first screenshot shows 
 
 I only have seven months of this because I started saving the daily reports on purpose. The first stretch of each app's life, before I set that up, is just gone — Apple's window had already closed by the time I thought to keep it.
 
-If you're running more than two or three apps, I'd set up daily capture before you want the comparison, not after. I ended up building [Manifest](https://usemanifest.net/) to do this for my own portfolio — it pulls the daily reports automatically and keeps them, so a missing day of history isn't a decision you have to remember to make in advance. No AI in it, no modeled estimates — every number on it is a sum or a ratio over what Apple actually reported, which is also just the report style I trust when I'm the one reading it at 11pm trying to figure out why a number moved.
+If you're running more than two or three apps, I'd set up daily capture before you want the comparison, not after. I ended up building Manifest to do this for my own portfolio — it pulls the daily reports automatically and keeps them, so a missing day of history isn't a decision you have to remember to make in advance. No AI in it, no modeled estimates — every number on it is a sum or a ratio over what Apple actually reported, which is also just the report style I trust when I'm the one reading it at 11pm trying to figure out why a number moved.
 
 ## What I'm changing
 

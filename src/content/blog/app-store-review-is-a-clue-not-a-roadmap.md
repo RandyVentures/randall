@@ -35,7 +35,7 @@ App Store reviews are public feedback, but they’re only one channel. People al
 
 For iOS apps, storefronts matter too. Apple notes that ratings are specific to each App Store territory, and written reviews can appear across storefronts. [Apple’s ratings and reviews guidance](https://developer.apple.com/app-store/ratings-and-reviews/) describes how developers can view, sort, and respond to reviews in App Store Connect.
 
-If you manage several apps or serve users in multiple countries, collecting the feedback into one place can make it easier to spot what needs attention. [UseManifest](https://usemanifest.net/) brings written App Store reviews from storefronts into one inbox and highlights unanswered low-star reviews. It’s a way to review those App Store signals across a portfolio—not a replacement for direct support or a complete picture of every user’s experience.
+If you manage several apps or serve users in multiple countries, collecting the feedback into one place can make it easier to spot what needs attention. UseManifest brings written App Store reviews from storefronts into one inbox and highlights unanswered low-star reviews. It’s a way to review those App Store signals across a portfolio—not a replacement for direct support or a complete picture of every user’s experience.
 
 ## Respond to close the loop
 

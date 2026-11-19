@@ -29,7 +29,7 @@ The next job is to keep improving the experience and learn from what people actu
 
 ## UseManifest Is Finding Its Footing
 
-[UseManifest](https://usemanifest.net/) is getting traction and has also been improved. I have been building it around a problem I know from making iOS apps: App Store information can be spread across reports and screens, and it takes effort to turn the numbers into a useful picture of what changed.
+UseManifest is getting traction and has also been improved. I have been building it around a problem I know from making iOS apps: App Store information can be spread across reports and screens, and it takes effort to turn the numbers into a useful picture of what changed.
 
 Manifest is meant to help independent developers review their App Store portfolio more clearly, while keeping Apple’s reporting as the source of truth. Its public overview describes a daily record, a portfolio view, and calculations that are explained rather than hidden. The goal is not to replace App Store Connect or promise that a dashboard will make product decisions for you. It is to make the evidence easier to review so you can spend less time assembling context and more time deciding what deserves attention.
 

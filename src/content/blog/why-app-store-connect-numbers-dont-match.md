@@ -62,10 +62,10 @@ The same goes for week-over-week changes. If this week is missing two days of re
 2. **Check the dates are complete.** If the last two days aren't in yet, leave them out.
 3. **Compare like with like.** The same number of days, from the same report.
 
-If you want the longer version, I put together a [guide to why Sales and Trends and Analytics disagree](https://usemanifest.net/sales-and-trends-vs-analytics), and a [checklist for when App Store Connect shows zero downloads](https://usemanifest.net/app-store-connect-zero-downloads). Apple's own documentation on [analytics reports and their completeness](https://developer.apple.com/help/app-store-connect-analytics/overview/analytics-reports-api) explains why missing data doesn't prove zero activity.
+For the longer version, Apple's own documentation on [analytics reports and their completeness](https://developer.apple.com/help/app-store-connect-analytics/overview/analytics-reports-api) explains why missing data doesn't prove zero activity.
 
 ## Where Manifest comes in
 
-I built [Manifest](https://usemanifest.net/) because I kept running into exactly this. It reads Apple's Analytics reports, shows any day Apple hasn't reported as a gap instead of a zero, and holds back a week-over-week change until both weeks have complete data.
+I built Manifest because I kept running into exactly this. It reads Apple's Analytics reports, shows any day Apple hasn't reported as a gap instead of a zero, and holds back a week-over-week change until both weeks have complete data.
 
 You don't need it to avoid the traps above. Knowing which report to use, and not mixing them, gets you most of the way. But if you're checking several apps every week, a record that tells you the difference between "zero" and "not reported yet" saves a lot of second-guessing.

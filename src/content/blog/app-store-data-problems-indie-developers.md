@@ -65,7 +65,7 @@ That distinction is easy to miss, because "discoverable" sounds like "included."
 4. Pull the data on the scheduled sync.
 5. Review the result in the correct context.
 
-This is one reason [Manifest](https://usemanifest.net/) treats app discovery and app tracking as separate parts of the workflow. Listing every app on the account and choosing which ones to track are deliberately different actions, so it stays obvious which apps are available, which are being tracked, and which are still waiting on Apple.
+This is one reason Manifest treats app discovery and app tracking as separate parts of the workflow. Listing every app on the account and choosing which ones to track are deliberately different actions, so it stays obvious which apps are available, which are being tracked, and which are still waiting on Apple.
 
 ## "Waiting on Apple" is not the same as zero
 
@@ -96,7 +96,7 @@ A listing can indicate an app is available on Apple hardware while still showing
 
 ## Why I built Manifest
 
-These problems are part of why I built [Manifest](https://usemanifest.net/).
+These problems are part of why I built Manifest.
 
 It is not meant to replace App Store Connect or RevenueCat. Those systems remain authoritative for the data they own, and Manifest does not connect to RevenueCat at all — it reads Apple's own analytics reports and keeps them.
 
