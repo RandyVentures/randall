@@ -1,0 +1,70 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/real-estate-manager.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+---
+
+<AppLanding
+  name="Rental Manager"
+  storeName="Rental Manager: Rent & Taxes"
+  title="Rental Manager: Offline Landlord App for Rent, Expenses & Schedule E"
+  description="Rental Manager is an iPhone app for self-managing landlords: track rent, expenses, leases, deposits and repairs, see cap rate and cash-on-cash return, and export a Schedule E packet. Offline, no subscription."
+  icon={icon}
+  appStoreId="6758280423"
+  appStoreUrl="https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423"
+  kicker="iPhone · Landlord app · No subscription"
+  lead="The offline rent, expense and tax ledger for owners who manage their own rentals. See whether each property is earning its keep, keep every receipt on the right Schedule E line, and hand your accountant one clean packet at tax time."
+  secondary={{ label: 'Rental property guides', href: withBase('/topics/rentals/') }}
+  features={[
+    {
+      kicker: 'Collect',
+      title: 'Rent, leases and deposits',
+      body: 'Create rent charges automatically, record full or partial payments, follow balances and overdue rent, and generate rent receipts and tenant statements. Track security-deposit deductions and deadlines.',
+    },
+    {
+      kicker: 'File',
+      title: 'A Schedule E packet at tax time',
+      body: 'Every expense goes on its IRS Schedule E category. Keep depreciation, mortgage interest, capital improvements and mileage together, then export a PDF for your accountant or a CSV for your records.',
+    },
+    {
+      kicker: 'Measure',
+      title: 'Returns for every property',
+      body: 'Cap rate, cash-on-cash return, equity, appreciation, operating expense ratio, gross rent multiplier, the 1% rule and the cost of vacancy, per property and across the portfolio.',
+    },
+  ]}
+  pricing={[
+    '**One-time Lifetime Access** unlocks the full portfolio dashboard. There is no subscription.',
+    '**Private by default:** it works offline with no account, no ads and no cloud requirement, and you control local backups.',
+  ]}
+  faqs={[
+    {
+      q: 'What is the best app for a landlord who manages their own rentals?',
+      a: 'If you have a few properties and want rent, expenses and taxes in one place without a monthly fee, an offline ledger like Rental Manager fits. If you need tenant screening, online rent collection or a tenant portal, a full property-management platform with a subscription is the better match.',
+    },
+    {
+      q: 'Does Rental Manager help with Schedule E?',
+      a: 'Yes. Expenses are organized by Schedule E category, and you can export a PDF packet for your accountant or a CSV. It organizes records and calculations; it is not tax advice, so confirm your filing with a qualified preparer.',
+    },
+    {
+      q: 'Is there a monthly fee?',
+      a: 'No. The full dashboard is a one-time Lifetime Access purchase.',
+    },
+    {
+      q: 'Does it collect rent online from tenants?',
+      a: 'No. It records the rent you receive, tracks balances and overdue rent, and produces receipts and statements. Payments themselves happen however you already collect them.',
+    },
+    {
+      q: 'Where is my data stored?',
+      a: 'On your iPhone. There is no account or cloud requirement, and you control local backups.',
+    },
+  ]}
+  links={[
+    { label: 'How to fill out Schedule E for a rental property', href: withBase('/blog/how-to-fill-out-schedule-e-for-a-rental-property/') },
+    { label: 'How to track rental property expenses', href: withBase('/blog/how-to-track-rental-property-expenses-without-dreading-tax-time/') },
+    { label: 'Cap rate calculator', href: withBase('/blog/how-to-calculate-cap-rate-on-a-rental-property/') },
+  ]}
+  schemaCategory="BusinessApplication"
+  offers={[{ price: '0', description: 'Free download; one-time Lifetime Access purchase for the full dashboard' }]}
+/>

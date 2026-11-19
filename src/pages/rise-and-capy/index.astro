@@ -1,0 +1,69 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/rise-and-capy.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+---
+
+<AppLanding
+  name="Rise & Capy"
+  storeName="Rise & Capy: Cute Alarm Clock"
+  title="Rise & Capy: Cute Capybara Alarm Clock App for iPhone"
+  description="Rise & Capy is a cozy capybara alarm clock for iPhone: real system alarms with AlarmKit, Capy's voice, gentle sunrise tones and optional wake-up missions. Free to start, no ads, no subscription."
+  icon={icon}
+  appStoreId="6804264261"
+  appStoreUrl="https://apps.apple.com/us/app/rise-capy/id6804264261"
+  kicker="iPhone · Alarm clock · Free to start"
+  lead="Wake up gently. Rise & Capy sets real iPhone alarms that ring like the built-in Clock app, then wakes you with a capybara's voice, soft sunrise tones and, if you want a nudge, a quick wake-up mission."
+  secondary={{ label: 'The launch story', href: withBase('/blog/a-good-week-rise-and-capy-goes-live/') }}
+  features={[
+    {
+      kicker: 'Ring',
+      title: 'Real system alarms',
+      body: 'Built on Apple AlarmKit, so alarms ring like the Clock app’s, with native snooze at the length you choose. Set your wake time and repeat days in seconds.',
+    },
+    {
+      kicker: 'Wake',
+      title: 'Optional wake-up missions',
+      body: 'Tap the sleepy capybara, repeat a pattern, answer a quick question or shake the phone. Missions are optional, and the system alarm controls always stay available.',
+    },
+    {
+      kicker: 'Smile',
+      title: 'Four Capy personalities',
+      body: 'Sleepy, Sunny, Chill or Motivated Capy, each with its own voice. Capy blinks, stretches, reacts when you tap and celebrates with you, and a morning streak makes getting up feel rewarding.',
+    },
+  ]}
+  pricing={[
+    '**Free:** one real alarm with any Capy, voice and sound, plus the tap-the-sleepy-capybara challenge.',
+    '**Capy Pro:** a single one-time purchase for unlimited alarms and the pattern, shake and question challenges. No subscription, no trial and no recurring billing.',
+  ]}
+  faqs={[
+    {
+      q: 'Is there a capybara alarm clock app for iPhone?',
+      a: 'Yes. Rise & Capy is a capybara alarm clock for iPhone with four Capy characters, Capy’s own voice, gentle sunrise tones and optional wake-up missions.',
+    },
+    {
+      q: 'Will the alarm ring if the app is closed or my phone is on silent?',
+      a: 'Rise & Capy sets real system alarms with Apple’s AlarmKit, the same kind of alarm the built-in Clock app uses, rather than relying on notifications.',
+    },
+    {
+      q: 'Is Rise & Capy free?',
+      a: 'You can set one alarm free with any Capy, voice and sound. Capy Pro is a one-time purchase that unlocks unlimited alarms and the extra challenges. There is no subscription.',
+    },
+    {
+      q: 'Does it have ads or need an account?',
+      a: 'No. There are no ads and no account. Your alarms, preferences and streak stay on your iPhone.',
+    },
+    {
+      q: 'What do I need to run it?',
+      a: 'An iPhone running iOS 26 or later.',
+    },
+  ]}
+  links={[
+    { label: 'Support and FAQ', href: 'https://randyventures.github.io/RiseAndCapySite/faq/' },
+    { label: 'Privacy policy', href: 'https://randyventures.github.io/RiseAndCapySite/privacy/' },
+  ]}
+  schemaCategory="LifestyleApplication"
+  offers={[{ price: '0', description: 'One free alarm; Capy Pro one-time purchase for unlimited alarms' }]}
+/>

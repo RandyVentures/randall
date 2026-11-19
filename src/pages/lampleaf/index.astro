@@ -1,0 +1,71 @@
+---
+import AppLanding from '../../components/AppLanding.astro';
+import icon from '../../assets/apps/lampleaf.webp';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => `${base}${path}`;
+---
+
+<AppLanding
+  name="Lampleaf"
+  storeName="Lampleaf: Illustrated Bible"
+  title="Lampleaf: Free Illustrated Bible App With Audio (KJV, BSB, WEB) — No Ads"
+  description="Lampleaf is a free illustrated Bible app for iPhone: all 66 books in KJV, BSB and WEB, classic paintings, verse-by-verse audio narration, Hebrew and Greek, and a journal. Offline, no account, no ads."
+  icon={icon}
+  appStoreId="6824583357"
+  appStoreUrl="https://apps.apple.com/us/app/lampleaf-illustrated-bible/id6824583357"
+  kicker="iPhone & iPhone Duo · Illustrated Bible · Free"
+  lead="A Bible that opens like one. Scripture on one page and a companion on the other: a classic painting, narration that follows along verse by verse, the original Hebrew and Greek, or your own journal. On iPhone Duo it opens like a book."
+  secondary={{ label: 'Why I built it', href: withBase('/blog/lampleaf-is-live-and-a-full-week-at-home/') }}
+  features={[
+    {
+      kicker: 'Read',
+      title: 'The whole Bible, free and offline',
+      body: 'All 66 books in the Berean Standard Bible, King James Version and World English Bible. The text is on your device, word for word, never paraphrased or generated. Search every verse; poetry is set in lines and the words of Jesus are in red.',
+    },
+    {
+      kicker: 'See and hear',
+      title: 'Classic paintings and narration',
+      body: 'Public-domain illustrations by James Tissot, Gustave Doré and others beside 17 key chapters, and 57 narrated chapters in each translation, including the whole Gospel of John, with the verse being read lit up on the page.',
+    },
+    {
+      kicker: 'Study',
+      title: 'Compare, dig in, journal',
+      body: 'See any verse in BSB, KJV and WEB side by side, read the original Hebrew, Aramaic and Greek word by word, highlight in five colors and keep a SOAP journal beside every verse. Export notes as text or PDF.',
+    },
+  ]}
+  pricing={[
+    '**Free:** the whole Bible in three translations, search, highlights, the journal, and narration of Genesis 1 and Psalm 23, with a 60-second preview of every other narrated chapter.',
+    '**Lampleaf Plus:** try it free for 7 days. Nothing is charged when the trial ends. Keep it with a one-time Lifetime purchase, shareable through Family Sharing where eligible. No subscription.',
+  ]}
+  faqs={[
+    {
+      q: 'Is Lampleaf a free Bible app?',
+      a: 'Yes. All 66 books in the BSB, KJV and WEB are free, with search, highlights and a journal. Lampleaf Plus is an optional one-time purchase, not a subscription.',
+    },
+    {
+      q: 'Does Lampleaf have audio Bible narration?',
+      a: 'Yes. 57 chapters are narrated in each translation, including the whole Gospel of John, read from the exact text with the current verse highlighted. Genesis 1 and Psalm 23 are free for everyone, and every other narrated chapter has a 60-second preview.',
+    },
+    {
+      q: 'Which Bible translations are included?',
+      a: 'The Berean Standard Bible (BSB), the King James Version (KJV) and the World English Bible (WEB). You can compare any verse in all three side by side.',
+    },
+    {
+      q: 'Does it work offline and without an account?',
+      a: 'Yes. The text is stored on your device, there is no account and there are no ads. Notes, highlights and reading progress stay on your iPhone.',
+    },
+    {
+      q: 'Is Lampleaf made for the iPhone Duo?',
+      a: 'Yes. Folded, it shows a leather cover on the outer display; unfolded, the inner display becomes a two-page spread with Scripture on one side and a painting, narration or your journal on the other. It works on every iPhone running iOS 26 or later.',
+    },
+  ]}
+  links={[
+    { label: 'My top 5 iPhone Duo apps', href: withBase('/blog/top-5-iphone-duo-apps-after-one-week/') },
+    { label: 'Support', href: withBase('/lampleaf/support/') },
+    { label: 'Privacy policy', href: withBase('/lampleaf/privacy/') },
+    { label: 'Terms', href: withBase('/lampleaf/terms/') },
+  ]}
+  schemaCategory="ReferenceApplication"
+  offers={[{ price: '0', description: 'Free Bible in three translations; optional one-time Lampleaf Plus purchase' }]}
+/>

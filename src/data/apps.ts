@@ -38,6 +38,7 @@ export const apps: AppEntry[] = [
 		category: 'Reference',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/lampleaf-illustrated-bible/id6824583357',
+		page: '/lampleaf/',
 		icon: lampleaf,
 	},
 	{
@@ -71,6 +72,7 @@ export const apps: AppEntry[] = [
 		category: 'Lifestyle',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/rise-capy/id6804264261',
+		page: '/rise-and-capy/',
 		icon: riseAndCapy,
 	},
 	{
@@ -174,11 +176,12 @@ export const apps: AppEntry[] = [
 		icon: fillin,
 	},
 	{
-		name: 'Real Estate Manager',
-		tagline: 'Property management for small landlords',
+		name: 'Rental Manager',
+		tagline: 'Rent, expenses and Schedule E for self-managing landlords',
 		category: 'Business',
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423',
+		page: '/rental-manager/',
 		icon: realEstateManager,
 	},
 ];
