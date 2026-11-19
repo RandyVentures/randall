@@ -53,7 +53,7 @@ export const topics: Topic[] = [
 		description:
 			'Schedule E line by line, which rental expenses are deductible, and when a landlord owes a contractor a 1099, written for self-managing landlords.',
 		intro:
-			'The tax side of owning a rental: what goes on Schedule E, what counts as a deduction, and when a contractor needs a 1099. Written for landlords with a few properties. General guidance only, so confirm your situation with a tax professional.',
+			'The tax side of owning a rental: what goes on Schedule E, what counts as a deduction, and when a contractor needs a 1099. Written for landlords with a few properties. You will find a line-by-line walk through Schedule E, a checklist of common rental deductions and the costs that are depreciated instead, how to tell a repair from an improvement, and the records to keep through the year so tax season is mostly copying totals. General guidance only, so confirm your situation with a tax professional.',
 	},
 	{
 		tag: 'iphone-duo',

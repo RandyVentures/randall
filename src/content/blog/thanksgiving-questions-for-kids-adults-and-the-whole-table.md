@@ -123,6 +123,6 @@ I built **While We're Here** for exactly this: a deck of conversation cards on y
 
 25 cards are free to start, spread across all four decks. One one-time purchase unlocks all 100 and unlimited custom cards. No subscription, no ads, no account, and it works offline, which helps at the relatives' house with bad Wi-Fi.
 
-**[Download While We're Here on the App Store](https://apps.apple.com/us/app/while-were-here/id6810424599)** · [Learn more](/while-were-here/)
+**[Download While We're Here on the App Store](https://apps.apple.com/us/app/while-were-here/id6810424599)** · [See the While We're Here conversation card app](/while-were-here/)
 
 Planning Christmas too? I put together [Halloween and Christmas conversation games](/blog/halloween-christmas-conversation-games/) for the rest of the holidays.
