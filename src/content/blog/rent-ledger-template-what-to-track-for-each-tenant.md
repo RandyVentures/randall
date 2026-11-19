@@ -96,6 +96,8 @@ That's why I built **Rental Manager** for my own properties. It creates rent cha
 
 Everything stays on your iPhone, with no account and no subscription. The same app tracks expenses by [Schedule E line](/blog/how-to-fill-out-schedule-e-for-a-rental-property/), so rent and expenses end up in one tax-year packet. I wrote more about the leases side in [how to keep track of leases and late rent](/blog/how-to-keep-track-of-leases-and-late-rent-as-a-self-managing-landlord/).
 
-**[Download Rental Manager: Rent & Taxes on the App Store](https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423)**
+If you're comparing tools, I also wrote an honest [Rental Manager vs Stessa vs TurboTenant](/blog/rental-manager-vs-stessa-vs-turbotenant/) breakdown.
+
+**[Download Rental Manager: Rent & Taxes on the App Store](https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423)** · [Learn more about Rental Manager](/rental-manager/)
 
 *This is a general guide for self-managing landlords, not legal or tax advice. Late fee, deposit and record-keeping rules vary by state and city.*

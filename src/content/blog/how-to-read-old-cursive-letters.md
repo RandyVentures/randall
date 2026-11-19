@@ -72,7 +72,7 @@ The photo matters more than the tool you use.
 - **Photograph both sides**, and each page separately.
 - **Handle carefully.** Clean, dry hands, and don't force a folded page flat if it resists.
 
-Keep the original photos forever, even after you have a transcript.
+Keep the original photos forever, even after you have a transcript. For a full scanning and filing routine, see [how to digitize old family letters with your iPhone](/blog/how-to-digitize-old-family-letters-with-iphone/).
 
 ## Can AI read cursive?
 
