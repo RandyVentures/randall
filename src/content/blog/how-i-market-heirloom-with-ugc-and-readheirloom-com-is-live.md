@@ -60,6 +60,8 @@ The site is also a better place to point people than a short caption. A clip can
 
 The loop is simple: make a batch, review it, post a few clips, then look at the numbers and change one thing. If a hook moves App Store views or downloads, it earns more attention. If it only earns views, I retire it and try another.
 
+If you're stuck on a letter right now, I wrote a practical guide to [reading old cursive letters, with and without AI](/blog/how-to-read-old-cursive-letters/).
+
 I will share what the data says as it comes in, including the clips that do nothing. If you have old letters in a shoebox, you can try [Heirloom on the App Store](https://apps.apple.com/us/app/heirloom-old-letter-reader/id6792422170) or take a look at [readheirloom.com](https://readheirloom.com).
 
 *Image: The readheirloom.com homepage. The sample letter shown on the site is synthetic.*

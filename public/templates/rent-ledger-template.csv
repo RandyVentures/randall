@@ -1,0 +1,6 @@
+Date,Tenant,Property,Unit,Entry type,Description,Charge,Payment,Running balance,Method,Reference,Notes
+2026-11-01,Sample Tenant,123 Main St,A,Rent charge,November rent,1450.00,,1450.00,,,
+2026-11-03,Sample Tenant,123 Main St,A,Payment,Partial payment,,1000.00,450.00,Bank transfer,TRX-1042,Tenant said rest by the 10th
+2026-11-06,Sample Tenant,123 Main St,A,Late fee,Late fee per lease section 4,75.00,,525.00,,,Grace period ended 11/05
+2026-11-09,Sample Tenant,123 Main St,A,Payment,Balance paid,,525.00,0.00,Check,#2210,
+2026-12-01,Sample Tenant,123 Main St,A,Rent charge,December rent,1450.00,,1450.00,,,

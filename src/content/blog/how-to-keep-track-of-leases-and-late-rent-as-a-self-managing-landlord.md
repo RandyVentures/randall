@@ -51,6 +51,8 @@ You choose the time of day, the number of grace days, and the deposit deadline. 
 
 On the first of the month and again mid-month: open the Ledger, look for red, and act on it that day.
 
+If you'd rather start on paper, I put together a [free rent ledger template](/blog/rent-ledger-template-what-to-track-for-each-tenant/) with the columns I use.
+
 Rental Manager helps you stay organized. It doesn't collect rent for you or provide legal advice, so check your local rules on late fees and notice periods.
 
 **[Download Rental Manager: Rent & Taxes on the App Store](https://apps.apple.com/us/app/rental-manager-rent-taxes/id6758280423)**

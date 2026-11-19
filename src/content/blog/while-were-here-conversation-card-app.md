@@ -56,6 +56,8 @@ And if what you actually want is cards on a table with the phones face-down in t
 
 Twenty-five cards, free, no account. Take it to one dinner and see if the table stays at the table.
 
+Hosting this year? Here are [60 Thanksgiving questions for kids, adults and the whole table](/blog/thanksgiving-questions-for-kids-adults-and-the-whole-table/).
+
 There's also a [page here on the site](/while-were-here/) with the full feature list, pricing, support and the privacy policy.
 
 More than small talk. More than Sunday.
