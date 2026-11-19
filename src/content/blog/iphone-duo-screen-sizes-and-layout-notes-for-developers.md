@@ -1,6 +1,6 @@
 ---
 title: 'iPhone Duo Screen Sizes and Layout Notes for Developers'
-description: 'Display sizes in points, safe areas, size classes and fold behavior measured in Apple’s iPhone Duo simulator, plus Apple’s guidance on the fold region and hinge API.'
+description: 'iPhone Duo screen sizes in points: outer 466 × 678, inner 951 × 669, @3x, 59 pt corners. Safe areas, size classes and fold behavior, measured in Apple’s simulator.'
 pubDate: 'Oct 22 2026'
 publishAt: '2026-10-22T08:00:00-05:00'
 tags: ['apps', 'building', 'iphone-duo']
@@ -21,6 +21,8 @@ faqs:
   - q: "Should I use UIScreen.main for layout on the iPhone Duo?"
     a: "No. In the simulator, UIScreen.main keeps pointing at the outer display even when the app is on the inner one. Read the window or geometry instead, and decide layout from the window size, not the device."
 ---
+
+**Quick answer:** in Apple's Xcode 27.1 simulator, the iPhone Duo's outer display is **466 × 678 points** (portrait) and the inner display is **951 × 669 points** (landscape). Both are @3x with a **59-point corner radius**, and both reserve **84 points down the right edge** for the status column, with no top inset. Details, safe areas and fold behavior are below.
 
 I'm building an illustrated Bible app, Lampleaf, for the iPhone Duo. Before the phone ships, I wrote a small probe app that logs everything about the screens: window size, safe areas, size classes, scene state and the hinge. This post collects what I measured, and what Apple's own documentation says, so you can see which is which.
 

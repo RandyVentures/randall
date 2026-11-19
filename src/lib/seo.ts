@@ -26,6 +26,7 @@ export const personSchema = {
 	},
 	knowsAbout: [
 		'iOS app development',
+		'iPhone Duo app development',
 		'App Store optimization',
 		'AI agents and automation',
 		'Software architecture',
