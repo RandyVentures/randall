@@ -53,16 +53,15 @@ const jsonLd = {
 					'@type': 'ListItem',
 					position: i + 1,
 					item: {
-						'@type': 'WebApplication',
+						// Service, not WebApplication: Google rejects app markup that has
+						// no rating or review, and none of these have ratings to show.
+						'@type': 'Service',
 						name: app.name.replace(/ on the web$/, ''),
+						serviceType: 'Web app',
 						url: app.site,
 						description: app.summary,
-						applicationCategory: app.category,
-						operatingSystem: 'Any (web browser)',
-						browserRequirements: 'Requires a modern web browser with JavaScript enabled.',
 						audience: { '@type': 'Audience', audienceType: app.audience },
-						featureList: app.highlights,
-						author: { '@type': 'Person', name: 'Randy Torres', url: new URL('/', Astro.site).href },
+						provider: { '@type': 'Person', name: 'Randy Torres', url: new URL('/', Astro.site).href },
 					},
 				})),
 			},

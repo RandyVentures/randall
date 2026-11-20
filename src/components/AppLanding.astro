@@ -66,21 +66,39 @@ const {
 // Marked up as an app so search engines can show the price, platform and
 // category alongside the result instead of guessing from the prose.
 const aggregateRating = await appStoreRating(appStoreId);
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: storeName,
-  applicationCategory: schemaCategory,
-  operatingSystem: 'iOS',
-  url: new URL(Astro.url.pathname, Astro.site).href,
-  installUrl: appStoreUrl,
-  sameAs: [appStoreUrl],
-  description,
-  image: new URL(icon.src, Astro.site).href,
-  author: { '@type': 'Person', name: 'Randall Torres' },
-  offers: offers.map((offer) => ({ '@type': 'Offer', priceCurrency: 'USD', ...offer })),
-  ...(aggregateRating && { aggregateRating }),
-};
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const offerLd = offers.map((offer) => ({ '@type': 'Offer', priceCurrency: 'USD', ...offer }));
+// Google treats SoftwareApplication without a rating or review as invalid
+// markup, so an app with no App Store ratings yet is described as a Service
+// (same fix as the Heirloom and Mandalo homepages).
+const jsonLd = aggregateRating
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: storeName,
+      applicationCategory: schemaCategory,
+      operatingSystem: 'iOS',
+      url: pageUrl,
+      installUrl: appStoreUrl,
+      sameAs: [appStoreUrl],
+      description,
+      image: new URL(icon.src, Astro.site).href,
+      author: { '@type': 'Person', name: 'Randall Torres' },
+      offers: offerLd,
+      aggregateRating,
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: storeName,
+      serviceType: 'iPhone app',
+      url: pageUrl,
+      sameAs: [appStoreUrl],
+      description,
+      image: new URL(icon.src, Astro.site).href,
+      provider: { '@type': 'Person', name: 'Randall Torres' },
+      offers: offerLd,
+    };
 
 const faqLd = {
   '@context': 'https://schema.org',
