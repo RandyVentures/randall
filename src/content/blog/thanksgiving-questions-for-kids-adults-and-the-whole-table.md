@@ -125,4 +125,4 @@ I built **While We're Here** for exactly this: a deck of conversation cards on y
 
 **[Download While We're Here on the App Store](https://apps.apple.com/us/app/while-were-here/id6810424599)** · [See the While We're Here conversation card app](/while-were-here/)
 
-Planning Christmas too? I put together [Halloween and Christmas conversation games](/blog/halloween-christmas-conversation-games/) for the rest of the holidays.
+Want a game instead? Try these [Thanksgiving would you rather questions and table games](/blog/thanksgiving-would-you-rather-questions-and-table-games/). Planning Christmas too? I put together [Halloween and Christmas conversation games](/blog/halloween-christmas-conversation-games/) for the rest of the holidays.
