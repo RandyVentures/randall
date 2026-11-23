@@ -4,6 +4,7 @@ seoTitle: "70 Thanksgiving Would You Rather Questions + Family Table Games"
 description: "Thanksgiving would you rather questions for kids, adults and the whole table, plus five easy Thanksgiving games you can play at dinner with nothing but a phone."
 pubDate: 'Nov 22 2026'
 tags: ['apps', 'family', 'faith']
+heroImage: '../../assets/thanksgiving-would-you-rather.jpg'
 takeaways:
   - "Would you rather works at Thanksgiving because everyone can answer in two seconds, and the 'why' is where the stories come out."
   - "Start with the food and funny questions while people eat, then move to family and gratitude questions over dessert."
