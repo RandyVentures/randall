@@ -1,8 +1,10 @@
 ---
 title: 'iPhone Duo Screen Sizes and Layout Notes for Developers'
+seoTitle: 'iPhone Duo Screen Sizes: Points, Pixels, Safe Area, Corners'
 description: 'iPhone Duo screen sizes in points: outer 466 × 678, inner 951 × 669, @3x, 59 pt corners. Safe areas, size classes and fold behavior, measured in Apple’s simulator.'
 pubDate: 'Oct 22 2026'
 publishAt: '2026-10-22T08:00:00-05:00'
+updatedDate: 'Nov 24 2026'
 tags: ['apps', 'building', 'iphone-duo']
 takeaways:
   - "Measured in Apple's Xcode 27.1 simulator: the outer display is 466 × 678 points and the inner display is 951 × 669 points, both @3x."
@@ -24,9 +26,9 @@ faqs:
 
 **Quick answer:** in Apple's Xcode 27.1 simulator, the iPhone Duo's outer display is **466 × 678 points** (portrait) and the inner display is **951 × 669 points** (landscape). Both are @3x with a **59-point corner radius**, and both reserve **84 points down the right edge** for the status column, with no top inset. Details, safe areas and fold behavior are below.
 
-I'm building an illustrated Bible app, Lampleaf, for the iPhone Duo. Before the phone ships, I wrote a small probe app that logs everything about the screens: window size, safe areas, size classes, scene state and the hinge. This post collects what I measured, and what Apple's own documentation says, so you can see which is which.
+I'm building an illustrated Bible app, Lampleaf, for the iPhone Duo. Before the phone shipped, I wrote a small probe app that logs everything about the screens: window size, safe areas, size classes, scene state and the hinge. This post collects what I measured, and what Apple's own documentation says, so you can see which is which.
 
-**A caution up front:** everything marked "measured" comes from Apple's Xcode 27.1 simulator (build 27A9275), on October 18, 2026. The phone goes on sale on October 23, and mine hasn't arrived yet. I'll re-measure on hardware and update this post. Simulator numbers can differ from a real device.
+**A caution up front:** everything marked "measured" comes from Apple's Xcode 27.1 simulator (build 27A9275), on October 18, 2026. The phone went on sale on October 23 and [I've been using mine since late October](/blog/first-few-days-with-iphone-duo/), but these numbers are still the simulator's. I haven't re-run the probe on the phone yet, and I'll update this post when I do. Simulator numbers can differ from a real device.
 
 Apple calls the two displays the **outer display** (5.4 inches) and the **inner folding display** (7.6 inches), according to [Apple's iPhone Duo page](https://www.apple.com/iphone-duo/). In my notes I call the outer display the cover screen, so you'll see both words.
 
@@ -43,6 +45,20 @@ Apple calls the two displays the **outer display** (5.4 inches) and the **inner 
 - The inner panel is natively portrait (2007 × 2853 pixels) and runs in landscape.
 - The outer display's mask has square corners on the left edge, the hinge side, and rounded corners on the right.
 - The leaked mockups I started from had the inner screen at about 904 × 640 and the outer at 474 × 696. The real simulator sizes are about 5% bigger for the inner screen and about 2% smaller for the outer one.
+
+### Quick copy: the numbers in one place
+
+| Spec (simulator) | Outer display | Inner display |
+|---|---|---|
+| Screen size in pixels | 1398 × 2034 | 2853 × 2007 |
+| Screen size in points | 466 × 678 | 951 × 669 |
+| Corner radius in points | 59 | 59 |
+| Corner radius in pixels | 177 | 177 |
+| Safe area (top, leading, bottom, trailing) | 0, 0, 34, 84 | 0, 0, 34, 84 |
+| Usable content area in points | 382 × 644 | 867 × 635 |
+| Usable content area in pixels | 1146 × 1932 | 2601 × 1905 |
+
+The pixel values for corners and content area are the point values times three, since both screens are @3x.
 
 ## Safe areas: a column on the right (measured)
 
@@ -133,13 +149,13 @@ In my simulator, the outer display was dark whenever the phone was unfolded and 
 - Whether the status column on the inner screen moves if the phone is rotated 180°.
 - How the layout behaves in Split View on the inner screen.
 
-I'll update this post once I have a phone in my hands.
+I'll update this post when I've run the probe on my own phone.
 
 ## Apple's own resources
 
 - [Preparing your app for iPhone Duo](https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo)
 - Tech Talks: [Prepare your app for iPhone Duo](https://developer.apple.com/videos/play/tech-talks/111461/), [Strike a pose with adaptive layouts](https://developer.apple.com/videos/play/tech-talks/111463/), [Leverage multiple displays and scenes](https://developer.apple.com/videos/play/tech-talks/111464/) and [Design for iPhone Duo](https://developer.apple.com/videos/play/tech-talks/111466/)
 
-If you want to see this applied, my [apps page](/apps/) has the apps I'm building for it, and I wrote about [how Sousbook looks on the Duo](/blog/sousbook-iphone-duo-recipe-book/). For the non-developer version, see [how to tell if an app is ready for the iPhone Duo](/blog/how-to-tell-if-an-app-is-ready-for-iphone-duo/).
+If you want to see this applied, my [apps page](/apps/) has the apps I'm building for it, and I wrote about [how Sousbook looks on the Duo](/blog/sousbook-iphone-duo-recipe-book/). I keep everything I've written about the phone on the [iPhone Duo topic page](/topics/iphone-duo/). For the non-developer version, see [how to tell if an app is ready for the iPhone Duo](/blog/how-to-tell-if-an-app-is-ready-for-iphone-duo/).
 
 *Measurements are from Apple's simulator and may change with software updates or differ on hardware. iPhone is a trademark of Apple Inc. Lampleaf and Sousbook aren't affiliated with or endorsed by Apple.*
