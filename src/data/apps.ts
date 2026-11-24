@@ -5,7 +5,6 @@ import colorFlood from '../assets/apps/color-flood.jpg';
 import familyStop from '../assets/apps/familystop.png';
 import fillbook from '../assets/apps/fillbook.png';
 import fillin from '../assets/apps/fillin.png';
-import glora from '../assets/apps/glora.png';
 import gulp from '../assets/apps/gulp.png';
 import heirloom from '../assets/apps/heirloom.png';
 import hypeLap from '../assets/apps/hypelap.png';
@@ -57,14 +56,6 @@ export const apps: AppEntry[] = [
 		status: 'live',
 		url: 'https://apps.apple.com/us/app/hypelap-race-tracker-cheers/id6818382550',
 		icon: hypeLap,
-	},
-	{
-		name: 'Glora: My Upkeep',
-		tagline: 'Track beauty and self-care routines',
-		category: 'Lifestyle',
-		status: 'live',
-		url: 'https://apps.apple.com/us/app/glora-my-upkeep/id6808841943',
-		icon: glora,
 	},
 	{
 		name: 'Rise & Capy',
@@ -235,14 +226,6 @@ export const productSites: ProductSite[] = [
 		status: 'live',
 		site: 'https://readheirloom.com',
 		siteLabel: 'Heirloom old letter reader for iPhone',
-	},
-	{
-		name: 'Glora',
-		appName: 'Glora: My Upkeep',
-		description: 'Track beauty and self-care routines and share your wishlist so someone can make your day.',
-		status: 'live',
-		site: 'https://myglora.app',
-		siteLabel: 'Glora beauty and self-care upkeep tracker',
 	},
 	{
 		name: 'Bean Hunt',
