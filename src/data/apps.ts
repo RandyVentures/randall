@@ -1,5 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import beanHunt from '../assets/apps/bean-hunt.jpg';
+import beigeBox from '../assets/apps/beige-box.png';
 import catalyst from '../assets/apps/catalyst.png';
 import colorFlood from '../assets/apps/color-flood.jpg';
 import familyStop from '../assets/apps/familystop.png';
@@ -31,6 +32,14 @@ export interface AppEntry {
 }
 
 export const apps: AppEntry[] = [
+	{
+		name: 'Beige Box',
+		tagline: 'Five tiny retro computers with games, a web browser, and working BASIC',
+		category: 'Entertainment',
+		status: 'live',
+		url: 'https://apps.apple.com/app/id6829763311',
+		icon: beigeBox,
+	},
 	{
 		name: 'Lampleaf',
 		tagline: 'Illustrated Bible with audio narration and verse journaling',
@@ -204,6 +213,14 @@ export interface ProductSite {
 
 /** Product destinations linked from /apps, including dedicated pages on this site. */
 export const productSites: ProductSite[] = [
+	{
+		name: 'Beige Box',
+		appName: 'Beige Box',
+		description: 'Boot up five original retro computers on iPhone or iPad. Play Breakwater, browse the web, or type a program in BASIC. On iPhone Duo, unfold the screen above the keyboard and trackpad.',
+		status: 'live',
+		site: 'https://randyventures.com/beigebox/support/',
+		siteLabel: 'Beige Box support',
+	},
 	{
 		name: 'Sousbook',
 		appName: 'Sousbook',
