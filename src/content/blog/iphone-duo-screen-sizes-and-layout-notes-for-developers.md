@@ -151,6 +151,8 @@ In my simulator, the outer display was dark whenever the phone was unfolded and 
 
 I'll update this post when I've run the probe on my own phone.
 
+To test your own layout against these numbers, see [how to test your app in the iPhone Duo simulator](/blog/how-to-test-your-app-in-the-iphone-duo-simulator/): folding it, what to check on each screen, and why outer-display screenshots come out black.
+
 ## Apple's own resources
 
 - [Preparing your app for iPhone Duo](https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo)
